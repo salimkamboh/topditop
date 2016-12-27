@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Logeecom_Laraconnect>
+            <version>0.1.1</version>
+        </Logeecom_Laraconnect>
+    </modules>
+    <global>
+        <blocks>
+            <logeecom_laraconnect_adminhtml>
+                <class>Logeecom_Laraconnect_Block_Adminhtml</class>
+            </logeecom_laraconnect_adminhtml>
+        </blocks>
+        <helpers>
+            <logeecom_laraconnect>
+                <class>Logeecom_Laraconnect_Helper</class>
+            </logeecom_laraconnect>
+        </helpers>
+        <models>
+            <logeecom_laraconnect>
+                <class>Logeecom_Laraconnect_Model</class>
+                <resourceModel>logeecom_laraconnect_resource</resourceModel>
+            </logeecom_laraconnect>
+
+            <logeecom_laraconnect_resource>
+                <class>Logeecom_Laraconnect_Model_Resource</class>
+                <entities>
+                    <storeentity>
+                        <table>logeecom_laraconnect_storeentity</table>
+                    </storeentity>
+                </entities>
+            </logeecom_laraconnect_resource>
+        </models>
+        <resources>
+            <logeecom_laraconnect_setup>
+                <setup>
+                    <module>Logeecom_Laraconnect</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </logeecom_laraconnect_setup>
+        </resources>
+        <events>
+            <model_save_after> <!-- identifier of the event we want to catch -->
+                <observers>
+                    <model_save_after_handler> <!-- identifier of the event handler -->
+                        <type>model</type>
+                        <!-- class method call type; valid are model, object and singleton -->
+                        <class>logeecom_laraconnect/observer</class>
+                        <!-- observers class alias -->
+                        <method>StoreSaveAfter</method>
+                        <!-- observer's method to be called -->
+                        <args></args>
+                        <!-- additional arguments passed to observer -->
+                    </model_save_after_handler>
+                </observers>
+            </model_save_after>
+        </events>
+    </global>
+
+    <!-- Add a router for access to our admin panel controller. -->
+    <admin>
+        <routers>
+
+            <!-- This is the alias for this router. -->
+            <logeecom_laraconnect_admin>
+
+                <!--
+                This basically informs Magento to use the
+                admin scope for requests to this router.
+                -->
+                <use>admin</use>
+
+                <args>
+                    <!--
+                    This tells Magento where to find
+                    adminhtml controllers for this module.
+                    -->
+                    <module>Logeecom_Laraconnect_Adminhtml</module>
+
+                    <!-- This is the term used in the actual URL. -->
+                    <frontName>store-entity-admin</frontName>
+                </args>
+
+            </logeecom_laraconnect_admin>
+
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <laraconnect>
+                    <file>laraconnect.xml</file>
+                </laraconnect>
+            </updates>
+        </layout>
+    </adminhtml>
+</config> 

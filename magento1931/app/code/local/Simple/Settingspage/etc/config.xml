@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Simple_Settingspage>
+      <version>0.1.0</version>
+    </Simple_Settingspage>
+  </modules>
+  <global>
+    <helpers>
+      <settingspage>
+        <class>Simple_Settingspage_Helper</class>
+      </settingspage>
+    </helpers>
+  </global>
+</config> 

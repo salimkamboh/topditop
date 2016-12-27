@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<laratab translate="label" module="settingspage">
+            <label>Laravel Tab</label>
+            <sort_order>0</sort_order>
+        </laratab>
+	  </tabs>
+	  <sections>
+		<larasection  translate="label" module="settingspage">                    
+		<label>Laravel Section</label>
+		<tab>general</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <laragroup translate="label"> 
+					  <label>Laravel group</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                          <lara_url translate="label">
+                            <label>Laravel URL</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                          </lara_url>
+					   </fields>
+					   </laragroup>
+					</groups>
+		</larasection>
+	  </sections>
+</config>
