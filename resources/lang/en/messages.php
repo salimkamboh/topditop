@@ -83,6 +83,7 @@ return [
     'references_scenes' => 'Reference Scenes',
     'reference_product' => 'Reference Products',
     'upload_scenes' => 'Upload another scene Image',
+    'connect_prod' => 'Connect product with reference',
     'home' => 'Home',
     'newsletter_header' => 'Subscribe to our mailing list',
     'first_name' => 'First Name',
