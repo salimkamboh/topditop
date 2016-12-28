@@ -84,8 +84,8 @@ class FrontController extends BaseController
         $references_newest = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
         $references_most = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('views', 'desc')->get();
 
-        $products_newest = Product::where(['store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
-        $products_most = Product::where(['store_id' => $store->id])->limit(12)->offset(0)->orderBy('views', 'desc')->get();
+        $products_newest = Product::where(['store_id' => $store->id])->limit(6)->offset(0)->orderBy('id', 'desc')->get();
+        $products_most = Product::where(['store_id' => $store->id])->limit(6)->offset(0)->orderBy('views', 'desc')->get();
 
         $architects = explode(',', $datablock["add-new-architect"]);
         array_pop($architects);
