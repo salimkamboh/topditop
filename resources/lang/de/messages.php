@@ -98,6 +98,8 @@ return [
     'insert_reference' => 'Referenz einfügen',
     'back_homepage' => 'Zurück zum Homepage',
     'profil_edit' => 'Profil bearbeiten',
+    'profil_maximum_text' => 'Ihr Store kann maximal ',
+    'profil_maximum_brands' => ' Marken anzeigen',
     'reference_gallery' => 'Referenzen Galerie',
     'login_info' => 'Beim ersten LogIn nutzen Sie bitte das Passwort topditop. Sie können dann in ihrem Store-Profil ein neues Passwort wählen',
     'change_pass' => 'Bitte ändern Sie das Passwort hier.',
