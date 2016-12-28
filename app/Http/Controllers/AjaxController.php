@@ -132,7 +132,7 @@ class AjaxController extends BaseController
 
     public function updateProduct(Product $product, Request $request)
     {
-        $request->session()->flash('success', trans('product_updated'));
+        $request->session()->flash('success', trans('messages.product_updated'));
         return $this->product->update($request, $product);
     }
 
