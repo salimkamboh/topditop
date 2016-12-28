@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'logeecomtest@gmail.com', 'name' => 'Logeecom Testing'],
+    'from' => ['address' => 'test@topditop.foundcenter.com', 'name' => 'TopdiTop'],
 
     /*
     |--------------------------------------------------------------------------
