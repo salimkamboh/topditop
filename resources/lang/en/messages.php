@@ -112,8 +112,6 @@ return [
     'please_upgrade' => 'Please upgrade your package',
     'edit_profil_footer' => 'Edit Profile',
     'reference_updated' => 'Reference Updated',
-    'product_updated' => 'Product Updated'
-
-
-
+    'product_updated' => 'Product Updated',
+    
 ];

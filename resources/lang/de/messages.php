@@ -112,7 +112,6 @@ return [
     'please_upgrade' => 'Bitte erweitern Sie Ihr Store-Paket',
     'edit_profil_footer' => 'Profil bearbeiten',
     'reference_updated' => 'Referenz wurde aktualisiert',
-    'product_updated' => 'Produkt Update erfolgreich'
-
-
+    'product_updated' => 'Produkt Update erfolgreich',
+    
 ];
