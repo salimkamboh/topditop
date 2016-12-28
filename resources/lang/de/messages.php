@@ -109,6 +109,7 @@ return [
     'delete_scene' => 'Referenz Bild löschen',
     'available_res' => 'Sie haben alle verfügbaren Möglichkeiten für Ihr Store-Paket verbraucht. Wenn Sie mehr Möglichkeiten benötigen, können Sie ihr Store-Paket',
     'upgrade' => 'erweitern',
+    'please_upgrade' => 'Bitte erweitern Sie Ihr Store-Paket',
     'edit_profil_footer' => 'Profil bearbeiten',
     'reference_updated' => 'Referenz wurde aktualisiert',
     'product_updated' => 'Produkt Update erfolgreich'

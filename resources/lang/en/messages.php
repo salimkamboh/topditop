@@ -108,6 +108,7 @@ return [
     'delete_scene' => 'Replace scene image',
     'available_res' => 'You have used all available resources for your package. If you wish to add more, please',
     'upgrade' => 'upgrade your package',
+    'please_upgrade' => 'Please upgrade your package',
     'edit_profil_footer' => 'Edit Profile',
     'reference_updated' => 'Reference Updated',
     'product_updated' => 'Product Updated'
