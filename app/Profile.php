@@ -140,7 +140,7 @@ class Profile extends Model
         }
 
         return redirect()->action('StoreController@settings')
-            ->with('success', 'Profile updated!')
+            ->with('success', trans('messages.profil_updated'))
             ->with('fail', $statusError);
     }
 

@@ -100,6 +100,7 @@ return [
     'profil_edit' => 'Edit Your Profile',
     'profil_maximum_text' => 'Your store can have a maximum of ',
     'profil_maximum_brands' => ' brands',
+    'profil_updated' => 'Profile updated',
     'reference_gallery' => 'Reference Gallery',
     'login_info' => 'When you login for the first time please use password topditop. You can change your password later in the Edit profile section',
     'change_pass' => 'Please change your default password here.',
