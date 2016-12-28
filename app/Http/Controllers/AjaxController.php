@@ -111,7 +111,7 @@ class AjaxController extends BaseController
 
     public function updateReference(Reference $reference, Request $request)
     {
-        $request->session()->flash('success', trans('reference_updated'));
+        $request->session()->flash('success', trans('messages.reference_updated'));
         return $this->reference->update($request, $reference);
     }
 
