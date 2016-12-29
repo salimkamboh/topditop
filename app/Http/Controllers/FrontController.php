@@ -38,8 +38,11 @@ class FrontController extends BaseController
         return view('front.pages.contact');
     }
 
-    public function advertisementShow(Advert $advert, $latitude, $longitude)
+    public function advertisementShow(Advert $advert, Request $request)
     {
+        $latitude = $request->has('latitude') ? $request->get('latitude') : config('advertisement.fallback_latitude');
+        $longitude = $request->has('longitude') ? $request->get('longitude') : config('advertisement.fallback_longitude');
+
         $params = array($latitude, $longitude);
         $allStoreLocations = $advert->getAllLocationsOfStores(app()->getLocale(), $advert->manufacturer->name);
 
