@@ -2,7 +2,7 @@
 
 return [
     'add_architect_to_list_button' => 'Zur Liste hinzufügen',
-    'add_architect_to_list_desc' => 'Architektenreferenzen',
+    'add_architect_to_list_desc' => 'Architekten Referenzen',
     'add_architect_to_list_placeholder' => 'Architekten',
 
     /**
