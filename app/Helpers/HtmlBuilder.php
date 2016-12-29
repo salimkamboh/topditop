@@ -153,7 +153,7 @@ class HtmlBuilder implements HtmlConvertContract
                     <?php
                     foreach ($valuesInList as $item) {
                         ?>
-                        <li><?php echo $item; ?></li>
+                        <li><?php echo $item; ?>  <i class="fa fa-times text-danger" aria-hidden="true"></i></li>
                         <?php
                     }
                     ?>
