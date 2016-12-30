@@ -138,7 +138,7 @@ class FrontController extends BaseController
     public function showReferences()
     {
         $references = Reference::where('status', 1)->get();
-        $stores = Store::all();
+        $stores = Store::where('status', 1)->get();
         $manufacturers = Manufacturer::all();
         return view('front.references.list')
             ->with('references', $references)
