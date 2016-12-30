@@ -196,7 +196,7 @@ class FrontController extends BaseController
     public function showProducts()
     {
         $products = Product::orderBy('id', 'desc')->get();
-        $stores = Store::all();
+        $stores = Store::where('status', 1)->get();
         $manufacturers = Manufacturer::all();
         return view('front.products.list')
             ->with('products', $products)
