@@ -44,6 +44,17 @@ class ImageRepository
         $image_width = $image_info[0];
         $image_height = $image_info[1];
 
+        $max_mpx = 9;
+        $max_px = $max_mpx * 1000 * 1000;
+
+        if ($image_width * $image_height > $max_px) {
+            return Response::json([
+                'error' => true,
+                'message' => "Image bigger than {$max_mpx}Mpx.",
+                'code' => 400
+            ], 400);
+        }
+
         $sessionImage = new Image;
 
         if ($this->original($photo, $allowed_filename)) {
