@@ -78,7 +78,7 @@ class FrontController extends BaseController
      */
     public function frontShowStore(Store $store)
     {
-        $manufacturers = Manufacturer::limit(6)->offset(0)->where('featured', 1)->orderBy('id', 'desc')->get();
+        $manufacturers = Manufacturer::where('featured', 1)->limit(6)->get();
         $datablock = $this->settingsRepository->getStoreData($store);
 
         $references_newest = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
