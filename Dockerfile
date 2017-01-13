@@ -1,1 +1,0 @@
-FROM linuxconfig/lemp

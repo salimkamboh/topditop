@@ -6,7 +6,7 @@ services:
      - "8888:80"
      - "3306:3306"
     volumes:
-     - .:/var/www/html/
+     - ..:/var/www/html/
      - mysql:/var/lib/mysql/
 volumes:
   mysql:
