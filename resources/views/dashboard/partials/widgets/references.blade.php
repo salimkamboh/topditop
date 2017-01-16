@@ -7,7 +7,7 @@
         <div class="item-info show-info">
             <div class="item-info-top clearfix">
                 <span class="title">{{ $reference->title }}</span>
-                <span class="number-of pull-left">({{ $reference->getNumberOfProducts() }} {{ trans('messages.scene') }})</span>
+                <span class="number-of pull-left">({{ $reference->getNumberOfImages() }} {{ trans('messages.scene') }})</span>
             </div>
             <div class="item-info-bottom">
                 <a href="#" class=""><i class="icon-shopping-cart"></i>{{$reference->package_name()}}
