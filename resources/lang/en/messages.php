@@ -109,7 +109,7 @@ return [
     'pass_character' => 'Password needs to be long between 6 and 16 characters.',
     'newsletter_data' => 'Newsletter Data',
     'replace_scene' => 'Replace scene image',
-    'delete_scene' => 'Replace scene image',
+    'delete_scene' => 'Delete scene image',
     'available_res' => 'You have used all available resources for your package. If you wish to add more, please',
     'upgrade' => 'upgrade your package',
     'please_upgrade' => 'Please upgrade your package',
