@@ -38,16 +38,16 @@ function addToListOfArchitects() {
     if (newArchitect.trim() != '') {
         $('.architect_name_receiver').val($('.architect_name_receiver').val() + newArchitect + ',');
         $('#architect_name').val('');
-        $('.arch-list').append('<li>' + newArchitect + '</li>');
+        $('.arch-list').append('<li>' + newArchitect + ' <i class="fa fa-times text-danger" aria-hidden="true"></i></li>');
     }
 }
 
-$(document).on("dblclick", "section#dashboard-settings ul.arch-list li", function (e) {
+$(document).on("click", "section#dashboard-settings ul.arch-list li .fa-times", function (e) {
     e.preventDefault();
-    $(this).remove();
+    $(this).parent().remove();
     $('.architect_name_receiver').val('');
     $('.arch-list li').each(function (index) {
-        var newVal = $(this).html().trim();
+        var newVal = $(this).text().trim();
         $('.architect_name_receiver').val($('.architect_name_receiver').val() + newVal + ',');
     });
 });

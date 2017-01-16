@@ -46,7 +46,7 @@ class ReferenceController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', 'Store Not Ready.');
 
         if ($this->checker->isLimitedUser($user))
-            return redirect()->route('dashboard_home')->with('fail', 'Please upgrade.');
+            return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
@@ -69,7 +69,7 @@ class ReferenceController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', 'Store Not Ready.');
 
         if ($this->checker->isLimitedUser($user))
-            return redirect()->route('dashboard_home')->with('fail', 'Please upgrade.');
+            return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
         $availableProducts = Product::where(['store_id' => $store->id])->get();
@@ -102,7 +102,7 @@ class ReferenceController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', 'Store Not Ready.');
 
         if ($this->checker->isLimitedUser($user))
-            return redirect()->route('dashboard_home')->with('fail', 'Please upgrade.');
+            return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
         if ($reference->store->id != $store->id)

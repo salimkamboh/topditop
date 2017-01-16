@@ -90,7 +90,7 @@ class Profile extends Model
         $requestData = $request->all();
 
         if ($this->getPackageLimit() < $this->numOfBrandsInRequest($request)) {
-            $statusError = 'Your store can have a maximum of ' . $this->getPackageLimit() . ' brands';
+            $statusError = trans('messages.profil_maximum_text') . $this->getPackageLimit() . trans('messages.profil_maximum_brands');
             return redirect()->action('StoreController@settings')
                 ->with('fail', $statusError);
         }
@@ -140,7 +140,7 @@ class Profile extends Model
         }
 
         return redirect()->action('StoreController@settings')
-            ->with('success', 'Profile updated!')
+            ->with('success', trans('messages.profil_updated'))
             ->with('fail', $statusError);
     }
 

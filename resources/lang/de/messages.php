@@ -2,7 +2,7 @@
 
 return [
     'add_architect_to_list_button' => 'Zur Liste hinzufügen',
-    'add_architect_to_list_desc' => 'Architektenreferenzen',
+    'add_architect_to_list_desc' => 'Architekten Referenzen',
     'add_architect_to_list_placeholder' => 'Architekten',
 
     /**
@@ -98,6 +98,9 @@ return [
     'insert_reference' => 'Referenz einfügen',
     'back_homepage' => 'Zurück zum Homepage',
     'profil_edit' => 'Profil bearbeiten',
+    'profil_maximum_text' => 'Ihr Store kann maximal ',
+    'profil_maximum_brands' => ' Marken anzeigen',
+    'profil_updated' => 'Ihr Profil wurde aktualisiert',
     'reference_gallery' => 'Referenzen Galerie',
     'login_info' => 'Beim ersten LogIn nutzen Sie bitte das Passwort topditop. Sie können dann in ihrem Store-Profil ein neues Passwort wählen',
     'change_pass' => 'Bitte ändern Sie das Passwort hier.',
@@ -109,9 +112,9 @@ return [
     'delete_scene' => 'Referenz Bild löschen',
     'available_res' => 'Sie haben alle verfügbaren Möglichkeiten für Ihr Store-Paket verbraucht. Wenn Sie mehr Möglichkeiten benötigen, können Sie ihr Store-Paket',
     'upgrade' => 'erweitern',
+    'please_upgrade' => 'Bitte erweitern Sie Ihr Store-Paket',
     'edit_profil_footer' => 'Profil bearbeiten',
     'reference_updated' => 'Referenz wurde aktualisiert',
-    'product_updated' => 'Produkt Update erfolgreich'
-
-
+    'product_updated' => 'Produkt Update erfolgreich',
+    
 ];

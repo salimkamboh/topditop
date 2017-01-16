@@ -5,6 +5,6 @@ $(document).ready(function () {
         infinite: true,
         arrows: true,
         speed: 300,
-        slidesToShow: 1,
+        slidesToShow: 1
     });
 });

@@ -38,8 +38,11 @@ class FrontController extends BaseController
         return view('front.pages.contact');
     }
 
-    public function advertisementShow(Advert $advert, $latitude, $longitude)
+    public function advertisementShow(Advert $advert, Request $request)
     {
+        $latitude = $request->has('latitude') ? $request->get('latitude') : config('advertisement.fallback_latitude');
+        $longitude = $request->has('longitude') ? $request->get('longitude') : config('advertisement.fallback_longitude');
+
         $params = array($latitude, $longitude);
         $allStoreLocations = $advert->getAllLocationsOfStores(app()->getLocale(), $advert->manufacturer->name);
 
@@ -84,8 +87,8 @@ class FrontController extends BaseController
         $references_newest = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
         $references_most = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('views', 'desc')->get();
 
-        $products_newest = Product::where(['store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
-        $products_most = Product::where(['store_id' => $store->id])->limit(12)->offset(0)->orderBy('views', 'desc')->get();
+        $products_newest = Product::where(['store_id' => $store->id])->limit(6)->offset(0)->orderBy('id', 'desc')->get();
+        $products_most = Product::where(['store_id' => $store->id])->limit(6)->offset(0)->orderBy('views', 'desc')->get();
 
         $architects = explode(',', $datablock["add-new-architect"]);
         array_pop($architects);
@@ -135,7 +138,7 @@ class FrontController extends BaseController
     public function showReferences()
     {
         $references = Reference::where('status', 1)->get();
-        $stores = Store::all();
+        $stores = Store::where('status', 1)->get();
         $manufacturers = Manufacturer::all();
         return view('front.references.list')
             ->with('references', $references)
@@ -193,7 +196,7 @@ class FrontController extends BaseController
     public function showProducts()
     {
         $products = Product::orderBy('id', 'desc')->get();
-        $stores = Store::all();
+        $stores = Store::where('status', 1)->get();
         $manufacturers = Manufacturer::all();
         return view('front.products.list')
             ->with('products', $products)

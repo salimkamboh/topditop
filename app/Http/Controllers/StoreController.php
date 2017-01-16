@@ -231,7 +231,7 @@ class StoreController extends BaseController
      */
     public function inactiveStores()
     {
-        $stores = Store::all();//where(['status' => 0])->get();
+        $stores = Store::where('status', 0)->get();
         $arrayOfData = array();
 
         foreach ($stores as $store) {
@@ -266,7 +266,7 @@ class StoreController extends BaseController
      */
     public function activeStores()
     {
-        $stores = Store::all();//where(['status' => 0])->get();
+        $stores = Store::where('status', 1)->get();
         $arrayOfData = array();
 
         foreach ($stores as $store) {

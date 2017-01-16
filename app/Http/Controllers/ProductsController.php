@@ -50,7 +50,7 @@ class ProductsController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', 'Store Not Ready.');
 
         if ($this->checker->isLimitedUser($user))
-            return redirect()->route('dashboard_home')->with('fail', 'Please upgrade.');
+            return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
         $manufacturers = Manufacturer::all();
@@ -75,7 +75,7 @@ class ProductsController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', 'Store Not Ready.');
 
         if ($this->checker->isLimitedUser($user))
-            return redirect()->route('dashboard_home')->with('fail', 'Please upgrade.');
+            return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
         $products = Product::where(['store_id' => $store->id])->orderBy('id', 'desc')->get();
@@ -101,7 +101,7 @@ class ProductsController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', 'Store Not Ready.');
 
         if ($this->checker->isLimitedUser($user))
-            return redirect()->route('dashboard_home')->with('fail', 'Please upgrade.');
+            return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
 
         $store = $this->current_store;

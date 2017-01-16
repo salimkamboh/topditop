@@ -126,9 +126,9 @@
                             </div>
                         @endif
                     </div>
-                    @if(isset($references_most[6]))
+                    @if(isset($references_most[7]))
                         <div class="col-md-6">
-                            @include('front.partials.stores.single-reference', ['reference' => $references_most[6], 'thumbSlug' => 'gallery_1'])
+                            @include('front.partials.stores.single-reference', ['reference' => $references_most[7], 'thumbSlug' => 'gallery_1'])
                         </div>
                     @endif
                 </div>

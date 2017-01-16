@@ -111,7 +111,7 @@ class AjaxController extends BaseController
 
     public function updateReference(Reference $reference, Request $request)
     {
-        $request->session()->flash('success', trans('reference_updated'));
+        $request->session()->flash('success', trans('messages.reference_updated'));
         return $this->reference->update($request, $reference);
     }
 
@@ -132,7 +132,7 @@ class AjaxController extends BaseController
 
     public function updateProduct(Product $product, Request $request)
     {
-        $request->session()->flash('success', trans('product_updated'));
+        $request->session()->flash('success', trans('messages.product_updated'));
         return $this->product->update($request, $product);
     }
 

@@ -132,10 +132,13 @@ class Logeecom_Laraconnect_Adminhtml_StoremanagerController
     {
         $entityIds = $this->getRequest()->getParam('storemanager');
         if (!is_array($entityIds)) {
-            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('tax')->__('Please select Store Entities.'));
+            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('tax')->__('Please select stores.'));
         } else {
             try {
-
+                $lara_url = $this->_getHelper()->getLaraUrl();
+                foreach ($entityIds as $entityId) {
+                    $this->_getHelper()->postDeleteData($lara_url . "api/stores/delete/" . $entityId);
+                }
             } catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
             }

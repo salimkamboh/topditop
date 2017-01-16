@@ -382,6 +382,10 @@ section#dashboard-settings ul.arch-list li {
     margin-bottom: 15px;
 }
 
+section#dashboard-settings ul.arch-list li .fa-times{
+    cursor: pointer;
+}
+
 @media screen and (max-width: 992px) {
 
     section#dashboard-settings .selector .selector-options a {
