@@ -1285,6 +1285,10 @@ section#front-products .page-heading {
     margin-right: 10px;
 }
 
+.ui.modal .alert {
+    font-size: 14px;
+}
+
 .modal-single-product .item-info {
     position: relative;
     background-color: white;

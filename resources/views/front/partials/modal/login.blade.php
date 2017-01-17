@@ -8,6 +8,11 @@
             <h2>Sign in</h2>
             <form role="form" method="POST" action="{{ url('/login') }}">
                 {{ csrf_field() }}
+                @if ($errors->has('failed_login') && $errors->get('failed_login'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ trans('auth.failed') }}
+                    </div>
+                @endif
                 <div class="form-group">
                     <label for="firma">{{ trans('messages.email_address') }}:</label>
                     <input id="email" placeholder="E-mail" type="email" class="form-control" name="email"

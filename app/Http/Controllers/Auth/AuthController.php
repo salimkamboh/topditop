@@ -233,4 +233,14 @@ class AuthController extends BaseController
 
         return redirect($this->redirectTo)->with('success', 'You have created your store.');
     }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        return redirect()->back()
+            ->withInput($request->only($this->loginUsername(), 'remember'))
+            ->withErrors([
+                $this->loginUsername() => $this->getFailedLoginMessage(),
+                'failed_login' => true,
+            ]);
+    }
 }

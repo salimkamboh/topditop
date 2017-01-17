@@ -61,6 +61,13 @@
         jQuery('.login-modal-open').trigger('click');
     </script>
 @endif
+
+@if($errors->has('failed_login') && $errors->get('failed_login'))
+    <script>
+        jQuery('.login-modal-open').trigger('click');
+    </script>
+@endif
+
 @yield("footer")
 
 </body>
