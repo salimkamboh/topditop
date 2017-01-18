@@ -75,7 +75,7 @@ class ReferenceController extends BaseController
         $availableProducts = Product::where(['store_id' => $store->id])->get();
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
-        $manufacturers = Manufacturer::all();
+        $manufacturers = $store->manufacturers;
 
         if ($store->package_name() == 'TopDiTop Store') {
             $allowed_images = 7;
@@ -110,7 +110,7 @@ class ReferenceController extends BaseController
 
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
-        $manufacturers = Manufacturer::all();
+        $manufacturers = $store->manufacturers;
         $selected_images = Reference::find($reference->id)->images()->get();
         $selected_products = Reference::find($reference->id)->products()->get();
 
