@@ -21,7 +21,7 @@ xdebug.remote_connect_back=1
 xdebug.remote_port=9004
 xdebug.remote_handler=dbgp
 xdebug.remote_mode=req
-xdebug.remote_autostart=true
+xdebug.remote_autostart=0
 ```
 
 ### Setting php interpreter and xdebug in Phpstorm  
