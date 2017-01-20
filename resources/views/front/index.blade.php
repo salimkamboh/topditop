@@ -18,7 +18,6 @@
     @include('front.partials.homepage.newsletter')
     @include('front.partials.modal.newsletter')
     @include('front.partials.homepage.products')
-    @include('vendor.localization.navbar')
     @include('front.partials.modal.single-product')
 @stop
 
