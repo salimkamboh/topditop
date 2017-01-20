@@ -187,18 +187,22 @@ class HtmlBuilder implements HtmlConvertContract
 
     public function buildCheckboxGroupManufacturers($field, $profile)
     {
-        $selectedCheckboxes = $this->getSelectedCheckboxes($profile, $field);
+        $selectedCheckboxes = [];
+        foreach ($profile->store->manufacturers as $manufacturer) {
+            $selectedCheckboxes []= $manufacturer->id;
+        }
+        // $selectedCheckboxes = $this->getSelectedCheckboxes($profile, $field);
         $optionsArray = Manufacturer::limit(8)->offset(0)->get();
         $html = "";
         $html .= "<h4>" . $field->name . "</h4>";
         $html .= "<div class='group-checkboxes brands-limited-boxes row'>";
-
+        
         foreach ($optionsArray as $option) {
-            $option = $option->name;
-            (in_array(trim($option), $selectedCheckboxes)) ? $checked = " checked" : $checked = "";
+            $optionName = $option->name;
+            (in_array(trim($option->id), $selectedCheckboxes)) ? $checked = " checked" : $checked = "";
             $html .= "<div class='form-group col-md-6 text-left'>";
-            $html .= "<input class='checkbox-inline' value='" . $option . "' type='checkbox' id='" . $option . "' name='" . $field->key . "[]'" . $checked . "/>";
-            $html .= "<label for='" . $option . "'>" . $option . "</label>";
+            $html .= "<input class='checkbox-inline' value='" . $option->id . "' type='checkbox' id='" . $optionName . "' name='" . $field->key . "[]'" . $checked . "/>";
+            $html .= "<label for='" . $optionName . "'>" . $optionName . "</label>";
             $html .= "</div>";
         }
 
@@ -211,11 +215,11 @@ class HtmlBuilder implements HtmlConvertContract
         $html .= "<div class='group-checkboxes brands-limited-boxes row hidden-brands hidden'>";
 
         foreach ($optionsArray as $option) {
-            $option = $option->name;
-            (in_array(trim($option), $selectedCheckboxes)) ? $checked = " checked" : $checked = "";
+            $optionName = $option->name;
+            (in_array(trim($option->id), $selectedCheckboxes)) ? $checked = " checked" : $checked = "";
             $html .= "<div class='form-group col-md-6 text-left'>";
-            $html .= "<input class='checkbox-inline' value='" . $option . "' type='checkbox' id='" . $option . "' name='" . $field->key . "[]'" . $checked . "/>";
-            $html .= "<label for='" . $option . "'>" . $option . "</label>";
+            $html .= "<input class='checkbox-inline' value='" . $option->id . "' type='checkbox' id='" . $optionName . "' name='" . $field->key . "[]'" . $checked . "/>";
+            $html .= "<label for='" . $optionName . "'>" . $optionName . "</label>";
             $html .= "</div>";
         }
 

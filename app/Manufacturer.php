@@ -24,6 +24,14 @@ class Manufacturer extends Model
         return $this->belongsToMany('App\Reference'); // or Profile::class
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function stores()
+    {
+        return $this->belongsToMany(Store::class);
+    }
+
     public function numberOfReferences()
     {
         return count($this->references()->get());

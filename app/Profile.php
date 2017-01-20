@@ -97,42 +97,25 @@ class Profile extends Model
 
 
         foreach ($requestData as $item => $value) {
-
             $field = Field::where('key', $item)->get()->first();
-            if (is_object($field)) {
-                $id_array[] = $field->id;
-                if (is_array($value)) {
-                    $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->get()->first();
-                    if ($fieldProfilePIVOT != null) {
-                        $fieldProfilePIVOT->translateOrNew($locale)->selected = $this->htmlConvertContract->arrayToString($value);
-                        $fieldProfilePIVOT->save();
-                    } else {
 
-                        $fieldProfilePIVOT = new FieldProfile();
-                        $fieldProfilePIVOT->field_id = $field->id;
-                        $fieldProfilePIVOT->profile_id = $this->id;
-
-                        /** @var FieldProfile $fieldProfilePIVOT */
-                        $fieldProfilePIVOT->translateOrNew($locale)->selected = $this->htmlConvertContract->arrayToString($value);
-                        $fieldProfilePIVOT->save();
-                    }
-                } else {
-                    $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->get()->first();
-                    if ($fieldProfilePIVOT != null) {
-                        $fieldProfilePIVOT->translateOrNew($locale)->selected = $value;
-                        $fieldProfilePIVOT->save();
-                    } else {
-
-                        $fieldProfilePIVOT = new FieldProfile();
-                        $fieldProfilePIVOT->field_id = $field->id;
-                        $fieldProfilePIVOT->profile_id = $this->id;
-
-                        /** @var FieldProfile $fieldProfilePIVOT */
-                        $fieldProfilePIVOT->translateOrNew($locale)->selected = $value;
-                        $fieldProfilePIVOT->save();
-                    }
-                }
+            if (! $field instanceof Field) {
+                continue;
             }
+
+            if ($item == 'brands') {
+                $this->updateManufacturers($field, $value, $locale);
+                continue;
+            }
+
+            $id_array[] = $field->id;
+
+            if (is_array($value)) {
+                $fieldProfilePIVOT = $this->handleArrayValueField($field, $value, $locale);
+                continue;
+            }
+
+            $this->handleNonArrayValueField($field, $value, $locale);
         }
 
         if (!$this->handleStoreNameChange($request, $this)) {
@@ -167,6 +150,15 @@ class Profile extends Model
         }
     }
 
+    public function updateManufacturers(Field $field, $manufacturersArray, $locale)
+    {
+        $store = $this->store;
+        $store->manufacturers()->sync($manufacturersArray);
+        if (is_array($manufacturersArray)) {
+            $this->handleArrayValueField($field, $manufacturersArray, $locale);
+        }
+    }
+
     /**
      * @param $field_key
      * @return string
@@ -186,5 +178,54 @@ class Profile extends Model
             return '';
         }
 
+    }
+
+    /**
+     * @param $field
+     * @param $value
+     * @param $locale
+     * @return FieldProfile
+     */
+    private function handleArrayValueField($field, $value, $locale)
+    {
+        $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->get()->first();
+        if ($fieldProfilePIVOT != null) {
+            $fieldProfilePIVOT->translateOrNew($locale)->selected = $this->htmlConvertContract->arrayToString($value);
+            $fieldProfilePIVOT->save();
+            return $fieldProfilePIVOT;
+        } else {
+
+            $fieldProfilePIVOT = new FieldProfile();
+            $fieldProfilePIVOT->field_id = $field->id;
+            $fieldProfilePIVOT->profile_id = $this->id;
+
+            /** @var FieldProfile $fieldProfilePIVOT */
+            $fieldProfilePIVOT->translateOrNew($locale)->selected = $this->htmlConvertContract->arrayToString($value);
+            $fieldProfilePIVOT->save();
+            return $fieldProfilePIVOT;
+        }
+    }
+
+    /**
+     * @param $field
+     * @param $value
+     * @param $locale
+     */
+    private function handleNonArrayValueField($field, $value, $locale)
+    {
+        $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->get()->first();
+        if ($fieldProfilePIVOT != null) {
+            $fieldProfilePIVOT->translateOrNew($locale)->selected = $value;
+            $fieldProfilePIVOT->save();
+        } else {
+
+            $fieldProfilePIVOT = new FieldProfile();
+            $fieldProfilePIVOT->field_id = $field->id;
+            $fieldProfilePIVOT->profile_id = $this->id;
+
+            /** @var FieldProfile $fieldProfilePIVOT */
+            $fieldProfilePIVOT->translateOrNew($locale)->selected = $value;
+            $fieldProfilePIVOT->save();
+        }
     }
 }
