@@ -156,7 +156,7 @@ class AuthController extends BaseController
             return back()->with('fail', $response);
         }
 
-        return back()->with('success', 'Thank you for your registration. You will receive an email with additional information.');
+        return back()->with('success', trans('messages.register_notification'));
     }
 
     /**

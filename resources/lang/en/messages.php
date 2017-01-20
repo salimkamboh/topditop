@@ -116,5 +116,6 @@ return [
     'edit_profil_footer' => 'Edit Profile',
     'reference_updated' => 'Reference Updated',
     'product_updated' => 'Product Updated',
+    'register_notification' => 'Thank you for your registration. You will receive an email with additional information.',
     
 ];

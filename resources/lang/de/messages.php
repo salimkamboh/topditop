@@ -116,5 +116,6 @@ return [
     'edit_profil_footer' => 'Profil bearbeiten',
     'reference_updated' => 'Referenz wurde aktualisiert',
     'product_updated' => 'Produkt Update erfolgreich',
+    'register_notification' => 'Vielen Dank für Ihre Anmeldung. Sie erhalten eine E-Mail mit weiteren Informationen.',
     
 ];
