@@ -148,7 +148,7 @@ class AuthController extends BaseController
             );
 
             Mail::send('emails.mailtest', $emailData, function ($message) use ($request) {
-                $message->to($request->email, "Slavisa Perisic")
+                $message->to($request->email, $request->name)
                     ->subject('Verify your email address');
             });
         } catch (\Swift_TransportException $e) {
