@@ -1,3 +1,3 @@
 FROM linuxconfig/lemp
 
-COPY config/default /etc/nginx/sites-enabled/default
+COPY config/etc/sites-enabled/default /etc/nginx/sites-enabled/default

@@ -3,10 +3,19 @@ services:
   web:
     build: .
     ports:
-     - "8888:80"
-     - "3306:3306"
+      - "8888:80"
     volumes:
-     - ..:/var/www/html/
-     - mysql:/var/lib/mysql/
+      - ..:/var/www/html/
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=topditop
+      - MYSQL_DATABASE=topditop
+      - MYSQL_USER=topditop
+      - MYSQL_PASSWORD=topditop
 volumes:
   mysql:
