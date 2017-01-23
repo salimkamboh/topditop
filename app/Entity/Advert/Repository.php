@@ -18,37 +18,6 @@ class Repository
     public function saveNew(Request $request)
     {
         $advert = new Advert();
-
-        if (isset($request->filename_brand_logo_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_brand_logo_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->brand_logo_url = $imageUrlFull;
-        }
-
-        if (isset($request->filename_reference_image_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_reference_image_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->reference_image_url = $imageUrlFull;
-        }
-
-        if (isset($request->filename_scanned_image_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_scanned_image_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->scanned_image_url = $imageUrlFull;
-        }
-
         $brand = Manufacturer::find($request->manufacturer_id);
         $advert->manufacturer()->associate($brand);
         if (isset($request->name)) {
