@@ -107,7 +107,7 @@ class FrontController extends BaseController
     public function frontShowStoresLocation(Location $location)
     {
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
-        $stores = Store::where('location_id', $location->id)->get();
+        $stores = Store::where('status', '=' , 1)->where('location_id', '=', 1)->get();
         $products = Product::all();
         $manufacturers = Manufacturer::all();
         $filter_locations = Location::all();
@@ -123,7 +123,7 @@ class FrontController extends BaseController
     {
 
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
-        $stores = Store::where('store_name', 'LIKE', '%' . $request->search_store . '%')->get();
+        $stores = Store::where('store_name', 'LIKE', '%' . $request->search_store . '%')->where('status', '=' , 1)->get();
         $products = Product::all();
         $manufacturers = Manufacturer::all();
         $filter_locations = Location::all();

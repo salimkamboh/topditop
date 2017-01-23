@@ -24,4 +24,8 @@ class Location extends Model
     public function numberOfStores() {
         return count($this->stores()->get());
     }
+
+    public function numberOfActiveStores() {
+        return count($this->stores()->where('status', '=', 1)->get());
+    }
 }

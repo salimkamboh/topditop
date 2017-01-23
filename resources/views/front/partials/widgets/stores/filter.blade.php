@@ -10,7 +10,7 @@
                 <div class="menu" tabindex="-1">
                     @foreach($filter_locations as $location)
                         <div class="item" data-value="{{$location->id}}">{{$location->name}}
-                            <span>({{$location->numberOfStores()}})</span></div>
+                            <span>({{$location->numberOfActiveStores()}})</span></div>
                     @endforeach
                 </div>
             </div>
