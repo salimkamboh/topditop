@@ -37,8 +37,14 @@
                         <a href="javascript:void(0)" class="dropdown-toggle">Dashboard<span
                                     class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route("dashboard_references")}}">{{ trans('messages.references') }}</a></li>
-                            <li><a href="{{route('dashboard_products')}}">{{ trans('messages.products') }}</a></li>
+                            <li><a href="{{ route("dashboard_home") }}"><i class="fa fa-fw fa-cog"></i> {{ trans('messages.home') }}</a>
+                            </li>
+                            <li><a href="{{ route("dashboard_settings") }}"><i class="fa fa-fw fa-cog"></i> {{ trans('messages.settings') }}</a>
+                            </li>
+                            <li><a href="{{ route("dashboard_references") }}"><i class="fa fa-fw fa-cog"></i>
+                                    {{ trans('messages.references') }}</a></li>
+                            <li><a href="{{ route("dashboard_products") }}"><i class="fa fa-fw fa-cog"></i> {{ trans('messages.products') }}</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
