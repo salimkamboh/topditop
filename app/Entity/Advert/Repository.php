@@ -58,6 +58,27 @@ class Repository
         return $advert;
     }
 
+
+    /**
+     * TODO: implement image file cleanup from disk if property is not null
+     *
+     * @param Advert $advert
+     * @param $base64_encoded_image
+     * @param $type
+     * @return Advert
+     */
+    public function setImage(Advert $advert, $base64_encoded_image, $type)
+    {
+        $slide_name = 'image_' . uniqid();
+        $imagePath = '/images/full_size/' . $slide_name . '.jpg';
+        $serverImageUrl = getcwd() . $imagePath;
+        file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image)));
+        $imageUrlFull = URL::to('/') . $imagePath;
+        $advert->setAttribute($type . '_url', $imageUrlFull);
+        $advert->save();
+        return $advert;
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
