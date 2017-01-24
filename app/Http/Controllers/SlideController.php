@@ -70,6 +70,6 @@ class SlideController extends BaseController
      */
     public function delete(Slide $slide)
     {
-        return $slide->delete();
+        $slide->delete();
     }
 }
