@@ -7,6 +7,7 @@ use App\Store;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Advert;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class Repository
@@ -38,11 +39,12 @@ class Repository
      */
     public function setImage(Advert $advert, $base64_encoded_image, $type)
     {
-        $slide_name = 'image_' . uniqid();
-        $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-        $serverImageUrl = getcwd() . $imagePath;
-        file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image)));
-        $imageUrlFull = URL::to('/') . $imagePath;
+        $fileName = 'image_' . uniqid() . '.jpg';
+        $relativePath = '/full_size/' . $fileName;
+        $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
+        Storage::disk('images')->put($relativePath, $imageBinary);
+
+        $imageUrlFull = URL::to('images') . $relativePath;
         $advert->setAttribute($type . '_url', $imageUrlFull);
         $advert->save();
         return $advert;
