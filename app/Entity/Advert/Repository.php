@@ -39,6 +39,11 @@ class Repository
      */
     public function setImage(Advert $advert, $base64_encoded_image, $type)
     {
+        $existingImageUrl = $advert->getAttribute($type . '_url');
+        if ($existingImageUrl) {
+            $this->deleteImageByUrl($existingImageUrl);
+        }
+
         $fileName = 'image_' . uniqid() . '.jpg';
         $relativePath = '/full_size/' . $fileName;
         $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
@@ -118,6 +123,20 @@ class Repository
     public function delete(Advert $advert)
     {
         $advert->delete();
+    }
+
+    /**
+     * @param $existingImageUrl
+     */
+    private function deleteImageByUrl($existingImageUrl)
+    {
+        if (! str_contains($existingImageUrl, "/images/")) {
+            return;
+        }
+        $messyRelativePath = parse_url($existingImageUrl, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        Storage::disk('images')->delete($cleanRelativePath);
     }
 
 }
