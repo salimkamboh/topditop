@@ -183,16 +183,35 @@ $(document).on('click', '.save_reference', function (e) {
     referenceObject.video = $('input[name="video_url"]').val();
 
     function callBackFunction(context, response) {
-
-        if (response.code == 200) {
-            window.location = _globalRoute + '/' + _globalLang + '/dashboard/references/edit/' + response.resourceId;
-        } else if (response.code == 202) {
-            window.location = _globalRoute + '/' + _globalLang + '/dashboard/upgrade/references';
+        switch (response.code) {
+            case 200:
+                window.location = _globalRoute + '/' + _globalLang + '/dashboard/references/edit/' + response.resourceId;
+                break;
+            case 202:
+                window.location = _globalRoute + '/' + _globalLang + '/dashboard/upgrade/references';
+                break;
+            default:
+                window.location = _globalRoute + '/' + _globalLang + '/dashboard/';
+                break;
         }
     }
 
-    connector.getData("POST", $("form#insertreference").attr("action"), "json", referenceObject, callBackFunction, "");
+    connector.getData("POST", $("form#insertreference").attr("action"), "json", referenceObject, callBackFunction, "")
+        .fail(function (error) {
+            switch (error.status) {
+                case 422:
+                    showImageError();
+                    break;
+                default:
+                    console.log('default error');
+                    break;
+            }
+        });
 });
+
+function showImageError() {
+    $('.alert-required-image').show();
+}
 
 function countUnuploaded() {
     var num = 0;

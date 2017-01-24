@@ -117,5 +117,6 @@ return [
     'reference_updated' => 'Reference Updated',
     'product_updated' => 'Product Updated',
     'register_notification' => 'Thank you for your registration. You will receive an email with additional information.',
-    
+    'images_are_required' => 'You have to upload at least 1 image.',
+
 ];

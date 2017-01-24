@@ -117,5 +117,6 @@ return [
     'reference_updated' => 'Referenz wurde aktualisiert',
     'product_updated' => 'Produkt Update erfolgreich',
     'register_notification' => 'Vielen Dank für Ihre Anmeldung. Sie erhalten eine E-Mail mit weiteren Informationen.',
-    
+    'images_are_required' => 'Sie müssen mindestens ein Bild hochladen.',
+
 ];
