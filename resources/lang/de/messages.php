@@ -48,6 +48,8 @@ return [
     'new_reference' => 'Neue Referenz',
     'manage_product' => 'Produkte bearbeiten',
     'new_product' => 'Neues Produkt',
+    'product_created' => 'Produkt wurde erfolgreich erstellt',
+    'product_create_failed' => 'Fehler beim Erstellen des Produkts.',
     'edit_general' => 'Basics Bearbeiten',
     'top_settings' => 'TopDiTop Einstellungen',
     'info_contact' => 'Kontakt Information',

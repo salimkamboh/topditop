@@ -50,9 +50,9 @@ class Repository extends PowerChecker
                 'resourceId' => $product->id
             ];
             if ($response['code'] == 200) {
-                $request->session()->flash('success', 'Product added succesfully.');
+                $request->session()->flash('success', trans('messages.product_created'));
             } else {
-                $request->session()->flash('fail', 'Product adding failed.');
+                $request->session()->flash('fail', trans('messages.product_create_failed'));
             }
         }
 

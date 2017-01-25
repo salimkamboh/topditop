@@ -48,6 +48,8 @@ return [
     'new_reference' => 'Add new reference',
     'manage_product' => 'Manage products',
     'new_product' => 'Add new product',
+    'product_created' => 'Product created successfully.',
+    'product_create_failed' => 'Failed to create product.',
     'edit_general' => 'Edit general',
     'top_settings' => 'TopdiTop settings',
     'info_contact' => 'Contact info',
