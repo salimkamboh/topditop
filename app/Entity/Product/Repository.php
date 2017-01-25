@@ -90,9 +90,9 @@ class Repository extends PowerChecker
             'resourceId' => $product->id
         ];
         if ($response['code'] == 200) {
-            $request->session()->flash('success', 'Product updated succesfully.');
+            $request->session()->flash('success', trans('messages.product_updated'));
         } else {
-            $request->session()->flash('fail', 'Product update failed.');
+            $request->session()->flash('fail', trans('messages.product_update_failed'));
         }
         return $response;
     }

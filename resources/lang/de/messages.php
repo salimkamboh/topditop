@@ -118,6 +118,7 @@ return [
     'edit_profil_footer' => 'Profil bearbeiten',
     'reference_updated' => 'Referenz wurde aktualisiert',
     'product_updated' => 'Produkt Update erfolgreich',
+    'product_update_failed' => 'Produkt konnte nicht aktualisiert werden',
     'register_notification' => 'Vielen Dank für Ihre Anmeldung. Sie erhalten eine E-Mail mit weiteren Informationen.',
     'images_are_required' => 'Sie müssen mindestens ein Bild hochladen.',
 
