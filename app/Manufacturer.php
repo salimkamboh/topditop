@@ -76,6 +76,9 @@ class Manufacturer extends Model
     public function getImageUrl()
     {
         #/var/www/html/topditop2/magento1931/media/Foundcenter logo.png
+        if (! $this->image_url) {
+            return 'http://placehold.it/350x180';
+        }
         return str_replace('/var/www/html/', 'http://138.201.246.165/', $this->image_url);
     }
 
