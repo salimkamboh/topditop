@@ -38,18 +38,34 @@
     </div>
 
     <h3 class="page-heading">{{trans('messages.brands')}}</h3>
+    @if(isset($manufacturers))
+    @for ($i = 0; $i < count($manufacturers); $i += 3)
     <div class="row">
-        @if(isset($manufacturers))
-            @foreach($manufacturers as $manufacturer)
-                <div class="col-sm-4">
-                    <div class="manufacturer manufacturer-id-{{$manufacturer->id}}">
-
-                        <img alt="{{$manufacturer->name}}" class="img-responsive full-width"
-                             src="{{$manufacturer->getImageUrl()}}">
-
-                    </div>
+        @if($i < count($manufacturers))
+            <div class="col-sm-4">
+                <div class="manufacturer manufacturer-id-{{$manufacturers->get($i)}}">
+                    <img alt="{{$manufacturers->get($i)->name}}" class="img-responsive full-width"
+                         src="{{$manufacturers->get($i)->getImageUrl()}}">
                 </div>
-            @endforeach
+            </div>
+        @endif
+        @if(($i + 1) < count($manufacturers))
+            <div class="col-sm-4">
+                <div class="manufacturer manufacturer-id-{{$manufacturers->get($i + 1)}}">
+                    <img alt="{{$manufacturers->get($i + 1)->name}}" class="img-responsive full-width"
+                         src="{{$manufacturers->get($i + 1)->getImageUrl()}}">
+                </div>
+            </div>
+        @endif
+        @if(($i + 2) < count($manufacturers))
+            <div class="col-sm-4">
+                <div class="manufacturer manufacturer-id-{{$manufacturers->get($i + 2)}}">
+                    <img alt="{{$manufacturers->get($i + 2)->name}}" class="img-responsive full-width"
+                         src="{{$manufacturers->get($i + 2)->getImageUrl()}}">
+                </div>
+            </div>
         @endif
     </div>
+    @endfor
+    @endif
 </div>
