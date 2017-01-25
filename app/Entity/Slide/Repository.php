@@ -2,10 +2,9 @@
 
 namespace App\Entity\Slide;
 
-use App\Store;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
 use App\Slide;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class Repository
@@ -37,16 +36,26 @@ class Repository
         $slide->slot5_valid_until = $request->slot5_valid_until;
 
         $slide->title = $request->title;
-
-        $slide_name = $request->title;
-
-        $imagePath = '/images/full_size/' . self::slugify($slide_name) . '.jpg';
-        $serverImageUrl = getcwd() . $imagePath;
-        file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->base64)));
-        $imageUrlFull = URL::to('/') . $imagePath;
-        $slide->image_url = $imageUrlFull;
-
         $slide->save();
+
+        $slide = $this->setImage($slide, $request->base64);
+        $slide->save();
+
+        return $slide;
+    }
+
+    public function setImage(Slide $slide, $base64_encoded_image)
+    {
+        if (! $base64_encoded_image) {
+            $slide->image_url = '';
+            return $slide;
+        }
+        $fileName = 'slide_' . str_random(6) . '_'. str_slug($slide->title) . '.jpg';
+        $relativePath = 'full_size/' . $fileName;
+        $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
+        Storage::disk('images')->put($relativePath, $imageBinary);
+        $slide->image_url = '/images/' . $relativePath;
+
         return $slide;
     }
 
@@ -133,4 +142,25 @@ class Repository
         return $slide;
     }
 
+    public function delete(Slide $slide)
+    {
+        if ($slide->image_url) {
+            $this->deleteImageByUrl($slide->image_url);
+        }
+        $slide->delete();
+    }
+
+    /**
+     * @param $existingImageUrl
+     */
+    private function deleteImageByUrl($existingImageUrl)
+    {
+        if (! str_contains($existingImageUrl, "/images/")) {
+            return;
+        }
+        $messyRelativePath = parse_url($existingImageUrl, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        Storage::disk('images')->delete($cleanRelativePath);
+    }
 }
