@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 class Manufacturer extends Model
 {
 
-    protected $fillable = ['name', 'image_url'];
+    protected $fillable = ['name', 'featured'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

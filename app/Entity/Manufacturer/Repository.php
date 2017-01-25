@@ -5,6 +5,7 @@ namespace App\Entity\Manufacturer;
 use App\Manufacturer;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class Repository
@@ -17,15 +18,9 @@ class Repository
     {
         $manufacturer = new Manufacturer($request->all());
 
-        $manufacturer->name = $request->name;
-
-        $imagePath = '/images/full_size/' . self::slugify($manufacturer->name) . '.jpg';
-        $serverImageUrl = getcwd() . $imagePath;
-        file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->base64)));
-        $imageUrlFull = URL::to('/') . $imagePath;
-        $manufacturer->image_url = $imageUrlFull;
-
+        $manufacturer = $this->setImage($manufacturer, $request->base64);
         $manufacturer->save();
+
         return $manufacturer;
     }
 
@@ -57,15 +52,25 @@ class Repository
         $manufacturer = Manufacturer::find($manufacturer->id);
         $manufacturer->name = $request->name;
         $manufacturer->featured = $request->featured;
-        //print_r($request->all());exit;
 
-        $imagePath = '/images/full_size/' . self::slugify($manufacturer->name) . '.jpg';
-        $serverImageUrl = getcwd() . $imagePath;
-        file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->base64)));
-        $imageUrlFull = URL::to('/') . $imagePath;
-        $manufacturer->image_url = $imageUrlFull;
-
+        $manufacturer = $this->setImage($manufacturer, $request->base64);
         $manufacturer->save();
+
+        return $manufacturer;
+    }
+
+    public function setImage(Manufacturer $manufacturer, $base64_encoded_image)
+    {
+        if (! $base64_encoded_image) {
+            $manufacturer->image_url = '';
+            return $manufacturer;
+        }
+        $fileName = 'manufacturer_' . str_random(6) . '_'. str_slug($manufacturer->name) . '.jpg';
+        $relativePath = 'full_size/' . $fileName;
+        $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
+        Storage::disk('images')->put($relativePath, $imageBinary);
+        $manufacturer->image_url = '/images/' . $relativePath;
+
         return $manufacturer;
     }
 
@@ -101,7 +106,24 @@ class Repository
      */
     public function delete(Manufacturer $manufacturer)
     {
+        if ($manufacturer->image_url) {
+            $this->deleteImageByUrl($manufacturer->image_url);
+        }
         $manufacturer->delete();
+    }
+
+    /**
+     * @param $existingImageUrl
+     */
+    private function deleteImageByUrl($existingImageUrl)
+    {
+        if (! str_contains($existingImageUrl, '/images/')) {
+            return;
+        }
+        $messyRelativePath = parse_url($existingImageUrl, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        Storage::disk('images')->delete($cleanRelativePath);
     }
 
 }
