@@ -129,16 +129,16 @@ class Repository
         $slide->slot5_valid_until = $request->slot5_valid_until;
 
         $slide->title = $request->title;
-        if (isset($request->base64)) {
-            $slide_name = $request->title;
 
-            $imagePath = '/images/full_size/' . self::slugify($slide_name) . uniqid() . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $slide->image_url = $imageUrlFull;
+        if (isset($request->base64)) {
+            if ($slide->image_url) {
+                $this->deleteImageByUrl($slide->image_url);
+            }
+            $this->setImage($slide, $request->base64);
         }
+        
         $slide->save();
+
         return $slide;
     }
 
