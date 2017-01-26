@@ -20,7 +20,7 @@
             <p>{{$reference->description}}</p>
             <div class="video-holder pull-left">
                 <a href="javascript:void(0)" class="show-video-modal">
-                    <img alt="" class="img-responsive" src="{{url('/')}}/img/video.PNG">
+                    <img alt="" class="img-responsive" src="{{asset('img/video.PNG')}}">
                 </a>
             </div>
         </div>

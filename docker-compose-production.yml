@@ -6,7 +6,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /src:/var/www/html
+      - images:/var/www/html/images
   db:
     image: mysql
     restart: always
@@ -21,3 +21,4 @@ services:
       - MYSQL_PASSWORD=topditop
 volumes:
   mysql:
+  images:
