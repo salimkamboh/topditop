@@ -49,12 +49,12 @@
         </div>
 
         <h2>Product you&rsquo;re looking for</h2>
-        <img src="{{$advert->scanned_image_url}}" alt="" class="img-responsive">
+        <img src="{{$advert->getScannedImageUrl()}}" alt="" class="img-responsive">
 
         <h2>Brand</h2>
 
         <div class="text-center">
-            <img style="display: inline-block;" src="{{$advert->brand_logo_url}}" alt="" class="img-responsive">
+            <img style="display: inline-block;" src="{{$advert->getBrandLogoUrl()}}" alt="" class="img-responsive">
         </div>
 
         <h2>Local Stores that have this Brand</h2>
@@ -63,7 +63,7 @@
 
         <h2>Other References of this Store</h2>
         <div class="text-center">
-            <img style="display: inline-block;" src="{{$advert->reference_image_url}}"
+            <img style="display: inline-block;" src="{{$advert->getReferenceImageUrl()}}"
                  alt="" class="img-responsive">
         </div>
     </section>

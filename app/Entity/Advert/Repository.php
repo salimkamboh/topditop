@@ -48,9 +48,7 @@ class Repository
         $relativePath = '/full_size/' . $fileName;
         $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
         Storage::disk('images')->put($relativePath, $imageBinary);
-
-        $imageUrlFull = URL::to('images') . $relativePath;
-        $advert->setAttribute($type . '_url', $imageUrlFull);
+        $advert->setAttribute($type . '_url', $relativePath);
         $advert->save();
         return $advert;
     }

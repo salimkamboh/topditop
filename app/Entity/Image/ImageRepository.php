@@ -37,7 +37,7 @@ class ImageRepository
         $extension = $photo->getClientOriginalExtension();
         $originalNameWithoutExt = substr($originalName, 0, strlen($originalName) - strlen($extension) - 1);
 
-        $filename = $this->sanitize($originalNameWithoutExt);
+        $filename = str_slug($originalNameWithoutExt);
         $allowed_filename = $this->createUniqueFilename($filename, $extension);
 
         $image_info = getimagesize($_FILES['file']['tmp_name']);

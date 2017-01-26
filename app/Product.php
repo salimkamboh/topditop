@@ -46,19 +46,28 @@ class Product extends Model implements JsonInfoInterface
     public function mainThumbImage()
     {
         $image = $this->images()->first();
-        return str_replace('full_size', 'icon_size', $image['url']);
+        if (! $image) {
+            return 'http://placehold.it/600x600';
+        }
+        return str_replace('full_size', 'icon_size', $image->getImageUrl());
     }
 
     public function getImageByThumb($slug)
     {
         $image = $this->images()->first();
-        return str_replace('full_size', 'icon_size/' . $slug, $image['url']);
+        if (! $image) {
+            return 'http://placehold.it/450x450';
+        }
+        return str_replace('full_size', 'icon_size/' . $slug, $image->getImageUrl());
     }
 
     public function mainImage()
     {
         $image = $this->images()->first();
-        return $image['url'];
+        if (! $image) {
+            return 'http://placehold.it/500x500';
+        }
+        return $image->getImageUrl();
     }
 
     /**

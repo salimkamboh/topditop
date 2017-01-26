@@ -148,4 +148,20 @@ ORDER BY field_profile.profile_id';
 
         return $result;
     }
+
+    public function getReferenceImageUrl()
+    {
+        return url('images' . $this->reference_image_url);
+    }
+
+    public function getScannedImageUrl()
+    {
+        return url('images' . $this->scanned_image_url);
+    }
+
+    public function getBrandLogoUrl()
+    {
+        return url('images' . $this->brand_logo_url);
+    }
+
 }
