@@ -48,6 +48,8 @@ return [
     'new_reference' => 'Neue Referenz',
     'manage_product' => 'Produkte bearbeiten',
     'new_product' => 'Neues Produkt',
+    'product_created' => 'Produkt wurde erfolgreich erstellt',
+    'product_create_failed' => 'Fehler beim Erstellen des Produkts.',
     'edit_general' => 'Basics Bearbeiten',
     'top_settings' => 'TopDiTop Einstellungen',
     'info_contact' => 'Kontakt Information',
@@ -116,6 +118,8 @@ return [
     'edit_profil_footer' => 'Profil bearbeiten',
     'reference_updated' => 'Referenz wurde aktualisiert',
     'product_updated' => 'Produkt Update erfolgreich',
+    'product_update_failed' => 'Produkt konnte nicht aktualisiert werden',
     'register_notification' => 'Vielen Dank für Ihre Anmeldung. Sie erhalten eine E-Mail mit weiteren Informationen.',
-    
+    'images_are_required' => 'Sie müssen mindestens ein Bild hochladen.',
+
 ];

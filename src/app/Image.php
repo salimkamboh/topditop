@@ -40,12 +40,12 @@ class Image extends Model
 
     public function mainThumbImage()
     {
-        return str_replace('full_size', 'icon_size', $this->url);
+        return str_replace('full_size', 'icon_size', $this->getImageUrl());
     }
 
     public function getImageByThumb($slug)
     {
-        return str_replace('full_size', 'icon_size/' . $slug, $this->url);
+        return str_replace('full_size', 'icon_size/' . $slug, $this->getImageUrl());
     }
 
     public function getReferenceId()
@@ -56,5 +56,31 @@ class Image extends Model
     public function getProductId()
     {
         return $this->products()->first()->id;
+    }
+
+    public function getImageUrl()
+    {
+        if (! $this->url) {
+            return 'http://placehold.it/350x180';
+        }
+        return url('images' . $this->url);
+    }
+
+    private function cutAbsolutePath()
+    {
+        $messyRelativePath = parse_url($this->url, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        $this->url = $cleanRelativePath;
+        $this->save();
+    }
+
+    static function replaceAllImagesPath()
+    {
+        $images = Image::all();
+
+        foreach ($images as $image) {
+            $image->cutAbsolutePath();
+        }
     }
 }

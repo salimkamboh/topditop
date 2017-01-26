@@ -3,7 +3,7 @@
         @foreach($slides as $slide)
             <div class="the-slide">
 
-                <img src="{{$slide->image_url}}" style="width:100%">
+                <img src="{{$slide->getImageUrl()}}" style="width:100%">
 
                 <div class="slider__overlay">
                     <a href="{{route('front_show_store', $slide->slot1_store_id)}}"

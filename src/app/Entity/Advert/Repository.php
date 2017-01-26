@@ -7,6 +7,7 @@ use App\Store;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Advert;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class Repository
@@ -18,42 +19,36 @@ class Repository
     public function saveNew(Request $request)
     {
         $advert = new Advert();
-
-        if (isset($request->filename_brand_logo_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_brand_logo_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->brand_logo_url = $imageUrlFull;
-        }
-
-        if (isset($request->filename_reference_image_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_reference_image_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->reference_image_url = $imageUrlFull;
-        }
-
-        if (isset($request->filename_scanned_image_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_scanned_image_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->scanned_image_url = $imageUrlFull;
-        }
-
         $brand = Manufacturer::find($request->manufacturer_id);
         $advert->manufacturer()->associate($brand);
         if (isset($request->name)) {
             $advert->name = $request->name;
         }
+        $advert->save();
+        return $advert;
+    }
+
+
+    /**
+     * TODO: implement image file cleanup from disk if property is not null
+     *
+     * @param Advert $advert
+     * @param $base64_encoded_image
+     * @param $type
+     * @return Advert
+     */
+    public function setImage(Advert $advert, $base64_encoded_image, $type)
+    {
+        $existingImageUrl = $advert->getAttribute($type . '_url');
+        if ($existingImageUrl) {
+            $this->deleteImageByUrl($existingImageUrl);
+        }
+
+        $fileName = 'image_' . uniqid() . '.jpg';
+        $relativePath = '/full_size/' . $fileName;
+        $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
+        Storage::disk('images')->put($relativePath, $imageBinary);
+        $advert->setAttribute($type . '_url', $relativePath);
         $advert->save();
         return $advert;
     }
@@ -82,35 +77,6 @@ class Repository
      */
     public function update(Request $request, Advert $advert)
     {
-        if (isset($request->filename_brand_logo_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_brand_logo_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->brand_logo_url = $imageUrlFull;
-        }
-
-        if (isset($request->filename_reference_image_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_reference_image_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->reference_image_url = $imageUrlFull;
-        }
-
-        if (isset($request->filename_scanned_image_url_base64)) {
-            $slide_name = 'image_' . uniqid();
-
-            $imagePath = '/images/full_size/' . $slide_name . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->filename_scanned_image_url_base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $advert->scanned_image_url = $imageUrlFull;
-        }
         $brand = Manufacturer::find($request->manufacturer_id);
         $advert->manufacturer()->associate($brand);
         if (isset($request->name)) {
@@ -126,6 +92,20 @@ class Repository
     public function delete(Advert $advert)
     {
         $advert->delete();
+    }
+
+    /**
+     * @param $existingImageUrl
+     */
+    private function deleteImageByUrl($existingImageUrl)
+    {
+        if (! str_contains($existingImageUrl, "/images/")) {
+            return;
+        }
+        $messyRelativePath = parse_url($existingImageUrl, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        Storage::disk('images')->delete($cleanRelativePath);
     }
 
 }

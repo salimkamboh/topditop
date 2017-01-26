@@ -1,6 +1,6 @@
 connector = {
     getData: function (methodType, route, dataType, dataBlock, callbackFunction, context) {
-        $.ajax({
+        return $.ajax({
             async: true,
             type: methodType,
             dataType: dataType,

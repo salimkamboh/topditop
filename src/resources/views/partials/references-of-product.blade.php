@@ -8,7 +8,7 @@
                     <div class="col-md-6">
                         <div class="reference min-height-360">
                             <img alt="" class="img-responsive"
-                                 src="{{$reference->image->url}}">
+                                 src="{{$reference->image->getImageUrl()}}">
                             <div class="reference__info-wrapper products-manage">
                                 <div class="reference-info text-left heading">
                                     <span class="reference-title">{{$reference->title}}</span>

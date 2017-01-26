@@ -1333,6 +1333,7 @@ section#front-products .page-heading {
     position: relative;
     top: -3px;
     font-weight: 700;
+    display: none;
 }
 
 .modal-single-product .item-info .item-info-top span.price i {

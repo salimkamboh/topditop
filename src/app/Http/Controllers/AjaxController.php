@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FieldGroup;
+use App\Http\Requests\References\CreateReferenceRequest;
 use App\Image;
 use App\Package;
 use App\Panel;
@@ -104,7 +105,7 @@ class AjaxController extends BaseController
         return $this->image->upload($request->all());
     }
 
-    public function insertReference(Request $request)
+    public function insertReference(CreateReferenceRequest $request)
     {
         return $this->reference->insert($request, $this->current_store);
     }

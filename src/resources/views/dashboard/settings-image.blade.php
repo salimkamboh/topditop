@@ -22,7 +22,7 @@
                 <div class="col-sm-4 text-center">
                     <div class="widget item-shadow">
                         @if(isset($store->image))
-                            <img src="{{$store->image->url}}" alt="">
+                            <img src="{{$store->image->getImageUrl()}}" alt="">
                         @endif
                         <h3>{{$store->store_name}}</h3>
 
@@ -38,7 +38,7 @@
                             <input type="file" name="store_image" id="store_image" class="form-control">
                         </div>
                         @if(isset($store->image))
-                            <img style="max-width:200px; height:auto" src="{{$store->image->url}}" alt="">
+                            <img style="max-width:200px; height:auto" src="{{$store->image->getImageUrl()}}" alt="">
                         @endif
 
                         <div class="form-group">

@@ -169,6 +169,8 @@ Route::group(['prefix' => 'api/'], function () {
         Route::post('{advert}', ['as' => 'edit_advert', 'uses' => 'AdvertController@edit']);
         Route::post('/', ['as' => 'insert_advert', 'uses' => 'AdvertController@save']);
         Route::delete('delete/{advert}', ['as' => 'delete_advert', 'uses' => 'AdvertController@delete']);
+
+        Route::post('{advert}/images', ['as' => 'set_advert_image', 'uses' => 'AdvertController@setImage']);
     });
     Route::group(['prefix' => 'packages/'], function () {
         Route::get('all', ['as' => 'all_packages', 'uses' => 'PackageController@viewAll']);

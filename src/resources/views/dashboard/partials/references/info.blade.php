@@ -41,6 +41,10 @@
             <i class="icon-youtube-play"></i>
         </div>
 
+        <div class="alert alert-danger alert-required-image" role="alert" style="display: none;">
+            {{ trans('messages.images_are_required') }}
+        </div>
+
         <a href="#" class="click-button save_reference">@if(!isset($reference->id)){{ trans('messages.insert_reference') }} @else {{ trans('messages.save_changes') }} @endif </a>
         {{ csrf_field() }}
     </form>

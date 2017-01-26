@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\FieldGroup;
-use App\Package;
-use Illuminate\Http\Request;
-
 use App\Advert;
 use App\Entity\Advert\Repository as AdvertRepository;
+use App\Http\Requests\Adverts\CreateAdvertRequest;
+use App\Http\Requests\Adverts\Images\SetAdvertImageRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 
 class AdvertController extends BaseController
@@ -55,7 +55,7 @@ class AdvertController extends BaseController
         return $this->adverts->update($request, $advert);
     }
 
-    public function save(Request $request)
+    public function save(CreateAdvertRequest $request)
     {
         return $this->adverts->saveNew($request);
     }
@@ -67,6 +67,11 @@ class AdvertController extends BaseController
     public function delete(Advert $advert)
     {
         return $this->adverts->delete($advert);
+    }
+
+    public function setImage(Advert $advert, SetAdvertImageRequest $request)
+    {
+        return $this->adverts->setImage($advert, $request->base64, $request->type);
     }
 
 }

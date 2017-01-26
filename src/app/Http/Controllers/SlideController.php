@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\FieldGroup;
-use App\Package;
-use Illuminate\Http\Request;
-
-use App\Slide;
 use App\Entity\Slide\Repository as SlideRepository;
+use App\Slide;
+use Illuminate\Http\Request;
 
 
 class SlideController extends BaseController
@@ -70,6 +67,6 @@ class SlideController extends BaseController
      */
     public function delete(Slide $slide)
     {
-        return $slide->delete();
+        return $this->slides->delete($slide);
     }
 }

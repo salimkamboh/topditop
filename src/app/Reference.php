@@ -43,7 +43,7 @@ class Reference extends Model implements JsonInfoInterface
     public function mainImage()
     {
         $image = $this->images()->first();
-        return $image['url'];
+        return $image->getImageUrl();
     }
 
     /**
@@ -52,13 +52,13 @@ class Reference extends Model implements JsonInfoInterface
     public function mainThumbImage()
     {
         $image = $this->images()->first();
-        return str_replace('full_size', 'icon_size', $image['url']);
+        return str_replace('full_size', 'icon_size', $image->getImageUrl());
     }
 
     public function getImageByThumb($slug)
     {
         $image = $this->images()->first();
-        return str_replace('full_size', 'icon_size/' . $slug, $image['url']);
+        return str_replace('full_size', 'icon_size/' . $slug, $image->getImageUrl());
     }
 
     /**
