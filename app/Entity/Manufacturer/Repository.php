@@ -66,39 +66,12 @@ class Repository
             return $manufacturer;
         }
         $fileName = 'manufacturer_' . str_random(6) . '_'. str_slug($manufacturer->name) . '.jpg';
-        $relativePath = 'full_size/' . $fileName;
+        $relativePath = '/full_size/' . $fileName;
         $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
         Storage::disk('images')->put($relativePath, $imageBinary);
-        $manufacturer->image_url = '/images/' . $relativePath;
+        $manufacturer->image_url = $relativePath;
 
         return $manufacturer;
-    }
-
-    static public function slugify($text)
-    {
-        // replace non letter or digits by -
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-        // transliterate
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        // remove unwanted characters
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        // trim
-        $text = trim($text, '-');
-
-        // remove duplicate -
-        $text = preg_replace('~-+~', '-', $text);
-
-        // lowercase
-        $text = strtolower($text);
-
-        if (empty($text)) {
-            return 'n-a';
-        }
-
-        return $text;
     }
 
     /**
@@ -117,13 +90,10 @@ class Repository
      */
     private function deleteImageByUrl($existingImageUrl)
     {
-        if (! str_contains($existingImageUrl, '/images/')) {
+        if (! str_contains($existingImageUrl, '/full_size/')) {
             return;
         }
-        $messyRelativePath = parse_url($existingImageUrl, PHP_URL_PATH);
-        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
-        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
-        Storage::disk('images')->delete($cleanRelativePath);
+        Storage::disk('images')->delete($existingImageUrl);
     }
 
 }

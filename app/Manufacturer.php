@@ -75,11 +75,10 @@ class Manufacturer extends Model
 
     public function getImageUrl()
     {
-        #/var/www/html/topditop2/magento1931/media/Foundcenter logo.png
         if (! $this->image_url) {
             return 'http://placehold.it/350x180';
         }
-        return str_replace('/var/www/html/', 'http://138.201.246.165/', $this->image_url);
+        return url('images' . $this->image_url);
     }
 
     /**
@@ -105,5 +104,26 @@ where manufacturer_reference.manufacturer_id= :id', ['id' => $this->id]);
             $num = $item;
         }
         return $num;
+    }
+
+    private function cutAbsolutePath()
+    {
+        if (! $this->image_url) {
+            return;
+        }
+        $messyRelativePath = parse_url($this->image_url, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        $this->image_url = $cleanRelativePath;
+        $this->save();
+    }
+
+    static function replaceAllImagesPath()
+    {
+        $manufacturers = Manufacturer::all();
+
+        foreach ($manufacturers as $manufacturer) {
+            $manufacturer->cutAbsolutePath();
+        }
     }
 }

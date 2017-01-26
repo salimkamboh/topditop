@@ -66,7 +66,7 @@ class Image extends Model
         return url('images' . $this->url);
     }
 
-    public function cutAbsolutePath()
+    private function cutAbsolutePath()
     {
         $messyRelativePath = parse_url($this->url, PHP_URL_PATH);
         $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
