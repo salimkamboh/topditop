@@ -34,6 +34,28 @@ class Slide extends Model
 
     public function getImageUrl()
     {
-        return url($this->image_url);
+        return url('images' .$this->image_url);
+    }
+
+
+    private function cutAbsolutePath()
+    {
+        if (! $this->image_url) {
+            return;
+        }
+        $messyRelativePath = parse_url($this->image_url, PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        $this->image_url = $cleanRelativePath;
+        $this->save();
+    }
+
+    static function replaceAllImagesPath()
+    {
+        $slides = Slide::all();
+
+        foreach ($slides as $slide) {
+            $slide->cutAbsolutePath();
+        }
     }
 }

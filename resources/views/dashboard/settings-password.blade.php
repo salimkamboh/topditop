@@ -22,7 +22,7 @@
                 <div class="col-sm-4 text-center">
                     <div class="widget item-shadow">
                         @if(isset($store->image))
-                            <img src="{{$store->image->url}}" alt="">
+                            <img src="{{$store->image->getImageUrl()}}" alt="">
                         @endif
                         <h3>{{$store->store_name}}</h3>
 

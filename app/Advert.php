@@ -164,4 +164,30 @@ ORDER BY field_profile.profile_id';
         return url('images' . $this->brand_logo_url);
     }
 
+    private function cutAbsolutePath()
+    {
+        $this->cutAbsolutePathForProperty('scanned_image_url');
+        $this->cutAbsolutePathForProperty('brand_logo_url');
+        $this->cutAbsolutePathForProperty('reference_image_url');
+
+        $this->save();
+    }
+
+    private function cutAbsolutePathForProperty($property_url)
+    {
+        $messyRelativePath = parse_url($this->getAttribute($property_url), PHP_URL_PATH);
+        $cleanRelativePath = str_replace('/topditop/images/', '/images/', $messyRelativePath);
+        $cleanRelativePath = str_replace('/images/', '/', $cleanRelativePath);
+        $this->setAttribute($property_url, $cleanRelativePath);
+    }
+
+    static function replaceAllImagesPath()
+    {
+        $adverts = Advert::all();
+
+        foreach ($adverts as $advert) {
+            $advert->cutAbsolutePath();
+        }
+    }
+
 }

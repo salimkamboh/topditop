@@ -140,12 +140,13 @@ class StoreController extends BaseController
         $file = $request->file('store_image');
 
         if (isset($file)) {
-            $destinationPath = base_path() . "/images";
-            $fileName = $file->getClientOriginalName();
+            // TODO: cleanup old image from disk
+            $destinationPath = base_path() . "/images/";
+            $fileName = '/store_profile_' . str_random(6). '_' . str_slug($this->current_store->store_name) . '.' . $file->getClientOriginalExtension();
 
             $file->move($destinationPath, $fileName);
 
-            $image_url_full = URL::to('/') . "/images/" . $fileName;
+            $image_url_full = $fileName;
             if (!empty($image_url_full)) {
                 $image = new Image();
                 $image->name = $store->store_name;

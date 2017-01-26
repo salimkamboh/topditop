@@ -51,39 +51,12 @@ class Repository
             return $slide;
         }
         $fileName = 'slide_' . str_random(6) . '_'. str_slug($slide->title) . '.jpg';
-        $relativePath = 'full_size/' . $fileName;
+        $relativePath = '/full_size/' . $fileName;
         $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
         Storage::disk('images')->put($relativePath, $imageBinary);
-        $slide->image_url = '/images/' . $relativePath;
+        $slide->image_url = $relativePath;
 
         return $slide;
-    }
-
-    static public function slugify($text)
-    {
-        // replace non letter or digits by -
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-        // transliterate
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        // remove unwanted characters
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        // trim
-        $text = trim($text, '-');
-
-        // remove duplicate -
-        $text = preg_replace('~-+~', '-', $text);
-
-        // lowercase
-        $text = strtolower($text);
-
-        if (empty($text)) {
-            return 'n-a';
-        }
-
-        return $text;
     }
 
     /**
@@ -155,7 +128,7 @@ class Repository
      */
     private function deleteImageByUrl($existingImageUrl)
     {
-        if (! str_contains($existingImageUrl, "/images/")) {
+        if (! $existingImageUrl) {
             return;
         }
         $messyRelativePath = parse_url($existingImageUrl, PHP_URL_PATH);
