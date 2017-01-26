@@ -6,19 +6,17 @@ use App\Field;
 use App\FieldProfile;
 use App\Image;
 use App\Package;
-use App\Reference;
-use App\User;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Profile;
-use App\Store;
 use App\Product;
-
+use App\Profile;
+use App\Reference;
+use App\Store;
+use App\User;
 use DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Mail;
@@ -377,19 +375,30 @@ class StoreController extends BaseController
         $store->location()->associate($request->location_id);
 
         if (isset($request->base64)) {
-            $slide_name = $request->title;
-
-            $imagePath = '/images/full_size/' . self::slugify($slide_name) . uniqid() . '.jpg';
-            $serverImageUrl = getcwd() . $imagePath;
-            file_put_contents($serverImageUrl, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->base64)));
-            $imageUrlFull = URL::to('/') . $imagePath;
-            $store->cover_url = $imageUrlFull;
+            $store = $this->setImage($store, $request->base64, $request->title);
         }
 
         $store->save();
+
         $user = $store->user;
         $user->email = $request->user_email;
         $user->save();
+
+        return $store;
+    }
+
+    public function setImage(Store $store, $base64_encoded_image, $title)
+    {
+        if (! $base64_encoded_image) {
+            $store->cover_url = '';
+            return $store;
+        }
+        $fileName = 'slide_' . str_random(6) . '_'. str_slug($title) . '.jpg';
+        $relativePath = 'full_size/' . $fileName;
+        $imageBinary = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64_encoded_image));
+        Storage::disk('images')->put($relativePath, $imageBinary);
+        $store->cover_url = '/images/' . $relativePath;
+
         return $store;
     }
 

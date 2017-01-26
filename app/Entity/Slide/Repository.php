@@ -136,7 +136,7 @@ class Repository
             }
             $this->setImage($slide, $request->base64);
         }
-        
+
         $slide->save();
 
         return $slide;
