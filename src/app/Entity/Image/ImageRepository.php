@@ -6,6 +6,7 @@ use App\Product;
 use App\Reference;
 use App\Thumbnail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
@@ -21,6 +22,15 @@ class ImageRepository
      */
     public function upload($form_data)
     {
+        if(!$this->isFileUploadRequestValid()) {
+            return Response::json([
+                'error' => true,
+                'message' => "File is too big.",
+                'code' => 400
+            ], 400);
+        }
+
+
         $validator = Validator::make($form_data, Image::$rules, Image::$messages);
 
         if ($validator->fails()) {
@@ -316,6 +326,15 @@ class ImageRepository
             'error' => false,
             'code' => 200
         ], 200);
+    }
+
+    function isFileUploadRequestValid()
+    {
+        $post_max_size = ini_get('post_max_size') * 1024 * 1024;
+        $upload_max_filesize = ini_get('upload_max_filesize') * 1024 * 1024;
+        $request_content_length = isset($_SERVER['CONTENT_LENGTH']) ? (int)$_SERVER['CONTENT_LENGTH'] : 0;
+
+        return $request_content_length < $post_max_size && $request_content_length < $upload_max_filesize;
     }
 
     function sanitize($string, $force_lowercase = true, $anal = false)
