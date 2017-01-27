@@ -1,8 +1,6 @@
 $.noConflict();
 (function ($) {
 
-    _globalRoute = 'http://topditop.foundcenter.com';
-
     connector = {
         getData: function (methodType, route, dataType, dataBlock, callbackFunction, context) {
             return $.ajax({
@@ -52,7 +50,7 @@ $.noConflict();
         connector.getData("GET", url, "json", null, callBackFunction, "");
     }
 
-    _getProducts('http://topditop.foundcenter.com/api/products/' + activeProductId + '/images');
+    _getProducts(_globalRoute + '/api/products/' + activeProductId + '/images');
 
     $(document).on('click', '.products-holder-all .remove-item', function () {
         var imageObject = {

@@ -1,8 +1,6 @@
 $.noConflict();
 (function ($) {
 
-    _globalRoute = 'http://topditop.foundcenter.com';
-
     connector = {
         getData: function (methodType, route, dataType, dataBlock, callbackFunction, context) {
             return $.ajax({

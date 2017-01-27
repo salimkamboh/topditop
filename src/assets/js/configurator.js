@@ -1,7 +1,6 @@
 $.noConflict();
 (function ($) {
 
-    _globalRoute = 'http://topditop.foundcenter.com/';
     _globalLang = $('.current_lang').val();
 
     connector = {
@@ -73,14 +72,14 @@ $.noConflict();
                 optionsHtml += "<option value='" + item.id + "'>" + item.name + "</option>";
             });
             if (activePanelId !== "") {
-                _setOptionValues(_globalRoute + "en/api/panels/fieldgroups/" + activePanelId);
+                _setOptionValues(_globalRoute + "/en/api/panels/fieldgroups/" + activePanelId);
             }
         }
 
         connector.getData("GET", url, "json", null, callBackFunction, "");
     }
 
-    _collectOptionValues(_globalRoute + "en/api/fieldgroups/all");
+    _collectOptionValues(_globalRoute + "/en/api/fieldgroups/all");
 
     $(".addmore").on("click", function () {
         var formRow = "<div class='singlerow' style='margin: 10px 0;'>";
@@ -91,7 +90,7 @@ $.noConflict();
 
     $(document).on("click", ".saveit", function () {
 
-        var url = _globalRoute + "api/panels";
+        var url = _globalRoute + "/api/panels";
 
         var fieldroupIds = [];
         $(".fieldgroups").each(function (index) {
@@ -113,7 +112,7 @@ $.noConflict();
 
     $(document).on("mouseup", ".clickable-save", function (e) {
 
-        var url = _globalRoute + _globalLang + "/api/panels/" + activePanelId;
+        var url = _globalRoute + "/" + _globalLang + "/api/panels/" + activePanelId;
 
         var fieldroupIds = [];
         $(".fieldgroups").each(function (index) {
@@ -135,7 +134,7 @@ $.noConflict();
 
     $(document).on("click", ".editit", function () {
 
-        var url = _globalRoute + "api/panels/" + activePanelId;
+        var url = _globalRoute + "/api/panels/" + activePanelId;
 
         var fieldroupIds = [];
         $(".fieldgroups").each(function (index) {
