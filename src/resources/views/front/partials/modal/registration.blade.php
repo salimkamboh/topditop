@@ -2,7 +2,7 @@
     <i class="close icon"></i>
     <div class="content">
         <div class="dialog">
-            <a class="navbar-brand" href="http://78.46.218.38/topditop2/dashboard">Top<span
+            <a class="navbar-brand" href="{{ route('dashboard_home') }}">Top<span
                         class="navbar-brand--logo-mod">di</span>Top
                 H.O.M.E.</a>
             <h2>Registration</h2>

@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <a class="navbar-brand" href="http://78.46.218.38/topditop2">Top<span
+                    <a class="navbar-brand" href="{{ route('default') }}">Top<span
                                 class="navbar-brand--logo-mod">di</span>Top
                         H.O.M.E.</a>
                     <div class="clearfix"></div>
