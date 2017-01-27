@@ -600,6 +600,7 @@ section#dashboard-home .separator-bottom {
     float: right;
     line-height: 1.43;
     cursor: default;
+    display: none;
 }
 
 .item-info-top span.price i {
