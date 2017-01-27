@@ -80,7 +80,6 @@ $.noConflict();
     // }
 
     _getImages('http://topditop.foundcenter.com/api/references/' + activeReferenceId + '/images');
-//    _getProducts('http://topditop.foundcenter.com/api/references/' + activeReferenceId + '/products');
 
     $(document).on('click', '.addmore', function () {
         //$('.image-holder-all').prepend('<div><input id="image_upload" name="image_upload[]" type="file" class="input-file" multiple></div>');
