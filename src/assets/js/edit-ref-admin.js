@@ -77,7 +77,7 @@ $.noConflict();
     //     connector.getData("GET", url, "json", null, callBackFunction, "");
     // }
 
-    _getImages('http://topditop.foundcenter.com/api/references/' + activeReferenceId + '/images');
+    _getImages(_globalRoute + '/api/references/' + activeReferenceId + '/images');
 
     $(document).on('click', '.addmore', function () {
         //$('.image-holder-all').prepend('<div><input id="image_upload" name="image_upload[]" type="file" class="input-file" multiple></div>');
@@ -86,7 +86,7 @@ $.noConflict();
     $(document).on('click', '.image-holder-all .remove-item', function () {
 
         var imageObject = {
-            'referenceId': $(this).data('refid'),
+            'referenceId': $(this).data('refid')
         };
 
         function callBackFunction(context, response) {
