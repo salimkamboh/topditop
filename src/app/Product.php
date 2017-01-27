@@ -373,20 +373,6 @@ class Product extends Model implements JsonInfoInterface
         }
     }
 
-    public function createUniqueFilename($filename, $extension)
-    {
-        $full_size_dir = base_path() . '/images/full_size/';
-        $full_image_path = $full_size_dir . $filename . '.' . $extension;
-
-        if (File::exists($full_image_path)) {
-            // Generate token for image
-            $imageToken = substr(sha1(mt_rand()), 0, 5);
-            return $filename . '-' . $imageToken . '.' . $extension;
-        }
-
-        return $filename . '.' . $extension;
-    }
-
     /**
      * @param $images64Array
      * @param $name
@@ -398,17 +384,17 @@ class Product extends Model implements JsonInfoInterface
 
         foreach ($images64Array as $image64) {
 
-            $allowed_filename = $this->createUniqueFilename($this->slugify($name), '.jpg');
-            $imagePath = '/images/full_size/' . $allowed_filename;
-            $savePath = 'images/full_size/' . $allowed_filename;
-            $imageUrlFull = URL::to('/') . $imagePath;
+            $randomString = str_random(6);
+            $sluggedName = str_slug($name);
 
+            $generatedName = "product_{$randomString}_{$sluggedName}.jpg";
 
             $sessionImage = new \App\Image;
-            if ($imageNew = $this->original($image64, $allowed_filename)) {
-                $sessionImage->title = $allowed_filename;
-                $sessionImage->name = $allowed_filename;
-                $sessionImage->url = URL::to('/') . '/images/full_size/' . $allowed_filename;
+
+            if ($imageNew = $this->original($image64, $generatedName)) {
+                $sessionImage->title = $generatedName;
+                $sessionImage->name = $generatedName;
+                $sessionImage->url = '/full_size/' . $generatedName;
                 $sessionImage->save();
             }
 
@@ -422,7 +408,7 @@ class Product extends Model implements JsonInfoInterface
             foreach ($thumbnailSizes as $thumbnailSize) {
 
                 $_thumbnails[] = $thumbnailSize->id;
-                if ($this->iconThumb($image_width, $image_height, $thumbnailSize->crop, $image64, $allowed_filename, $thumbnailSize->name, $thumbnailSize->width, $thumbnailSize->height)) {
+                if ($this->iconThumb($image_width, $image_height, $thumbnailSize->crop, $image64, $generatedName, $thumbnailSize->name, $thumbnailSize->width, $thumbnailSize->height)) {
                     $sessionImage->thumbnails()->attach($thumbnailSize);
                 }
             }
@@ -514,33 +500,6 @@ class Product extends Model implements JsonInfoInterface
 
 
         return $image;
-    }
-
-    static public function slugify($text)
-    {
-        // replace non letter or digits by -
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-        // transliterate
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        // remove unwanted characters
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        // trim
-        $text = trim($text, '-');
-
-        // remove duplicate -
-        $text = preg_replace('~-+~', '-', $text);
-
-        // lowercase
-        $text = strtolower($text);
-
-        if (empty($text)) {
-            return 'n-a';
-        }
-
-        return $text;
     }
 
     /**
