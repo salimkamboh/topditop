@@ -29,12 +29,6 @@ RUN mv composer.phar /usr/local/bin/composer
 
 COPY files/root /
 
-COPY src /var/www/html
-
-RUN cd /var/www/html && composer install
-
-RUN mkdir -p "/var/www/html/storage/logs"
-
 EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]

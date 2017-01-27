@@ -6,7 +6,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - images:/var/www/html/images
+      - /home/deployer/apps/topditop-production/src:/var/www/html/
+    logging:
+      driver: syslog
   db:
     image: mysql
     restart: always
@@ -19,6 +21,7 @@ services:
       - MYSQL_DATABASE=topditop
       - MYSQL_USER=topditop
       - MYSQL_PASSWORD=topditop
+    logging:
+      driver: syslog
 volumes:
   mysql:
-  images:
