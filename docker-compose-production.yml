@@ -7,6 +7,8 @@ services:
       - "80:80"
     volumes:
       - images:/var/www/html/images
+    logging:
+      driver: syslog
   db:
     image: mysql
     restart: always
@@ -19,6 +21,8 @@ services:
       - MYSQL_DATABASE=topditop
       - MYSQL_USER=topditop
       - MYSQL_PASSWORD=topditop
+    logging:
+      driver: syslog
 volumes:
   mysql:
   images:
