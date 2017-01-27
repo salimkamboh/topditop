@@ -50,18 +50,7 @@ class FrontController extends BaseController
         $storeArray = current($locationsMatch);
         $closestStore = Store::find($storeArray[2]);
 
-        $locationsMatch = array(
-            'stores' => $locationsMatch,
-            'mainLat' => $latitude,
-            'mainLong' => $longitude,
-        );
-
-        $datablock = $this->settingsRepository->getStoreData($closestStore);
-        return view('front.pages.advertisement')
-            ->with('datablock', $datablock)
-            ->with('locationsMatch', $locationsMatch)
-            ->with('closestStore', $closestStore)
-            ->with('advert', $advert);
+        return redirect()->route('front_show_store', ['id' => $closestStore->id]);
     }
 
     public function array_contains($itemsNew, $insertItem)
