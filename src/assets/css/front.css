@@ -792,7 +792,7 @@ button.click-button:hover {
     font-family: 'Lato', sans-serif;
     float: right;
     line-height: 1.43;
-
+    display: none;
 }
 
 .item-info-top span.price i {
