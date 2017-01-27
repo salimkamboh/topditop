@@ -47,8 +47,9 @@ class ImageRepository
         $extension = $photo->getClientOriginalExtension();
         $originalNameWithoutExt = substr($originalName, 0, strlen($originalName) - strlen($extension) - 1);
 
-        $filename = str_slug($originalNameWithoutExt);
-        $allowed_filename = $this->createUniqueFilename($filename, $extension);
+        $randomString = str_random(6);
+        $sluggedName = str_slug($originalNameWithoutExt);
+        $allowed_filename = "image_{$randomString}_{$sluggedName}.jpg";
 
         $image_info = getimagesize($_FILES['file']['tmp_name']);
         $image_width = $image_info[0];
@@ -70,7 +71,7 @@ class ImageRepository
         if ($this->original($photo, $allowed_filename)) {
             $sessionImage->title = $allowed_filename;
             $sessionImage->name = $originalName;
-            $sessionImage->url = URL::to('/') . '/images/full_size/' . $allowed_filename;
+            $sessionImage->url = '/full_size/' . $allowed_filename;
             $sessionImage->save();
         } else {
             return Response::json([
@@ -95,7 +96,7 @@ class ImageRepository
             'error' => false,
             'code' => 200,
             'filename' => $allowed_filename,
-            'url' => $sessionImage->url,
+            'url' => URL::to('/') . 'images' . $sessionImage->url,
             'url_thumb' => URL::to('/') . '/images/icon_size/reference_thumb/' . $allowed_filename,
             'imageId' => $sessionImage->id
         ], 200);

@@ -379,17 +379,17 @@ class Reference extends Model implements JsonInfoInterface
 
         foreach ($images64Array as $image64) {
 
-            $allowed_filename = $this->createUniqueFilename($this->slugify($name), '.jpg');
-            $imagePath = '/images/full_size/' . $allowed_filename;
-            $savePath = 'images/full_size/' . $allowed_filename;
-            $imageUrlFull = URL::to('/') . $imagePath;
+            $randomString = str_random(6);
+            $sluggedName = str_slug($name);
+
+            $generate_name = "reference_{$randomString}_{$sluggedName}.jpg";
 
 
             $sessionImage = new \App\Image;
-            if ($imageNew = $this->original($image64, $allowed_filename)) {
-                $sessionImage->title = $allowed_filename;
-                $sessionImage->name = $allowed_filename;
-                $sessionImage->url = URL::to('/') . '/images/full_size/' . $allowed_filename;
+            if ($imageNew = $this->original($image64, $generate_name)) {
+                $sessionImage->title = $generate_name;
+                $sessionImage->name = $generate_name;
+                $sessionImage->url = '/full_size/' . $generate_name;
                 $sessionImage->save();
             }
 
@@ -403,7 +403,7 @@ class Reference extends Model implements JsonInfoInterface
             foreach ($thumbnailSizes as $thumbnailSize) {
 
                 $_thumbnails[] = $thumbnailSize->id;
-                if ($this->iconThumb($image_width, $image_height, $thumbnailSize->crop, $image64, $allowed_filename, $thumbnailSize->name, $thumbnailSize->width, $thumbnailSize->height)) {
+                if ($this->iconThumb($image_width, $image_height, $thumbnailSize->crop, $image64, $generate_name, $thumbnailSize->name, $thumbnailSize->width, $thumbnailSize->height)) {
                     $sessionImage->thumbnails()->attach($thumbnailSize);
                 }
             }
