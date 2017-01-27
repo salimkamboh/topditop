@@ -1,7 +1,7 @@
 <div class="ui modal modal-final-register" style="position: relative; overflow: visible;">
     <i class="close icon"></i>
     <div class="dialog">
-        <a class="navbar-brand" href="http://78.46.218.38/topditop2/dashboard">Top<span
+        <a class="navbar-brand" href="{{ route('dashboard_home') }}">Top<span
                     class="navbar-brand--logo-mod">di</span>Top
             H.O.M.E.</a>
         <h2>TopdiTopStore</h2>
@@ -24,7 +24,7 @@
             <input type="hidden" name="bondtype" class="bondtype">
             <input type="hidden" name="term_acceptance_1" class="term_acceptance_1">
             {{csrf_field()}}
-            <button class="click-button" href="#">Accept and Create</button>
+            <button class="click-button" href="#">{{ trans('messages.accept_and_create') }}</button>
 
         </form>
     </div>

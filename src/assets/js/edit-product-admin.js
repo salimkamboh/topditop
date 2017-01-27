@@ -56,7 +56,7 @@ $.noConflict();
 
     $(document).on('click', '.products-holder-all .remove-item', function () {
         var imageObject = {
-            'productId': $(this).data('productid'),
+            'productId': $(this).data('productid')
         };
 
         function callBackFunction(context, response) {

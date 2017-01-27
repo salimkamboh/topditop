@@ -1,7 +1,6 @@
 $.noConflict();
 (function ($) {
 
-    // _globalRoute = 'http://topditop.foundcenter.com/';
     _globalRoute = 'http://topditop.foundcenter.com/';
     _globalLang = $('.current_lang').val();
 

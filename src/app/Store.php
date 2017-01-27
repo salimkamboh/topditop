@@ -93,7 +93,7 @@ class Store extends Model
     public function getStoreLogo()
     {
         if (!empty($this->image))
-            return $this->image->url;
+            return $this->image->getImageUrl();
         else
             return '';
     }
