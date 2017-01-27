@@ -4,18 +4,18 @@ services:
     build: .
     restart: always
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
-      - /home/deployer/apps/topditop-production/src:/var/www/html/
+      - /home/deployer/apps/topditop-staging/src:/var/www/html/
     logging:
       driver: syslog
   db:
     image: mysql
     restart: always
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
-      - mysql:/var/lib/mysql/
+      - mysql_staging:/var/lib/mysql/
     environment:
       - MYSQL_ROOT_PASSWORD=topditop
       - MYSQL_DATABASE=topditop
@@ -24,4 +24,4 @@ services:
     logging:
       driver: syslog
 volumes:
-  mysql:
+  mysql_staging:

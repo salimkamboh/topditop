@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-exec eval $(docker-machine env topditop-production)
+eval $(docker-machine env topditop-production)
 
-exec docker-compose -f docker-compose-production.yml up -d
+docker-compose -f docker-compose-production.yml -p topditop up -d
 
-exec docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan migrate --force'
+docker-machine ssh topditop-production -A 'cd /home/deployer/apps/topditop-production && git checkout develop'
 
-exec eval $(docker-machine env --unset)
+docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/local/bin/composer install'
+
+docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan migrate --force'
+
+eval $(docker-machine env --unset)
