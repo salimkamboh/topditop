@@ -24,7 +24,7 @@
             <input type="hidden" name="bondtype" class="bondtype">
             <input type="hidden" name="term_acceptance_1" class="term_acceptance_1">
             {{csrf_field()}}
-            <button class="click-button" href="#">Accept and Create</button>
+            <button class="click-button" href="#">{{ trans('messages.accept_and_create') }}</button>
 
         </form>
     </div>
