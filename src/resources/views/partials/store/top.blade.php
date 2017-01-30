@@ -24,7 +24,7 @@
                                 {!! $datablock["address"] !!}
                             </p>
                             <p>
-                                <a href="http://topditop.bitballoon.com/#" class="btn btn-primary btn-xs"><i
+                                <a href="/#" class="btn btn-primary btn-xs"><i
                                             class="fa fa-map-marker" aria-hidden="true"></i> View map</a>
                             </p>
                         </div>

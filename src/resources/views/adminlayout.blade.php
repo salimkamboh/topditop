@@ -141,8 +141,8 @@
                             <div class="footer_list_group">
                                 <h5 class="footer_list_group__header">Stores</h5>
                                 <ul class="list-unstyled footer_list_group__items">
-                                    <li><a href="http://topditop.bitballoon.com/store">Geringer</a></li>
-                                    <li><a href="http://topditop.bitballoon.com/store">Wetscher</a></li>
+                                    <li><a href="/store">Geringer</a></li>
+                                    <li><a href="/store">Wetscher</a></li>
                                 </ul>
                             </div>
                         </div>
