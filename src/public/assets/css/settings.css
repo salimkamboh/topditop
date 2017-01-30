@@ -149,7 +149,7 @@ section#dashboard-settings .form-group input.fieldtype-socialinput {
 }
 
 section#dashboard-settings a.fb-icon {
-    background: url('../img/fb.PNG') center center no-repeat;
+    background: url('../img/fb.png') center center no-repeat;
     width: 29px;
     height: 31px;
     display: block;

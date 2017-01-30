@@ -21,7 +21,7 @@
             @if ($reference->video_html)
                 <div class="video-holder pull-left">
                     <a href="javascript:void(0)" class="show-video-modal">
-                        <img alt="" class="img-responsive" src="{{asset('img/video.PNG')}}">
+                        <img alt="" class="img-responsive" src="{{asset('assets/img/video.png')}}">
                     </a>
                 </div>
             @endif

@@ -2043,7 +2043,7 @@ p.fb-tw-links {
 }
 
 a.fb-icon {
-    background: url("../img/fb.PNG") center center no-repeat;
+    background: url("../img/fb.png") center center no-repeat;
     width: 29px;
     height: 31px;
     display: block;
@@ -2052,7 +2052,7 @@ a.fb-icon {
 }
 
 a.tw-icon {
-    background: url("../img/tw.PNG") center center no-repeat;
+    background: url("../img/tw.png") center center no-repeat;
     width: 29px;
     height: 32px;
     display: block;
