@@ -21,6 +21,14 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') }}">
 
+    <script>
+        _globalLang = "{{$locale}}";
+        if (_globalLang == "")
+            _globalLang = "en";
+
+        _globalRoute = "{{ url('/') }}";
+    </script>
+
     @yield("header")
 </head>
 
@@ -48,13 +56,6 @@
 <script type="text/javascript" src="{{ asset('assets/js/lib/modal.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/script.js')}}"></script>
-<script type="text/javascript">
-    _globalLang = '{{$locale}}';
-    if (_globalLang == '')
-        _globalLang = 'en';
-
-    _globalRoute = '<?php echo app()->make('url')->to('/'); ?>';
-</script>
 
 @if(session('success') == 'showmodalplease')
     <script>
