@@ -18,11 +18,13 @@
         <div class="col-sm-8 description-text">
             <h3 class="page-heading brown-color">{{$reference->title}}</h3>
             <p>{{$reference->description}}</p>
-            <div class="video-holder pull-left">
-                <a href="javascript:void(0)" class="show-video-modal">
-                    <img alt="" class="img-responsive" src="{{asset('img/video.PNG')}}">
-                </a>
-            </div>
+            @if ($reference->video_html)
+                <div class="video-holder pull-left">
+                    <a href="javascript:void(0)" class="show-video-modal">
+                        <img alt="" class="img-responsive" src="{{asset('img/video.PNG')}}">
+                    </a>
+                </div>
+            @endif
         </div>
     </div>
 </div>

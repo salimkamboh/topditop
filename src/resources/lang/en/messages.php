@@ -122,5 +122,6 @@ return [
     'register_notification' => 'Thank you for your registration. You will receive an email with additional information.',
     'images_are_required' => 'You have to upload at least 1 image.',
     'accept_and_create' => 'Accept and Create',
+    'video_url_invalid' => 'Video URL is invalid.',
 
 ];

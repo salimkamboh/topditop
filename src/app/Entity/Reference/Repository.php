@@ -10,6 +10,7 @@ use App\Reference;
 use App\Store;
 use Illuminate\Http\Request;
 use App\Helpers\PowerChecker;
+use App\Helpers\VideoUrlHelper;
 
 class Repository extends PowerChecker
 {
@@ -25,12 +26,13 @@ class Repository extends PowerChecker
         $reference->title = $request->title;
         $reference->description = $request->description;
 
-        $videoRequestURL = $request->video;
-        if (str_contains($videoRequestURL, 'youtube')) {
-            $videoRequestURL = str_replace('watch?v=', 'embed/', $videoRequestURL);
+        $reference->video = $request->video;
+        $reference->video_html = VideoUrlHelper::parse($request->video);
+
+        if(!$reference->video_html) {
+            $request->session()->flash('fail', trans('messages.video_url_invalid'));
         }
 
-        $reference->video = $videoRequestURL;
         $reference->status = Reference::STATUS_PUBLISHED;
         $reference->save();
 
@@ -53,6 +55,11 @@ class Repository extends PowerChecker
         $reference->title = $request->title;
         $reference->description = $request->description;
         $reference->video = $request->video;
+        $reference->video_html = VideoUrlHelper::parse($request->video);
+
+        if(!$reference->video_html) {
+            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+        }
 
         $reference->addImages($request, $reference, true);
         $reference->addProducts($request, $reference, true);
@@ -172,6 +179,11 @@ class Repository extends PowerChecker
         $reference->title = $request->title;
         $reference->description = $request->description;
         $reference->video = $request->video;
+        $reference->video_html = VideoUrlHelper::parse($request->video);
+
+        if(!$reference->video_html) {
+            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+        }
 
         $reference->addProductsRest($request, $reference);
         $reference->addBrandsFromArray($request, $reference, $editMode);
@@ -189,6 +201,11 @@ class Repository extends PowerChecker
         $reference->title = $request->title;
         $reference->description = $request->description;
         $reference->video = $request->video;
+        $reference->video_html = VideoUrlHelper::parse($request->video);
+
+        if(!$reference->video_html) {
+            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+        }
 
         $reference->save();
 
