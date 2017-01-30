@@ -122,5 +122,8 @@ return [
     'register_notification' => 'Vielen Dank für Ihre Anmeldung. Sie erhalten eine E-Mail mit weiteren Informationen.',
     'images_are_required' => 'Sie müssen mindestens ein Bild hochladen.',
     'accept_and_create' => 'Akzeptieren und Store erstellen',
+    'register_accept' => 'Bitte akzeptieren Sie die Bedingungen.',
+    'register_fill_all' => 'Bitte füllen Sie alle Pflichtfelder aus.',
+    'register_email_taken' => 'Diese eMail ist bereits vergeben',
 
 ];
