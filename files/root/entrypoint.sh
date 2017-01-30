@@ -11,6 +11,6 @@ mkdir -p "/var/www/html/storage/framework/views"
 
 cd /var/www/html/ && composer install
 
-chown -R www-data:www-data /var/www /var/log/php
+chown -R www-data:www-data /var/www
 
 exec /usr/bin/supervisord --nodaemon -c /etc/supervisor/supervisord.conf
