@@ -3,7 +3,6 @@
 @section("pageTitle") References @stop
 
 @section("header")
-
 @stop
 
 @section('content')

@@ -4,6 +4,8 @@
 
 @section("header")
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/embed.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/slick-theme.css') }}">
 @stop
 
 @section('content')
@@ -17,6 +19,7 @@
 @endsection
 
 @section("footer")
+    <script type="text/javascript" src="{{ asset('assets/js/lib/slick.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/lib/embed.min.js') }}"></script>
     <script type="text/javascript">
         $('.ui.dropdown').dropdown();

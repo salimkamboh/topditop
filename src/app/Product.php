@@ -505,13 +505,18 @@ class Product extends Model implements JsonInfoInterface
     /**
      * @return string
      */
-    public function getProdRefImage()
+    public function getProdRefImages()
     {
-        $ref = $this->references()->get()->first();
-        if (is_object($ref))
-            return $ref->getImageByThumb('reference_thumb');
-        else
-            return '';
+        $result = [];
+        $refs = $this->references()->get();
+
+        foreach($refs as $ref) {
+            if (is_object($ref)) {
+                $result[] = $ref->getImageByThumb('reference_thumb');
+            }
+        }
+
+        return $result;
     }
 
     /**
