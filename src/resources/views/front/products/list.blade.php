@@ -3,7 +3,8 @@
 @section("pageTitle") Products @stop
 
 @section("header")
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/slick-theme.css') }}">
 @stop
 
 @section("content")
@@ -73,6 +74,7 @@
 @stop
 
 @section("footer")
+    <script type="text/javascript" src="{{ asset('assets/js/lib/slick.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/lib/dropdown.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/products-front.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/products-filter-front.js') }}"></script>

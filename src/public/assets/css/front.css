@@ -2466,5 +2466,9 @@ section#home-references .special-reference-grid.home-design .width-fix {
     font-size: 18px !important;
 }
 
+.reference-images .slick-prev:before, .reference-images .slick-next:before {
+    color: #333 !important;
+}
+
 
 

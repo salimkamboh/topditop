@@ -171,7 +171,7 @@ class Repository extends PowerChecker
         $product->html = $product->htmlTemplateDashboard();
         $product->productImage = $product->getImageByThumb('reference_thumb');
         $product->categoriesNice = $product->getCategoriesNice();
-        $product->refImage = $product->getProdRefImage();
+        $product->refImages = $product->getProdRefImages();
         $product->refId = $product->getProdRefId();
         return $product;
     }

@@ -10,11 +10,11 @@ if (window.location.hash.indexOf('#') !== -1) {
 
 $('.ui.dropdown').dropdown();
 
-$('.clear-filter').on('click', function () {
+$('.clear-filter').on('click', function() {
     $('.ui.dropdown').dropdown('restore defaults');
 });
 
-$('#productModal').on("hidden.bs.modal", function () {
+$('#productModal').on("hidden.bs.modal", function() {
     $("#productModal .dialog").empty().append('<div class="text-center">' +
         '<img src="' + _globalRoute + '/assets/css/lib/ajax-loader.gif" alt="" style="display: inline-block"/>' +
         '</div>');
@@ -22,14 +22,14 @@ $('#productModal').on("hidden.bs.modal", function () {
 
 $('.ui.modal.modal-single-product').modal({
     observeChanges: true,
-    onHide: function () {
+    onHide: function() {
         $(".modal-body").empty().append('<div class="text-center">' +
             '<img src="' + _globalRoute + '/assets/css/lib/ajax-loader.gif" alt="" style="display: inline-block"/>' +
             '</div>');
     }
 });
 
-$(document).on('click', '.single-item-product .title a', function () {
+$(document).on('click', '.single-item-product .title a', function() {
     var productId = $(this).data('product-id');
     openProductModal(productId);
 });
@@ -37,8 +37,9 @@ $(document).on('click', '.single-item-product .title a', function () {
 function openProductModal(productId) {
     function callBackFunction(context, response) {
         populateProductModal(response);
-        setTimeout(function () {
+        setTimeout(function() {
             $('.ui.modal.modal-single-product').modal('refresh');
+            $('#reference-images-' + productId).resize();
         }, 300);
 
         $('.ui.modal.modal-single-product').modal('show');
@@ -57,10 +58,10 @@ function populateProductModal(productData) {
         }
     }
 
-    var referenceImage = null;
+    var referenceImages = null;
 
-    if (productData.refImage != null && productData.refImage != undefined) {
-        referenceImage = productData.refImage;
+    if (productData.refImages != null && productData.refImages != undefined) {
+        referenceImages = productData.refImages;
     }
 
     var categories = productData.categoriesNice;
@@ -82,14 +83,26 @@ function populateProductModal(productData) {
         '</div>' +
         '</div>' +
         '<p>' + productData.description + '</p>';
-    if (referenceImage !== null) {
-        productHTML += '<div class="item-preview">' +
-            '<h3>Other References for this product</h3>' +
-            '<a href="' + _globalRoute + '/front/references/single/' + productData.refId + '"><img src="' + referenceImage + '" alt="" class="img-responsive"></a>' +
-            '</div>';
+
+    if (referenceImages) {
+        productHTML += '<h3>Other References for this product</h3>';
+        productHTML += '<div class="reference-images" id="reference-images-' + productData.id + '">';
+
+        referenceImages.forEach(function(referenceImage) {
+            productHTML += '<a href="' + _globalRoute + '/front/references/single/' + productData.refId + '"><img src="' + referenceImage + '" alt=""></a>';
+        });
+
+        productHTML += '</div>';
     }
 
-    $(".modal-body").empty().append(productHTML);
+
+    $(".modal-body:not(.modal-body-video)").empty().append(productHTML);
+
+    if (referenceImages) {
+        $('#reference-images-' + productData.id).slick({
+            dots: true
+        });
+    }
 
     history.pushState({
         product_id: productData.id
