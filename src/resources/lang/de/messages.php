@@ -123,4 +123,7 @@ return [
     'images_are_required' => 'Sie müssen mindestens ein Bild hochladen.',
     'accept_and_create' => 'Akzeptieren und Store erstellen',
     'video_url_invalid' => 'Video-URL ist ungültig',
+    'register_accept' => 'Bitte akzeptieren Sie die Bedingungen.',
+    'register_fill_all' => 'Bitte füllen Sie alle Pflichtfelder aus.',
+    'register_email_taken' => 'Diese eMail ist bereits vergeben',
 ];

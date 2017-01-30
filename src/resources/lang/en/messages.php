@@ -123,5 +123,7 @@ return [
     'images_are_required' => 'You have to upload at least 1 image.',
     'accept_and_create' => 'Accept and Create',
     'video_url_invalid' => 'Video URL is invalid.',
-
+    'register_accept' => 'Please accept the conditions.',
+    'register_fill_all' => 'Please fill all necessary fields.',
+    'register_email_taken' => 'That email is already taken.',
 ];

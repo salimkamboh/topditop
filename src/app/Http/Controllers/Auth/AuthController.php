@@ -111,10 +111,10 @@ class AuthController extends BaseController
         $validator = $this->validator($request->all());
 
         if ($request->confirm_field != 'on')
-            return back()->with('fail', 'Please accept the conditions.');
+            return back()->with('fail', trans('messages.register_accept'));
 
         if ($validator->fails()) {
-            return back()->with('fail', 'Please fill all necessary fields.');
+            return back()->with('fail', trans('messages.register_fill_all'));
         }
 
         try {
@@ -123,7 +123,7 @@ class AuthController extends BaseController
             $user = null;
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
-                return back()->with('fail', 'Duplicate user problem.');
+                return back()->with('fail', trans('messages.register_email_taken'));
             }
         }
 

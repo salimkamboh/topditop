@@ -10,4 +10,14 @@ docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/lo
 
 docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan migrate --force'
 
+docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan config:clear'
+
+docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan cache:clear'
+
+docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan debugbar:clear'
+
+docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan route:clear'
+
+docker exec -it topditopstaging_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan optimize'
+
 eval $(docker-machine env --unset)
