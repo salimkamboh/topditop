@@ -59,6 +59,9 @@
                     />
                 </div>
             </div>
+            <div class="col-xs-offset-3 col-xs-6" *ngFor="let photo of newImages">
+                <img class="img img-responsive"  [src]='photo'>
+            </div>
             <div class="form-group">
                 <div class="col-xs-offset-3 col-xs-6" *ngFor="let image of myImages; let i=index;">
                     <img  class="img img-responsive" [src]='image.url'>

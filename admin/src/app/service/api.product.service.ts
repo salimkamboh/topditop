@@ -25,6 +25,23 @@ export class ApiProductService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getCategories(id: number): Observable<Object[]> {
+    return this.http.get(this.apiUrl + id + '/categories')
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getReferences(id: number): Observable<Object[]> {
+    return this.http.get(this.apiUrl + id + '/references')
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  getImages(id: number): Observable<Object[]> {
+    return this.http.get(this.apiUrl + id + '/images')
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   create(data: Object): Observable<Object> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -46,6 +63,12 @@ export class ApiProductService {
   delete(id: number): Observable<Object> {
     return this.http.delete(this.apiUrl + 'delete/' + id)
       .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  deleteImage(id: number, data: Object): Observable<Object> {
+    return this.http.post(this.apiUrl + 'images/delete/' + id, data)
+      .map((res: Response) => { res.json(); console.log(res.json()); })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }
