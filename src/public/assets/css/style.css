@@ -735,7 +735,11 @@ section#dashboard-settings .big-white-block.store-image p {
 .big-white-block .form-holder {
     margin-bottom: 30px;
     border-bottom: 1px solid #e6e6e8;
+}
 
+.big-white-block .form-holder.form-holder-info {
+    margin-bottom: 50px;
+    border-bottom: none;
 }
 
 section#dashboard-new-references h5 {

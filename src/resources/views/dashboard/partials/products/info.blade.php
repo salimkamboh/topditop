@@ -32,6 +32,9 @@
                 </div>
             </div>
         </div>
+        <div class="form-holder form-holder-info">
+            {{ trans('messages.please_select_brands.main_text') }} <a href="{{ route('dashboard_settings') }}">{{ trans('messages.please_select_brands.link_text') }}.</a>
+        </div>
         <div class="form-holder">
             <label>{{ trans('messages.product_category') }}:</label><br>
             <div class="ui multiple selection dropdown dropdown-categories" tabindex="0">

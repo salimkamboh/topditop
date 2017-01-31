@@ -127,5 +127,9 @@ return [
     'register_fill_all' => 'Please fill all necessary fields.',
     'register_email_taken' => 'That email is already taken.',
     'product_other_references' => 'Other References for this product',
+    'please_select_brands' => [
+        'main_text' => 'Please select your brands in the',
+        'link_text' => 'Partners section',
+    ],
 
 ];
