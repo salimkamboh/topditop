@@ -126,4 +126,6 @@ return [
     'register_accept' => 'Please accept the conditions.',
     'register_fill_all' => 'Please fill all necessary fields.',
     'register_email_taken' => 'That email is already taken.',
+    'product_other_references' => 'Other References for this product',
+
 ];

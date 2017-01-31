@@ -126,4 +126,6 @@ return [
     'register_accept' => 'Bitte akzeptieren Sie die Bedingungen.',
     'register_fill_all' => 'Bitte füllen Sie alle Pflichtfelder aus.',
     'register_email_taken' => 'Diese eMail ist bereits vergeben',
+    'product_other_references' => 'Weitere Referenzen für dieses Produkt',
+
 ];

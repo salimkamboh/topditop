@@ -162,7 +162,8 @@ return [
         Ixudra\Curl\CurlServiceProvider::class,
         Arcanedev\Localization\LocalizationServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Mariuzzo\LaravelJsLocalization\LaravelJsLocalizationServiceProvider::class,
 
     ],
 

@@ -96,7 +96,7 @@ class FrontController extends BaseController
     public function frontShowStoresLocation(Location $location)
     {
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
-        $stores = Store::where('status', '=' , 1)->where('location_id', '=', 1)->get();
+        $stores = Store::where('status', '=' , 1)->where('location_id', '=', $location->id)->get();
         $products = Product::all();
         $manufacturers = Manufacturer::all();
         $filter_locations = Location::all();

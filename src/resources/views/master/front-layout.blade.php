@@ -55,6 +55,11 @@
 <script type="text/javascript" src="{{ asset('assets/js/lib/dimmer.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/lib/modal.min.js') }}"></script>
 
+<script type="text/javascript" src="{{ asset('assets/js/lang.dist.js') }}"></script>
+<script>
+    Lang.setLocale(_globalLang);
+</script>
+
 <script src="{{ asset('assets/js/script.js')}}"></script>
 
 @if(session('success') == 'showmodalplease')
