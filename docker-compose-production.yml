@@ -5,8 +5,10 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /home/deployer/apps/topditop-production/src:/var/www/html/
+      - /home/deployer/apps/topditop-production/letsencrypt:/etc/letsencrypt/
     logging:
       driver: syslog
   db:
