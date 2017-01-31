@@ -41,6 +41,7 @@ import { RegisterfieldsComponent } from './registerfields/registerfields.compone
 import { RegisterfieldDetailComponent } from './registerfields/registerfield-detail.component';
 import { ReferencesComponent } from './references/references.component';
 import { ReferenceDetailComponent } from './references/reference-detail.component';
+import { ProductsComponent } from './products/products.component';
 
 
 const appRoutes: Routes = [
@@ -70,6 +71,7 @@ const appRoutes: Routes = [
   { path: 'registerfield/:id', component: RegisterfieldDetailComponent },
   { path: 'references', component: ReferencesComponent },
   { path: 'reference/:id', component: ReferenceDetailComponent },
+  { path: 'products', component: ProductsComponent },
   { path: '', component: AdvertisementsComponent },
   { path: '**', component: PageNotFoundComponent }
 
