@@ -1,23 +1,10 @@
 #!/usr/bin/env bash
 
-eval $(docker-machine env topditop-production)
+env=${env:-topditop-production}
+compose_file=${compose_file:-docker-compose-production.yml}
+project_name=${project_name:-topditop}
+web_container=${web_container:-topditop_web_1}
+branch=${branch:-develop}
+remote_deploy_path=${remote_deploy_path:-/home/deployer/apps/topditop-production}
 
-docker-compose -f docker-compose-production.yml -p topditop up -d
-
-docker-machine ssh topditop-production -A 'cd /home/deployer/apps/topditop-production && git checkout develop && git pull origin develop'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/local/bin/composer install'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan migrate --force'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan config:clear'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan cache:clear'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan debugbar:clear'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan route:clear'
-
-docker exec -it topditop_web_1 /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan optimize'
-
-eval $(docker-machine env --unset)
+source ./base-deploy.sh

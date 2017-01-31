@@ -1,12 +1,15 @@
 server {
-    listen  80;
+    listen 443 ssl;
+
+    server_name topditop.com www.topditop.com;
+
+    ssl_certificate /etc/letsencrypt/live/topditop.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/topditop.com/privkey.pem;
 
     client_max_body_size 10M;
 
     root /var/www/html/public;
     index index.php;
-
-    server_name _;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -14,6 +17,10 @@ server {
 
     location /magento/ {
         try_files $uri $uri/ /magento/index.php?$query_string;
+    }
+
+    location ~ /.well-known {
+        allow all;
     }
 
     location ~ \.php$ {
@@ -25,4 +32,10 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
+}
+
+server {
+    listen 80;
+    server_name topditop.com www.topditop.com;
+    return 301 https://$host$request_uri;
 }

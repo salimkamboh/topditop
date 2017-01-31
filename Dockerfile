@@ -7,9 +7,16 @@ RUN apt update && \
     apt install -y php-fpm php-cli php-gd php-mcrypt php-mysql php-curl php-mbstring php-xml \
                        nginx \
                        curl \
+                       wget \
                        zip \
+                       bc \
                        nano \
+                       cron \
                        supervisor
+
+RUN cd /usr/local/sbin && \
+    wget https://dl.eff.org/certbot-auto && \
+    chmod a+x /usr/local/sbin/certbot-auto
 
 RUN curl -sS https://getcomposer.org/installer | php
 
