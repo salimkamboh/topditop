@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+site_env=production
+
+if [[ ${PRODUCTION+isset} != isset ]]; then
+     site_env=staging
+fi
+
+cd /etc/nginx/sites-enabled && ln -sf ../sites-available/${site_env} default
+
 mkdir -p "/var/www/html/storage/logs"
 mkdir -p "/var/www/html/storage/framework/cache"
 mkdir -p "/var/www/html/storage/framework/sessions"

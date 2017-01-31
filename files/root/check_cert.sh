@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ ${PRODUCTION+isset} != isset ]]; then
+    echo "Not in production, skipping certificate check."
+    exit 0;
+fi
+
 web_service='nginx'
 domain='topditop.com'
 webroot_path=/var/www/html/public
