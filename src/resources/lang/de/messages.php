@@ -131,4 +131,5 @@ return [
         'main_text' => 'Bitte wählen Sie Ihre Marken in',
         'link_text' => 'den Partnereinstellungen',
     ],
+
 ];

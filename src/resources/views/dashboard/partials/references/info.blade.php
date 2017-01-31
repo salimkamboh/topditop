@@ -35,6 +35,10 @@
             </div>
         </div>
 
+        <div class="form-holder form-holder-info">
+            {{ trans('messages.please_select_brands.main_text') }} <a href="{{ route('dashboard_settings') }}">{{ trans('messages.please_select_brands.link_text') }}.</a>
+        </div>
+
         <div class="form-holder">
             <label for="video_link">{{ trans('messages.references_video') }}:</label><br>
             <input type="text" name="video_url" id="video_url" value="{{ $reference->video }}">
