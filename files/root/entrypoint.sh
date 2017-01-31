@@ -22,7 +22,7 @@ mkdir -p "/var/log/letsencrypt"
 
 cd /var/www/html/ && composer install
 
-sh /check_cert.sh
+(. /check_cert.sh)
 
 chown -R www-data:www-data /var/www
 

@@ -19,6 +19,10 @@ server {
         try_files $uri $uri/ /magento/index.php?$query_string;
     }
 
+    location /admin/ {
+        try_files $uri $uri/ /admin/index.html?$query_string;
+    }
+
     location ~ /.well-known {
         allow all;
     }

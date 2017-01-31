@@ -12,7 +12,7 @@ services:
     logging:
       driver: syslog
     environment:
-      - PRODUCTION
+      - PRODUCTION=true
   db:
     image: mysql
     restart: always
