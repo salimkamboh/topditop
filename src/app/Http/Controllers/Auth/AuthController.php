@@ -62,7 +62,7 @@ class AuthController extends BaseController
     protected function validator(array $data)
     {
         $allowed = [
-            'name' => 'required|max:255',
+            'name' => 'max:255',
             'email' => 'required|email|max:255|unique:users',
             'confirm_field' => 'required',
         ];
@@ -73,12 +73,12 @@ class AuthController extends BaseController
 
         $registerFields = Registerfield::where('fieldlocation', 'Firma')->get();
         foreach ($registerFields as $registerField) {
-            $allowed[$registerField->key] = 'required|max:255';
+            $allowed[$registerField->key] = 'max:255';
         }
 
         $registerFields = Registerfield::where('fieldlocation', 'Ansprechpartner')->get();
         foreach ($registerFields as $registerField) {
-            $allowed[$registerField->key] = 'required|max:255';
+            $allowed[$registerField->key] = 'max:255';
         }
 
         return Validator::make($data, $allowed, $messages);
@@ -133,7 +133,7 @@ class AuthController extends BaseController
             $_registerFieldIds = array();
 
             foreach ($_registerFields as $key => $value) {
-                $registerFieldObject = Registerfield::where('key', $key)->get()->first();
+                $registerFieldObject = Registerfield::where('key', $key)->first();
                 if (is_object($registerFieldObject)) {
                     $user->registerfields()->attach($registerFieldObject, ['valueEntered' => $value]);
                     $_registerFieldIds[] = $registerFieldObject->id;

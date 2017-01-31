@@ -81,7 +81,7 @@ export class ReferenceDetailComponent implements OnInit {
         let reference = this.createDataObject();
         this.apiReferenceService.create(reference)
             .subscribe(
-            reference => { this.reference = <Reference>reference; this.toasterService.pop('success', 'Success', 'Reference created!'); this.disabled = false; this.router.navigate(['/reference', this.reference.id]); this.id = this.reference.id },
+            reference => { this.reference = <Reference>reference; this.toasterService.pop('success', 'Success', 'Reference created!'); this.disabled = false; this.router.navigate(['/references']); },
             error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with creating reference!'); this.disabled = false; this.router.navigate(['/references']); }
             );
 
@@ -105,15 +105,15 @@ export class ReferenceDetailComponent implements OnInit {
             );
     }
 
-    deleteImage(id:number, index:number) {
+    deleteImage(id: number, index: number) {
         this.disabled = true;
-        let ref={
+        let ref = {
             "referenceId": this.id
         }
         this.apiReferenceService.deleteImage(id, ref)
             .subscribe(
             image => { this.toasterService.pop('success', 'Success', 'Image deleted!'); this.disabled = false; this.myImages.splice(index, 1); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting reference!');  }
+            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting reference!'); }
             );
     }
 
@@ -180,7 +180,6 @@ export class ReferenceDetailComponent implements OnInit {
         if (this.dirty) {
             reference['newImages'] = this.newImages;
         }
-        console.log(reference);
         return reference;
     }
 
@@ -220,10 +219,6 @@ export class ReferenceDetailComponent implements OnInit {
         myReader.onloadend = (e) => {
             this.newImages.push(myReader.result);
             this.dirty = true;
-            console.log(this.newImages);
-            //this.myImages.unshift({"url": myReader.result});
-            // this.advert.scanned_image_url = myReader.result;
-
         }
         myReader.readAsDataURL(file);
     }
