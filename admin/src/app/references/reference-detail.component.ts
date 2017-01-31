@@ -30,10 +30,12 @@ export class ReferenceDetailComponent implements OnInit {
     private errorMessage: '';
     private disabled: boolean = false;
     private referenceForm: FormGroup;
+    private newImages: string[] = [];
+    private dirty: boolean = false;
 
-    constructor(private apiService: ApiService, private apiReferenceService: ApiReferenceService, private apiProductService: ApiProductService, 
-                private apiStoreService: ApiStoreService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, 
-                private toasterService: ToasterService) { }
+    constructor(private apiService: ApiService, private apiReferenceService: ApiReferenceService, private apiProductService: ApiProductService,
+        private apiStoreService: ApiStoreService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
+        private toasterService: ToasterService) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
@@ -103,6 +105,17 @@ export class ReferenceDetailComponent implements OnInit {
             );
     }
 
+    deleteImage(id:number, index:number) {
+        this.disabled = true;
+        let ref={
+            "referenceId": this.id
+        }
+        this.apiReferenceService.deleteImage(id, ref)
+            .subscribe(
+            image => { this.toasterService.pop('success', 'Success', 'Image deleted!'); this.disabled = false; this.myImages.splice(index, 1); },
+            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting reference!');  }
+            );
+    }
 
     setStores() {
         this.apiStoreService.getAll().subscribe(
@@ -140,7 +153,7 @@ export class ReferenceDetailComponent implements OnInit {
     setImages() {
         this.apiReferenceService.getImages(this.id).subscribe(
             images => { this.myImages = <Image[]>images; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading products'); }
+            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading images'); }
         );
     }
 
@@ -163,8 +176,10 @@ export class ReferenceDetailComponent implements OnInit {
             "store_id": this.referenceForm.value.store_id,
             "products": this.referenceForm.value.selectedProducts,
             "manufacturers": this.referenceForm.value.selectedManufacturers,
-
         };
+        if (this.dirty) {
+            reference['newImages'] = this.newImages;
+        }
         console.log(reference);
         return reference;
     }
@@ -193,5 +208,23 @@ export class ReferenceDetailComponent implements OnInit {
             }
             return manufacturerIds;
         }
+    }
+
+    changeListener($event): void {
+        this.readThis($event.target);
+    }
+
+    readThis(inputValue: any): void {
+        let file: File = inputValue.files[0];
+        let myReader: FileReader = new FileReader();
+        myReader.onloadend = (e) => {
+            this.newImages.push(myReader.result);
+            this.dirty = true;
+            console.log(this.newImages);
+            //this.myImages.unshift({"url": myReader.result});
+            // this.advert.scanned_image_url = myReader.result;
+
+        }
+        myReader.readAsDataURL(file);
     }
 }

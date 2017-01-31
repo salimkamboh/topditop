@@ -24,7 +24,7 @@ export class ApiReferenceService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
-  
+
   getProducts(id: number): Observable<Object[]> {
     return this.http.get(this.apiUrl + id + '/products')
       .map((res: Response) => res.json())
@@ -64,6 +64,12 @@ export class ApiReferenceService {
   delete(id: number): Observable<Object> {
     return this.http.delete(this.apiUrl + 'delete/' + id)
       .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  deleteImage(id: number, data: Object): Observable<Object> {
+    return this.http.post(this.apiUrl + 'images/delete/' + id, data)
+      .map((res: Response) => { res.json(); console.log(res.json()); })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }
