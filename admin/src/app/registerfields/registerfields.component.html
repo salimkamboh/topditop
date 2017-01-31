@@ -1,0 +1,36 @@
+<h4 class="text-center" *ngIf="!registerfields">
+  <span class="glyphicon glyphicon-refresh spin"></span> Loading Registerfields
+</h4>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Registerfields Managment
+  </div>
+  <div class="panel-body" *ngIf="registerfields && registerfields.length">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registerfield of registerfields">
+            <td>{{ registerfield.id }}</td>
+            <td>{{ registerfield.created_at | date:'medium' }}</td>
+            <td>{{ registerfield.updated_at | date:'medium' }}</td>
+            <td>{{ registerfield.name }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/registerfield', registerfield.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/registerfield', '-1']"><span class="glyphicon glyphicon-plus"></span> add new</a>
+  </div>
+</div>

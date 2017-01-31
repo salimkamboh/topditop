@@ -1,0 +1,38 @@
+<h4 class="text-center" *ngIf="!panels">
+  <span class="glyphicon glyphicon-refresh spin"></span> Loading Panels
+</h4>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Panels Managment
+  </div>
+  <div class="panel-body" *ngIf="panels && panels.length">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Key</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let panel of panels">
+            <td>{{ panel.id }}</td>
+            <td>{{ panel.created_at | date:'medium' }}</td>
+            <td>{{ panel.updated_at | date:'medium' }}</td>
+            <td>{{ panel.key }}</td>
+            <td>{{ panel.name }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/panel', panel.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/panel', '-1']"><span class="glyphicon glyphicon-plus"></span> add new</a>
+  </div>
+</div>

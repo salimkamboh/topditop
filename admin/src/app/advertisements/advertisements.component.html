@@ -1,0 +1,38 @@
+<h4 class="text-center" *ngIf="!adverts">
+  <span class="glyphicon glyphicon-refresh spin"></span> Loading Advertisements
+</h4>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Advertisement Dashboard
+  </div>
+  <div class="panel-body" *ngIf="adverts && adverts.length">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manufacturer ID</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let advert of adverts">
+            <td>{{ advert.id }}</td>
+            <td>{{ advert.name }}</td>
+            <td>{{ advert.manufacturer_id }}</td>
+            <td>{{ advert.created_at | date:'medium' }}</td>
+            <td>{{ advert.updated_at | date:'medium' }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/advertisement', advert.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/advertisement', -1]"><span class="glyphicon glyphicon-plus"></span> add new</a>
+  </div>
+</div>

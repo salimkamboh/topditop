@@ -1,0 +1,85 @@
+<h4 class="text-center" *ngIf="!advert">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Advertisement
+</h4>
+
+<label *ngIf="advert">{{ id === '-1' ? 'New' : 'Edit' }} Advertisement Entry</label>
+
+<form class="form-horizontal" [formGroup]="advertForm" (ngSubmit)="onSubmit($event)" *ngIf="advert">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Advertisement Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="name" value="{{ advert.name }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Brand</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="manufacturer_id" [value]="advert.manufacturer_id">
+                       <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Product Image URL</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" id="scanned_image_url" value="{{ advert.scanned_image_url }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Image</label>
+                <div class="col-xs-6">
+                    <input type="file" placeholder="Choose File" accept="image/*" id="filename_scanned_image_url" (change)="changeListener($event)"
+                    />
+                </div>
+                <div class="col-xs-6">
+                    <img class="img img-responsive" [src]='advert.scanned_image_url'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Brand Logo URL</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" id="brand_logo_url" value="{{ advert.brand_logo_url }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Image</label>
+                <div class="col-xs-6">
+                    <input type="file" placeholder="Choose File" accept="image/*" id="filename_brand_logo_url" (change)="changeListener($event)"
+                    />
+                </div>
+                <div class="col-xs-6">
+                    <img class="img img-responsive" [src]='advert.brand_logo_url'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Reference Image URL</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" id="reference_image_url" value="{{ advert.reference_image_url }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Image</label>
+                <div class="col-xs-6">
+                    <input type="file" placeholder="Choose File" accept="image/*" id="filename_reference_image_url" (change)="changeListener($event)"
+                    />
+                </div>
+                <div class="col-xs-6">
+                    <img class="img img-responsive" [src]='advert.reference_image_url'>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/advertisements"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteAdvert(advert.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
+            </div>
+        </div>
+    </div>
+</form>

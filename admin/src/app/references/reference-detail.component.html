@@ -1,0 +1,78 @@
+<h4 class="text-center" *ngIf="!reference || !allProducts ||  !allManufacturers">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Reference Details
+</h4>
+
+<label *ngIf="reference && allProducts && allManufacturers">{{ id === '-1' ? 'New' : 'Edit' }} reference Entry</label>
+
+<form class="form-horizontal" [formGroup]="referenceForm" (ngSubmit)="onSubmit($event)" *ngIf="reference && allProducts && allManufacturers">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Reference Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Title</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="title" value="{{ reference.title }}" required>
+                </div>
+            </div>
+           <div class="form-group">
+                <label class="col-xs-3 control-label">Description</label>
+                <div class="col-xs-6">
+                    <textarea class="form-control" rows="8" formControlName="description" value="{{ reference.description }}" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Video</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="video" value="{{ reference.video }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Store</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="store_id" required>
+                            <option *ngFor="let store of stores" [value]="store.id">{{ store.store_name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Products</label>
+                <div class="col-xs-6">
+                    <select multiple class="form-control col-8" formControlName="selectedProducts" size="8" required>
+                            <option *ngFor="let product of allProducts" [ngValue]="product.id">{{ product.title }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Manufacturers</label>
+                <div class="col-xs-6">
+                    <select multiple class="form-control col-8" formControlName="selectedManufacturers" size="8" required>
+                            <option *ngFor="let manufacturer of allManufacturers" [ngValue]="manufacturer.id">{{ manufacturer.name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Add Image +</label>
+                <div class="col-xs-6">
+                    <input type="file" placeholder="Choose File" accept="image/*" id="filename_reference_image_url" (change)="changeListener($event)"
+                    />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-6" *ngFor="let image of myImages">
+                    <img  class="img img-responsive" [src]='image.url'>
+                    <button type="button" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-remove"></span> remove</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/references"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteReference(reference.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
+            </div>
+        </div>
+    </div>
+</form>
