@@ -1393,7 +1393,7 @@ section#front-products .page-heading {
 .modal.modal-register .form-group {
     margin-bottom: 20px
 }
-
+.modal.modal-register .form-group input[type="email"],
 .modal.modal-register .form-group input[type="text"] {
     width: 100%;
     border: none;

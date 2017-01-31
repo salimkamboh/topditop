@@ -21,8 +21,8 @@
                 </div>
                 @foreach($registerfields_ansprechpartner as $field)
                     <div class="form-group">
-                        <input name="{{$field->key}}" id="registerfield-{{$field->key}}" type="text"
-                               placeholder="{{$field->name}}">
+                        <input name="{{$field->key}}" id="registerfield-{{$field->key}}" type="{{ ($field->key == 'email') ? 'email' : 'text' }}"
+                               placeholder="{{$field->name}}" @if($field->key == 'email') required  @endif>
                     </div>
                 @endforeach
 
