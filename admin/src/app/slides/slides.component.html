@@ -1,0 +1,36 @@
+<h4 class="text-center" *ngIf="!slides">
+  <span class="glyphicon glyphicon-refresh spin"></span> Loading Slides
+</h4>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Slide Managment
+  </div>
+  <div class="panel-body" *ngIf="slides && slides.length">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Slide Title</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let slide of slides">
+            <td>{{ slide.id }}</td>
+            <td>{{ slide.created_at | date:'medium' }}</td>
+            <td>{{ slide.updated_at | date:'medium' }}</td>
+            <td>{{ slide.title }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/slide', slide.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/slide', '-1']"><span class="glyphicon glyphicon-plus"></span> add new</a>
+  </div>
+</div>
