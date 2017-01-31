@@ -375,29 +375,9 @@ footer .list-items a {
     position: absolute;
     bottom: 0;
     height: 100%;
+    width: 100%;
     overflow: hidden;
-}
-
-/*.slider__overlay__item--1 {*/
-/*left: 26.1%;*/
-/*width: 38.7%;*/
-/*}*/
-
-/*.slider__overlay__item--2 {*/
-/*left: 0;*/
-/*width: 20.9%;*/
-/*}*/
-
-/*.slider__overlay__item--3 {*/
-/*right: 0;*/
-/*width: 30.1%;*/
-/*}*/
-
-.slider__overlay__item:hover {
-    background: -webkit-linear-gradient(top, transparent, transparent 50%, rgba(0, 0, 0, .5));
-    background: linear-gradient(180deg, transparent 0, transparent 50%, rgba(0, 0, 0, .5));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
-    transition: all .3s ease-out
+    z-index: 1;
 }
 
 .carousel-caption {
@@ -2469,6 +2449,3 @@ section#home-references .special-reference-grid.home-design .width-fix {
 .reference-images .slick-prev:before, .reference-images .slick-next:before {
     color: #333 !important;
 }
-
-
-
