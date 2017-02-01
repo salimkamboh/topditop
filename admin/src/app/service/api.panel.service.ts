@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -9,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ApiPanelService {
 
-    private apiUrl = 'https://topditop.foundcenter.com/en/api/panels/';
+    private apiUrl = `https://${environment.domen_url}/en/api/panels/`;
 
     constructor(private http: Http) { }
 

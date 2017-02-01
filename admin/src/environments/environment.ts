@@ -4,5 +4,6 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  domen_url: 'topditop.com:8080' //'topditop.foundcenter.com'
 };

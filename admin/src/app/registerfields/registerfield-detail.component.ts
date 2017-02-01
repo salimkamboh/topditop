@@ -69,14 +69,14 @@ export class RegisterfieldDetailComponent implements OnInit {
             );
     }
 
-    deleteRegisterfield(id: number) {
-        // this.disabled = true;
-        // this.apiService.delete(this.entity, this.id)
-        //     .subscribe(
-        //     () => { this.toasterService.pop('success', 'Success', 'Registerfield deleted!'); this.disabled = false; this.router.navigate(['/registerfields']); },
-        //     error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting registerfield!'); this.disabled = false; this.router.navigate(['/registerfields']); }
-        //     );
-    }
+    // deleteRegisterfield(id: number) {
+    //     this.disabled = true;
+    //     this.apiService.delete(this.entity, this.id)
+    //         .subscribe(
+    //         () => { this.toasterService.pop('success', 'Success', 'Registerfield deleted!'); this.disabled = false; this.router.navigate(['/registerfields']); },
+    //         error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting registerfield!'); this.disabled = false; this.router.navigate(['/registerfields']); }
+    //         );
+    // }
 
     createFormGroup() {
         this.registerfieldForm = this.fb.group({
