@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ApiPanelService {
 
-    private apiUrl = `https://${environment.domen_url}/en/api/panels/`;
+    private apiUrl = `${environment.domen_url}/en/api/panels/`;
 
     constructor(private http: Http) { }
 

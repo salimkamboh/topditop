@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  domen_url: 'topditop.com'
+  domen_url: 'http://topditop.com'
 };

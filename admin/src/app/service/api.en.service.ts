@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ApiEnService {
 
-  private apiUrl = `https://${environment.domen_url}/en/api/`;
+  private apiUrl = `${environment.domen_url}/en/api/`;
 
   constructor(private http: Http) { }
 

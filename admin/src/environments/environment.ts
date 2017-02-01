@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  domen_url: 'topditop.com:8080' //'topditop.foundcenter.com'
+  domen_url: 'http://topditop.com:8080'
 };
