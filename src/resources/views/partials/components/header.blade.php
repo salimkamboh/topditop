@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{route("default")}}">Top<span class="navbar-brand--logo-mod">di</span>Top
+                <a class="navbar-brand" href="{{route("default")}}">Top<span class="navbar-brand--logo-mod">Di</span>Top
                     H.O.M.E.</a>
             </div>
             <div class="collapse navbar-collapse">

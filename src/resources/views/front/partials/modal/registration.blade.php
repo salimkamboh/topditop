@@ -3,7 +3,7 @@
     <div class="content">
         <div class="dialog">
             <a class="navbar-brand" href="{{ route('dashboard_home') }}">Top<span
-                        class="navbar-brand--logo-mod">di</span>Top
+                        class="navbar-brand--logo-mod">Di</span>Top
                 H.O.M.E.</a>
             <h2>Registration</h2>
             <p>Eröffnen Sie Ihren TopDiTop-Store. Nach Eingang Ihrer Registríerung senden wir Ihnen die Informationen

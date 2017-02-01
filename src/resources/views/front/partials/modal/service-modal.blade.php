@@ -2,7 +2,7 @@
     <i class="close icon"></i>
     <div class="dialog">
         <a class="navbar-brand" href="{{ route('dashboard_home') }}">Top<span
-                    class="navbar-brand--logo-mod">di</span>Top
+                    class="navbar-brand--logo-mod">Di</span>Top
             H.O.M.E.</a>
         <h2>TopdiTopStore</h2>
         <form method="post" class="final-register-form" action="{{route('confirm_registration', $user)}}">

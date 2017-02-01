@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ route("admin", App::getLocale()) }}">Top<span class="admin-logo-mod">di</span>Top
+        <a class="navbar-brand" href="{{ route("admin", App::getLocale()) }}">Top<span class="admin-logo-mod">Di</span>Top
             H.O.M.E. <span
                     class="admin-logo-mod-subtext">Admin Panel: {{$store->store_name}}</span></a>
     </div>
