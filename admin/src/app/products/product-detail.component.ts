@@ -46,7 +46,7 @@ export class ProductDetailComponent implements OnInit {
             this.apiProductService.get(this.id)
                 .subscribe(
                 product => { this.product = <Product>product; this.setFormGroup(); },
-                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading product'); }
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Product with given ID doesn`t exist!'); this.router.navigate(['/products']); }
                 );
             this.setStore();
             this.setReferences();

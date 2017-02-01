@@ -39,12 +39,12 @@ export class ApiStoreService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    update(id: number, data: Object): Observable<Object> {
+    activateStore(id: number, data: Object): Observable<Object> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.apiUrl + id, data, options)
-            .map((res: Response) => { res.json(); console.log(res.json()); })
+        return this.http.post(this.apiUrl + 'activate/' + id, data, options)
+            .map((res: Response) => { res.json(); })
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 

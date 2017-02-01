@@ -26,7 +26,7 @@ export class RegisterfieldDetailComponent implements OnInit {
             this.apiService.get(this.entity, this.id)
                 .subscribe(
                 registerfield => { this.registerfield = <Registerfield>registerfield; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Registration field with given ID doesn`t exist!'); this.router.navigate(['/registerfields']); }
                 );
         } else {
             this.registerfield = {

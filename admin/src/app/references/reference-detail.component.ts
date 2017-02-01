@@ -44,7 +44,7 @@ export class ReferenceDetailComponent implements OnInit {
             this.apiReferenceService.get(this.id)
                 .subscribe(
                 reference => { this.reference = <Reference>reference; this.setFormGroup(); },
-                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading reference'); }
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Reference with given ID doesn`t exist!'); this.router.navigate(['/references']); }
                 );
             this.setStores();
             this.setProducts();

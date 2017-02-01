@@ -27,7 +27,7 @@ export class ManufacturerDetailComponent implements OnInit {
             this.apiService.get(this.entity, this.id)
                 .subscribe(
                 manufacturer => { this.manufacturer = <Brand>manufacturer; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Manufacturer with given ID doesn`t exist!'); this.router.navigate(['/manufacturers']); }
                 );
         } else {
             this.manufacturer = {

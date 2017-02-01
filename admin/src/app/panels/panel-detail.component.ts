@@ -30,7 +30,7 @@ export class PanelDetailComponent implements OnInit {
             this.apiPanelService.get(this.id)
                 .subscribe(
                 panel => { this.panel = <Panel>panel; console.log(this.panel); this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Panel with given ID doesn`t exist!'); this.router.navigate(['/panels']); }
                 );
             this.apiPanelService.getFieldGroups(this.id)
                 .subscribe(

@@ -1,10 +1,10 @@
-<h4 class="text-center" *ngIf="!store">
+<h4 class="text-center" *ngIf="!store || !locations">
     <span class="glyphicon glyphicon-refresh spin"></span> Loading Store Details
 </h4>
 
-<label *ngIf="store">{{ id === '-1' ? 'New' : 'Edit' }} Store Entry</label>
+<label *ngIf="store">Edit Store Entry</label>
 
-<form class="form-horizontal" [formGroup]="storeForm" (ngSubmit)="onSubmit($event)" *ngIf="store">
+<form class="form-horizontal" [formGroup]="storeForm" (ngSubmit)="onSubmit($event)" *ngIf="store && locations">
     <div class="panel panel-primary">
         <div class="panel-heading">
             Store Details
@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label">User Email</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control col-8" formControlName="email" value="{{ store.user_email }}" required>
+                    <input type="email" class="form-control col-8" formControlName="email" value="{{ store.user_email }}" required>
                 </div>
             </div>
             <div class="form-group">
@@ -31,20 +31,19 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label">Store Name</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control col-8" formControlName="name" value="{{ store.store_name }}" required>
+                    <input type="text" class="form-control col-8" formControlName="store" value="{{ store.store_name }}" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-xs-3 control-label">Status</label>
                 <div class="col-xs-6">
-                    <select class="form-control col-8" formControlName="status" [value]="store.status" required>
-                            <option>Please select...</option>                        
+                    <select class="form-control col-8" formControlName="status" [value]="store.status" required>                
                             <option [value]="1">Yes</option>
                             <option [value]="0">No</option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label class="col-xs-3 control-label">Select Category</label>
                 <div class="col-xs-6">
                     <select class="form-control col-8" required>
@@ -54,7 +53,7 @@
                             <option  [value]="3">Another Category</option>
                     </select>
                 </div>
-            </div>
+            </div>-->
             <div class="form-group">
                 <label class="col-xs-3 control-label">Select Location</label>
                 <div class="col-xs-6">
@@ -66,7 +65,7 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label"> Fields and values</label>
                 <div class="col-xs-6">
-                    <select multiple class="form-control col-8" formControlName="selectedFieldAndValues" size="8" required>
+                    <select multiple class="form-control col-8" size="8">
                             <option *ngFor="let registerfield of store.user.registerfields" [ngValue]="registerfield.id">{{ registerfield.name }} = {{ registerfield.pivot.valueEntered }}</option>
                     </select>
                 </div>

@@ -31,7 +31,7 @@ export class AdvertisementDetailComponent implements OnInit {
             this.apiService.get(this.entity, this.id)
                 .subscribe(
                 advert => { this.advert = <Adverts>advert; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Advertisement with given ID doesn`t exist!'); this.router.navigate(['/advertisements']); } 
                 );
         } else {
             this.advert = {

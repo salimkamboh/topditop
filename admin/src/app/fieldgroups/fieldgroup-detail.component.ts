@@ -29,12 +29,12 @@ export class FieldgroupDetailComponent implements OnInit {
         if (this.id != -1) {
             this.apiEnService.get(this.entity, this.id)
                 .subscribe(
-                fieldgroup => { this.fieldgroup = <Fieldgroup>fieldgroup; console.log(this.fieldgroup);  },
-                error => this.errorMessage = <any>error
+                fieldgroup => { this.fieldgroup = <Fieldgroup>fieldgroup; },
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Fieldgroup with given ID doesn`t exist!'); this.router.navigate(['/fieldgroups']); }
                 );
             this.apiEnService.getAll('fields/all/free/' + this.id)
                 .subscribe(
-                fields => { this.fields = <Field[]>fields; console.log(this.fields); this.createFormGroup();},
+                fields => { this.fields = <Field[]>fields; this.createFormGroup(); },
                 error => this.errorMessage = <any>error
                 );
         } else {
@@ -48,15 +48,15 @@ export class FieldgroupDetailComponent implements OnInit {
             };
             this.apiEnService.getAll('fields/all/free')
                 .subscribe(
-                fields => { this.fields = <Field[]>fields; console.log(this.fields)},
+                fields => { this.fields = <Field[]>fields; },
                 error => this.errorMessage = <any>error
                 );
-                
+
             this.createFormGroup();
         }
 
     }
-    
+
     onSubmit() {
         this.disabled = true;
         if (this.id != -1) {
@@ -120,7 +120,6 @@ export class FieldgroupDetailComponent implements OnInit {
                     fieldIds.push(this.fields[i].id);
                 }
             }
-            console.log(fieldIds);
             return fieldIds;
         }
     }

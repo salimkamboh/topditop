@@ -30,7 +30,7 @@ export class SlideDetailComponent implements OnInit {
             this.apiService.get(this.entity, this.id)
                 .subscribe(
                 slide => { this.slide = <Slide>slide; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Slide with given ID doesn`t exist!'); this.router.navigate(['/slides']); }
                 );
         } else {
             this.createNewSlide();

@@ -30,7 +30,7 @@ export class FieldDetailComponent implements OnInit {
             this.apiEnService.get(this.entity, this.id)
                 .subscribe(
                 field => { this.field = <Field>field; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Field with given ID doesn`t exist!'); this.router.navigate(['/fields']); }
                 );
         } else {
             this.field = {
