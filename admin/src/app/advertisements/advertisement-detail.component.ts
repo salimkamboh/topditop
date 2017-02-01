@@ -107,7 +107,7 @@ export class AdvertisementDetailComponent implements OnInit {
         this.apiService.delete(this.entity, id)
             .subscribe(
             advert => { this.toasterService.pop('success', 'Success', 'Advertisement deleted!'); this.router.navigate(['/advertisements']); this.disabled = false; },
-            error => { this.errorMessage = <any>error; console.log(this.errorMessage); this.toasterService.pop('error', 'Error', 'Error with deleting advertisement!'); this.disabled = false; this.router.navigate(['/advertisements']); }
+            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting advertisement!'); this.disabled = false; this.router.navigate(['/advertisements']); }
             );
     }
 

@@ -5,8 +5,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-manufacturers',
-  templateUrl: './manufacturers.component.html',
-  styleUrls: ['./manufacturers.component.css']
+  templateUrl: './manufacturers.component.html'
 })
 export class ManufacturersComponent implements OnInit {
 

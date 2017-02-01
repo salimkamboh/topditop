@@ -9,8 +9,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
     selector: 'app-field-detail',
-    templateUrl: './field-detail.component.html',
-    styleUrls: ['./field-detail.component.css']
+    templateUrl: './field-detail.component.html'
 })
 export class FieldDetailComponent implements OnInit {
 

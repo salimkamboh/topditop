@@ -5,8 +5,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-fields',
-  templateUrl: './fields.component.html',
-  styleUrls: ['./fields.component.css']
+  templateUrl: './fields.component.html'
 })
 export class FieldsComponent implements OnInit {
 
@@ -23,6 +22,4 @@ export class FieldsComponent implements OnInit {
       error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading fields'); }
       );
   }
-
-
 }

@@ -5,8 +5,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-fieldgroups',
-  templateUrl: './fieldgroups.component.html',
-  styleUrls: ['./fieldgroups.component.css']
+  templateUrl: './fieldgroups.component.html'
 })
 export class FieldgroupsComponent implements OnInit {
 

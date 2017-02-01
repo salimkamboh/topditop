@@ -5,8 +5,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-fieldtypes',
-  templateUrl: './fieldtypes.component.html',
-  styleUrls: ['./fieldtypes.component.css']
+  templateUrl: './fieldtypes.component.html'
 })
 export class FieldtypesComponent implements OnInit {
 

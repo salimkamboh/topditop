@@ -29,12 +29,12 @@ export class PanelDetailComponent implements OnInit {
         if (this.id != -1) {
             this.apiPanelService.get(this.id)
                 .subscribe(
-                panel => { this.panel = <Panel>panel; console.log(this.panel); this.createFormGroup(); },
+                panel => { this.panel = <Panel>panel; this.createFormGroup(); },
                 error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Panel with given ID doesn`t exist!'); this.router.navigate(['/panels']); }
                 );
             this.apiPanelService.getFieldGroups(this.id)
                 .subscribe(
-                fieldgroups => { this.fieldgroups = <Fieldgroup[]>fieldgroups; console.log(this.fieldgroups); },
+                fieldgroups => { this.fieldgroups = <Fieldgroup[]>fieldgroups; },
                 error => this.errorMessage = <any>error
                 );
         } else {
@@ -50,7 +50,7 @@ export class PanelDetailComponent implements OnInit {
         };
         this.apiEnService.getAll('fieldgroups/all')
             .subscribe(
-            allFieldGroups => { this.allFieldGroups = <Fieldgroup[]>allFieldGroups; console.log(this.allFieldGroups); },
+            allFieldGroups => { this.allFieldGroups = <Fieldgroup[]>allFieldGroups; },
             error => this.errorMessage = <any>error
             );
         this.dirty = false;
@@ -108,7 +108,6 @@ export class PanelDetailComponent implements OnInit {
                 this.fieldgroups[current_id] = this.allFieldGroups[i];
             }
         }
-        console.log(this.fieldgroups);
     }
 
     addNewFieldGroup() {
@@ -128,7 +127,6 @@ export class PanelDetailComponent implements OnInit {
         if (this.dirty) {
             panel['fieldGroups'] = this.getFieldGroupId();
         }
-        console.log(panel);
         return panel;
     }
 

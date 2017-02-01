@@ -98,7 +98,6 @@ export class PackageDetailComponent implements OnInit {
             "name": this.packageForm.value.name,
             "panels": this.packageForm.value.selectedPanels,
         };
-        console.log(this.pack);
         return pack;
     }
 

@@ -56,7 +56,7 @@ export class ApiProductService {
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.apiUrl + 'update/' + id, data, options)
-      .map((res: Response) => { res.json(); console.log(res.json()); })
+      .map((res: Response) => { res.json(); })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
@@ -68,7 +68,7 @@ export class ApiProductService {
 
   deleteImage(id: number, data: Object): Observable<Object> {
     return this.http.post(this.apiUrl + 'images/delete/' + id, data)
-      .map((res: Response) => { res.json(); console.log(res.json()); })
+      .map((res: Response) => { res.json(); })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }

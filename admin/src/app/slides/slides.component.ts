@@ -5,8 +5,7 @@ import { Slide } from '../data/slide';
 
 @Component({
   selector: 'app-slides',
-  templateUrl: './slides.component.html',
-  styleUrls: ['./slides.component.css']
+  templateUrl: './slides.component.html'
 })
 export class SlidesComponent implements OnInit {
   slides: Slide[];
@@ -22,5 +21,5 @@ export class SlidesComponent implements OnInit {
       error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading slides'); }
       );
   }
-
+  
 }

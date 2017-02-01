@@ -91,7 +91,6 @@ export class RegisterfieldDetailComponent implements OnInit {
             "name": this.registerfieldForm.value.name,
             "fieldlocation": this.registerfieldForm.value.location,
         };
-        console.log(registerfield)
         return registerfield;
     }
 }
