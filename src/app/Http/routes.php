@@ -102,22 +102,15 @@ Route::localizedGroup(function () {
     });
 });
 
-//Route::get('/allstores', ['as' => 'testroute', function () {
-//
-//    $stores = \App\Store::all();
-//    $stores_array = array();
-//    foreach ($stores as $store) {
-//        $stores_array[] = array(
-//            'id' => $store->id,
-//            'store_name' => $store->store_name,
-//            'location' => $store->location->name,
-//            'user_email' => $store->user->email,
-//            //'pass' => $store->user->password,
-//            'package' => $store->profile->package->name
-//        );
-//    }
-//    return $stores_array;
-//}]);
+Route::group(['middleware' => ['api'], 'prefix' => 'api/'], function () {
+    Route::post('auth/login', ['as' => 'api.admin.login', 'uses' => 'Auth\AuthController@apiAdminLogin']);
+    Route::group(['middleware' => 'jwt.admin'], function () {
+        Route::get('auth/check', ['as' => 'api.admin.check', 'uses' => 'Auth\AuthController@apiAdminCheck']);
+    });
+    Route::group(['middleware' => 'jwt.refresh'], function () {
+        Route::get('auth/check/refresh', ['as' => 'api.admin.check', 'uses' => 'Auth\AuthController@apiAdminCheck']);
+    });
+});
 
 Route::get('/register/verify/{confirmation_code}', ['as' => 'registerverify', 'uses' => 'Auth\AuthController@verify']);
 Route::post('/register/confirm/{user}', ['as' => 'confirm_registration', 'uses' => 'Auth\AuthController@confirm']);

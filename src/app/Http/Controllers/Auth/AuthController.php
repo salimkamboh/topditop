@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\Auth\AdminLoginRequest;
 use App\Package;
 use App\Profile;
 use App\Registerfield;
@@ -11,9 +12,13 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Helpers\Contracts\MagentoActionsContract;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Response;
 use phpDocumentor\Reflection\Types\Object_;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -50,7 +55,11 @@ class AuthController extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => [
+            'logout',
+            'apiAdminLogin',
+            'apiAdminCheck'
+        ]]);
     }
 
     /**
@@ -242,5 +251,32 @@ class AuthController extends BaseController
                 $this->loginUsername() => $this->getFailedLoginMessage(),
                 'failed_login' => true,
             ]);
+    }
+
+    public function apiAdminLogin(AdminLoginRequest $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        try {
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'Invalid Credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'Could not issue token'], 500);
+        }
+        $user = Auth::user();
+
+        return response()->json([
+            'user' => $user,
+            'token' => $token
+        ]);
+    }
+
+    public function apiAdminCheck()
+    {
+        return Response::json([
+            'user' => JWTAuth::parseToken()->toUser(),
+            "you" => "are logged in"
+        ]);
     }
 }
