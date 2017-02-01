@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'test@topditop.foundcenter.com', 'name' => 'TopdiTop'],
+    'from' => ['address' => 'test@topditop.com', 'name' => 'TopdiTop'],
 
     /*
     |--------------------------------------------------------------------------
