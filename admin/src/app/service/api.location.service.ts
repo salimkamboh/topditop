@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ApiLocationService {
 
-  private apiUrl = `${environment.domen_url}/en/api/locations/`;
+  private apiUrl = `${environment.domain_url}/en/api/locations/`;
 
   constructor(private http: Http) { }
 
