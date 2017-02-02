@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label">Brand</label>
                 <div class="col-xs-6">
-                    <select class="form-control col-8" formControlName="manufacturer_id" [value]="advert.manufacturer_id">
+                    <select class="form-control col-8" formControlName="manufacturer_id" [value]="advert.manufacturer_id" required>
                        <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
                     </select>
                 </div>

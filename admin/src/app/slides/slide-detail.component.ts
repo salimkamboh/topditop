@@ -27,19 +27,29 @@ export class SlideDetailComponent implements OnInit {
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         if (this.id != -1) {
-            this.apiService.get(this.entity, this.id)
+            this.apiService
+                .get(this.entity, this.id)
                 .subscribe(
-                slide => { this.slide = <Slide>slide; this.createFormGroup(); },
-                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Slide with given ID doesn`t exist!'); this.router.navigate(['/slides']); }
+                    slide => { 
+                        this.slide = <Slide>slide; 
+                        this.createFormGroup(); 
+                    },
+                    error => { 
+                        this.errorMessage = <any>error; 
+                        this.toasterService.pop('error', 'Error', 'Slide with given ID doesn`t exist!'); 
+                        this.router.navigate(['/slides']); 
+                    }
                 );
         } else {
             this.createNewSlide();
             this.createFormGroup();
         }
-        this.apiService.getAll('stores/all').subscribe(
-            stores => { this.stores = <Store[]>stores; },
-            error => this.errorMessage = <any>error
-        );
+        this.apiService
+            .getAll('stores/all')
+            .subscribe(
+                stores => { this.stores = <Store[]>stores; },
+                error => this.errorMessage = <any>error
+            );
         this.base64 = null;
     }
 
@@ -54,30 +64,59 @@ export class SlideDetailComponent implements OnInit {
 
     createSlide() {
         let slide = this.createDataObject();
-        this.apiService.create(this.entity, slide)
+        this.apiService
+            .create(this.entity, slide)
             .subscribe(
-            slide => { this.slide = <Slide>slide; this.toasterService.pop('success', 'Success', 'Slide created!'); this.disabled = false; this.router.navigate(['/slide', this.slide.id]); this.id = this.slide.id },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with creating slide!'); this.disabled = false; this.router.navigate(['/slides']); }
+                slide => { 
+                    this.slide = <Slide>slide; 
+                    this.toasterService.pop('success', 'Success', 'Slide created!'); 
+                    this.disabled = false; this.router.navigate(['/slide', this.slide.id]); 
+                    this.id = this.slide.id 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with creating slide!'); 
+                    this.disabled = false; 
+                    this.router.navigate(['/slides']); 
+                }
             );
 
     }
 
     updateSlide(id: number) {
         let slide = this.createDataObject();
-        this.apiService.update(this.entity, this.id, slide)
+        this.apiService
+            .update(this.entity, this.id, slide)
             .subscribe(
-            slide => { this.slide = <Slide>slide; this.toasterService.pop('success', 'Success', 'Slide updated!'); this.router.navigate(['/slides']); this.disabled = false; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with updating slides!'); this.disabled = false; this.router.navigate(['/slides']); }
+                slide => { 
+                    this.slide = <Slide>slide; 
+                    this.toasterService.pop('success', 'Success', 'Slide updated!'); 
+                    this.router.navigate(['/slides']); this.disabled = false; 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with updating slides!'); 
+                    this.disabled = false; this.router.navigate(['/slides']); 
+                }
             );
 
     }
 
     deleteSlide(id: number) {
         this.disabled = true;
-        this.apiService.delete(this.entity, id)
+        this.apiService
+            .delete(this.entity, id)
             .subscribe(
-            () => { this.toasterService.pop('success', 'Success', 'Slide deleted!'); this.disabled = false; this.router.navigate(['/slides']); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting slide!'); this.disabled = false; this.router.navigate(['/slides']); }
+                () => { 
+                    this.toasterService.pop('success', 'Success', 'Slide deleted!'); 
+                    this.disabled = false; 
+                    this.router.navigate(['/slides']); 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with deleting slide!'); 
+                    this.disabled = false; this.router.navigate(['/slides']); 
+                }
             );
     }
 
@@ -88,6 +127,9 @@ export class SlideDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
+        if( !inputValue || inputValue.files.length === 0 ) {
+            return;
+        }
         myReader.onloadend = (e) => {
             this.base64 = myReader.result;
             this.slide.image_url = myReader.result;

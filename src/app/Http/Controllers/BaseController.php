@@ -33,7 +33,7 @@ class BaseController extends Controller
 
         $this->products_footer = Product::limit(6)->offset(0)->get();
         $this->locations_footer = $this->homeLocations();
-        $this->stores_footer = Store::where('status', 1)->limit(10)->offset(0)->get();
+        $this->stores_footer = Store::active()->limit(10)->offset(0)->get();
 
         View::share('current_store', $this->current_store);
         View::share('products_footer', $this->products_footer);

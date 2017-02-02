@@ -61,6 +61,11 @@ class Reference extends Model implements JsonInfoInterface
         return str_replace('full_size', 'icon_size/' . $slug, $image->getImageUrl());
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+
     /**
      * @return int|string
      */

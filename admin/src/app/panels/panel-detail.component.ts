@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiPanelService } from '../service/api.panel.service';
-import { ApiEnService } from '../service/api.en.service';
+import { ApiService } from '../service/api.service';
 import { Panel } from '../data/panel';
 import { Fieldgroup } from '../data/fieldgroup';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class PanelDetailComponent implements OnInit {
     private panelForm: FormGroup;
     private dirty: boolean;
 
-    constructor(private apiPanelService: ApiPanelService, private apiEnService: ApiEnService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
+    constructor(private apiPanelService: ApiPanelService, private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
@@ -48,7 +48,7 @@ export class PanelDetailComponent implements OnInit {
             this.fieldgroups = [];
             this.createFormGroup();
         };
-        this.apiEnService.getAll('fieldgroups/all')
+        this.apiService.getAll('fieldgroups/all')
             .subscribe(
             allFieldGroups => { this.allFieldGroups = <Fieldgroup[]>allFieldGroups; },
             error => this.errorMessage = <any>error
