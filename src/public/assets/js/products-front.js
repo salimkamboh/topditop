@@ -39,7 +39,13 @@ function openProductModal(productId) {
         populateProductModal(response);
         setTimeout(function() {
             $('.ui.modal.modal-single-product').modal('refresh');
+
+            $('#reference-images-' + productId).css('visibility', 'hidden');
             $('#reference-images-' + productId).resize();
+
+            setTimeout(function() {
+                $('#reference-images-' + productId).css('visibility', 'visible');
+            }, 300);
         }, 300);
 
         $('.ui.modal.modal-single-product').modal('show');

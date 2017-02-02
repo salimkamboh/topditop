@@ -23,7 +23,13 @@ function openProductModal(productId) {
         populateProductModal(response);
         setTimeout(function() {
             $('.ui.modal.modal-single-product').modal('refresh');
+
+            $('#reference-images-' + productId).css('visibility', 'hidden');
             $('#reference-images-' + productId).resize();
+
+            setTimeout(function() {
+                $('#reference-images-' + productId).css('visibility', 'visible');
+            }, 300);
         }, 300);
 
         $('.ui.modal.modal-single-product').modal('show');
@@ -70,7 +76,7 @@ function populateProductModal(productData) {
 
     if (referenceImages) {
         productHTML += '<h3>' + Lang.get('messages.product_other_references') + '</h3>';
-        productHTML += '<div class="reference-images" id="reference-images-' + productData.id + '">';
+        productHTML += '<div class="reference-images" id="reference-images-' + productData.id + '" tab-index="-1">';
 
         referenceImages.forEach(function(referenceImage) {
             productHTML += '<a href="' + _globalRoute + '/front/references/single/' + productData.refId + '"><img src="' + referenceImage + '" alt=""></a>';
