@@ -120,11 +120,11 @@ class ProductsController extends BaseController
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
 
 
-        $forbidden = $selected_references->getQueueableIds();
+        $selectedReferencesIds = $selected_references->getQueueableIds();
 
         $availableReferences = Reference::active()->where('store_id', $store->id)
                                 ->with('products')->get()
-                                ->except($forbidden);
+                                ->except($selectedReferencesIds);
 
         return view('dashboard.products.single-product')
             ->with('product', $product)
