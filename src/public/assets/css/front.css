@@ -1331,6 +1331,10 @@ section#front-products .page-heading {
     font-size: 12px;
 }
 
+.modal-single-product > .content {
+    max-height: calc(100vh - 65px);
+    overflow-y: auto;
+}
 /*Modal for Products end*//*Modal for Products end*//*Modal for Products end *//*Modal for Products*/
 
 /*modal for registration*//*modal for registration*/
