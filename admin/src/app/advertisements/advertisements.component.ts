@@ -16,11 +16,15 @@ export class AdvertisementsComponent implements OnInit {
   constructor(private apiService: ApiService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiService.getAll(this.entity_url)
-      .subscribe(
-      adverts => this.adverts = <Adverts[]>adverts,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading advertisements'); }
-      );
+    this.apiService
+        .getAll(this.entity_url)
+        .subscribe(
+          adverts => this.adverts = <Adverts[]>adverts,
+          error => {
+            this.errorMessage = <any>error;
+            this.toasterService.pop('error', 'Error', 'Error with loading advertisements');
+          }
+        );
   }
 
 }
