@@ -265,7 +265,7 @@ class StoreController extends BaseController
      */
     public function activeStores()
     {
-        $stores = Store::where('status', 1)->get();
+        $stores = Store::active()->get();
         $arrayOfData = array();
 
         foreach ($stores as $store) {

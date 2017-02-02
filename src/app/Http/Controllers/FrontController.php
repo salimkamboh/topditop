@@ -73,8 +73,8 @@ class FrontController extends BaseController
         $manufacturers = $store->manufacturers;
         $datablock = $this->settingsRepository->getStoreData($store);
 
-        $references_newest = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
-        $references_most = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('views', 'desc')->get();
+        $references_newest = Reference::active()->where('store_id', $store->id)->limit(12)->offset(0)->orderBy('id', 'desc')->get();
+        $references_most = Reference::active()->where('store_id', $store->id)->limit(12)->offset(0)->orderBy('views', 'desc')->get();
 
         $products_newest = Product::where(['store_id' => $store->id])->limit(6)->offset(0)->orderBy('id', 'desc')->get();
         $products_most = Product::where(['store_id' => $store->id])->limit(6)->offset(0)->orderBy('views', 'desc')->get();
@@ -126,8 +126,8 @@ class FrontController extends BaseController
 
     public function showReferences()
     {
-        $references = Reference::where('status', 1)->get();
-        $stores = Store::where('status', 1)->get();
+        $references = Reference::active()->get();
+        $stores = Store::active()->get();
         $manufacturers = Manufacturer::all();
         return view('front.references.list')
             ->with('references', $references)
@@ -142,8 +142,8 @@ class FrontController extends BaseController
             return redirect()->route('default');
         }
 
-        $references_newest = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('id', 'desc')->get();
-        $references_most = Reference::where(['status' => '1', 'store_id' => $store->id])->limit(12)->offset(0)->orderBy('views', 'desc')->get();
+        $references_newest = Reference::active()->where('store_id', $store->id)->limit(12)->offset(0)->orderBy('id', 'desc')->get();
+        $references_most = Reference::active()->where('store_id', $store->id)->limit(12)->offset(0)->orderBy('views', 'desc')->get();
         $manufacturers = Manufacturer::all();
         $allow_sharing = Field::getSelectedValues("allow_sharing", $store);
         return view('front.references.gallery')
@@ -185,7 +185,7 @@ class FrontController extends BaseController
     public function showProducts()
     {
         $products = Product::orderBy('id', 'desc')->get();
-        $stores = Store::where('status', 1)->get();
+        $stores = Store::active()->get();
         $manufacturers = Manufacturer::all();
         return view('front.products.list')
             ->with('products', $products)
@@ -200,7 +200,7 @@ class FrontController extends BaseController
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
-        $stores = Store::where('status', 1)->get();
+        $stores = Store::active()->get();
         $manufacturers = Manufacturer::all();
         $filter_locations = Location::all();
         return view('front.stores.list')

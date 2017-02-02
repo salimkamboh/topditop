@@ -42,8 +42,8 @@ class HomeController extends BaseController
      */
     public function homepage()
     {
-        $references_newest = Reference::where(['status' => '1'])->limit(6)->offset(0)->orderBy('id', 'desc')->get();
-        $references_most = Reference::where(['status' => '1'])->limit(6)->offset(0)->orderBy('views', 'desc')->get();
+        $references_newest = Reference::active()->limit(6)->offset(0)->orderBy('id', 'desc')->get();
+        $references_most = Reference::active()->limit(6)->offset(0)->orderBy('views', 'desc')->get();
 
         $products_most = Product::limit(6)->offset(0)->orderBy('views', 'desc')->get();
         $products_newest = Product::where('store_id', '!=', null)->where('manufacturer_id', '!=', null)->limit(6)->offset(0)->orderBy('id', 'desc')->get();
