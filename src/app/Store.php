@@ -131,6 +131,11 @@ class Store extends Model
         return Manufacturer::whereIn('id', $brands)->get();
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+
     public function getStoreData()
     {
         $store = $this;
