@@ -15,11 +15,14 @@ export class SlidesComponent implements OnInit {
   constructor(private apiService: ApiService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiService.getAll(this.entity_url)
-      .subscribe(
-      slides => this.slides = <Slide[]>slides,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading slides'); }
-      );
+    this.apiService
+        .getAll(this.entity_url)
+        .subscribe(
+            slides => this.slides = <Slide[]>slides,
+            error => { 
+              this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading slides'); 
+            }
+        );
   }
   
 }
