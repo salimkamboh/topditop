@@ -619,7 +619,7 @@ button.click-button {
     max-width: 290px;
     height: 41px;
     margin: 0 auto;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     border: 1px solid #e7e7e7;
@@ -1432,7 +1432,7 @@ section#front-products .page-heading {
     width: 240px;
     height: 41px;
     margin: 0 auto;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     color: black;
