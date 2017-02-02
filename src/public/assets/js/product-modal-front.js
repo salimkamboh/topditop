@@ -76,7 +76,7 @@ function populateProductModal(productData) {
 
     if (referenceImages) {
         productHTML += '<h3>' + Lang.get('messages.product_other_references') + '</h3>';
-        productHTML += '<div class="reference-images" id="reference-images-' + productData.id + '" tab-index="-1">';
+        productHTML += '<div class="reference-images" id="reference-images-' + productData.id + '">';
 
         referenceImages.forEach(function(referenceImage) {
             productHTML += '<a href="' + _globalRoute + '/front/references/single/' + productData.refId + '"><img src="' + referenceImage + '" alt=""></a>';
