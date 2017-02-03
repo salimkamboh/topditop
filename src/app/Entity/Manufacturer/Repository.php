@@ -3,10 +3,8 @@
 namespace App\Entity\Manufacturer;
 
 use App\Manufacturer;
-use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 
 class Repository
 {

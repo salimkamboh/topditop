@@ -3,8 +3,8 @@
 namespace App\Entity\Field;
 
 use App\Field;
-use Illuminate\Http\Request;
 use App\Fieldtype;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class Repository

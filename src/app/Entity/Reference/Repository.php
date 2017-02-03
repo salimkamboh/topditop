@@ -2,15 +2,12 @@
 
 namespace App\Entity\Reference;
 
-use App\Entity\Image\ImageRepository;
-use App\Image;
-use App\Manufacturer;
+use App\Helpers\PowerChecker;
+use App\Helpers\VideoUrlHelper;
 use App\Product;
 use App\Reference;
 use App\Store;
 use Illuminate\Http\Request;
-use App\Helpers\PowerChecker;
-use App\Helpers\VideoUrlHelper;
 
 class Repository extends PowerChecker
 {

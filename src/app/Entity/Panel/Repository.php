@@ -2,11 +2,10 @@
 
 namespace App\Entity\Panel;
 
-use App\Package;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
-use App\Panel;
 use App\FieldGroup;
+use App\Package;
+use App\Panel;
+use Illuminate\Http\Request;
 
 class Repository
 {

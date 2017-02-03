@@ -2,10 +2,10 @@
 
 namespace App\Entity\Registerfield;
 
-use App\User;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
 use App\Registerfield;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class Repository
 {

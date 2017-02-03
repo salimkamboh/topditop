@@ -2,17 +2,16 @@
 
 namespace App\Entity\Image;
 
+use App\Image;
 use App\Product;
 use App\Reference;
 use App\Thumbnail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
-use App\Image;
 
 class ImageRepository
 {

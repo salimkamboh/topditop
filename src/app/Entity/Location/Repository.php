@@ -2,9 +2,9 @@
 
 namespace App\Entity\Location;
 
+use App\Location;
 use App\Store;
 use Illuminate\Http\Request;
-use App\Location;
 use Illuminate\Support\Facades\App;
 
 class Repository

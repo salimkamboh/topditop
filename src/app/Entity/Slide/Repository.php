@@ -5,7 +5,6 @@ namespace App\Entity\Slide;
 use App\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 
 class Repository
 {
