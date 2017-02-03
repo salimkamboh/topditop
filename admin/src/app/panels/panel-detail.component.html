@@ -22,24 +22,25 @@
                     <input type="text" class="form-control col-8" formControlName="key" value="{{ panel.key }}" required>
                 </div>
             </div>
-            <div class="col-xs-3 control-label">
-                <button type="button" class="btn btn-primary" (click)="addNewFieldGroup()"><span class="glyphicon glyphicon-plus"></span> add</button>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-6" *ngFor="let fieldgroup of fieldgroups; let i=index;">
-                    <select class="form-control col-8" value="{{ fieldgroup.id }}" (change)="changeFieldGroups(i, $event.target.value)">
-                            <option *ngFor="let fg of allFieldGroups" [value]="fg.id" [selected]="fieldgroup.id==fg.id">{{fg.name}}</option>
+
+            <div class="form-group" formArrayName="selectedFieldGroups">
+                <div class="col-xs-3 control-label">
+                    <button type="button" class="btn btn-primary" (click)="addNewFieldGroup()"><span class="glyphicon glyphicon-plus"></span> add</button>
+                </div>
+                <div class="col-xs-6" *ngFor="let selectedFieldGroup of panelForm.controls.selectedFieldGroups.controls; let i = index;" [formGroupName]="i">
+                    <select class="form-control col-8" formControlName="id">
+                        <option *ngFor="let fg of allFieldGroups" [value]="fg.id" >{{fg.name}}</option>
                     </select>
                 </div>
             </div>
         </div>
-        <div class="panel-footer">
-            <a class="btn btn-default" routerLink="/panels"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
-            <div class="pull-right">
-                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
-                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
-                <button type="button" class="btn btn-danger" (click)="deletePanel(panel.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
-            </div>
+    <div class="panel-footer">
+        <a class="btn btn-default" routerLink="/panels"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+        <div class="pull-right">
+            <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+            <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+            <button type="button" class="btn btn-danger" (click)="deletePanel(panel.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
         </div>
+    </div>
     </div>
 </form>
