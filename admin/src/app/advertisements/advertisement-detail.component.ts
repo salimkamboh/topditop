@@ -68,7 +68,7 @@ export class AdvertisementDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
-        if( !inputValue || inputValue.files.length===0 ) {
+        if( !inputValue.files || inputValue.files.length===0 ) {
             return;
         }
         myReader.onloadend = (e) => {

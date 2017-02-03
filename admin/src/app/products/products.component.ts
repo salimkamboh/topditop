@@ -15,10 +15,11 @@ export class ProductsComponent implements OnInit {
   constructor(private apiProductService: ApiProductService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiProductService.getAll()
-      .subscribe(
-      products => this.products = <Product[]>products,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading products'); }
-      );
+    this.apiProductService
+        .getAll()
+        .subscribe(
+            products => this.products = <Product[]>products,
+            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading products'); }
+        );
   }
 }

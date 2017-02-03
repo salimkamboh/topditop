@@ -41,10 +41,18 @@ export class ReferenceDetailComponent implements OnInit {
         this.id = this.route.snapshot.params['id'];
         this.createFormGroup();
         if (this.id != -1) {
-            this.apiReferenceService.get(this.id)
+            this.apiReferenceService
+                .get(this.id)
                 .subscribe(
-                reference => { this.reference = <Reference>reference; this.setFormGroup(); },
-                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Reference with given ID doesn`t exist!'); this.router.navigate(['/references']); }
+                    reference => { 
+                        this.reference = <Reference>reference; 
+                        this.setFormGroup(); 
+                    },
+                    error => { 
+                        this.errorMessage = <any>error; 
+                        this.toasterService.pop('error', 'Error', 'Reference with given ID doesn`t exist!'); 
+                        this.router.navigate(['/references']); 
+                    }
                 );
             this.setStores();
             this.setProducts();
@@ -79,29 +87,55 @@ export class ReferenceDetailComponent implements OnInit {
 
     createReference() {
         let reference = this.createDataObject();
-        this.apiReferenceService.create(reference)
+        this.apiReferenceService
+            .create(reference)
             .subscribe(
-            reference => { this.reference = <Reference>reference; this.toasterService.pop('success', 'Success', 'Reference created!'); this.disabled = false; this.router.navigate(['/references']); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with creating reference!'); this.disabled = false; this.router.navigate(['/references']); }
+                reference => { 
+                    this.reference = <Reference>reference; 
+                    this.toasterService.pop('success', 'Success', 'Reference created!'); 
+                    this.disabled = false; this.router.navigate(['/references']); 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with creating reference!'); 
+                    this.disabled = false; this.router.navigate(['/references']); 
+                }
             );
 
     }
 
     updateReference(id: number) {
         let reference = this.createDataObject();
-        this.apiReferenceService.update(this.id, reference)
+        this.apiReferenceService
+            .update(this.id, reference)
             .subscribe(
-            reference => { this.reference = <Reference>reference; this.toasterService.pop('success', 'Success', 'Reference updated!'); this.router.navigate(['/references']); this.disabled = false; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with updating reference!'); this.disabled = false; this.router.navigate(['/references']); }
+                reference => { 
+                    this.reference = <Reference>reference; 
+                    this.toasterService.pop('success', 'Success', 'Reference updated!'); 
+                    this.router.navigate(['/references']); this.disabled = false; 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with updating reference!'); 
+                    this.disabled = false; this.router.navigate(['/references']); 
+                }
             );
     }
 
     deleteReference(id: number) {
         this.disabled = true;
-        this.apiReferenceService.delete(this.id)
+        this.apiReferenceService
+            .delete(this.id)
             .subscribe(
-            () => { this.toasterService.pop('success', 'Success', 'Reference deleted!'); this.disabled = false; this.router.navigate(['/references']); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting reference!'); this.disabled = false; this.router.navigate(['/references']); }
+                () => { 
+                    this.toasterService.pop('success', 'Success', 'Reference deleted!'); 
+                    this.disabled = false; this.router.navigate(['/references']); 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with deleting reference!'); 
+                    this.disabled = false; this.router.navigate(['/references']); 
+                }
             );
     }
 
@@ -110,51 +144,96 @@ export class ReferenceDetailComponent implements OnInit {
         let ref = {
             "referenceId": this.id
         }
-        this.apiReferenceService.deleteImage(id, ref)
+        this.apiReferenceService
+            .deleteImage(id, ref)
             .subscribe(
-            image => { this.toasterService.pop('success', 'Success', 'Image deleted!'); this.disabled = false; this.myImages.splice(index, 1); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting reference!'); }
+                image => { 
+                    this.toasterService.pop('success', 'Success', 'Image deleted!'); 
+                    this.disabled = false; this.myImages.splice(index, 1); 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with deleting reference!'); 
+                }
             );
     }
 
     setStores() {
-        this.apiStoreService.getAll().subscribe(
-            stores => { this.stores = <Store[]>stores; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading reference'); }
-        );
+        this.apiStoreService
+            .getAll()
+            .subscribe(
+                stores => { 
+                    this.stores = <Store[]>stores; 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with loading reference'); 
+                }
+            );
     }
 
     setProducts() {
         if (this.id != -1) {
-            this.apiReferenceService.getProducts(this.id).subscribe(
-                products => { this.myProducts = <Product[]>products; this.referenceForm.controls['selectedProducts'].setValue(this.getProductId()); },
-                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading products'); }
-            );
+            this.apiReferenceService
+                .getProducts(this.id)
+                .subscribe(
+                    products => { 
+                        this.myProducts = <Product[]>products; 
+                        this.referenceForm.controls['selectedProducts'].setValue(this.getProductId()); 
+                    },
+                    error => { 
+                        this.errorMessage = <any>error; 
+                        this.toasterService.pop('error', 'Error', 'Error with loading products'); 
+                    }
+                );
         }
-        this.apiProductService.getAll().subscribe(
-            allProducts => { this.allProducts = <Product[]>allProducts; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading products'); }
-        );
+        this.apiProductService
+            .getAll()
+            .subscribe(
+                allProducts => { 
+                    this.allProducts = <Product[]>allProducts; 
+                },
+                error => { 
+                    this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading products'); 
+                }
+            );
     }
 
     setManufacturer() {
         if (this.id != -1) {
-            this.apiReferenceService.getManufacturers(this.id).subscribe(
-                manufacturers => { this.myManufacturers = <Brand[]>manufacturers; this.referenceForm.controls['selectedManufacturers'].setValue(this.getManufacturerId()); },
-                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading manufacturers'); }
-            );
+            this.apiReferenceService
+                .getManufacturers(this.id)
+                .subscribe(
+                    manufacturers => { 
+                        this.myManufacturers = <Brand[]>manufacturers; 
+                        this.referenceForm.controls['selectedManufacturers'].setValue(this.getManufacturerId()); 
+                    },
+                    error => { 
+                        this.errorMessage = <any>error; 
+                        this.toasterService.pop('error', 'Error', 'Error with loading manufacturers'); 
+                    }
+                );
         }
-        this.apiService.getAll('manufacturers/all').subscribe(
-            manufacturers => { this.allManufacturers = <Brand[]>manufacturers; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading manufacturers'); }
-        );
+        this.apiService
+            .getAll('manufacturers/all')
+            .subscribe(
+                manufacturers => { 
+                    this.allManufacturers = <Brand[]>manufacturers; 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with loading manufacturers');
+                }
+            );
     }
 
     setImages() {
-        this.apiReferenceService.getImages(this.id).subscribe(
-            images => { this.myImages = <Image[]>images; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading images'); }
-        );
+        this.apiReferenceService
+            .getImages(this.id)
+            .subscribe(
+                images => { this.myImages = <Image[]>images; },
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading images'); }
+            );
     }
 
     createFormGroup() {
@@ -216,6 +295,9 @@ export class ReferenceDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
+        if( !inputValue.files || inputValue.files.length === 0 ) {
+            return;
+        }
         myReader.onloadend = (e) => {
             this.newImages.push(myReader.result);
             this.dirty = true;

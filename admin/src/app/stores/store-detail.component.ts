@@ -26,14 +26,27 @@ export class StoreDetailComponent implements OnInit {
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
-        this.apiStoreService.get(this.id).subscribe(
-            store => { this.store = <Store>store; this.createFormGroup(); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Store with given ID doesn`t exist!'); this.router.navigate(['/stores']); } 
+        this.apiStoreService
+            .get(this.id)
+            .subscribe(
+                store => { 
+                    this.store = <Store>store;
+                    this.createFormGroup(); 
+                },
+                error => { 
+                    this.errorMessage = <any>error;
+                    this.toasterService.pop('error', 'Error', 'Store with given ID doesn`t exist!'); 
+                    this.router.navigate(['/stores']); 
+                } 
         );
-        this.apiLocationService.getAll().subscribe(
-            locations => { this.locations = <Location[]>locations; },
-            error => this.errorMessage = <any>error
-        )
+        this.apiLocationService
+            .getAll()
+            .subscribe(
+                locations => { 
+                    this.locations = <Location[]>locations; 
+                },
+                error => this.errorMessage = <any>error
+            )
     }
 
     onSubmit() {
@@ -43,19 +56,36 @@ export class StoreDetailComponent implements OnInit {
 
     updateStore(id: number) {
         let store = this.createDataObject();
-        this.apiStoreService.activateStore(this.id, store).subscribe(
-            store => { this.store = <Store>store; this.toasterService.pop('success', 'Success', 'Store updated!'); this.disabled = false; this.router.navigate(['/stores']); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with updating store!'); this.disabled = false; this.router.navigate(['/stores']); }
+        this.apiStoreService
+            .activateStore(this.id, store)
+            .subscribe(
+                store => { 
+                    this.store = <Store>store; this.toasterService.pop('success', 'Success', 'Store updated!'); 
+                    this.disabled = false; this.router.navigate(['/stores']); 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with updating store!'); 
+                    this.disabled = false; this.router.navigate(['/stores']); 
+                }
         );
-
     }
 
-      deleteStore(id: number) {
+    deleteStore(id: number) {
         this.disabled = true;
-        this.apiStoreService.delete(this.id)
+        this.apiStoreService
+            .delete(this.id)
             .subscribe(
-            () => { this.toasterService.pop('success', 'Success', 'Store deleted!'); this.disabled = false; this.router.navigate(['/stores']); },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting store!'); this.disabled = false; this.router.navigate(['/stores']); }
+                () => { 
+                    this.toasterService.pop('success', 'Success', 'Store deleted!'); 
+                    this.disabled = false; this.router.navigate(['/stores']); 
+                },
+                error => { 
+                    this.errorMessage = <any>error; 
+                    this.toasterService.pop('error', 'Error', 'Error with deleting store!'); 
+                    this.disabled = false; 
+                    this.router.navigate(['/stores']); 
+                }
             );
     }
 
@@ -89,6 +119,9 @@ export class StoreDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
+        if( !inputValue.files || inputValue.files.length===0 ) {
+            return;
+        }
         myReader.onloadend = (e) => {
             this.base64 = myReader.result;
             this.store.cover_url = myReader.result;

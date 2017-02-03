@@ -15,11 +15,14 @@ export class StoresComponent implements OnInit {
   constructor(private apiStoreService: ApiStoreService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiStoreService.getAllActive()
-      .subscribe(
-      stores => this.stores = <Store[]>stores,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading stores'); }
-      );
+    this.apiStoreService
+        .getAllActive()
+        .subscribe(
+            stores => this.stores = <Store[]>stores,
+            error => { 
+              this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading stores'); 
+            }
+        );
   }
 
 }

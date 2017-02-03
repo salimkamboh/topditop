@@ -16,10 +16,13 @@ export class ManufacturersComponent implements OnInit {
   constructor(private apiService: ApiService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiService.getAll(this.entity_url)
-      .subscribe(
-      manufacturers => this.manufacturers = <Brand[]>manufacturers,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading manufacturers'); }
-      );
+    this.apiService
+        .getAll(this.entity_url)
+        .subscribe(
+            manufacturers => this.manufacturers = <Brand[]>manufacturers,
+            error => { 
+              this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading manufacturers'); 
+            }
+        );
   }
 }

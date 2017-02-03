@@ -127,9 +127,9 @@
                 <div class="col-xs-6">
                     <input type="file" placeholder="Choose File" accept="image/*" id="image_url" (change)="changeListener($event)" />
                 </div>
-                <div class="col-xs-6">
-                    <img class="img img-responsive" [src]='slide.image_url'>
-                </div>
+            </div>
+            <div class="col-xs-offset-3 col-xs-6">
+                <img class="img img-responsive" [src]='slide.image_url'>
             </div>
         </div>
         <div class="panel-footer">
