@@ -38,7 +38,9 @@ class Repository
      */
     public function get(Manufacturer $manufacturer)
     {
-        return Manufacturer::find($manufacturer->id);
+        $manufacturer->image_url = $manufacturer->getImageUrl();
+
+        return $manufacturer;
     }
 
     /**
