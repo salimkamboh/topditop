@@ -40,8 +40,8 @@ class AuthenticateAdminFromToken extends GetUserFromToken
             return $this->respond('tymon.jwt.user_not_found', 'user_not_found', 404);
         }
 
-        if ( ! $user->isAdmin()) {
-            return Response::json([
+        if (! $user->isAdmin()) {
+            return response()->json([
                 'error' => [
                     'message' => 'Forbidden',
                     'status_code' => 403
