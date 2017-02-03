@@ -56,8 +56,9 @@ class Store extends Model
         return $this->hasOne('App\User'); // or Profile::class
     }
 
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function image()
     {
