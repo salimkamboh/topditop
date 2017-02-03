@@ -7,7 +7,6 @@ use App\Entity\Advert\Repository as AdvertRepository;
 use App\Http\Requests\Adverts\CreateAdvertRequest;
 use App\Http\Requests\Adverts\Images\SetAdvertImageRequest;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 
 class AdvertController extends BaseController

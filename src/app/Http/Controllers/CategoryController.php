@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Category;
 use App\Entity\Category\Repository as CategoryRepository;
+use Illuminate\Http\Request;
 
 
 class CategoryController extends BaseController

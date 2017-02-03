@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\FieldGroup;
-use App\Field;
-use App\Fieldtype;
 use App\Entity\Fieldgroup\Repository as FieldGroupRepository;
+use App\Field;
+use App\FieldGroup;
+use Illuminate\Http\Request;
 
 
 class FieldGroupController extends BaseController

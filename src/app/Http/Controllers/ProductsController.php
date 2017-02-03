@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Reference;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
-
-use App\Store;
-use App\Product;
-use App\Manufacturer;
 use App\Entity\Product\Repository as ProductsRepository;
-use Illuminate\Support\Facades\Auth;
 use App\Helpers\PowerChecker;
+use App\Manufacturer;
+use App\Product;
+use App\Reference;
+use App\Store;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends BaseController
 {

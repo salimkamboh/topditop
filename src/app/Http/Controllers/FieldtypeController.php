@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Entity\Fieldtype\Repository as FieldtypeRepository;
 use App\Fieldtype;
 use Illuminate\Http\Request;
-use App\Entity\Fieldtype\Repository as FieldtypeRepository;
 
 class FieldtypeController extends BaseController
 {

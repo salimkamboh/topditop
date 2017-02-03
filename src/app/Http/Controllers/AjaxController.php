@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Entity\Image\ImageRepository;
+use App\Entity\Product\Repository as ProductRepository;
+use App\Entity\Reference\Repository as ReferenceRepository;
+use App\Entity\Store\Repository as StoreRepository;
 use App\FieldGroup;
 use App\Http\Requests\References\CreateReferenceRequest;
 use App\Image;
@@ -9,16 +13,7 @@ use App\Package;
 use App\Panel;
 use App\Product;
 use App\Reference;
-use App\Store;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-
-use App\Entity\Image\ImageRepository;
-use App\Entity\Reference\Repository as ReferenceRepository;
-use App\Entity\Product\Repository as ProductRepository;
-use App\Entity\Store\Repository as StoreRepository;
 use Illuminate\Support\Facades\Mail;
 
 class AjaxController extends BaseController

@@ -3,17 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Checkbox;
-use App\Field;
-use App\Package;
 use App\Profile;
-use App\Store;
-use App\Image;
-
 use DB;
-
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 
 class ProfileController extends BaseController
 {

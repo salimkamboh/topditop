@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use App\Helpers\Contracts\MagentoActionsContract;
 use App\Package;
 use App\Profile;
-use Illuminate\Http\Request;
-use Exception;
-use Response;
-
-use App\Http\Requests;
 use App\Store;
 use App\User;
 use DB;
+use Exception;
 use Mail;
+use Response;
 
 class TestController extends BaseController
 {

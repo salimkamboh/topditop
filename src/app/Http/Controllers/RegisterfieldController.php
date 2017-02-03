@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Registerfield;
 use App\Entity\Registerfield\Repository as RegisterfieldRepository;
+use App\Registerfield;
+use Illuminate\Http\Request;
 
 
 class RegisterfieldController extends BaseController

@@ -7,8 +7,8 @@ use App\Product;
 use App\Registerfield;
 use App\Store;
 use Illuminate\Database\Eloquent\Collection;
-use View;
 use Illuminate\Support\Facades\Auth;
+use View;
 
 class BaseController extends Controller
 {

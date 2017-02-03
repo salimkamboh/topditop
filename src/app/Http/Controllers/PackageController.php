@@ -6,9 +6,6 @@ use App\FieldGroup;
 use App\Package;
 use App\Panel;
 use Illuminate\Http\Request;
-
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
 use League\Flysystem\Exception;
 
 class PackageController extends BaseController
