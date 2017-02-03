@@ -6,7 +6,6 @@ use App\Filters\Common\FilterHelper;
 use App\Http\Controllers\BaseController;
 use App\Manufacturer;
 use App\Product;
-use App\Store;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 

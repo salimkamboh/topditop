@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class Profile extends Model

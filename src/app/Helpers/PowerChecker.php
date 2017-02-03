@@ -4,11 +4,8 @@ namespace App\Helpers;
 
 use App\Limitation;
 use App\Package;
-use App\Product;
-use App\Reference;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class PowerChecker

@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Helpers;
-use Symfony\Component\DomCrawler\Crawler;
-
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
+use Symfony\Component\DomCrawler\Crawler;
 
 
 class VideoUrlHelper

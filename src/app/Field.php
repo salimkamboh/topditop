@@ -2,10 +2,8 @@
 
 namespace App;
 
-use App\Helpers\Contracts\HtmlConvertContract;
-use Illuminate\Database\Eloquent\Model;
-
 use DB;
+use Illuminate\Database\Eloquent\Model;
 
 class Field extends Model
 {

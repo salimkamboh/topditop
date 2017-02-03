@@ -7,9 +7,7 @@ use App\FieldProfile;
 use App\Helpers\Contracts\HtmlConvertContract;
 use App\Manufacturer;
 use App\Profile;
-
 use DB;
-use Illuminate\Support\Facades\App;
 
 class HtmlBuilder implements HtmlConvertContract
 {

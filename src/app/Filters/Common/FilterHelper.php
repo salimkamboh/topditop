@@ -2,7 +2,6 @@
 
 namespace App\Filters\Common;
 
-use App\Store;
 use Illuminate\Http\Request;
 
 interface FilterHelper {
