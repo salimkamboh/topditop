@@ -26,7 +26,7 @@ export class RegisterfieldDetailComponent implements OnInit {
             this.apiService.get(this.entity, this.id)
                 .subscribe(
                 registerfield => { this.registerfield = <Registerfield>registerfield; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Registration field with given ID doesn`t exist!'); this.router.navigate(['/registerfields']); }
                 );
         } else {
             this.registerfield = {
@@ -69,14 +69,14 @@ export class RegisterfieldDetailComponent implements OnInit {
             );
     }
 
-    deleteRegisterfield(id: number) {
-        // this.disabled = true;
-        // this.apiService.delete(this.entity, this.id)
-        //     .subscribe(
-        //     () => { this.toasterService.pop('success', 'Success', 'Registerfield deleted!'); this.disabled = false; this.router.navigate(['/registerfields']); },
-        //     error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting registerfield!'); this.disabled = false; this.router.navigate(['/registerfields']); }
-        //     );
-    }
+    // deleteRegisterfield(id: number) {
+    //     this.disabled = true;
+    //     this.apiService.delete(this.entity, this.id)
+    //         .subscribe(
+    //         () => { this.toasterService.pop('success', 'Success', 'Registerfield deleted!'); this.disabled = false; this.router.navigate(['/registerfields']); },
+    //         error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with deleting registerfield!'); this.disabled = false; this.router.navigate(['/registerfields']); }
+    //         );
+    // }
 
     createFormGroup() {
         this.registerfieldForm = this.fb.group({
@@ -91,7 +91,6 @@ export class RegisterfieldDetailComponent implements OnInit {
             "name": this.registerfieldForm.value.name,
             "fieldlocation": this.registerfieldForm.value.location,
         };
-        console.log(registerfield)
         return registerfield;
     }
 }

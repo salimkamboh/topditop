@@ -64,7 +64,7 @@
             </div>
             <div class="form-group">
                 <div class="col-xs-offset-3 col-xs-6" *ngFor="let image of myImages; let i=index;">
-                    <img  class="img img-responsive" [src]='image.url'>
+                    <img  class="img img-responsive" [src]="image.url">
                     <button type="button" class="btn btn-sm btn-danger" (click)="deleteImage(image.id, i)" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> remove</button>
                 </div>
             </div>

@@ -15,10 +15,14 @@ export class ReferencesComponent implements OnInit {
   constructor(private apiReferenceService: ApiReferenceService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiReferenceService.getAll()
-      .subscribe(
-      references => this.references = <Reference[]>references,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading references'); }
-      );
+    this.apiReferenceService
+        .getAll()
+        .subscribe(
+            references => this.references = <Reference[]>references,
+            error => { 
+              this.errorMessage = <any>error; 
+              this.toasterService.pop('error', 'Error', 'Error with loading references'); 
+            }
+        );
   }
 }

@@ -28,7 +28,7 @@ export class PackageDetailComponent implements OnInit {
         if (this.id != -1) {
             this.apiService.get(this.entity, this.id).subscribe(
                 pack => { this.pack = <Package>pack; },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Package with given ID doesn`t exist!'); this.router.navigate(['/packages']); }
             );
             this.apiPanelService.getAll().subscribe(
                 panels => { this.panels = <Panel[]>panels; this.createFormGroup(); },
@@ -98,7 +98,6 @@ export class PackageDetailComponent implements OnInit {
             "name": this.packageForm.value.name,
             "panels": this.packageForm.value.selectedPanels,
         };
-        console.log(this.pack);
         return pack;
     }
 

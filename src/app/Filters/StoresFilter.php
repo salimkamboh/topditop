@@ -5,6 +5,7 @@ namespace App\Filters;
 use App\Field;
 use App\FieldProfile;
 use App\Filters\Common\FilterHelper;
+use App\Image;
 use App\Manufacturer;
 use App\Store;
 use Illuminate\Database\Eloquent\Collection;
@@ -27,6 +28,9 @@ class StoresFilter implements FilterHelper
         $entity->oneStopShop = $entity->getFieldByKey('onestopshop');
         $entity->location = $entity->location->translate()->name;
         $entity->scenes = trans('messages.scene');
+        if ($entity->image instanceof Image) {
+            $entity->image->url = $entity->image->getImageUrl();
+        }
         return $entity;
     }
 
@@ -67,7 +71,7 @@ class StoresFilter implements FilterHelper
      */
     public function buildDefaultCollection(Collection $collection)
     {
-        $stores = Store::with('image')->get();
+        $stores = Store::active()->with('image')->get();
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
             if (!$collection->contains($store))
@@ -86,7 +90,7 @@ class StoresFilter implements FilterHelper
     {
         $searchObject = $request->searchObject;
         $locationParams = $searchObject[$locationKey];
-        $stores = Store::whereIn('location_id', $locationParams)->with('image')->get();
+        $stores = Store::active()->whereIn('location_id', $locationParams)->with('image')->get();
 
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
@@ -120,7 +124,7 @@ class StoresFilter implements FilterHelper
                 }
             }
         }
-        $stores = Store::whereIn('id', $store_ids)->with('image')->get();
+        $stores = Store::active()->whereIn('id', $store_ids)->with('image')->get();
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
             if (!$collection->contains($store))
@@ -163,7 +167,7 @@ class StoresFilter implements FilterHelper
                 }
             }
         }
-        $stores = Store::whereIn('id', $store_ids)->with('image')->get();
+        $stores = Store::active()->whereIn('id', $store_ids)->with('image')->get();
 
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);

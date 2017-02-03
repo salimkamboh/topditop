@@ -25,7 +25,7 @@ export class LocationDetailComponent implements OnInit {
             this.apiLocationService.get(this.id)
                 .subscribe(
                 location => { this.location = <Location>location; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Location with given ID doesn`t exist!'); this.router.navigate(['/locations']); }
                 );
         } else {
             this.location = {

@@ -101,7 +101,7 @@ function performFilter() {
                 '</div>' +
                 '<div class="item-info-bottom">' +
                 '<i class="fa fa-map-marker brown-color"></i><span>' + item.location.name + '</span>' +
-                '<i class="fa fa-tag brown-color"></i><span>One stop shop for: ' + item.oneStopShop + '</span>' +
+                '<i class="fa fa-tag brown-color"></i><span>One stop shop for: ' + item.oneStopShop.join(", ") + '</span>' +
                 '</div>' +
                 '</div>' +
                 '</a>' +

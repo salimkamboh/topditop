@@ -5,8 +5,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  templateUrl: './categories.component.html'
 })
 export class CategoriesComponent implements OnInit {
   entity_url: string = 'categories/all';

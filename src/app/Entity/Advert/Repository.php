@@ -67,7 +67,11 @@ class Repository
      */
     public function get(Advert $advert)
     {
-        return Advert::find($advert->id);
+        $advert->brand_logo_url = $advert->getBrandLogoUrl();
+        $advert->reference_image_url = $advert->getReferenceImageUrl();
+        $advert->scanned_image_url = $advert->getScannedImageUrl();
+
+        return $advert;
     }
 
     /**

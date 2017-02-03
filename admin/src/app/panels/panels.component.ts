@@ -5,8 +5,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-panels',
-  templateUrl: './panels.component.html',
-  styleUrls: ['./panels.component.css']
+  templateUrl: './panels.component.html'
 })
 export class PanelsComponent implements OnInit {
 

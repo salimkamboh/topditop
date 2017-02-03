@@ -7,8 +7,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
     selector: 'app-fieldtype-detail',
-    templateUrl: './fieldtype-detail.component.html',
-    styleUrls: ['./fieldtype-detail.component.css']
+    templateUrl: './fieldtype-detail.component.html'
 })
 export class FieldtypeDetailComponent implements OnInit {
 
@@ -27,7 +26,7 @@ export class FieldtypeDetailComponent implements OnInit {
             this.apiService.get(this.entity, this.id)
                 .subscribe(
                 fieldtype => { this.fieldtype = <Fieldtype>fieldtype; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Fieldtype with given ID doesn`t exist!'); this.router.navigate(['/fieldtypes']); }
                 );
         } else {
             this.fieldtype = {

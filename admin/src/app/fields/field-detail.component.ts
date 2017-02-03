@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiEnService } from '../service/api.en.service';
 import { ApiService } from '../service/api.service';
 import { Field } from '../data/field';
 import { Fieldtype } from '../data/fieldtype';
@@ -9,8 +8,7 @@ import { ToasterService } from 'angular2-toaster';
 
 @Component({
     selector: 'app-field-detail',
-    templateUrl: './field-detail.component.html',
-    styleUrls: ['./field-detail.component.css']
+    templateUrl: './field-detail.component.html'
 })
 export class FieldDetailComponent implements OnInit {
 
@@ -22,15 +20,15 @@ export class FieldDetailComponent implements OnInit {
     private disabled: boolean = false;
     private fieldForm: FormGroup;
 
-    constructor(private apiEnService: ApiEnService, private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
+    constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         if (this.id != -1) {
-            this.apiEnService.get(this.entity, this.id)
+            this.apiService.get(this.entity, this.id)
                 .subscribe(
                 field => { this.field = <Field>field; this.createFormGroup(); },
-                error => this.errorMessage = <any>error
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Field with given ID doesn`t exist!'); this.router.navigate(['/fields']); }
                 );
         } else {
             this.field = {
@@ -64,7 +62,7 @@ export class FieldDetailComponent implements OnInit {
 
     createField() {
         let field = this.createDataObject();
-        this.apiEnService.create(this.entity, field)
+        this.apiService.create(this.entity, field)
             .subscribe(
             field => { this.field = <Field>field; this.toasterService.pop('success', 'Success', 'Field created!'); this.disabled = false; this.router.navigate(['/field', this.field.id]); this.id = this.field.id },
             error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with creating field!'); this.disabled = false; this.router.navigate(['/fields']); }
@@ -74,7 +72,7 @@ export class FieldDetailComponent implements OnInit {
 
     updateField(id: number) {
         let field = this.createDataObject();
-        this.apiEnService.update(this.entity, this.id, field)
+        this.apiService.update(this.entity, this.id, field)
             .subscribe(
             field => { this.field = <Field>field; this.toasterService.pop('success', 'Success', 'Field updated!'); this.router.navigate(['/fields']); this.disabled = false; },
             error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with updating field!'); this.disabled = false; this.router.navigate(['/fields']); }

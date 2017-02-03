@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="footer_logo">
-                    Top<span class="logo-inverse">di</span>Top H.O.M.E.
+                    Top<span class="logo-inverse">Di</span>Top H.O.M.E.
                 </div>
             </div>
             <div class="col-md-8">

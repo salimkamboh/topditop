@@ -111,30 +111,20 @@ class ProductsController extends BaseController
         $references = $product->references;
         $store = $this->current_store;
         $manufacturers = Manufacturer::all();
-        $manufacturerObject = Manufacturer::find($product->manufacturer_id);
-        $selected_images = Product::find($product->id)->images()->get();
-        $selected_categories = Product::find($product->id)->categories()->get();
-        $selected_references = Product::find($product->id)->references()->get();
+        $manufacturerObject = $product->manufacturer;
+        $selected_images = $product->images;
+        $selected_categories = $product->categories;
+        $selected_references = $product->references;
         $categories = Category::all();
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
 
 
-        $forbidden = array();
-        foreach ($selected_references as $selected_reference) {
-            $forbidden[] = $selected_reference->id;
-        }
+        $selectedReferencesIds = $selected_references->getQueueableIds();
 
-        /** @var Collection $availableProducts */
-        $availableReferences = Reference::with('products')->whereNotIn('id', $forbidden)->get();
-        $collection = new Collection();
-
-        /** @var Product $availableProduct */
-        foreach ($availableReferences as $availableReference) {
-            if ($availableReference->store->id == $store->id) {
-                $collection->add($availableReference);
-            }
-        }
+        $availableReferences = Reference::active()->where('store_id', $store->id)
+                                ->with('products')->get()
+                                ->except($selectedReferencesIds);
 
         return view('dashboard.products.single-product')
             ->with('product', $product)

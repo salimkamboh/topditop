@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label class="col-xs-3 control-label">Name</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control col-8" formControlName="name" value="{{ fieldgroup.name }}" required>
+                    <input type="text" class="form-control col-8" formControlName="name" value="{{ fieldgroup.name }}">
                 </div>
             </div>
             <div class="form-group">
@@ -26,7 +26,7 @@
                 <label class="col-xs-3 control-label">Fields</label>
                 <div class="col-xs-6">
                     <select multiple class="form-control col-8" formControlName="selectedFields" size="8" required>
-                            <option *ngFor="let field of fields" [value]="field.id">{{field.name}}</option>
+                            <option *ngFor="let field of fields" [value]="field.id">{{ field.name }}</option>
                     </select>
                 </div>
             </div>

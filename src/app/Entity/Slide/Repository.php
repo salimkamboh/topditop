@@ -73,7 +73,9 @@ class Repository
      */
     public function get(Slide $slide)
     {
-        return Slide::find($slide->id);
+        $slide->image_url = $slide->getImageUrl();
+
+        return $slide;
     }
 
     /**

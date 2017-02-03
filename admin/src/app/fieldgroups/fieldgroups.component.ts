@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiEnService } from '../service/api.en.service';
+import { ApiService } from '../service/api.service';
 import { Fieldgroup } from '../data/fieldgroup';
 import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-fieldgroups',
-  templateUrl: './fieldgroups.component.html',
-  styleUrls: ['./fieldgroups.component.css']
+  templateUrl: './fieldgroups.component.html'
 })
 export class FieldgroupsComponent implements OnInit {
 
@@ -14,13 +13,16 @@ export class FieldgroupsComponent implements OnInit {
   fieldgroups: Fieldgroup[];
   errorMessage: string;
 
-  constructor(private apiEnService: ApiEnService, private toasterService: ToasterService) { }
+  constructor(private apiService: ApiService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiEnService.getAll(this.entity_url)
-      .subscribe(
-      fieldgroups => this.fieldgroups = <Fieldgroup[]>fieldgroups,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading fieldgroups'); }
-      );
+    this.apiService
+        .getAll(this.entity_url)
+        .subscribe(
+            fieldgroups => this.fieldgroups = <Fieldgroup[]>fieldgroups,
+            error => { 
+              this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading fieldgroups'); 
+            }
+        );
   }
 }

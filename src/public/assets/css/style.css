@@ -718,7 +718,8 @@ section#dashboard-settings .big-white-block.store-image p {
     width: 100%;
     font-weight: 400;
     font-family: 'Vollkorn', serif;
-    height: 30px;
+    height: 32px;
+    line-height: 32px;
 }
 
 .big-white-block textarea {

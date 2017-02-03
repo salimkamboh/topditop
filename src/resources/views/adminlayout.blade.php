@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ route("dashboard_home") }}">Top<span
-                            class="navbar-brand--logo-mod">di</span>Top
+                            class="navbar-brand--logo-mod">Di</span>Top
                     H.O.M.E.</a>
             </div>
 
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer_logo">
-                        Top<span class="footer_logo--inverse">di</span>Top H.O.M.E.
+                        Top<span class="footer_logo--inverse">Di</span>Top H.O.M.E.
                     </div>
                 </div>
                 <div class="col-md-8">

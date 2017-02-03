@@ -5,8 +5,7 @@ import { Slide } from '../data/slide';
 
 @Component({
   selector: 'app-slides',
-  templateUrl: './slides.component.html',
-  styleUrls: ['./slides.component.css']
+  templateUrl: './slides.component.html'
 })
 export class SlidesComponent implements OnInit {
   slides: Slide[];
@@ -16,11 +15,14 @@ export class SlidesComponent implements OnInit {
   constructor(private apiService: ApiService, private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.apiService.getAll(this.entity_url)
-      .subscribe(
-      slides => this.slides = <Slide[]>slides,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading slides'); }
-      );
+    this.apiService
+        .getAll(this.entity_url)
+        .subscribe(
+            slides => this.slides = <Slide[]>slides,
+            error => { 
+              this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading slides'); 
+            }
+        );
   }
-
+  
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -9,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ApiLocationService {
 
-  private apiUrl = 'https://topditop.foundcenter.com/en/api/locations/';
+  private apiUrl = `${environment.domain_url}api/locations/`;
 
   constructor(private http: Http) { }
 
@@ -39,7 +40,7 @@ export class ApiLocationService {
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.apiUrl + id, data, options)
-      .map((res: Response) => { res.json(); console.log(res.json()); })
+      .map((res: Response) => { res.json(); })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
