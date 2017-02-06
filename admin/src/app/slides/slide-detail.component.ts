@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { Slide } from '../data/slide';
 import { Store } from '../data/store';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
 
@@ -18,11 +18,16 @@ export class SlideDetailComponent implements OnInit {
     entity: string = 'slides';
     errorMessage: string;
     private disabled: boolean = false;
-    private fileReader: FileReader;
     base64: string = null;
     slideForm: FormGroup;
 
-    constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
+    constructor(
+        private apiService: ApiService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private fb: FormBuilder,
+        private toasterService: ToasterService
+    ) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
@@ -30,15 +35,15 @@ export class SlideDetailComponent implements OnInit {
             this.apiService
                 .get(this.entity, this.id)
                 .subscribe(
-                    slide => { 
-                        this.slide = <Slide>slide; 
-                        this.createFormGroup(); 
-                    },
-                    error => { 
-                        this.errorMessage = <any>error; 
-                        this.toasterService.pop('error', 'Error', 'Slide with given ID doesn`t exist!'); 
-                        this.router.navigate(['/slides']); 
-                    }
+                slide => {
+                    this.slide = <Slide>slide;
+                    this.createFormGroup();
+                },
+                error => {
+                    this.errorMessage = <any>error;
+                    this.toasterService.pop('error', 'Error', 'Slide with given ID doesn`t exist!');
+                    this.router.navigate(['/slides']);
+                }
                 );
         } else {
             this.createNewSlide();
@@ -47,8 +52,8 @@ export class SlideDetailComponent implements OnInit {
         this.apiService
             .getAll('stores/all')
             .subscribe(
-                stores => { this.stores = <Store[]>stores; },
-                error => this.errorMessage = <any>error
+            stores => { this.stores = <Store[]>stores; },
+            error => this.errorMessage = <any>error
             );
         this.base64 = null;
     }
@@ -67,18 +72,18 @@ export class SlideDetailComponent implements OnInit {
         this.apiService
             .create(this.entity, slide)
             .subscribe(
-                slide => { 
-                    this.slide = <Slide>slide; 
-                    this.toasterService.pop('success', 'Success', 'Slide created!'); 
-                    this.disabled = false; this.router.navigate(['/slide', this.slide.id]); 
-                    this.id = this.slide.id 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with creating slide!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/slides']); 
-                }
+            slide => {
+                this.slide = <Slide>slide;
+                this.toasterService.pop('success', 'Success', 'Slide created!');
+                this.disabled = false; this.router.navigate(['/slide', this.slide.id]);
+                this.id = this.slide.id;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with creating slide!');
+                this.disabled = false;
+                this.router.navigate(['/slides']);
+            }
             );
 
     }
@@ -88,16 +93,16 @@ export class SlideDetailComponent implements OnInit {
         this.apiService
             .update(this.entity, this.id, slide)
             .subscribe(
-                slide => { 
-                    this.slide = <Slide>slide; 
-                    this.toasterService.pop('success', 'Success', 'Slide updated!'); 
-                    this.router.navigate(['/slides']); this.disabled = false; 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with updating slides!'); 
-                    this.disabled = false; this.router.navigate(['/slides']); 
-                }
+            slide => {
+                this.slide = <Slide>slide;
+                this.toasterService.pop('success', 'Success', 'Slide updated!');
+                this.router.navigate(['/slides']); this.disabled = false;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with updating slides!');
+                this.disabled = false; this.router.navigate(['/slides']);
+            }
             );
 
     }
@@ -107,16 +112,16 @@ export class SlideDetailComponent implements OnInit {
         this.apiService
             .delete(this.entity, id)
             .subscribe(
-                () => { 
-                    this.toasterService.pop('success', 'Success', 'Slide deleted!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/slides']); 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with deleting slide!'); 
-                    this.disabled = false; this.router.navigate(['/slides']); 
-                }
+            () => {
+                this.toasterService.pop('success', 'Success', 'Slide deleted!');
+                this.disabled = false;
+                this.router.navigate(['/slides']);
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with deleting slide!');
+                this.disabled = false; this.router.navigate(['/slides']);
+            }
             );
     }
 
@@ -127,13 +132,13 @@ export class SlideDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
-        if( !inputValue.files || inputValue.files.length === 0 ) {
+        if (!inputValue.files || inputValue.files.length === 0) {
             return;
         }
         myReader.onloadend = (e) => {
             this.base64 = myReader.result;
             this.slide.image_url = myReader.result;
-        }
+        };
         myReader.readAsDataURL(file);
     }
 
@@ -183,22 +188,22 @@ export class SlideDetailComponent implements OnInit {
     }
     createDataObject(): Object {
         let slide = {
-            "title": this.slideForm.value.title,
-            "slot1_store_id": this.slideForm.value.slot1_store_id,
-            "slot1_width": this.slideForm.value.slot1_width,
-            "slot1_valid_until": this.slideForm.value.slot1_valid_until,
-            "slot2_store_id": this.slideForm.value.slot2_store_id,
-            "slot2_width": this.slideForm.value.slot2_width,
-            "slot2_valid_until": this.slideForm.value.slot2_valid_until,
-            "slot3_store_id": this.slideForm.value.slot3_store_id,
-            "slot3_width": this.slideForm.value.slot3_width,
-            "slot3_valid_until": this.slideForm.value.slot3_valid_until,
-            "slot4_store_id": this.slideForm.value.slot4_store_id,
-            "slot4_width": this.slideForm.value.slot4_width,
-            "slot4_valid_until": this.slideForm.value.slot4_valid_until,
-            "slot5_store_id": this.slideForm.value.slot5_store_id,
-            "slot5_width": this.slideForm.value.slot5_width,
-            "slot5_valid_until": this.slideForm.value.slot5_valid_until
+            'title': this.slideForm.value.title,
+            'slot1_store_id': this.slideForm.value.slot1_store_id,
+            'slot1_width': this.slideForm.value.slot1_width,
+            'slot1_valid_until': this.slideForm.value.slot1_valid_until,
+            'slot2_store_id': this.slideForm.value.slot2_store_id,
+            'slot2_width': this.slideForm.value.slot2_width,
+            'slot2_valid_until': this.slideForm.value.slot2_valid_until,
+            'slot3_store_id': this.slideForm.value.slot3_store_id,
+            'slot3_width': this.slideForm.value.slot3_width,
+            'slot3_valid_until': this.slideForm.value.slot3_valid_until,
+            'slot4_store_id': this.slideForm.value.slot4_store_id,
+            'slot4_width': this.slideForm.value.slot4_width,
+            'slot4_valid_until': this.slideForm.value.slot4_valid_until,
+            'slot5_store_id': this.slideForm.value.slot5_store_id,
+            'slot5_width': this.slideForm.value.slot5_width,
+            'slot5_valid_until': this.slideForm.value.slot5_valid_until
         };
         if (this.base64 != null) {
             slide['base64'] = this.base64;

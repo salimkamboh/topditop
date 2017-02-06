@@ -1,9 +1,9 @@
+import { Observable } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { Fieldgroup } from '../data/fieldgroup';
-import { Fieldtype } from '../data/fieldtype';
 import { Field } from '../data/field';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
 
@@ -21,53 +21,38 @@ export class FieldgroupDetailComponent implements OnInit {
     private disabled: boolean = false;
     private fieldgroupForm: FormGroup;
 
-    constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
+    constructor(
+        private apiService: ApiService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private fb: FormBuilder,
+        private toasterService: ToasterService
+    ) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         this.createFormGroup();
         if (this.id != -1) {
-            this.apiService
-                .get(this.entity, this.id)
-                .subscribe(
-                    fieldgroup => { 
-                        this.fieldgroup = <Fieldgroup>fieldgroup; 
-                        this.setFormGroup();
-                    },
-                    error => { 
-                        this.errorMessage = <any>error; 
-                        this.toasterService.pop('error', 'Error', 'Fieldgroup with given ID doesn`t exist!'); 
-                        this.router.navigate(['/fieldgroups']); 
-                    }
-                );
-            this.apiService
-                .getAll('fields/all/free/' + this.id)
-                .subscribe(
-                    fields => { 
-                        this.fields = <Field[]>fields; 
-                        this.fieldgroupForm.controls['selectedFields'].setValue(this.getFieldId()); 
-                    },
-                    error => this.errorMessage = <any>error
-                );
+            this.populateFieldGroup();
         } else {
-            this.fieldgroup = {
-                id: null,
-                cssclass: '',
-                active: '',
-                tableorder: '',
-                name: '',
-                fields: []
-            };
-            this.apiService
-                .getAll('fields/all/free')
-                .subscribe(
-                    fields => {    
-                        this.fields = <Field[]>fields;
-                    },
-                    error => this.errorMessage = <any>error
-                );
+            this.initializeFieldGroup();
+            // this.fieldgroup = {
+            //     id: null,
+            //     cssclass: '',
+            //     active: '',
+            //     tableorder: '',
+            //     name: '',
+            //     fields: []
+            // };
+            // this.apiService
+            //     .getAll('fields/all/free')
+            //     .subscribe(
+            //     fields => {
+            //         this.fields = <Field[]>fields;
+            //     },
+            //     error => this.errorMessage = <any>error
+            //     );
         }
-
     }
 
     onSubmit() {
@@ -84,18 +69,18 @@ export class FieldgroupDetailComponent implements OnInit {
         this.apiService
             .create(this.entity, fieldgroup)
             .subscribe(
-                fieldgroup => { 
-                    this.fieldgroup = <Fieldgroup>fieldgroup; 
-                    this.toasterService.pop('success', 'Success', 'Fieldgroup created!'); 
-                    this.disabled = false; this.router.navigate(['/fieldgroup', this.fieldgroup.id]); 
-                    this.id = this.fieldgroup.id 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with creating fieldgroup!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/fieldgroups']); 
-                }
+            fieldgroup => {
+                this.fieldgroup = <Fieldgroup>fieldgroup;
+                this.toasterService.pop('success', 'Success', 'Fieldgroup created!');
+                this.disabled = false; this.router.navigate(['/fieldgroup', this.fieldgroup.id]);
+                this.id = this.fieldgroup.id;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with creating fieldgroup!');
+                this.disabled = false;
+                this.router.navigate(['/fieldgroups']);
+            }
             );
 
     }
@@ -105,18 +90,18 @@ export class FieldgroupDetailComponent implements OnInit {
         this.apiService
             .update(this.entity, this.id, fieldgroup)
             .subscribe(
-                fieldgroup => { 
-                    this.fieldgroup = <Fieldgroup>fieldgroup; 
-                    this.toasterService.pop('success', 'Success', 'Fieldgroup updated!'); 
-                    this.router.navigate(['/fieldgroups']); 
-                    this.disabled = false; 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with updating fieldgroup!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/fieldgroups']); 
-                }
+            fieldgroup => {
+                this.fieldgroup = <Fieldgroup>fieldgroup;
+                this.toasterService.pop('success', 'Success', 'Fieldgroup updated!');
+                this.router.navigate(['/fieldgroups']);
+                this.disabled = false;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with updating fieldgroup!');
+                this.disabled = false;
+                this.router.navigate(['/fieldgroups']);
+            }
             );
     }
 
@@ -125,21 +110,59 @@ export class FieldgroupDetailComponent implements OnInit {
         this.apiService
             .delete(this.entity, this.id)
             .subscribe(
-                () => { 
-                    this.toasterService.pop('success', 'Success', 'Fieldgroup deleted!'); 
-                    this.disabled = false; this.router.navigate(['/fieldgroups']); 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with deleting fieldgroup!'); 
-                    this.disabled = false; this.router.navigate(['/fieldgroups']); 
-                }
+            () => {
+                this.toasterService.pop('success', 'Success', 'Fieldgroup deleted!');
+                this.disabled = false; this.router.navigate(['/fieldgroups']);
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with deleting fieldgroup!');
+                this.disabled = false; this.router.navigate(['/fieldgroups']);
+            }
+            );
+    }
+
+    initializeFieldGroup() {
+        this.fieldgroup = {
+            id: null,
+            cssclass: '',
+            active: '',
+            tableorder: '',
+            name: '',
+            fields: []
+        };
+        this.apiService
+            .getAll('fields/all/free')
+            .subscribe(
+            fields => {
+                this.fields = <Field[]>fields;
+            },
+            error => this.errorMessage = <any>error
+            );
+    }
+
+    populateFieldGroup() {
+        Observable.forkJoin(
+            this.apiService.get(this.entity, this.id),
+            this.apiService.getAll('fields/all/free/' + this.id)
+        ).subscribe(
+            result => {
+                this.fieldgroup = <Fieldgroup>result[0];
+                this.fields = <Field[]>result[1];
+                this.setFormGroup();
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Something went wrong!');
+                this.router.navigate(['/fieldgroups']);
+            }
             );
     }
 
     setFormGroup() {
         this.fieldgroupForm.controls['name'].setValue(this.fieldgroup.name);
         this.fieldgroupForm.controls['cssclass'].setValue(this.fieldgroup.cssclass);
+        this.fieldgroupForm.controls['selectedFields'].setValue(this.getFieldId());
     }
 
     createFormGroup() {
@@ -152,9 +175,9 @@ export class FieldgroupDetailComponent implements OnInit {
 
     createDataObject() {
         let fieldgroup = {
-            "name": this.fieldgroupForm.value.name,
-            "cssclass": this.fieldgroupForm.value.cssclass,
-            "fields": this.fieldgroupForm.value.selectedFields,
+            'name': this.fieldgroupForm.value.name,
+            'cssclass': this.fieldgroupForm.value.cssclass,
+            'fields': this.fieldgroupForm.value.selectedFields,
         };
         return fieldgroup;
     }

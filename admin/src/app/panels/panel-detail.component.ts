@@ -3,8 +3,8 @@ import { ApiPanelService } from '../service/api.panel.service';
 import { ApiService } from '../service/api.service';
 import { Panel } from '../data/panel';
 import { Fieldgroup } from '../data/fieldgroup';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
 import { Observable } from 'rxjs';
 
@@ -22,7 +22,14 @@ export class PanelDetailComponent implements OnInit {
     private disabled: boolean = false;
     private panelForm: FormGroup;
 
-    constructor(private apiPanelService: ApiPanelService, private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
+    constructor(
+        private apiPanelService: ApiPanelService,
+        private apiService: ApiService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private fb: FormBuilder,
+        private toasterService: ToasterService
+    ) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
@@ -35,7 +42,7 @@ export class PanelDetailComponent implements OnInit {
                 description: '',
                 key: '',
                 name: ''
-            }
+            };
             this.createFormGroup();
             this.fieldgroups = [];
         };
@@ -43,10 +50,10 @@ export class PanelDetailComponent implements OnInit {
         this.apiService
             .getAll('fieldgroups/all')
             .subscribe(
-                allFieldGroups => {
-                    this.allFieldGroups = <Fieldgroup[]>allFieldGroups;
-                },
-                error => this.errorMessage = <any>error
+            allFieldGroups => {
+                this.allFieldGroups = <Fieldgroup[]>allFieldGroups;
+            },
+            error => this.errorMessage = <any>error
             );
     }
 
@@ -63,19 +70,19 @@ export class PanelDetailComponent implements OnInit {
         let panel = this.createDataObject();
         this.apiPanelService.create(panel)
             .subscribe(
-                panel => { 
-                    this.panel = <Panel>panel; 
-                    this.toasterService.pop('success', 'Success', 'Panel created!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/panel', this.panel.id]); 
-                    this.id = this.panel.id 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with creating panel!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/panels']); 
-                }
+            panel => {
+                this.panel = <Panel>panel;
+                this.toasterService.pop('success', 'Success', 'Panel created!');
+                this.disabled = false;
+                this.router.navigate(['/panel', this.panel.id]);
+                this.id = this.panel.id;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with creating panel!');
+                this.disabled = false;
+                this.router.navigate(['/panels']);
+            }
             );
 
     }
@@ -84,18 +91,18 @@ export class PanelDetailComponent implements OnInit {
         let panel = this.createDataObject();
         this.apiPanelService.update(id, panel)
             .subscribe(
-                panel => { 
-                    this.panel = <Panel>panel; 
-                    this.toasterService.pop('success', 'Success', 'Panel updated!');
-                    this.router.navigate(['/panels']);
-                    this.disabled = false;
-                },
-                error => { 
-                    this.errorMessage = <any>error;
-                    this.toasterService.pop('error', 'Error', 'Error with updating panel!');
-                    this.disabled = false;
-                    this.router.navigate(['/panels']);
-                }
+            panel => {
+                this.panel = <Panel>panel;
+                this.toasterService.pop('success', 'Success', 'Panel updated!');
+                this.router.navigate(['/panels']);
+                this.disabled = false;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with updating panel!');
+                this.disabled = false;
+                this.router.navigate(['/panels']);
+            }
             );
     }
 
@@ -103,37 +110,37 @@ export class PanelDetailComponent implements OnInit {
         this.disabled = true;
         this.apiPanelService.delete(id)
             .subscribe(
-                () => { 
-                    this.toasterService.pop('success', 'Success', 'Panel deleted!');
-                    this.disabled = false;
-                    this.router.navigate(['/panels']);
-                },
-                error => { 
-                    this.errorMessage = <any>error;
-                    this.toasterService.pop('error', 'Error', 'Error with deleting panel!');
-                    this.disabled = false; 
-                    this.router.navigate(['/panels']);
-                }
+            () => {
+                this.toasterService.pop('success', 'Success', 'Panel deleted!');
+                this.disabled = false;
+                this.router.navigate(['/panels']);
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with deleting panel!');
+                this.disabled = false;
+                this.router.navigate(['/panels']);
+            }
             );
     }
 
-    populatePanel(){
+    populatePanel() {
         Observable.forkJoin(
-                this.apiPanelService.get(this.id),
-                this.apiPanelService.getFieldGroups(this.id)
-            ).subscribe(
-                result => {
-                    this.panel = <Panel>result[0];
-                    this.fieldgroups = <Fieldgroup[]>result[1];
+            this.apiPanelService.get(this.id),
+            this.apiPanelService.getFieldGroups(this.id)
+        ).subscribe(
+            result => {
+                this.panel = <Panel>result[0];
+                this.fieldgroups = <Fieldgroup[]>result[1];
 
-                    this.createFormGroup();
-                    this.populateFieldGroups();
-                },
-                error => {
-                    this.errorMessage = <any>error;
-                    this.toasterService.pop('error', 'Error', 'Something went wrong!');
-                    this.router.navigate(['/panels']);
-                });
+                this.createFormGroup();
+                this.populateFieldGroups();
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Something went wrong!');
+                this.router.navigate(['/panels']);
+            });
     }
 
     createFormGroup() {
@@ -152,7 +159,7 @@ export class PanelDetailComponent implements OnInit {
 
     populateFieldGroups() {
         const control = <FormArray>this.panelForm.controls['selectedFieldGroups'];
-        for(var i = 0; i < this.fieldgroups.length; i++) {
+        for (let i = 0; i < this.fieldgroups.length; i++) {
             control.push(this.initFieldGroup(this.fieldgroups[i].id));
         }
     }
@@ -164,9 +171,9 @@ export class PanelDetailComponent implements OnInit {
 
     createDataObject() {
         let panel = {
-            "name": this.panelForm.value.name,
-            "key": this.panelForm.value.key,
-            "fieldGroups": this.panelForm.value.selectedFieldGroups
+            'name': this.panelForm.value.name,
+            'key': this.panelForm.value.key,
+            'fieldGroups': this.panelForm.value.selectedFieldGroups
         };
         return panel;
     }
