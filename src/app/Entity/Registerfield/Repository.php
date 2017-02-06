@@ -30,7 +30,7 @@ class Repository
     }
 
     public function getAllUsers() {
-        return User::with('registerfields')->get();
+        return User::regular()->with('registerfields')->get();
     }
 
     /**

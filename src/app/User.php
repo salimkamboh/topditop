@@ -47,6 +47,18 @@ class User extends Authenticatable
         return 0;
     }
 
+
+    /**
+     * Regular users, without admins
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeRegular($query)
+    {
+        return $query->where('admin', 0);
+    }
+
     public function numberOfProducts()
     {
         return count($this->store->products);
