@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -30,9 +31,9 @@ class AuthenticateAdminFromToken extends GetUserFromToken
         try {
             $user = $this->auth->authenticate($token);
         } catch (TokenExpiredException $e) {
-            return $this->respond('tymon.jwt.expired', 'token_expired', $e->getStatusCode(), [$e]);
+            return $this->respond('tymon.jwt.expired', 'token_expired', Response::HTTP_UNAUTHORIZED, [$e]);
         } catch (JWTException $e) {
-            return $this->respond('tymon.jwt.invalid', 'token_invalid', $e->getStatusCode(), [$e]);
+            return $this->respond('tymon.jwt.invalid', 'token_invalid', Response::HTTP_UNAUTHORIZED, [$e]);
         }
 
         if (! $user) {
