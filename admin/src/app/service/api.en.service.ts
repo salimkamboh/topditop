@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
-import { AuthHttp } from 'angular2-jwt';
 
 
 import 'rxjs/add/operator/map';
@@ -14,7 +13,7 @@ export class ApiEnService {
 
   private apiUrl = `${environment.domain_url}en/api/`;
 
-  constructor(private http: AuthHttp) { }
+  constructor(private http: Http) { }
 
   getAll(entity: string): Observable<Object[]> {
     return this.http.get(this.apiUrl + entity)

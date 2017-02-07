@@ -53,7 +53,7 @@ export class LocationDetailComponent implements OnInit {
         this.apiLocationService.create(location)
             .subscribe(
             location => { this.location = <Location>location; this.toasterService.pop('success', 'Success', 'Location created!'); this.disabled = false; this.router.navigate(['/location', this.location.id]); this.id = this.location.id },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with creating location!'); this.disabled = false; this.router.navigate(['/locations']); }
+            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with creating location!'); this.disabled = false; }
             );
 
     }

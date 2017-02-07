@@ -1,11 +1,9 @@
-import { AuthenticationService } from './service/authentication.service';
 import { AuthGuard } from './service/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { ToasterModule } from 'angular2-toaster';
-
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { declarations } from './app-routing.module';
 
@@ -23,11 +21,11 @@ import { AuthModule } from './auth.module';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    ToasterModule,
-    AuthModule
+    AuthModule,
+    ToasterModule
   ],
   providers: [
     ApiService,
@@ -37,8 +35,7 @@ import { AuthModule } from './auth.module';
     ApiStoreService,
     ApiReferenceService,
     ApiProductService,
-    AuthGuard,
-    AuthenticationService
+    AuthGuard
   ],
   bootstrap: [declarations[0]]
 })

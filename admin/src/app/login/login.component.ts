@@ -8,17 +8,12 @@ import { AuthenticationService } from '../service/authentication.service';
     templateUrl: 'login.component.html'
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     model: any = {};
     loading = false;
     error = '';
 
     constructor(private router: Router, private authenticationService: AuthenticationService) { }
-
-    ngOnInit() {
-        // reset login status
-        this.authenticationService.logout();
-    }
 
     login() {
         this.loading = true;
@@ -26,7 +21,7 @@ export class LoginComponent implements OnInit {
              .subscribe(
                  result => {
                      this.loading = false;
-                     this.router.navigate(['/stores']);
+                     this.router.navigate(['/locations']);
                  },
                  error => {
                      console.log(error);
