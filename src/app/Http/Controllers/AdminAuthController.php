@@ -49,8 +49,11 @@ class AdminAuthController extends Controller
 
     public function apiAdminCheck()
     {
+        $user = Auth::user();
+
         return response()->json([
             'user' => Auth::user(),
+            'token' => JWTAuth::fromUser($user),
         ]);
     }
 }

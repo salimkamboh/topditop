@@ -1,6 +1,7 @@
+import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import 'rxjs/add/operator/map';
@@ -36,5 +37,31 @@ export class AuthenticationService {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         this.router.navigate(['/login']);
+    }
+
+    check(): Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        headers.append('Authorization', `Bearer ${this.token}`);
+        headers.append('Accept', 'application/json');
+        let options = new RequestOptions({ headers: headers });
+        
+        return this.http.get(`${environment.domain_url}api/auth/check`, options)
+            .map((response: Response) => {
+                this.user = response.json().user;
+                this.token = response.json().token;
+                
+                localStorage.setItem('user', JSON.stringify({ Object: this.user }));
+                localStorage.setItem('token', this.token);
+            })
+            .catch((error: any) => Observable.throw(error || 'Server error'));
+    }
+
+
+    tokenStillActive() : boolean {
+        return tokenNotExpired('token');
+    }
+
+    tokenExpired() : boolean {
+        return !this.tokenStillActive();
     }
 }
