@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'TopdiTop Admin';
 
   logged() {
-        if (localStorage.getItem('currentUser')) {
+        if (localStorage.getItem('user')) {
             return true;
         }
         return false;
