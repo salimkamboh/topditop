@@ -1,7 +1,12 @@
+import { fakeBackendProvider } from './fake-backend';
+import { UserService } from './service/user.service';
+import { MockBackend } from '@angular/http/testing';
+import { AuthenticationService } from './service/authentication.service';
+import { AuthGuard } from './service/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { ToasterModule } from 'angular2-toaster';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +38,15 @@ import { ApiProductService } from './service/api.product.service';
     ApiLocationService,
     ApiStoreService,
     ApiReferenceService,
-    ApiProductService
+    ApiProductService,
+    AuthGuard,
+    AuthenticationService,
+    UserService,
+
+    // providers used to create fake backend
+    // fakeBackendProvider,
+    // MockBackend,
+    // BaseRequestOptions
   ],
   bootstrap: [declarations[0]]
 })

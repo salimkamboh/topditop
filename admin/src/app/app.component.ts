@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TopdiTop Admin';
+
+  logged() {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        return false;
+    }
 }
