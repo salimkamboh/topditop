@@ -1,8 +1,8 @@
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
 import 'rxjs/add/operator/map';
 
@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
     public token: string;
     public user: Object;
+    private loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);
 
     constructor(private http: Http, private router: Router) {
         // set token if saved in local storage
@@ -23,6 +24,7 @@ export class AuthenticationService {
             .map((response: Response) => {
                 this.user = response.json().user;
                 this.token = response.json().token;
+                this.loggedIn.next(true);
                 
                 localStorage.setItem('user', JSON.stringify({ Object: this.user }));
                 localStorage.setItem('token', this.token);
@@ -34,6 +36,7 @@ export class AuthenticationService {
         // clear token remove user from local storage to log user out
         this.token = null;
         this.user = null;
+        this.loggedIn.next(false);
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         this.router.navigate(['/login']);
@@ -49,11 +52,16 @@ export class AuthenticationService {
             .map((response: Response) => {
                 this.user = response.json().user;
                 this.token = response.json().token;
+                this.loggedIn.next(true);
                 
                 localStorage.setItem('user', JSON.stringify({ Object: this.user }));
                 localStorage.setItem('token', this.token);
             })
             .catch((error: any) => Observable.throw(error || 'Server error'));
+    }
+
+    isLoggedIn() {
+        return this.loggedIn.asObservable();
     }
 
 

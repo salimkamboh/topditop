@@ -8,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'TopdiTop Admin';
-  loggedIn = false;
+  public isLoggedIn: boolean;
 
   constructor(private authenticationService: AuthenticationService) {
-
+      this.authenticationService.isLoggedIn().subscribe(
+          status => {
+              this.isLoggedIn = status;
+          }
+      );
   }
 
   ngOnInit() {
@@ -19,25 +23,13 @@ export class AppComponent implements OnInit{
           console.log("gonna try auth check");
           this.authenticationService.check().subscribe(
               response => {
-                  console.log("login check is OK");
-                  this.loggedIn = true;
                 },
               error => {
-                  console.log("login check FAIL");
-                  this.loggedIn = false;
+                  this.authenticationService.logout();
                 }
-          );
+          );    
       } else {
-          console.log("will not try auth check");
           this.authenticationService.logout();
-          this.loggedIn = false;
       }
-  }
-
-  logged() {
-        if (localStorage.getItem('user')) {
-            return true;
-        }
-        return false;
   }
 }

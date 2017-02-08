@@ -1,3 +1,4 @@
+import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './service/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Route } from '@angular/router';
@@ -36,6 +37,7 @@ import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: 'advertisements', component: AdvertisementsComponent, canActivate: [AuthGuard] },
   { path: 'advertisement/:id', component: AdvertisementDetailComponent, canActivate: [AuthGuard] },
   { path: 'stores', component: StoresComponent, canActivate: [AuthGuard] },
