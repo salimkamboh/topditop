@@ -2,23 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\BaseController;
 use App\Package;
 use App\Profile;
 use App\Registerfield;
 use App\Store;
-use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use App\User;
-use App\Helpers\Contracts\MagentoActionsContract;
+use Illuminate\Database\QueryException;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use phpDocumentor\Reflection\Types\Object_;
 use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use App\Http\Controllers\BaseController;
 
 class AuthController extends BaseController
 {
@@ -50,7 +47,11 @@ class AuthController extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => [
+            'logout',
+            'apiAdminLogin',
+            'apiAdminCheck'
+        ]]);
     }
 
     /**

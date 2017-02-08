@@ -43,6 +43,25 @@ class User extends Authenticatable
         } else if($entity == 'reference') {
             return count($this->store->references);
         }
+
+        return 0;
+    }
+
+
+    /**
+     * Regular users, without admins
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeRegular($query)
+    {
+        return $query->where('admin', 0);
+    }
+
+    public function scopeAdmin($query)
+    {
+        return $query->where('admin', 1);
     }
 
     public function numberOfProducts()
@@ -62,5 +81,13 @@ class User extends Authenticatable
         } else {
             return false;
         }
+    }
+
+    public function isAdmin()
+    {
+        if ($this->admin == 1) {
+            return true;
+        }
+        return false;
     }
 }

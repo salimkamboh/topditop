@@ -2,13 +2,13 @@
 
 namespace App\Entity\Product;
 
+use App\Helpers\PowerChecker;
 use App\Image;
 use App\Product;
 use App\Reference;
 use App\Store;
-use Illuminate\Http\Request;
 use DB;
-use App\Helpers\PowerChecker;
+use Illuminate\Http\Request;
 
 class Repository extends PowerChecker
 {

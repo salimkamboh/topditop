@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Entity\Panel\Repository as PanelRepository;
 use App\FieldGroup;
 use App\Package;
-use Illuminate\Http\Request;
-
 use App\Panel;
-use App\Entity\Panel\Repository as PanelRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 

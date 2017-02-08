@@ -2,9 +2,9 @@
 
 namespace app\Helpers;
 
-use SoapClient;
 use App\Helpers\Contracts\MagentoActionsContract;
 use App\Store;
+use SoapClient;
 
 class MagentoService implements MagentoActionsContract
 {

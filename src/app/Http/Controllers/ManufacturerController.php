@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Entity\Manufacturer\Repository as ManufacturerRepository;
 use App\Manufacturer;
 use Illuminate\Http\Request;
-use App\Entity\Manufacturer\Repository as ManufacturerRepository;
 
 class ManufacturerController extends BaseController
 {

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Location;
-use App\Store;
-use Illuminate\Http\Request;
 use App\Entity\Location\Repository as LocationRepository;
+use App\Location;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class LocationController extends BaseController

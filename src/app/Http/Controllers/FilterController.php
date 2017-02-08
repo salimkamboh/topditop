@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Store;
-use Illuminate\Http\Request;
-
-use App\Filters\StoresFilter;
-use App\Filters\ProductsFilterFront;
 use App\Filters\ProductsFilter;
+use App\Filters\ProductsFilterFront;
 use App\Filters\ReferencesFilter;
 use App\Filters\ReferencesGalleryFilter;
+use App\Filters\StoresFilter;
+use App\Store;
+use Illuminate\Http\Request;
 
 class FilterController extends BaseController
 {

@@ -2,22 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Advert;
-use App\Field;
-use App\FieldGroup;
-use App\Http\Requests;
-use App\Location;
 use App\Manufacturer;
 use App\Product;
-use App\Profile;
 use App\Reference;
 use App\Slide;
-use App\Store;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
-use Ixudra\Curl\Facades\Curl;
 
 class HomeController extends BaseController
 {

@@ -2,9 +2,9 @@
 
 namespace App\Entity\FieldGroup;
 
-use Illuminate\Http\Request;
 use App\Field;
 use App\FieldGroup;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class Repository

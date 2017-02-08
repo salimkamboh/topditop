@@ -2,12 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Helpers\Contracts\JsonInfoInterface;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\URL;
 use Intervention\Image\ImageManager;
 
 class Product extends Model implements JsonInfoInterface

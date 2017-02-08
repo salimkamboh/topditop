@@ -5,7 +5,6 @@ namespace App\Entity\Store;
 use App\Field;
 use App\FieldProfile;
 use App\Manufacturer;
-use App\Product;
 use App\Reference;
 use App\Store;
 use Illuminate\Database\Eloquent\Collection;

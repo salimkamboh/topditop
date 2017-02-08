@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Advert;
+use App\Entity\Store\Repository as StoreRepository;
 use App\Field;
 use App\Location;
-use App\Package;
-use Illuminate\Http\Request;
 use App\Manufacturer;
+use App\Package;
 use App\Product;
 use App\Reference;
 use App\Store;
 use DB;
-
-use App\Entity\Store\Repository as StoreRepository;
+use Illuminate\Http\Request;
 
 class FrontController extends BaseController
 {

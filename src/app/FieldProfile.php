@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 use DB;
+use Illuminate\Database\Eloquent\Model;
 
 class FieldProfile extends Model
 {

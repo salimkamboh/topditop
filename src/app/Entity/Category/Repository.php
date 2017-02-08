@@ -2,8 +2,8 @@
 
 namespace App\Entity\Category;
 
-use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Http\Request;
 
 class Repository
 {

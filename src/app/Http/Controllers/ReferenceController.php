@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Manufacturer;
+use App\Entity\Reference\Repository as ReferenceRepository;
+use App\Helpers\PowerChecker;
 use App\Product;
 use App\Reference;
+use DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use DB;
-use App\Entity\Reference\Repository as ReferenceRepository;
 use Illuminate\Support\Facades\Auth;
-use App\Helpers\PowerChecker;
 
 class ReferenceController extends BaseController
 {

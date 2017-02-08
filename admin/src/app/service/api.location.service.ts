@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
+import { ExtendedHttpService } from './extended-http.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -12,7 +13,7 @@ export class ApiLocationService {
 
   private apiUrl = `${environment.domain_url}api/locations/`;
 
-  constructor(private http: Http) { }
+  constructor(private http: ExtendedHttpService) { }
 
   getAll(): Observable<Object[]> {
     return this.http.get(this.apiUrl+ 'all')

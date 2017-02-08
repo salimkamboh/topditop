@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Entity\Field\Repository as FieldRepository;
 use App\Field;
 use App\FieldGroup;
 use App\Fieldtype;
 use Illuminate\Http\Request;
-use App\Entity\Field\Repository as FieldRepository;
 
 class FieldController extends BaseController
 {
