@@ -25,7 +25,7 @@ export class AuthenticationService {
                 this.user = response.json().user;
                 this.token = response.json().token;
                 this.loggedIn.next(true);
-                
+
                 localStorage.setItem('user', JSON.stringify({ Object: this.user }));
                 localStorage.setItem('token', this.token);
             })
@@ -47,13 +47,13 @@ export class AuthenticationService {
         headers.append('Authorization', `Bearer ${this.token}`);
         headers.append('Accept', 'application/json');
         let options = new RequestOptions({ headers: headers });
-        
+
         return this.http.get(`${environment.domain_url}api/auth/check`, options)
             .map((response: Response) => {
                 this.user = response.json().user;
                 this.token = response.json().token;
                 this.loggedIn.next(true);
-                
+
                 localStorage.setItem('user', JSON.stringify({ Object: this.user }));
                 localStorage.setItem('token', this.token);
             })
@@ -65,11 +65,11 @@ export class AuthenticationService {
     }
 
 
-    tokenStillActive() : boolean {
+    tokenStillActive(): boolean {
         return tokenNotExpired('token');
     }
 
-    tokenExpired() : boolean {
+    tokenExpired(): boolean {
         return !this.tokenStillActive();
     }
 }

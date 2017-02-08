@@ -10,8 +10,14 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class ExtendedHttpService extends AuthHttp {
 
-  constructor(options: AuthConfig, http: Http, private router: Router, private authenticationService: AuthenticationService, defOpts?: RequestOptions) {
-    super(options, http, defOpts)
+  constructor(
+    options: AuthConfig,
+    http: Http,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    defOpts?: RequestOptions
+  ) {
+    super(options, http, defOpts);
   }
 
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {

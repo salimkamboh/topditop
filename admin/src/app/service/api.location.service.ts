@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 import { ExtendedHttpService } from './extended-http.service';
@@ -16,7 +16,7 @@ export class ApiLocationService {
   constructor(private http: ExtendedHttpService) { }
 
   getAll(): Observable<Object[]> {
-    return this.http.get(this.apiUrl+ 'all')
+    return this.http.get(this.apiUrl + 'all')
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

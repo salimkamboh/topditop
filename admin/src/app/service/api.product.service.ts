@@ -1,5 +1,6 @@
+import { ExtendedHttpService } from './extended-http.service';
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 
@@ -12,7 +13,7 @@ export class ApiProductService {
 
   private apiUrl = `${environment.domain_url}api/products/`;
 
-  constructor(private http: Http) { }
+  constructor(private http: ExtendedHttpService) { }
 
   getAll(): Observable<Object[]> {
     return this.http.get(this.apiUrl)
