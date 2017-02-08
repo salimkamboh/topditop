@@ -42,7 +42,7 @@ eval $(docker-machine env ${env})
 
 docker-compose -f ${compose_file} -p ${project_name} up -d
 
-docker-machine ssh topditop-production -A "cd ${remote_deploy_path} && git checkout develop && git pull origin ${branch}"
+docker-machine ssh topditop-production -A "cd ${remote_deploy_path} && git checkout ${branch} && git pull origin ${branch}"
 
 docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/local/bin/composer install'
 
