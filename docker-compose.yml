@@ -2,14 +2,12 @@ version: '2'
 services:
   web:
     build: .
-    restart: always
     ports:
       - "8888:80"
     volumes:
       - ./src:/var/www/html
   db:
     image: mysql
-    restart: always
     ports:
       - "3306:3306"
     volumes:
