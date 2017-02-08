@@ -1,6 +1,6 @@
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -11,7 +11,8 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
     public token: string;
     public user: Object;
-    private loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);
+    private loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);s
+    redirectUrl: string;
 
     constructor(private http: Http, private router: Router) {
         // set token if saved in local storage

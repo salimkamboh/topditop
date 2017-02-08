@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../service/authentication.service';
@@ -18,15 +18,16 @@ export class LoginComponent {
     login() {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
-             .subscribe(
-                 result => {
-                     this.loading = false;
-                     this.router.navigate(['/locations']);
-                 },
-                 error => {
-                     console.log(error);
-                     this.loading = false;
-                 }
-             );
+            .subscribe(
+            result => {
+                this.loading = false;
+                let url = this.authenticationService.redirectUrl;
+                this.router.navigate([url]);
+            },
+            error => {
+                this.error = 'The email or password you have entered is invalid.';
+                this.loading = false;
+            }
+            );
     }
 }

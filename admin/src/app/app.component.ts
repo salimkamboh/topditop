@@ -20,14 +20,13 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
       if (this.authenticationService.tokenStillActive()) {
-          console.log("gonna try auth check");
           this.authenticationService.check().subscribe(
               response => {
                 },
               error => {
                   this.authenticationService.logout();
                 }
-          );    
+          );
       } else {
           this.authenticationService.logout();
       }

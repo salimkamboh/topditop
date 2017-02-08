@@ -37,44 +37,48 @@ import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
-  { path: 'advertisements', component: AdvertisementsComponent, canActivate: [AuthGuard] },
-  { path: 'advertisement/:id', component: AdvertisementDetailComponent, canActivate: [AuthGuard] },
-  { path: 'stores', component: StoresComponent, canActivate: [AuthGuard] },
-  { path: 'store/:id', component: StoreDetailComponent, canActivate: [AuthGuard] },
-  { path: 'slides', component: SlidesComponent, canActivate: [AuthGuard] },
-  { path: 'slide/:id', component: SlideDetailComponent, canActivate: [AuthGuard] },
-  { path: 'manufacturers', component: ManufacturersComponent, canActivate: [AuthGuard] },
-  { path: 'manufacturer/:id', component: ManufacturerDetailComponent, canActivate: [AuthGuard] },
-  { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
-  { path: 'category/:id', component: CategoryDetailComponent, canActivate: [AuthGuard] },
-  { path: 'fieldtypes', component: FieldtypesComponent, canActivate: [AuthGuard] },
-  { path: 'fieldtype/:id', component: FieldtypeDetailComponent, canActivate: [AuthGuard] },
-  { path: 'fields', component: FieldsComponent, canActivate: [AuthGuard] },
-  { path: 'field/:id', component: FieldDetailComponent, canActivate: [AuthGuard] },
-  { path: 'fieldgroups', component: FieldgroupsComponent, canActivate: [AuthGuard] },
-  { path: 'fieldgroup/:id', component: FieldgroupDetailComponent, canActivate: [AuthGuard] },
-  { path: 'panels', component: PanelsComponent, canActivate: [AuthGuard] },
-  { path: 'panel/:id', component: PanelDetailComponent, canActivate: [AuthGuard] },
-  { path: 'packages', component: PackagesComponent, canActivate: [AuthGuard] },
-  { path: 'package/:id', component: PackageDetailComponent, canActivate: [AuthGuard] },
-  { path: 'locations', component: LocationsComponent, canActivate: [AuthGuard] },
-  { path: 'location/:id', component: LocationDetailComponent, canActivate: [AuthGuard] },
-  { path: 'registerfields', component: RegisterfieldsComponent, canActivate: [AuthGuard] },
-  { path: 'registerfield/:id', component: RegisterfieldDetailComponent, canActivate: [AuthGuard] },
-  { path: 'references', component: ReferencesComponent, canActivate: [AuthGuard] },
-  { path: 'reference/:id', component: ReferenceDetailComponent, canActivate: [AuthGuard] },
-  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
-  { path: 'product/:id', component: ProductDetailComponent, canActivate: [AuthGuard] },
-  { path: '', component: AdvertisementsComponent, canActivate: [AuthGuard] },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '', canActivate: [AuthGuard], children: [
+      { path: 'logout', component: LogoutComponent },
+      { path: 'advertisements', component: AdvertisementsComponent },
+      { path: 'advertisement/:id', component: AdvertisementDetailComponent },
+      { path: 'stores', component: StoresComponent },
+      { path: 'store/:id', component: StoreDetailComponent },
+      { path: 'slides', component: SlidesComponent },
+      { path: 'slide/:id', component: SlideDetailComponent },
+      { path: 'manufacturers', component: ManufacturersComponent },
+      { path: 'manufacturer/:id', component: ManufacturerDetailComponent },
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'category/:id', component: CategoryDetailComponent },
+      { path: 'fieldtypes', component: FieldtypesComponent },
+      { path: 'fieldtype/:id', component: FieldtypeDetailComponent },
+      { path: 'fields', component: FieldsComponent },
+      { path: 'field/:id', component: FieldDetailComponent },
+      { path: 'fieldgroups', component: FieldgroupsComponent },
+      { path: 'fieldgroup/:id', component: FieldgroupDetailComponent },
+      { path: 'panels', component: PanelsComponent },
+      { path: 'panel/:id', component: PanelDetailComponent },
+      { path: 'packages', component: PackagesComponent },
+      { path: 'package/:id', component: PackageDetailComponent },
+      { path: 'locations', component: LocationsComponent },
+      { path: 'location/:id', component: LocationDetailComponent },
+      { path: 'registerfields', component: RegisterfieldsComponent },
+      { path: 'registerfield/:id', component: RegisterfieldDetailComponent },
+      { path: 'references', component: ReferencesComponent },
+      { path: 'reference/:id', component: ReferenceDetailComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'product/:id', component: ProductDetailComponent },
+      { path: '', component: AdvertisementsComponent },
+      { path: '**', component: PageNotFoundComponent }
+    ]
+  }
 ];
 
 export let declarations: Array<any> = [
-  AppComponent
+  AppComponent,
+  LoginComponent
 ];
 
-appRoutes.forEach((route: Route) => {
+appRoutes[1].children.forEach((route: Route) => {
   declarations.push(route.component);
 });
 
