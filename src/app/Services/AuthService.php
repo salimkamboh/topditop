@@ -24,4 +24,18 @@ class AuthService
 
         return $user;
     }
+
+    /**
+     * @param $email
+     * @param $password
+     * @return User
+     */
+    public function updateAdmin($email, $password)
+    {
+        $user = User::admin()->where('email', $email)->firstOrFail();
+        $user->password = bcrypt($password);
+        $user->save();
+
+        return $user;
+    }
 }

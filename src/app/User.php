@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $query->where('admin', 0);
     }
 
+    public function scopeAdmin($query)
+    {
+        return $query->where('admin', 1);
+    }
+
     public function numberOfProducts()
     {
         return count($this->store->products);
