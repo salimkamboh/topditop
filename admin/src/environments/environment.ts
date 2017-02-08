@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  domain_url: 'http://localhost:7888/'
+  domain_url: 'http://topditop.com:8080/'
 };
