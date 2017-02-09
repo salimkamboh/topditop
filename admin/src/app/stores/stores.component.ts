@@ -16,10 +16,10 @@ export class StoresComponent implements OnInit {
 
   ngOnInit() {
     this.apiStoreService
-        .getAllActive()
+        .getAll()
         .subscribe(
             stores => this.stores = <Store[]>stores,
-            error => { 
+            error => {
               this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading stores'); 
             }
         );
