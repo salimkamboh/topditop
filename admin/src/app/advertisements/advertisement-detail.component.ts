@@ -17,13 +17,18 @@ export class AdvertisementDetailComponent implements OnInit {
     brands: Brand[];
     errorMessage: string;
     private disabled: boolean = false;
-    private fileReader: FileReader;
     filename_scanned_image_url_base64: string = null;
     filename_brand_logo_url_base64: string = null;
     filename_reference_image_url_base64: string = null;
     advertForm: FormGroup;
 
-    constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toasterService: ToasterService) { }
+    constructor(
+        private apiService: ApiService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private fb: FormBuilder,
+        private toasterService: ToasterService
+    ) { }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
@@ -31,15 +36,15 @@ export class AdvertisementDetailComponent implements OnInit {
             this.apiService
                 .get(this.entity, this.id)
                 .subscribe(
-                    advert => {
-                        this.advert = <Adverts>advert;
-                        this.createFormGroup();
-                    },
-                    error => {
-                        this.errorMessage = <any>error;
-                        this.toasterService.pop('error', 'Error', 'Advertisement with given ID doesn`t exist!');
-                        this.router.navigate(['/advertisements']);
-                    }
+                advert => {
+                    this.advert = <Adverts>advert;
+                    this.createFormGroup();
+                },
+                error => {
+                    this.errorMessage = <any>error;
+                    this.toasterService.pop('error', 'Error', 'Advertisement with given ID doesn`t exist!');
+                    this.router.navigate(['/advertisements']);
+                }
                 );
         } else {
             this.advert = {
@@ -56,8 +61,8 @@ export class AdvertisementDetailComponent implements OnInit {
         this.apiService
             .getAll('manufacturers/all')
             .subscribe(
-                brands => this.brands = <Brand[]>brands,
-                error => this.errorMessage = <any>error
+            brands => this.brands = <Brand[]>brands,
+            error => this.errorMessage = <any>error
             )
     }
 
@@ -68,7 +73,7 @@ export class AdvertisementDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
-        if( !inputValue.files || inputValue.files.length===0 ) {
+        if (!inputValue.files || inputValue.files.length === 0) {
             return;
         }
         myReader.onloadend = (e) => {
@@ -101,38 +106,39 @@ export class AdvertisementDetailComponent implements OnInit {
         let advert = this.createDataObject();
         this.apiService.create(this.entity, advert)
             .subscribe(
-                advert => { 
-                    this.advert = <Adverts>advert; 
-                    this.toasterService.pop('success', 'Success', 'Advertisement created!'); 
-                    this.disabled = false; this.router.navigate(['/advertisement', this.advert.id]); 
-                    this.id = this.advert.id 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with creating advertisement!'); 
-                    this.disabled = false;
-                    this.router.navigate(['/advertisements']); 
-                }
+            advert => {
+                this.advert = <Adverts>advert;
+                this.toasterService.pop('success', 'Success', 'Advertisement created!');
+                this.disabled = false; this.router.navigate(['/advertisement', this.advert.id]);
+                this.id = this.advert.id;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with creating advertisement!');
+                this.disabled = false;
+                this.router.navigate(['/advertisements']);
+            }
             );
     }
 
     updateAdvert(id: number) {
         let advert = this.createDataObject();
+        console.log(advert);
         this.apiService
             .update(this.entity, this.id, advert)
             .subscribe(
-                advert => { 
-                    this.advert = <Adverts>advert; 
-                    this.toasterService.pop('success', 'Success', 'Advertisement updated!'); 
-                    this.router.navigate(['/advertisements']); 
-                    this.disabled = false; 
-                },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with updating advertisement!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/advertisements']); 
-                }
+            advert => {
+                this.advert = <Adverts>advert;
+                this.toasterService.pop('success', 'Success', 'Advertisement updated!');
+                this.router.navigate(['/advertisements']);
+                this.disabled = false;
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with updating advertisement!');
+                this.disabled = false;
+                this.router.navigate(['/advertisements']);
+            }
             );
     }
 
@@ -142,16 +148,17 @@ export class AdvertisementDetailComponent implements OnInit {
         this.apiService
             .delete(this.entity, id)
             .subscribe(
-                advert => { this.toasterService.pop('success', 'Success', 'Advertisement deleted!'); 
-                this.router.navigate(['/advertisements']); 
-                this.disabled = false; 
+            advert => {
+                this.toasterService.pop('success', 'Success', 'Advertisement deleted!');
+                this.router.navigate(['/advertisements']);
+                this.disabled = false;
             },
-                error => { 
-                    this.errorMessage = <any>error; 
-                    this.toasterService.pop('error', 'Error', 'Error with deleting advertisement!'); 
-                    this.disabled = false; 
-                    this.router.navigate(['/advertisements']); 
-                }
+            error => {
+                this.errorMessage = <any>error;
+                this.toasterService.pop('error', 'Error', 'Error with deleting advertisement!');
+                this.disabled = false;
+                this.router.navigate(['/advertisements']);
+            }
             );
     }
 
