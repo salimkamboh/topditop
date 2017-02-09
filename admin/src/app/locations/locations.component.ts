@@ -18,7 +18,10 @@ export class LocationsComponent implements OnInit {
     this.apiLocationService.getAll()
       .subscribe(
       locations => this.locations = <Location[]>locations,
-      error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading locations'); }
+      error => {
+        this.errorMessage = <any>error;
+        this.toasterService.pop('error', 'Error', 'Error with loading locations');
+      }
       );
   }
 }
