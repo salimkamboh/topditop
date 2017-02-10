@@ -60,8 +60,8 @@ function performFilter() {
                 '<a href="#" class="pull-left separator-bottom"><i class="icon-tags"></i>' + item.manufacturer_name + '</a>' +
                 '<div class="clearfix"></div>' +
                 '</div>' +
-                '<a href="' + _globalRoute + '/' +_globalLang +'/dashboard/products/edit/' + item.id + '" class="click-button">Manage Product</a>' +
-                '<a href="#" class="click-button">Delete Product</a>' +
+                '<a href="' + _globalRoute + '/' +_globalLang +'/dashboard/products/edit/' + item.id + '" class="click-button">'+Lang.get("messages.manage_product_js")+'</a>' +
+                '<a href="#" class="click-button">'+Lang.get("messages.delete_product")+'</a>' +
                 '</div>' +
                 '</div>' +
                 '</div>';

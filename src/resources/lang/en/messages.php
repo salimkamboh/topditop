@@ -47,6 +47,7 @@ return [
     'manage_reference' => 'Manage references',
     'new_reference' => 'Add new reference',
     'manage_product' => 'Manage products',
+    'manage_product_js' => 'Manage product',
     'new_product' => 'Add new product',
     'product_created' => 'Product created successfully.',
     'product_create_failed' => 'Failed to create product.',

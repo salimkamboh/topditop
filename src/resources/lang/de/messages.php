@@ -47,6 +47,7 @@ return [
     'manage_reference' => 'Referenzen bearbeiten',
     'new_reference' => 'Neue Referenz',
     'manage_product' => 'Produkte bearbeiten',
+    'manage_product_js' => 'Produkte bearbeiten',
     'new_product' => 'Neues Produkt',
     'product_created' => 'Produkt wurde erfolgreich erstellt',
     'product_create_failed' => 'Fehler beim Erstellen des Produkts.',
