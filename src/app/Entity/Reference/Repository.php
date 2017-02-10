@@ -117,7 +117,12 @@ class Repository extends PowerChecker
      */
     public function getAllImages(Reference $reference)
     {
-        return $reference->images;
+        $images = [];
+        foreach ($reference->images as $image) {
+            $image->url = $image->getImageUrl();
+            $images [] = $image;
+        }
+        return $images;
     }
 
     /**

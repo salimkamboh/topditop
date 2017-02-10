@@ -221,7 +221,12 @@ class Repository extends PowerChecker
      */
     public function getAllImages(Product $product)
     {
-        return $product->images;
+        $images = [];
+        foreach ($product->images as $image) {
+            $image->url = $image->getImageUrl();
+            $images [] = $image;
+        }
+        return $images;
     }
 
     /**
