@@ -1,3 +1,4 @@
+import { ApiStoreService } from './../service/api.store.service';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { Slide } from '../data/slide';
@@ -26,7 +27,8 @@ export class SlideDetailComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute,
         private fb: FormBuilder,
-        private toasterService: ToasterService
+        private toasterService: ToasterService,
+        private apiStoreService: ApiStoreService
     ) { }
 
     ngOnInit() {
@@ -49,8 +51,8 @@ export class SlideDetailComponent implements OnInit {
             this.createNewSlide();
             this.createFormGroup();
         }
-        this.apiService
-            .getAll('stores/all')
+        this.apiStoreService
+            .getAllActive()
             .subscribe(
             stores => { this.stores = <Store[]>stores; },
             error => this.errorMessage = <any>error

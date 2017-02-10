@@ -27,13 +27,16 @@
                 <div class="col-xs-3 control-label">
                     <button type="button" class="btn btn-primary" (click)="addNewFieldGroup()"><span class="glyphicon glyphicon-plus"></span> add</button>
                 </div>
-                <div class="col-xs-6" *ngFor="let selectedFieldGroup of panelForm.controls.selectedFieldGroups.controls; let i = index;" [formGroupName]="i">
-                    <select class="form-control col-8" formControlName="id">
+                <div class="col-xs-6">
+                    <div *ngFor="let selectedFieldGroup of panelForm.controls.selectedFieldGroups.controls; let i = index;"
+                        [formGroupName]="i">
+                        <select class="form-control col-8" formControlName="id">
                         <option *ngFor="let fg of allFieldGroups" [value]="fg.id" >{{fg.name}}</option>
                     </select>
                 </div>
             </div>
         </div>
+    </div>
     <div class="panel-footer">
         <a class="btn btn-default" routerLink="/panels"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
         <div class="pull-right">
