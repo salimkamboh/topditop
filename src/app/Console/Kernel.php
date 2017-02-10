@@ -14,8 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
-         Commands\TopAdminList::class,
-         Commands\TopAdminCreate::class,
+        Commands\TopAdminList::class,
+        Commands\TopAdminCreate::class,
+        Commands\TopSitemapCreate::class,
     ];
 
     /**
