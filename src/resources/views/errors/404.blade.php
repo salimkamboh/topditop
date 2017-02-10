@@ -46,10 +46,7 @@
             <div class="content">
                 <div class="title">
                 	    <h3>Oops!</h3>
-                	    <h4>404 Not Found</h4>
-                	    <div>
-                		      Sorry, an error has occured, Requested page not found!<br>
-                	    </div>
+                	    <h4>Requested page not found!</h4>
                 	    <div>
                           <a class="navbar-brand"  href="{{route('default')}}">Top<span> Di </span>Top H.O.M.E.</a>
                 	    </div>
