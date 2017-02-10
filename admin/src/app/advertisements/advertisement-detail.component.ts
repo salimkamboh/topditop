@@ -5,22 +5,24 @@ import { Brand } from '../data/brand';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-advertisement-detail',
     templateUrl: './advertisement-detail.component.html'
 })
 export class AdvertisementDetailComponent implements OnInit {
-    id: number;
-    entity: string = 'adverts';
+    private id: number;
+    private entity: string = 'adverts';
     private advert: Adverts;
-    brands: Brand[];
-    errorMessage: string;
+    private brands: Brand[];
+    private errorMessage: string;
     private disabled: boolean = false;
-    filename_scanned_image_url_base64: string = null;
-    filename_brand_logo_url_base64: string = null;
-    filename_reference_image_url_base64: string = null;
-    advertForm: FormGroup;
+    private filename_scanned_image_url_base64: string = null;
+    private filename_brand_logo_url_base64: string = null;
+    private filename_reference_image_url_base64: string = null;
+    private advertForm: FormGroup;
+    private domain: string = environment.domain_url;
 
     constructor(
         private apiService: ApiService,
@@ -63,7 +65,7 @@ export class AdvertisementDetailComponent implements OnInit {
             .subscribe(
             brands => this.brands = <Brand[]>brands,
             error => this.errorMessage = <any>error
-            )
+            );
     }
 
     changeListener($event): void {
@@ -74,6 +76,15 @@ export class AdvertisementDetailComponent implements OnInit {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
         if (!inputValue.files || inputValue.files.length === 0) {
+            if (inputValue.id == 'filename_scanned_image_url') {
+                this.filename_scanned_image_url_base64 = null;
+            }
+            if (inputValue.id == 'filename_brand_logo_url') {
+                this.filename_brand_logo_url_base64 = null;
+            }
+            if (inputValue.id == 'filename_reference_image_url') {
+                this.filename_reference_image_url_base64 = null;
+            }
             return;
         }
         myReader.onloadend = (e) => {
@@ -89,7 +100,7 @@ export class AdvertisementDetailComponent implements OnInit {
                 this.filename_reference_image_url_base64 = myReader.result;
                 this.advert.reference_image_url = myReader.result;
             }
-        }
+        };
         myReader.readAsDataURL(file);
     }
 
@@ -108,9 +119,11 @@ export class AdvertisementDetailComponent implements OnInit {
             .subscribe(
             advert => {
                 this.advert = <Adverts>advert;
-                this.toasterService.pop('success', 'Success', 'Advertisement created!');
-                this.disabled = false; this.router.navigate(['/advertisement', this.advert.id]);
                 this.id = this.advert.id;
+                this.updateImages();
+                this.toasterService.pop('success', 'Success', 'Advertisement created!');
+                this.disabled = false;
+                this.router.navigate(['/advertisements']);
             },
             error => {
                 this.errorMessage = <any>error;
@@ -119,11 +132,13 @@ export class AdvertisementDetailComponent implements OnInit {
                 this.router.navigate(['/advertisements']);
             }
             );
+
     }
 
     updateAdvert(id: number) {
         let advert = this.createDataObject();
         console.log(advert);
+        this.updateImages();
         this.apiService
             .update(this.entity, this.id, advert)
             .subscribe(
@@ -140,8 +155,8 @@ export class AdvertisementDetailComponent implements OnInit {
                 this.router.navigate(['/advertisements']);
             }
             );
-    }
 
+    }
 
     deleteAdvert(id: number) {
         this.disabled = true;
@@ -171,19 +186,34 @@ export class AdvertisementDetailComponent implements OnInit {
 
     createDataObject(): Object {
         let advert = {
-            "manufacturer_id": this.advertForm.value.manufacturer_id,
-            "name": this.advertForm.value.name
-        };
-        if (this.filename_brand_logo_url_base64 != null) {
-            advert['filename_brand_logo_url_base64'] = this.filename_brand_logo_url_base64
-        };
-        if (this.filename_reference_image_url_base64 != null) {
-            advert['filename_reference_image_url_base64'] = this.filename_reference_image_url_base64;
-        };
-        if (this.filename_scanned_image_url_base64 != null) {
-            advert['filename_scanned_image_url_base64'] = this.filename_scanned_image_url_base64;
+            'manufacturer_id': this.advertForm.value.manufacturer_id,
+            'name': this.advertForm.value.name
         };
         return advert;
+    }
+
+    updateImages() {
+        if (this.filename_brand_logo_url_base64 != null) {
+            let image = {
+                'base64': this.filename_brand_logo_url_base64,
+                'type': 'brand_logo'
+            };
+            this.apiService.create(`${this.entity}/${this.id}/images`, image).subscribe();
+        };
+        if (this.filename_reference_image_url_base64 != null) {
+            let image = {
+                'base64': this.filename_reference_image_url_base64,
+                'type': 'reference_image'
+            };
+            this.apiService.create(`${this.entity}/${this.id}/images`, image).subscribe();
+        };
+        if (this.filename_scanned_image_url_base64 != null) {
+            let image = {
+                'base64': this.filename_scanned_image_url_base64,
+                'type': 'scanned_image'
+            };
+            this.apiService.create(`${this.entity}/${this.id}/images`, image).subscribe();
+        };
     }
 
 }
