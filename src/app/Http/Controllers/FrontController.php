@@ -13,6 +13,7 @@ use App\Reference;
 use App\Store;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class FrontController extends BaseController
 {
@@ -69,6 +70,9 @@ class FrontController extends BaseController
      */
     public function frontShowStore(Store $store)
     {
+        if ($store->status == 0) {
+          throw new ModelNotFoundException();
+        }
         $manufacturers = $store->manufacturers;
         $datablock = $this->settingsRepository->getStoreData($store);
 
@@ -223,7 +227,7 @@ class FrontController extends BaseController
 FROM fields
 INNER JOIN field_profile
 ON fields.id=field_profile.field_id
-INNER JOIN field_profile_translations ON field_profile.id = field_profile_translations.field_profile_id 
+INNER JOIN field_profile_translations ON field_profile.id = field_profile_translations.field_profile_id
 INNER JOIN profiles ON profiles.id = field_profile.profile_id
 INNER JOIN stores ON stores.id = profiles.store_id
 INNER JOIN `references` ON `references`.`store_id` = stores.id
