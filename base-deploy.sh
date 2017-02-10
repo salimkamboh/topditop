@@ -58,4 +58,6 @@ docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/bin/php
 
 docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan optimize'
 
+docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan top:sitemap:create'
+
 eval $(docker-machine env --unset)
