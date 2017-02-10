@@ -19,6 +19,10 @@ class Repository
         $manufacturer = $this->setImage($manufacturer, $request->base64);
         $manufacturer->save();
 
+        if ($request->has('base64')) {
+          $manufacturer->image_url = $manufacturer->getImageUrl();
+        }
+
         return $manufacturer;
     }
 
@@ -52,8 +56,9 @@ class Repository
         $manufacturer = Manufacturer::find($manufacturer->id);
         $manufacturer->name = $request->name;
         $manufacturer->featured = $request->featured;
-
-        $manufacturer = $this->setImage($manufacturer, $request->base64);
+        if ($request->has('base64')) {
+          $manufacturer = $this->setImage($manufacturer, $request->base64);
+        }
         $manufacturer->save();
 
         return $manufacturer;
