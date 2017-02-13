@@ -198,7 +198,7 @@ Route::group(['prefix' => 'api/'], function () {
     Route::group(['prefix' => 'registerfields/', 'middleware' => 'jwt.admin'], function () {
         Route::get('all', ['as' => 'all_registerfields', 'uses' => 'RegisterfieldController@viewAll']);
         Route::get('{registerfield}', ['as' => 'view_registerfield', 'uses' => 'RegisterfieldController@view']);
-        Route::delete('{registerfield}', ['as' => 'delete_registerfield', 'uses' => 'RegisterfieldController@delete']);
+        Route::delete('delete/{registerfield}', ['as' => 'delete_registerfield', 'uses' => 'RegisterfieldController@delete']);
         Route::post('{registerfield}', ['as' => 'edit_registerfield', 'uses' => 'RegisterfieldController@edit']);
         Route::post('/', ['as' => 'insert_registerfield', 'uses' => 'RegisterfieldController@save']);
         Route::get('all/users', ['as' => 'all_registerfields_users', 'uses' => 'RegisterfieldController@viewAllUsers']);
