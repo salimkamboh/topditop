@@ -53,4 +53,15 @@ class Repository
         return $registerfield;
     }
 
+    public function delete($id)
+    {
+        $registerField = Registerfield::findOrFail($id);
+
+        if ($registerField->delete()) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
