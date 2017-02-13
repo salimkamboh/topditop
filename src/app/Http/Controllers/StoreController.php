@@ -287,6 +287,7 @@ class StoreController extends BaseController
                         "profile_id" => $profile["id"],
                         "package_id" => $package["id"],
                         "package_name" => $package["name"],
+                        "store_name"=> $store->store_name,
                         "registerfields" => $regFields,
                         "cover_url" => $store->cover_url
                     );
