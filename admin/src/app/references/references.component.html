@@ -1,0 +1,38 @@
+<h4 class="text-center" *ngIf="!references">
+  <span class="glyphicon glyphicon-refresh spin"></span> Loading References
+</h4>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Reference Managment
+  </div>
+  <div class="panel-body" *ngIf="references && references.length">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Store ID</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reference of references">
+            <td>{{ reference.id }}</td>
+            <td>{{ reference.store_id }}</td>
+            <td>{{ reference.created_at | date:'medium' }}</td>
+            <td>{{ reference.updated_at | date:'medium' }}</td>
+            <td>{{ reference.title }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/reference', reference.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/reference', '-1']"><span class="glyphicon glyphicon-plus"></span> add new</a>
+  </div>
+</div>

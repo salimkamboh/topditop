@@ -1,0 +1,144 @@
+<h4 class="text-center" *ngIf="!slide">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Slide
+</h4>
+
+<label *ngIf="slide">{{ id === '-1' ? 'New' : 'Edit' }} Slide Entry</label>
+
+<form class="form-horizontal" [formGroup]="slideForm" (ngSubmit)="onSubmit($event)" *ngIf="slide">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Slide Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Title</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" formControlName="title" value="{{ slide.title }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Image URL</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" value="{{ slide.image_url }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 1 Store ID</label>
+                <div class="col-xs-6">
+                    <select class="form-control" formControlName="slot1_store_id" [value]="slide.slot1_store_id">
+                        <option *ngFor="let store of stores" [value]="store.id">{{store.store_name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 1 Width (%)</label>
+                <div class="col-xs-6">
+                    <input type="number" min="0" max="100" class="form-control" formControlName="slot1_width" value="{{ slide.slot1_width }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 1 Expiration Date</label>
+                <div class="col-xs-6">
+                    <input type="date" class="form-control" formControlName="slot1_valid_until" value="{{ slide.slot1_valid_until }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 2 Store ID</label>
+                <div class="col-xs-6">
+                    <select class="form-control" formControlName="slot2_store_id" [value]="slide.slot2_store_id">
+                        <option *ngFor="let store of stores" [value]="store.id">{{store.store_name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 2 Width (%)</label>
+                <div class="col-xs-6">
+                    <input type="number" min="0" max="100" class="form-control" formControlName="slot2_width" value="{{ slide.slot2_width }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 2 Expiration Date</label>
+                <div class="col-xs-6">
+                    <input type="date" class="form-control" formControlName="slot2_valid_until" value="{{ slide.slot2_valid_until }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 3 Store ID</label>
+                <div class="col-xs-6">
+                    <select class="form-control" formControlName="slot3_store_id" [value]="slide.slot3_store_id">
+                        <option *ngFor="let store of stores" [value]="store.id">{{store.store_name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 3 Width (%)</label>
+                <div class="col-xs-6">
+                    <input type="number" min="0" max="100" class="form-control" formControlName="slot3_width" value="{{ slide.slot3_width }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 3 Expiration Date</label>
+                <div class="col-xs-6">
+                    <input type="date" class="form-control" formControlName="slot3_valid_until" value="{{ slide.slot3_valid_until }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 4 Store ID</label>
+                <div class="col-xs-6">
+                    <select class="form-control" formControlName="slot4_store_id" [value]="slide.slot4_store_id">
+                        <option *ngFor="let store of stores" [value]="store.id">{{store.store_name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 4 Width (%)</label>
+                <div class="col-xs-6">
+                    <input type="number" min="0" max="100" class="form-control" formControlName="slot4_width" value="{{ slide.slot4_width }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 4 Expiration Date</label>
+                <div class="col-xs-6">
+                    <input type="date" class="form-control" formControlName="slot4_valid_until" value="{{ slide.slot4_valid_until }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 5 Store ID</label>
+                <div class="col-xs-6">
+                    <select class="form-control" formControlName="slot5_store_id" [value]="slide.slot5_store_id">
+                        <option *ngFor="let store of stores" [value]="store.id">{{store.store_name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 5 Width (%)</label>
+                <div class="col-xs-6">
+                    <input type="number" min="0" max="100" class="form-control" formControlName="slot5_width" value="{{ slide.slot5_width }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Slot 5 Expiration Date</label>
+                <div class="col-xs-6">
+                    <input type="date" class="form-control" formControlName="slot5_valid_until" value="{{ slide.slot5_valid_until }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Image</label>
+                <div class="col-xs-6">
+                    <input type="file" placeholder="Choose File" accept="image/*" id="image_url" (change)="changeListener($event)" />
+                </div>
+            </div>
+            <div class="col-xs-offset-3 col-xs-6">
+                <img class="img img-responsive" [src]='slide.image_url'>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/slides"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteSlide(slide.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
+            </div>
+        </div>
+    </div>
+</form>

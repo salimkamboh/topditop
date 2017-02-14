@@ -1,0 +1,31 @@
+version: '2'
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/deployer/apps/topditop-production/src:/var/www/html/
+      - /home/deployer/apps/topditop-production/letsencrypt:/etc/letsencrypt/
+    logging:
+      driver: syslog
+    environment:
+      - PRODUCTION=true
+  db:
+    image: mysql
+    restart: always
+    ports:
+     - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=topditop
+      - MYSQL_DATABASE=topditop
+      - MYSQL_USER=topditop
+      - MYSQL_PASSWORD=topditop
+    logging:
+      driver: syslog
+volumes:
+  mysql:

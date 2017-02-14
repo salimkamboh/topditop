@@ -1,0 +1,43 @@
+<h4 class="text-center" *ngIf="!fieldgroup || !fields">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Fieldgroup Details
+</h4>
+
+<label *ngIf="fieldgroup && fields">{{ id === '-1' ? 'New' : 'Edit' }} Fieldgroup Entry</label>
+
+<form class="form-horizontal" [formGroup]="fieldgroupForm" (ngSubmit)="onSubmit($event)" *ngIf="fieldgroup && fields">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Fieldgroup Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="name" value="{{ fieldgroup.name }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">CSS Class</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="cssclass" value="{{ fieldgroup.cssclass }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Fields</label>
+                <div class="col-xs-6">
+                    <select multiple class="form-control col-8" formControlName="selectedFields" size="8" required>
+                            <option *ngFor="let field of fields" [value]="field.id">{{ field.name }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/fieldgroups"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteFieldgroup(fieldgroup.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
+            </div>
+        </div>
+    </div>
+</form>

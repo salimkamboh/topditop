@@ -1,0 +1,88 @@
+<h4 class="text-center" *ngIf="!product || !allCategories || !allReferences || !manufacturers">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Product Details
+</h4>
+
+<label *ngIf="product && allCategories && allReferences && manufacturers">{{ id === '-1' ? 'New' : 'Edit' }} product Entry</label>
+
+<form class="form-horizontal" [formGroup]="productForm" (ngSubmit)="onSubmit($event)" *ngIf="product && allCategories && allReferences && manufacturers">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Product Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Title</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="title" value="{{ product.title }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Description</label>
+                <div class="col-xs-6">
+                    <textarea class="form-control" rows="8" formControlName="description" value="{{ product.description }}" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Price</label>
+                <div class="col-xs-6">
+                    <input type="number"  min="0" class="form-control col-8" formControlName="price" value="{{ product.price }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Store</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="store_id" required>
+                            <option *ngFor="let store of stores" [value]="store.id">{{ store.store_name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">References</label>
+                <div class="col-xs-6">
+                    <select multiple class="form-control col-8" formControlName="selectedReferences" size="8" required>
+                            <option *ngFor="let reference of allReferences" [ngValue]="reference.id">{{ reference.title }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Categories</label>
+                <div class="col-xs-6">
+                    <select multiple class="form-control col-8" formControlName="selectedCategories" size="8" required>
+                            <option *ngFor="let category of allCategories" [ngValue]="category.id">{{ category.name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Manufacturer</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="manufacturer_id" required>
+                            <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">{{ manufacturer.name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Add Image +</label>
+                <div class="col-xs-6">
+                    <input type="file" placeholder="Choose File" accept="image/*" id="image_url" (change)="changeListener($event)" />
+                </div>
+            </div>
+            <div class="col-xs-offset-3 col-xs-6" *ngFor="let photo of newImages">
+                <img class="img img-responsive"  [src]='photo'>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-6" *ngFor="let image of myImages; let i=index;">
+                    <img class="img img-responsive" [src]='image.url'>
+                    <button type="button" class="btn btn-sm btn-danger" (click)="deleteImage(image.id, i)" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> remove</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/products"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
+            </div>
+        </div>
+    </div>
+</form>

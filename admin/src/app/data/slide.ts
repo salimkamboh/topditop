@@ -1,0 +1,22 @@
+export interface Slide {
+    id: number,
+    title: string,
+    image_url: string,
+    created_at?: string,
+    updated_at?: string,
+    slot1_store_id: string,
+    slot1_width: string,
+    slot1_valid_until: string,
+    slot2_store_id: string,
+    slot2_width: string,
+    slot2_valid_until: string,
+    slot3_store_id: string,
+    slot3_width: string,
+    slot3_valid_until: string,
+    slot4_store_id: string,
+    slot4_width: string,
+    slot4_valid_until: string,
+    slot5_store_id: string,
+    slot5_width: string,
+    slot5_valid_until: string
+}

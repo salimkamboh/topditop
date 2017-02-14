@@ -1,0 +1,91 @@
+<h4 class="text-center" *ngIf="!store || !locations">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Store Details
+</h4>
+
+<label *ngIf="store">Edit Store Entry</label>
+
+<form class="form-horizontal" [formGroup]="storeForm" (ngSubmit)="onSubmit($event)" *ngIf="store && locations">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Store Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">User ID</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8"  value="{{ store.user_id }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">User Email</label>
+                <div class="col-xs-6">
+                    <input type="email" class="form-control col-8" formControlName="email" value="{{ store.user_email }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Package</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" value="{{ store.package_name }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Store Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="store" value="{{ store.store_name }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Status</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="status" [value]="store.status" required>                
+                            <option [value]="1">Yes</option>
+                            <option [value]="0">No</option>
+                    </select>
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <label class="col-xs-3 control-label">Select Category</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" required>
+                            <option  [value]="0">Default Category</option>
+                            <option  [value]="1">Living room furniture</option>
+                            <option  [value]="2">Bedroom furniture</option>
+                            <option  [value]="3">Another Category</option>
+                    </select>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Location</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="location" required>
+                            <option *ngFor="let location of locations" [value]="location.id">{{ location.name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label"> Fields and values</label>
+                <div class="col-xs-6">
+                    <select multiple class="form-control col-8" size="8">
+                            <option *ngFor="let registerfield of store.user.registerfields" [ngValue]="registerfield.id">{{ registerfield.name }} = {{ registerfield.pivot.valueEntered }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label"> Select Image</label>
+                <input class="col-xs-6" type="file" placeholder="Choose File" accept="image/*" id="filename_reference_image_url" (change)="changeListener($event)"
+                />
+            </div>
+            <div class="col-xs-offset-3 col-xs-6">
+                <img class="img img-responsive" [src]='store.cover_url'>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/stores"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteStore(store.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,429 @@
+
+section#dashboard-settings {
+    padding: 0 0 50px 0;
+}
+
+section#dashboard-settings .selector {
+    background-color: white;
+    width: 100%;
+}
+
+section#dashboard-settings .item-shadow:hover {
+
+    box-shadow: 0 2px 19px -2px rgba(0, 0, 0, .4)
+}
+
+.clearfix {
+    clear: both
+}
+
+section#dashboard-settings .selector .selector-options {
+    width: 25%;
+    float: left;
+    line-height: 14px;
+    min-height: 75px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+section#dashboard-settings .selector .selector-options:last-of-type a {
+    padding-bottom: 32px
+}
+
+section#dashboard-settings .selector .selector-options a {
+    color: #333;
+    display: block;
+    padding: 18px 60px;
+    font-weight: bold;
+    min-height: 95px;
+    font-size: 13px;
+}
+
+section#dashboard-settings .selector .selector-options i {
+    color: #b5b1b1;
+    display: block;
+    margin-bottom: 5px;
+}
+
+section#dashboard-settings .selector .selector-options:hover,
+section#dashboard-settings .selector .selector-options a.active {
+    color: white;
+    background-color: #be8457;
+    box-shadow: 0 8px 21px 4px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+section#dashboard-settings .selector .selector-options:hover > a i,
+section#dashboard-settings .selector .selector-options a:hover > i,
+section#dashboard-settings .selector-options:hover > a,
+section#dashboard-settings .selector .selector-options a.active i {
+    color: white;
+}
+
+section#dashboard-settings .big-white-block {
+    padding: 30px;
+    background-color: white;
+    margin-top: 25px;
+}
+
+section#dashboard-settings .form-group label.label {
+    color: #be8457;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    font-family: sans-serif;
+    text-align: left;
+    display: block;
+    padding: 0;
+}
+
+section#dashboard-settings .form-group input.fieldtype-input {
+    border-bottom: 1px solid #e6e6e8;
+    margin: 3px 0 0 0;
+    font-weight: 400;
+    box-shadow: none;
+    outline: none;
+    padding-left: 2px;
+    font-family: initial;
+    color: black;
+    font-size: 25px;
+    font-size-adjust: 0.29;
+    height: 38px;
+}
+
+section#dashboard-settings .form-group textarea.fieldtype-textarea {
+    background-color: #f2f2f2;
+    padding: 10px;
+    min-height: 145px;
+    position: relative;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    margin-top: 7px;
+    color: black;
+    max-width: 100%;
+}
+
+section#dashboard-settings .form-group label.special-label {
+    padding-left: 4px;
+    color: #343434;
+    font-size: 15px;;
+
+}
+
+section#dashboard-settings .selector .selector-options:nth-child(2) .icon-cogs:before {
+    content: '\f095';
+}
+
+section#dashboard-settings .selector .selector-options:nth-child(3) .icon-cogs:before {
+    content: '\F069';
+}
+
+section#dashboard-settings .selector .selector-options:last-child .icon-cogs:before {
+    content: '\F0C0';
+}
+
+section#dashboard-settings p.fb-tw-links {
+    margin-bottom: 2px;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: grey;
+}
+
+section#dashboard-settings .form-group input.fieldtype-socialinput {
+    border: none;
+    padding-left: 2px;
+    box-shadow: none;
+    height: 38px;
+}
+
+.fb-top, .tw-bottom {
+    border-bottom: 1px solid #e6e6e8;
+    overflow: hidden;
+}
+
+section#dashboard-settings a.fb-icon {
+    background: url('../img/fb.png') center center no-repeat;
+    width: 29px;
+    height: 31px;
+    display: block;
+    margin-top: 15px;
+}
+
+section#dashboard-settings .form-group input.fieldtype-input::-webkit-input-placeholder {
+    font-size: 20px
+}
+
+section#dashboard-settings .widget {
+    padding: 17px;
+    background-color: white;
+    position: relative;
+    border: 1px solid #f1f1f1;
+    min-height: 200px;
+
+}
+
+section#dashboard-settings .widget h3 {
+    text-align: left;
+    font-family: 'Vollkorn', serif;
+    margin-top: 17px;
+    color: black;
+}
+
+section#dashboard-settings .widget span.replace-logo {
+    position: absolute;
+    top: 2px;
+    right: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #343434;
+}
+
+a span.replace-logo i, i.icon-arrow-left {
+    padding-right: 7px;
+    color: #b5b1b1;
+}
+
+a span.back-dashboard {
+    color: black;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+section#dashboard-settings .side-bar .side-bar-top i {
+    color: #be8457 !important;
+}
+
+section#dashboard-settings .side-bar h3 {
+    float: left;
+    font-family: 'Vollkorn', serif;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+section#dashboard-settings button.save-changes {
+    display: block;
+    width: 290px;
+    height: 45px;
+    margin: 20px auto 0 auto;
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: white;
+    border: 1px solid #f1f1f1;
+    line-height: 15px;
+}
+
+section#dashboard-settings button.save-changes:hover {
+    color: white;
+    background-color: #be8457;
+    text-decoration: none;
+}
+
+section#dashboard-settings .working-days-html,
+section#dashboard-settings .weekend-days-html {
+    font-weight: 700;
+    font-size: 15px;
+    text-align: left;
+    margin-right: -16px;
+}
+
+section#dashboard-settings .ui.dropdown > .text {
+    font-size: 23px
+}
+
+section#dashboard-settings h6.description-name {
+    color: #be8457;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.form-group input.checkbox-inline[type=checkbox] {
+    margin: 0;
+    border: 1px solid #be8457;
+    -webkit-appearance: button;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.form-group input.checkbox-inline[type=checkbox]:checked {
+
+    background-color: #be8457;
+    outline: none;
+    color: white !important;
+}
+
+.form-group input.checkbox-inline[type=checkbox]:checked:after {
+    content: "\2713";
+    color: white;
+    position: relative;
+    top: -3px;
+    left: 2px;
+}
+
+section#dashboard-settings .big-white-block h4 {
+    color: #be8457;
+    font-weight: 700;
+    margin-top: 4px;
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+section#dashboard-settings .panel-special .big-white-block .ui.dropdown > .text {
+    font-family: 'Vollkorn', serif;
+    width: 100%
+}
+
+section#dashboard-settings .panel-special .big-white-block input.checkbox-inline[type=checkbox] + label {
+    color: #0d0d0d;
+    font-weight: 400;
+    font-size: 12px;
+    top: 1px;
+    position: relative;
+    font-family: sans-serif;
+}
+
+section#dashboard-settings .panel-special .big-white-block input.checkbox-inline[type=checkbox]:checked + label {
+    font-weight: 700;
+}
+
+section#dashboard-settings .panel-special .big-white-block .group-checkboxes.row {
+    margin-bottom: 10px
+}
+
+section#dashboard-settings .form-group .name-founded,
+section#dashboard-settings .ui.dropdown,
+section#dashboard-settings .ui.dropdown .menu {
+    width: 100% !important;
+    font-size: 26px;
+}
+
+section#dashboard-settings .ui.dropdown .menu {
+    max-height: 300px;
+    overflow-y: scroll
+}
+
+section#dashboard-settings .form-group .work-time .name-founded .ui.dropdown i {
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+section#dashboard-settings .form-group .ui.dropdown {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+section#dashboard-settings a.toggle-hidden-next {
+    font-size: 11px;
+    color: #343434;
+    font-weight: 700;
+    margin: 10px 0;
+    display: block;
+    text-align: left;
+}
+
+section#dashboard-settings .widget img {
+    max-width: 100%;
+    height: auto
+}
+
+section#dashboard-settings .big-white-block label.label[for=description] {
+    color: #be8457 !important;
+    font-weight: 700 !important;
+    margin-top: 4px;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+section#dashboard-settings .big-white-block button.add_architect_name {
+    display: block;
+    width: 100px;
+    height: 40px;
+    color: #343434;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: white;
+    border: 1px solid #f1f1f1;
+    line-height: 15px;
+    margin-top: 10px;
+}
+
+section#dashboard-settings .big-white-block button.add_architect_name:hover {
+    color: white;
+    background-color: #be8457;
+    text-decoration: none;
+}
+
+section#dashboard-settings input#architect_name {
+    border-bottom: 1px solid #e3e3e3;
+    font-size: 20px
+}
+
+section#dashboard-settings ul.arch-list {
+    padding: 0;
+    font-size: 11px;
+    color: #343434;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+section#dashboard-settings ul.arch-list li {
+    margin-bottom: 15px;
+}
+
+section#dashboard-settings ul.arch-list li .fa-times{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+
+    section#dashboard-settings .selector .selector-options a {
+        padding: 18px 15px
+    }
+
+}
+
+@media screen and (max-width: 769px) {
+
+    section#dashboard-settings .ui.dropdown > .text {
+        font-size: 20px
+    }
+
+    section#dashboard-settings {
+        padding: 0
+    }
+
+    section#dashboard-settings .selector {
+        margin-top: 20px
+    }
+
+    section#dashboard-settings .big-white-block {
+        padding: 10px
+    }
+
+    section#dashboard-settings button.save-changes {
+        width: 210px
+    }
+
+}
+
+.hidden-brands {
+    height: 300px;
+    overflow: scroll;
+    background: #f3f3f3;
+    box-shadow: inset 0 0 9px #ccc;
+}
+

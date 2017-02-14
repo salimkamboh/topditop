@@ -1,0 +1,36 @@
+<h4 class="text-center" *ngIf="!fieldtypes">
+  <span class="glyphicon glyphicon-refresh spin"></span> Loading Fieldtypes
+</h4>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Fieldtypes Managment
+  </div>
+  <div class="panel-body" *ngIf="fieldtypes && fieldtypes.length">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fieldtype of fieldtypes">
+            <td>{{ fieldtype.id }}</td>
+            <td>{{ fieldtype.created_at | date:'medium' }}</td>
+            <td>{{ fieldtype.updated_at | date:'medium' }}</td>
+            <td>{{ fieldtype.name }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/fieldtype', fieldtype.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/fieldtype', '-1']"><span class="glyphicon glyphicon-plus"></span> add new</a>
+  </div>
+</div>

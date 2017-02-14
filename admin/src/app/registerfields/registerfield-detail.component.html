@@ -1,0 +1,45 @@
+<h4 class="text-center" *ngIf="!registerfield">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Registerfield Details
+</h4>
+
+<label *ngIf="registerfield">{{ id === '-1' ? 'New' : 'Edit' }} Registerfield Entry</label>
+
+<form class="form-horizontal" [formGroup]="registerfieldForm" (ngSubmit)="onSubmit($event)" *ngIf="registerfield">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Registerfield Details
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Key</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="key" value="{{ registerfield.key }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="name" value="{{ registerfield.name }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Location</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="location" [value]="registerfield.fieldlocation" required>
+                            <option>Firma</option>
+                            <option>Ansprechpartner</option>
+                            <option>Service</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/registerfields"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+                <!--<button type="button" class="btn btn-danger" (click)="deleteRegisterfield(registerfield.id)" *ngIf="id != -1" [disabled]='disabled'><span class="glyphicon glyphicon-remove"></span> delete</button>-->
+            </div>
+        </div>
+    </div>
+</form>

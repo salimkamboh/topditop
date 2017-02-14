@@ -1,0 +1,56 @@
+<div class="container">
+  <nav class="navbar navbar-default" *ngIf="isLoggedIn" >
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/advertisements">Top<span class="di">Di</span>Top Admin</a>
+          </div>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="/advertisements">Advertisements</a></li>
+          <li><a routerLink="/stores">Stores</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/slides">Slides</a></li>
+              <li><a routerLink="/manufacturers">Manufacturers</a></li>
+              <li><a routerLink="/categories">Categories</a></li>
+              <li><a routerLink="/locations">Locations</a></li>
+              <li><a routerLink="/registerfields">Registration Fields</a></li>
+              <li><a routerLink="/references">References</a></li>
+              <li><a routerLink="/products">Products</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Package Manager<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/fieldtypes">Fieldtypes</a></li>
+              <li><a routerLink="/fields">Fields</a></li>
+              <li><a routerLink="/fieldgroups">Fieldgroups</a></li>
+              <li><a routerLink="/panels">Panels</a></li>
+              <li><a routerLink="/packages">Packages</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <toaster-container></toaster-container>
+  <router-outlet></router-outlet>
+</div>
