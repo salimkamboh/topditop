@@ -11,8 +11,8 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
     public token: string;
     public user: Object;
-    private loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);s
-    redirectUrl: string;
+    private loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);
+    redirectUrl: string = '';
 
     constructor(private http: Http, private router: Router) {
         // set token if saved in local storage
