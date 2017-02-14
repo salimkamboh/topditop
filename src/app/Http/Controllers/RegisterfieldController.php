@@ -64,4 +64,15 @@ class RegisterfieldController extends BaseController
     {
         return $this->registerfields->saveNew($request);
     }
+
+    public function delete($id)
+    {
+        if ($this->registerfields->delete($id)) {
+            return response()->json([], 204);
+        }
+
+        return response()->json([
+            'error' => 'Unable to delete register field'
+        ], 409);
+    }
 }

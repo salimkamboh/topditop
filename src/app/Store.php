@@ -11,18 +11,7 @@ class Store extends Model
     const PACKAGE_2 = 'TopStore';
     const PACKAGE_3 = 'TopDiTop Store';
 
-    protected $fillable = ['store_name', 'user_email', 'mag_store_id', 'mag_cat_id'];
-
-    public function createNew($store_name, $mag_store_id, $mag_cat_id, $user_email)
-    {
-        $store = new Store();
-        $store->store_name = $store_name;
-        $store->mag_store_id = $mag_store_id;
-        $store->mag_cat_id = $mag_cat_id;
-        $store->user_email = $user_email;
-        $store->save();
-        return $store;
-    }
+    protected $fillable = ['store_name', 'mag_store_id', 'mag_cat_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

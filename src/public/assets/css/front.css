@@ -128,6 +128,11 @@ span.navmenu-search.x-icon {
     border-width: 0
 }
 
+.navbar li a:focus,
+.navbar li:focus {
+    outline: none;
+}
+
 .input-group .form-control {
     position: relative;
     z-index: 2;

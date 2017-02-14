@@ -221,6 +221,8 @@ class StoreController extends BaseController
      */
     public function show(Store $store)
     {
+        $store->user_email = $store->user->email;
+
         return $store;
     }
 
@@ -287,6 +289,7 @@ class StoreController extends BaseController
                         "profile_id" => $profile["id"],
                         "package_id" => $package["id"],
                         "package_name" => $package["name"],
+                        "store_name"=> $store->store_name,
                         "registerfields" => $regFields,
                         "cover_url" => $store->cover_url
                     );
@@ -407,7 +410,13 @@ class StoreController extends BaseController
      */
     public function viewAll()
     {
-        return Store::all();
+        $stores = Store::with('user')->get();
+
+        foreach ($stores as $store) {
+            $store->user_email = $store->user->email;
+        }
+
+        return $stores;
     }
 
     public function delete(Store $store)
