@@ -249,3 +249,7 @@ Route::group(['prefix' => 'ajax/', 'middleware' => 'auth'], function () {
  */
 
 Route::post('/contact/send', ['as' => 'post_contact_page', 'uses' => 'AjaxController@contactPageSend']);
+
+Route::get('admin', function () {
+    return redirect('admin/index.html');
+});
