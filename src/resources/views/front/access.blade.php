@@ -22,7 +22,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-sm-6 col-sm-offset-3">
                 <div class="access-logo-wrapper">
                     <h1 class="text-center logo">Top<span class="logo-alt-color">di</span>Top
                         H.O.M.E.</h1>
@@ -30,14 +30,14 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('access.attempt') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="password" class="col-md-4 control-label">Passwort eingeben</label>
+                        <label for="password" class="col-md-4 control-label">Enter password</label>
 
                         <div class="col-md-6">
                             <input id="password" type="password" class="form-control" name="password">
 
                             @if (session()->has('wrong-password'))
                                 <span class="help-block help-block-error">
-                                        <strong>Falsches Passwort</strong>
+                                        <strong>Wrong password.</strong>
                                     </span>
                             @endif
                         </div>
@@ -46,10 +46,10 @@
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-access">
-                                <i class="fa fa-btn fa-sign-in"></i> Zutritt
+                                <i class="fa fa-btn fa-sign-in"></i> Access
                             </button>
 
-                            <a class="btn btn-link" href="{{ route('access.clear') }}">Klarer Zugang</a>
+                            <a class="btn btn-link" href="{{ route('access.clear') }}">Clear access</a>
                         </div>
                     </div>
                 </form>
