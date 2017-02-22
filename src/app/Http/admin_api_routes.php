@@ -1,8 +1,5 @@
 <?php
 
-Route::get('access', ['as' => 'access.show', 'uses' => 'Auth\AuthController@showAccessPage']);
-Route::post('access', ['as' => 'access.attempt', 'uses' => 'Auth\AuthController@attemptAccess']);
-
 Route::group(['middleware' => ['api'], 'prefix' => 'api/'], function () {
     Route::post('auth/login', ['as' => 'api.admin.login', 'uses' => 'AdminAuthController@apiAdminLogin']);
     Route::group(['middleware' => 'jwt.admin'], function () {

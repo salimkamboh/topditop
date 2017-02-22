@@ -31,7 +31,7 @@
                                 <label for="password" class="col-md-4 control-label">Password</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="text" class="form-control" name="password">
+                                    <input id="password" type="password" class="form-control" name="password">
 
                                     @if (session()->has('passwordError'))
                                     <span class="help-block">
@@ -47,7 +47,7 @@
                                         <i class="fa fa-btn fa-sign-in"></i> Access
                                     </button>
 
-                                    <a class="btn btn-link" href="#">Clear access</a>
+                                    <a class="btn btn-link" href="{{ route('access.clear') }}">Clear access</a>
                                 </div>
                             </div>
                         </form>

@@ -116,7 +116,7 @@ return [
     */
 
     'lock' => [
-        'status' => true,
+        'status' => env('AUTH_LOCK', true),
         'password' => 'Topditop2016',
     ],
 

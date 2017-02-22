@@ -250,6 +250,10 @@ Route::group(['prefix' => 'ajax/', 'middleware' => 'auth'], function () {
 
 Route::post('/contact/send', ['as' => 'post_contact_page', 'uses' => 'AjaxController@contactPageSend']);
 
+Route::get('access', ['as' => 'access.show', 'uses' => 'Auth\AuthController@showAccessPage']);
+Route::get('access/clear', ['as' => 'access.clear', 'uses' => 'Auth\AuthController@clearAccess']);
+Route::post('access', ['as' => 'access.attempt', 'uses' => 'Auth\AuthController@attemptAccess']);
+
 Route::get('admin', function () {
     return redirect('admin/index.html');
 });
