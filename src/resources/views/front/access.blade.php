@@ -8,7 +8,9 @@
     <title>Access | TopDiTop.com</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/css/lib/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/access.css') }}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,39 +22,37 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('access.attempt') }}">
-                            {{ csrf_field() }}
-
-                            <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password">
-
-                                    @if (session()->has('passwordError'))
-                                    <span class="help-block">
-                                        <strong>Wrong password</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-sign-in"></i> Access
-                                    </button>
-
-                                    <a class="btn btn-link" href="{{ route('access.clear') }}">Clear access</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="access-logo-wrapper">
+                    <h1 class="text-center logo">Top<span class="logo-alt-color">di</span>Top
+                        H.O.M.E.</h1>
                 </div>
+                <form class="form-horizontal" role="form" method="POST" action="{{ route('access.attempt') }}">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="password" class="col-md-4 control-label">Passwort eingeben</label>
+
+                        <div class="col-md-6">
+                            <input id="password" type="password" class="form-control" name="password">
+
+                            @if (session()->has('wrong-password'))
+                                <span class="help-block help-block-error">
+                                        <strong>Falsches Passwort</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-access">
+                                <i class="fa fa-btn fa-sign-in"></i> Zutritt
+                            </button>
+
+                            <a class="btn btn-link" href="{{ route('access.clear') }}">Klarer Zugang</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

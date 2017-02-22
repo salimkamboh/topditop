@@ -305,7 +305,7 @@ class AuthController extends BaseController
             return redirect('/');
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('wrong-password', true);
     }
 
     public function clearAccess(Request $request)

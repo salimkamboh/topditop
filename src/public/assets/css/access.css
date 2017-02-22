@@ -1,0 +1,54 @@
+body {
+    margin-top: 160px;
+}
+
+label {
+    color: #af865c;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-control {
+    border-radius: 0;
+    border: 1px solid #d6d6d6;
+}
+
+.btn {
+    font-size: 16px;
+}
+.btn-access {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #af865c;
+}
+
+.btn-access:hover {
+    background-color: #e6e6e6;
+    color: black;
+}
+
+.btn-link {
+    color: #5e5e5e;
+}
+.btn-link:hover {
+    color: #2e2e2e;
+}
+.btn:focus {
+    outline: none !important;
+}
+
+.access-logo-wrapper {
+    margin-bottom: 60px;
+}
+.access-logo-wrapper .logo {
+    color: #af865c;
+}
+.access-logo-wrapper .logo .logo-alt-color {
+    color: #5f5f5f;
+}
+.help-block-error {
+    margin-top: 10px;
+    color: #f37e7e;
+}
