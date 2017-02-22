@@ -292,4 +292,25 @@ class AuthController extends BaseController
 
         return $this->sendFailedLoginResponse($request);
     }
+
+    public function showAccessPage()
+    {
+        return view('front.access');
+    }
+
+    public function attemptAccess(Request $request)
+    {
+        if ($request->password == config('auth.lock.password')) {
+            session(['allow-access' => true]);
+            return redirect('/');
+        }
+
+        return redirect()->back()->with('wrong-password', true);
+    }
+
+    public function clearAccess(Request $request)
+    {
+        session(['allow-access' => false]);
+        return redirect()->route('access.show');
+    }
 }

@@ -104,4 +104,20 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Site lockdown
+    |--------------------------------------------------------------------------
+    |
+    | Here we set if the site is locked, so a global middleware
+    | check is the request has cookie 'allow-access'
+    | or user gets redirected to /access page
+    |
+    */
+
+    'lock' => [
+        'status' => env('AUTH_LOCK', true),
+        'password' => 'Topditop2016',
+    ],
+
 ];
