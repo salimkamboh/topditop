@@ -53,6 +53,10 @@ class AuthController extends BaseController
             'apiAdminLogin',
             'apiAdminCheck'
         ]]);
+        $this->middleware('encrypt.cookies', ['only' => [
+            'showAccessPage',
+            'attemptAccess',
+        ]]);
     }
 
     /**
@@ -291,5 +295,19 @@ class AuthController extends BaseController
         }
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    public function showAccessPage()
+    {
+        return view('front.access');
+    }
+
+    public function attemptAccess(Request $request)
+    {
+        if ($request->password == config('auth.lock.password')) {
+            return redirect('/')->withCookie('allow-access', 'allowed', 10);
+        }
+
+        return redirect()->back()->with('anything', 'please');
     }
 }
