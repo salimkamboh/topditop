@@ -21,7 +21,8 @@
                 </div>
                 @foreach($registerfields_ansprechpartner as $field)
                     <div class="form-group">
-                        <input name="{{$field->key}}" id="registerfield-{{$field->key}}" type="{{ ($field->key == 'email') ? 'email' : 'text' }}"
+                        <input name="{{$field->key}}" id="registerfield-{{$field->key}}"
+                               type="{{ ($field->key == 'email') ? 'email' : 'text' }}"
                                placeholder="{{$field->name}}" @if($field->key == 'email') required  @endif>
                     </div>
                 @endforeach
@@ -32,9 +33,9 @@
                         Qualitätszeugnis: Ich erkläre hiermit ausdrücklich in meninem Store real und digital
                         ausschliesslich Premium-Produkte und Originale anzubieten. Es handelt Designer-Erzeugnisse oder
                         Produkte aus
-                        Designmanufakturen, dies patentrechtlich geschützt sind. Als TopDiTop-Partner darf ich das
-                        marketzeihnen von TopDiTop, das fur den absoluten Premium-designhandel steht in meiner
-                        Kommunikation führen.
+                        Designmanufakturen, die patentrechtlich geschützt sind. Als TopDiTop-Partner darf ich das
+                        Markenzeichen von TopDiTop, das für den absoluten Premium-Designhandel steht, in
+                        meiner Kommunikation führen.
                     </label>
                 </div>
                 {{csrf_field()}}

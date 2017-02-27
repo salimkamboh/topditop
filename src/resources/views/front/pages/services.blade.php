@@ -14,38 +14,37 @@
                 <div class="col-sm-12">
                     <div class="fixed-width">
                         <h3 class="text-left">Service Page</h3>
-                        <p>TopdiTop-Home ist das digitale Zuhause der besten Premium-Design-Händler im deutschsprachigen
+                        <p>TopDiTop-Home ist das digitale Zuhause der besten Premium-Design-Händler im deutschsprachigen
                             Markt.
-                            Topditophome ist ein Marktplatz der besten Designadressen für Inneneinrichtung,
+                            TopDiTop-Home ist ein Marktplatz der besten Designadressen für Inneneinrichtung,
                             Sanitärkultur, Dekoration, Tafel und Tisch-Kultur.
                             Es ist eine Prachtstrasse im Web zur Präsentation der Design-Partner, deren
                             Produktportfolio, Kompetenztiefe und Servicevolumen.
-                            Ziel von TopdiTophome ist es den Wohn-Experten der Einrichtungswelt ein Forum zu geben und
+                            Ziel von TopDiTop-Home ist es den Wohn-Experten der Einrichtungswelt ein Forum zu geben und
                             Ihren Handel zu fördern.
-                            TopdiTophome ist ein Schauraum der Stärken und der Vorteile die fachgerechte Beratung durch
+                            TopDiTop-Home ist ein Schauraum der Stärken und der Vorteile die fachgerechte Beratung durch
                             den Einzelhandel für den Verbraucher ermöglicht.
                             Die Optimierung und perfekte Ziel-Harmonie in der Beziehung zwischen Bauherr/Bewohner,
                             Architekten und Hersteller, dem immer schon in der Verantwortung des Fach-Handels gelegen
                             ist,
-                            wird durch TopdiTopHome in der digitalen Internetwelt erhalten und in der wirklich
-                            werteffizient gesteigert.
-                            TopdiTop-Home ist kein E-Commerce-Shop sodnern ein Schauraum der Verbindungen und
-                            Möglichkeiten. TopdiTophome ist ein interkatives Leitsystem für den Desisgnliebhaber,
+                            wird durch TopDiTop-Home in der digitalen Internetwelt erhalten und in dieser werteffizient
+                            gesteigert. TopDiTop-Home ist kein E-Commerce-Shop sodnern ein Schauraum der Verbindungen und
+                            Möglichkeiten. TopDiTop-Home ist ein interkatives Leitsystem für den Desisgnliebhaber,
                             Architekten
-                            und Endverbraucher auf den kürzest möglichen Weg, die EinkaufsQuellen für Inspirationen aus
-                            Printmagazinen oder aus anderem Medien zu finden. In Verbdinung mit einer mobilen APP
+                            und Endverbraucher auf den kürzestmöglichen Weg, die Einkaufsquellen für Inspirationen aus
+                            Printmagazinen oder aus anderen Medien zu finden. In Verbdinung mit einer mobilen APP
                             wird die Navigation durch die Designwelt auf sekundenschnelle Bilderkennung und Verknüpfung
                             reudziert.
-                            Durch die Referenz der designpartner von TopDiTophome und durch die Markenverbindungen wird
+                            Durch die Referenz der designpartner von TopDiTop-Home und durch die Markenverbindungen wird
                             eine Lücke in der Inspriations- und Bedürfniskette für Wohngefühl geschlossen.
-                            TopdiTophome fördert den Austausch vom designhandel, Projektentwickler, Architekten und
-                            Konsumenten mit dem Ziel das Premiumbewußtsein der Wohnkultur auch im markt effektiv zu
+                            TopDiTop-Home fördert den Austausch vom designhandel, Projektentwickler, Architekten und
+                            Konsumenten mit dem Ziel das Premiumbewußtsein der Wohnkultur auch im Markt effektiv zu
                             verstärken.</p>
 
                         <div class="checkbox">
                             <input type="checkbox" id="confirm-field" class="term_acceptance_1_" name="confirm-field">
                             <label for="confirm-field">
-                                Ja, Ich möchte mich in der Welt von TopDITophome einmieten. Dei allgemeinen
+                                Ja, Ich möchte mich in der Welt von TopDiTop-Home einmieten. Dei allgemeinen
                                 Geschäftsbedingungen habe ich durchgelesen und erkläre mich damit einverstanden.
                             </label>
                         </div>
@@ -65,7 +64,7 @@
                             <div class="cell-holder text-center"><h4>TopStore</h4></div>
                         </div>
                         <div class="fourth-col">
-                            <div class="cell-holder  text-center"><h4 style="color: white">TopdiTopStore</h4></div>
+                            <div class="cell-holder  text-center"><h4 style="color: white">TopDiTopStore</h4></div>
                         </div>
                     </div>
                     <div class="row-holder">
@@ -344,7 +343,7 @@
                     </div>
                     <div class="row-holder">
                         <div class="first-col">
-                            <div class="cell-holder cell-first"><span>H.O.M.E.TopdiTop Partnerlisting</span></div>
+                            <div class="cell-holder cell-first"><span>H.O.M.E. TopDiTop Partnerlisting</span></div>
                         </div>
                         <div class="second-col">
                             <div class="cell-holder border-cell"><i class="fa fa-check"></i>
