@@ -316,11 +316,11 @@
                             </div>
                         </div>
                         <div class="third-col">
-                            <div class="cell-holder border-cell"><span>10</span>
+                            <div class="cell-holder border-cell"><span>20</span>
                             </div>
                         </div>
                         <div class="fourth-col">
-                            <div class="cell-holder border-cell"><span>25</span>
+                            <div class="cell-holder border-cell"><span>40</span>
                             </div>
                         </div>
                     </div>
