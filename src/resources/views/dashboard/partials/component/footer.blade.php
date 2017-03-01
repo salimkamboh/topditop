@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="row">
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="list-group">
                             <h5 class="list-title">Users</h5>
                             <ul class="list-unstyled list-items">
@@ -21,6 +21,7 @@
                                     <li><a class="log-sig registration-button" href="javascript:void(0)">Sign up</a>
                                     </li>
                                 @endif
+
                             </ul>
                         </div>
                     </div>
@@ -62,6 +63,14 @@
                             <h5 class="list-title">Connect</h5>
                             <ul class="list-unstyled list-items">
                                 <li><a href="http://facebook.com/topditop">Facebook</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="list-group">
+                            <h5 class="list-title">About</h5>
+                            <ul class="list-unstyled list-items">
+                                <li><a href="{{ route('front_terms_page') }}">Terms of use</a></li>
                             </ul>
                         </div>
                     </div>
