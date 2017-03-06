@@ -24,8 +24,8 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="access-logo-wrapper">
-                    <h1 class="text-center logo">Top<span class="logo-alt-color">di</span>Top
-                        H.O.M.E.</h1>
+                    <h1 class="text-center logo">Top<span class="logo-alt-color">Di</span>Top
+                        HOME</h1>
                 </div>
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('access.attempt') }}">
                     {{ csrf_field() }}
