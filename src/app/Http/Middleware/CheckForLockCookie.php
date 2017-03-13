@@ -29,6 +29,10 @@ class CheckForLockCookie
     {
         $currentUrl = $request->url();
 
+        if ($request->wantsJson()) {
+            return $next($request);
+        }
+
         foreach ($this->except as $url) {
             if (str_contains($currentUrl, $url)) {
                 return $next($request);
