@@ -35,7 +35,7 @@ class Repository
 
     public function listAll()
     {
-        $locations = Location::all();
+        $locations = Location::with('stores')->get();
 
         $locationsObjects = array();
         foreach ($locations as $location) {
@@ -47,8 +47,8 @@ class Repository
             $locationsObject["key"] = $location->key;
             $locationsObject["name"] = $translate['name'];
 
-            $locationsObject["lat"] = (double)$location->latitude;
-            $locationsObject["lng"] = (double)$location->longitude;
+            $locationsObject["latitude"] = (double)$location->latitude;
+            $locationsObject["longitude"] = (double)$location->longitude;
 
             /** @var Store $store */
             foreach ($location->stores as $store) {
@@ -113,8 +113,8 @@ class Repository
             $locationsObject["name"] = $translate['name'];
             $locationsObject["numStores"] = count($location->stores);
 
-            $locationsObject["lat"] = (double)$location->latitude;
-            $locationsObject["lng"] = (double)$location->longitude;
+            $locationsObject["latitude"] = (double)$location->latitude;
+            $locationsObject["longitude"] = (double)$location->longitude;
 
             /** @var Store $store */
             foreach ($location->stores as $store) {

@@ -19,7 +19,7 @@ function initialize() {
 
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 10,
-        center: new google.maps.LatLng(locationsJSON.lat, locationsJSON.lng),
+        center: new google.maps.LatLng(locationsJSON.latitude, locationsJSON.longitude),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -81,8 +81,8 @@ function newLocation(city) {
 
     map.setCenter(
         {
-            lat: newLocation.lat,
-            lng: newLocation.lng
+            lat: newLocation.latitude,
+            lng: newLocation.longitude
         }
     );
 
@@ -127,6 +127,10 @@ function newLocation(city) {
 $(".city-selector a").on("click", function (e) {
     e.preventDefault();
     var city = $(this).data("city");
+    var storeCount = $(this).parent().find("sup").text();
+    if (storeCount == 0) {
+        return;
+    }
     newLocation(city);
     $(".city-selector li").removeClass('active');
     $(this).parent().addClass('active');

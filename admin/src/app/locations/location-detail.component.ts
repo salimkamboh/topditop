@@ -45,8 +45,8 @@ export class LocationDetailComponent implements OnInit {
                 id: null,
                 key: '',
                 name: '',
-                lat: '',
-                lng: ''
+                latitude: '',
+                longitude: ''
             };
             this.createFormGroup();
         }
@@ -120,8 +120,8 @@ export class LocationDetailComponent implements OnInit {
         let location = {
             'key': this.locationForm.value.key,
             'name': this.locationForm.value.name,
-            'latitude': this.locationForm.value.lat,
-            'longitude': this.locationForm.value.lng,
+            'latitude': this.locationForm.value.latitude,
+            'longitude': this.locationForm.value.longitude,
         };
         return location;
     }
@@ -130,8 +130,8 @@ export class LocationDetailComponent implements OnInit {
         this.locationForm = this.fb.group({
             key: this.location.key,
             name: this.location.name,
-            lat: this.location.lat,
-            lng: this.location.lng
+            latitude: this.location.latitude,
+            longitude: this.location.longitude
         });
     }
 }

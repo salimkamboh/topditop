@@ -12,8 +12,6 @@ services:
   db:
     image: mysql
     restart: always
-    ports:
-      - "3307:3306"
     volumes:
       - mysql_staging:/var/lib/mysql/
     environment:

@@ -5,7 +5,7 @@ import { ExtendedHttpService } from './service/extended-http.service';
 import { AuthenticationService } from './service/authentication.service';
 import { Router } from '@angular/router';
 
-function authHttpServiceFactory(http: Http, router: Router, authenticationService: AuthenticationService, options: RequestOptions) {
+export function authHttpServiceFactory(http: Http, router: Router, authenticationService: AuthenticationService, options: RequestOptions) {
     return new ExtendedHttpService(new AuthConfig({
             tokenName: 'token',
             globalHeaders: [{'Content-Type':'application/json'},{'Accept':'application/json'}],
