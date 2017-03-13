@@ -910,13 +910,9 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `angular-cli.json`.
 var environment = {
-    production: false,
-    domain_url: 'http://topditop.com:8080/'
+    production: true,
+    domain_url: '../'
 };
 //# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/environment.js.map
 
