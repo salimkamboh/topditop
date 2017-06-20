@@ -29,7 +29,7 @@
                         <li>{{$datablock["longest_brand"]}}</li>
                     </ul>
 
-                    @if($store->package_name() == 'TopDiTop Store')
+                    @if($store->package_name() == \App\Package::HIGHEST)
                         <h3>Architekten referenzen</h3>
                         <ul>
                             @foreach($architects as $data)
