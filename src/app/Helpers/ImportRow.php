@@ -9,98 +9,98 @@ class ImportRow
      *
      * Fa.
      */
-    protected $company;
+    public $company;
 
     /**
      * @var string
      *
      * AP
      */
-    protected $title;
+    public $title;
 
     /**
      * @var string
      *
      * Vorname
      */
-    protected $firstName;
+    public $firstName;
 
     /**
      * @var string
      *
      * Nachname
      */
-    protected $lastName;
+    public $lastName;
 
     /**
      * @var string
      *
      * Straße
      */
-    protected $street;
+    public $street;
 
     /**
      * @var string
      *
-     * Hausnr
+     * Hausnr.
      */
-    protected $houseNumber;
+    public $houseNumber;
 
     /**
      * @var string
      *
      * Adresszusatz
      */
-    protected $additionalAddressInfo;
+    public $additionalAddressInfo;
 
     /**
      * @var string
      *
      * PLZ
      */
-    protected $postalCode;
+    public $postalCode;
 
     /**
      * @var string
      *
      * Ort
      */
-    protected $city;
+    public $city;
 
     /**
      * @var string
      *
      * Telefon
      */
-    protected $phone;
+    public $phone;
 
     /**
      * @var string
      *
      * Email
      */
-    protected $email;
+    public $email;
 
     /**
      * @var string
      *
-     * fax
+     * Fax
      */
-    protected $fax;
+    public $fax;
 
     /**
      * @var string
      *
      * Website
      */
-    protected $website;
+    public $website;
 
     /**
      * @var string
      *
      * Mail
      */
-    protected $mail;
+    public $mail;
 
 
 }
