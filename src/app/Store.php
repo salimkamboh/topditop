@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Store extends Model
 {
 
-    const PACKAGE_1 = 'Store';
-    const PACKAGE_2 = 'TopStore';
-    const PACKAGE_3 = 'TopDiTop Store';
+    const PACKAGE_1 = Package::LOWEST;
+    const PACKAGE_2 = Package::MIDDLE;
+    const PACKAGE_3 = Package::HIGHEST;
 
     protected $fillable = ['store_name', 'mag_store_id', 'mag_cat_id'];
 

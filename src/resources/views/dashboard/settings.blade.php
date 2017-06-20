@@ -36,7 +36,7 @@
                                         class="icon-refresh"></i>{{ trans('messages.replace_logo') }}</span></a>
                     </div>
 
-                    @if($store->package_name() !== 'Store')
+                    @if($store->package_name() !== \App\Package::LOWEST)
                         <div class="side-bar item-shadow">
                             <div class="side-bar-top">
                                 <span class="number-of pull-left">{{$numberOfReferences}}</span>

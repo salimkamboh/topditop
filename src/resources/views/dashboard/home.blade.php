@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                @if($store->package_name() !== 'Store')
+                @if($store->package_name() !== \App\Package::LOWEST)
                     <div class="col-sm-4 text-center">
                         <div class="card-item item-shadow">
                             <h1>{{$numberOfReferences}}</h1>

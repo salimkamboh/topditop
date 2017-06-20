@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
             </div>
-            @if($store->package_name() != 'Store')
+            @if($store->package_name() != \App\Package::LOWEST)
                 <div class="col-sm-4">
                     <h3>Neueste TopdiTop Marke</h3>
                     <ul>
