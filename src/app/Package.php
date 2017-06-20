@@ -9,6 +9,7 @@ class Package extends Model
     const HIGHEST = 'TopDiTop Store';
     const MIDDLE = 'TopStore';
     const LOWEST = 'Store';
+    const LIGHT = 'Light Store';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
