@@ -67,6 +67,12 @@ class ImportRow
      */
     public $city;
 
+
+    /**
+     * @var integer
+     */
+    public $location_id;
+
     /**
      * @var string
      *
@@ -111,7 +117,17 @@ class ImportRow
     /**
      * @var string
      */
-    public $note;
+    public $note = "";
+
+
+    public function addNote(string $note)
+    {
+        if ($this->note) {
+            $this->note .= ", $note";
+            return;
+        }
+        $this->note = $note;
+    }
 
 
 }

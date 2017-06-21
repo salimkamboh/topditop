@@ -86,15 +86,29 @@ class ImportService
 
             $user = $this->mapFromRow($linkedRow);
 
-            if (!$this->isEmailValidAndAvailable($user->email)) {
+            if (!$this->isEmailValid($user->email)) {
                 $user->valid = false;
-                $user->note = "Email is missing, taken or invalid";
+                $user->addNote("Invalid email format");
+                $this->importData [] = $user;
+                continue;
+            }
+
+            if ($this->isEmailTaken($user->email)) {
+                $user->valid = false;
+                $user->addNote("Invalid email taken");
+                $this->importData [] = $user;
+                continue;
+            }
+
+            if (!$this->isValidCity($user->city)) {
+                $user->valid = false;
+                $user->addNote("Invalid city");
                 $this->importData [] = $user;
                 continue;
             }
 
             $user->valid = true;
-            $user->note = "Imported";
+            $user->note = "To be imported";
             $this->importData [] = $user;
             $this->takenEmails [] = $user->email;
         }
@@ -157,7 +171,7 @@ class ImportService
      * @param string $email
      * @return bool
      */
-    private function isEmailValidAndAvailable(string $email)
+    private function isEmailValid(string $email)
     {
         $validator = Validator::make([
             'email' => $email,
@@ -166,10 +180,6 @@ class ImportService
         ]);
 
         if ($validator->fails()) {
-            return false;
-        }
-
-        if ($this->isEmailTaken($email)) {
             return false;
         }
 
@@ -199,7 +209,7 @@ class ImportService
         $user->email = strtolower($row['Email']);
         $user->fax = $row['Fax'];
         $user->website = strtolower($row['Website']);
-        $user->mail = strtolower($row['Mail']);
+//        $user->mail = strtolower($row['Mail']);
 
         return $user;
     }
@@ -221,7 +231,7 @@ class ImportService
         $row['Email'] = $user->email;
         $row['Fax'] = $user->fax;
         $row['Website'] = $user->website;
-        $row['Mail'] = $user->mail;
+//        $row['Mail'] = $user->mail;
         $row['Note'] = $user->note;
 
         return $row;
@@ -244,7 +254,7 @@ class ImportService
         $data []= $user->email;
         $data []= $user->fax;
         $data []= $user->website;
-        $data []= $user->mail;
+//        $data []= $user->mail;
         $data []= $user->note;
 
         $csv = '';
@@ -297,6 +307,28 @@ class ImportService
         }
 
         return $emails;
+    }
+
+    private function isValidCity($location)
+    {
+        $clean = str_slug($location);
+
+        // munchen, dusseldorf, hamburg, wien
+
+        if (str_is('muenchen*', $clean)) {
+            return true;
+        }
+        if (str_is('*duesseldorf*', $clean)) {
+            return true;
+        }
+        if (str_is('*hamburg*', $clean)) {
+            return true;
+        }
+        if (str_is('*wien*', $clean)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
