@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\Helpers\ImportRow;
+use App\Location;
 use App\Package;
 use App\User;
 use Illuminate\Support\Facades\Artisan;
@@ -23,6 +24,11 @@ class ImportService
      * @var \App\User []
      */
     public $users = [];
+
+    /**
+     * @var \App\Location []
+     */
+    public $locations = [];
 
     /**
      * @var string []
@@ -82,11 +88,13 @@ class ImportService
 
             if (!$this->isEmailValidAndAvailable($user->email)) {
                 $user->valid = false;
+                $user->note = "Email is missing, taken or invalid";
                 $this->importData [] = $user;
                 continue;
             }
 
             $user->valid = true;
+            $user->note = "Imported";
             $this->importData [] = $user;
             $this->takenEmails [] = $user->email;
         }
@@ -97,7 +105,27 @@ class ImportService
 
         //end transaction
 
+        $this->export($fileName);
+        
         return;
+    }
+
+    private function export($fileName)
+    {
+        $pathToFile = $this->defaultPath . date('Y_m_d_His') . "-" . $fileName;
+        $file = fopen($pathToFile,"w");
+
+        $headers = $this->header;
+        $headers [] = "Note";
+
+        fputcsv($file, $headers);
+
+        foreach ($this->importData as $row)
+        {
+            fputcsv($file, $this->mapToRow($row));
+        }
+
+        fclose($file);
     }
 
     /**
@@ -141,7 +169,7 @@ class ImportService
             return false;
         }
 
-        if (in_array(strtolower($email), $this->takenEmails)) {
+        if ($this->isEmailTaken($email)) {
             return false;
         }
 
@@ -174,6 +202,57 @@ class ImportService
         $user->mail = strtolower($row['Mail']);
 
         return $user;
+    }
+
+    private function mapToRow(ImportRow $user)
+    {
+        $row = [];
+
+        $row['Fa.'] = $user->company;
+        $row['AP'] = $user->title;
+        $row['Vorname'] = $user->firstName;
+        $row['Nachname'] = $user->lastName;
+        $row['Straße'] = $user->street;
+        $row['Hausnr.'] = $user->houseNumber;
+        $row['Adresszusatz'] = $user->additionalAddressInfo;
+        $row['PLZ'] = $user->postalCode;
+        $row['Ort'] = $user->city;
+        $row['Telefon'] = $user->phone;
+        $row['Email'] = $user->email;
+        $row['Fax'] = $user->fax;
+        $row['Website'] = $user->website;
+        $row['Mail'] = $user->mail;
+        $row['Note'] = $user->note;
+
+        return $row;
+    }
+
+    private function mapToCSVRow(ImportRow $user)
+    {
+        $data = [];
+
+        $data []= $user->company;
+        $data []= $user->title;
+        $data []= $user->firstName;
+        $data []= $user->lastName;
+        $data []= $user->street;
+        $data []= $user->houseNumber;
+        $data []= $user->additionalAddressInfo;
+        $data []= $user->postalCode;
+        $data []= $user->city;
+        $data []= $user->phone;
+        $data []= $user->email;
+        $data []= $user->fax;
+        $data []= $user->website;
+        $data []= $user->mail;
+        $data []= $user->note;
+
+        $csv = '';
+        foreach($data as $item) {
+            $csv .= implode(',', $item) . "\n";
+        }
+
+        return $csv;
     }
 
     /**
@@ -221,21 +300,23 @@ class ImportService
     }
 
     /**
-     * @return \App\User[]
-     */
-    private function loadUsers()
-    {
-        return User::all();
-    }
-
-    /**
-     * Load Packages and existing users
+     * Load Packages and existing users, locations (cities)
      * Map existing users' emails into a property to keep track of taken emails
      */
     private function prepareData()
     {
         $this->lightPackage = $this->loadLightPackage();
-        $this->users = $this->loadUsers();
+        $this->users = User::all();
         $this->takenEmails = $this->loadTakenEmails();
+        $this->locations = Location::all();
+    }
+
+    /**
+     * @param string $email
+     * @return bool
+     */
+    private function isEmailTaken(string $email): bool
+    {
+        return in_array(strtolower($email), $this->takenEmails);
     }
 }

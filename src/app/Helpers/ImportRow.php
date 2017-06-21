@@ -108,5 +108,10 @@ class ImportRow
      */
     public $valid;
 
+    /**
+     * @var string
+     */
+    public $note;
+
 
 }
