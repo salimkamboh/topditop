@@ -103,4 +103,10 @@ class ImportRow
     public $mail;
 
 
+    /**
+     * @var boolean
+     */
+    public $valid;
+
+
 }

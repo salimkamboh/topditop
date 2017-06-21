@@ -17,29 +17,32 @@ class ImportService
     /**
      * @var Package
      */
-    public $lightPackage;
+    public $lightPackage = null;
 
     /**
      * @var \App\User []
      */
-    public $users;
+    public $users = [];
 
     /**
      * @var string []
      */
-    public $takenEmails;
+    public $takenEmails = [];
 
 
     /**
      * @var \App\Helpers\ImportRow []
      */
-    public $valid;
+    public $importData = [];
 
     /**
-     * @var \App\Helpers\ImportRow []
+     * @var array
      */
-    public $invalid;
+    public $header = [];
 
+    /**
+     * @var string
+     */
     private $defaultPath = 'storage/import/';
 
     /**
@@ -47,13 +50,16 @@ class ImportService
      */
     public function __construct()
     {
-        $this->lightPackage = $this->loadLightPackage();
-        $this->users = $this->loadUsers();
-        $this->takenEmails = $this->loadTakenEmails();
     }
 
+    /**
+     * @param string $fileName
+     * @return void
+     */
     public function import(string $fileName)
     {
+        $this->prepareData();
+
         $pathToFile = $this->defaultPath . $fileName;
         try {
             $file = fopen($pathToFile, 'r');
@@ -62,45 +68,67 @@ class ImportService
             return;
         }
 
-        //start transaction
+        $this->header = null;
 
-        $valid = [];
-        $invalid = [];
-
-        $header = null;
         while ($row = fgetcsv($file)) {
-            if ($header === null) {
-                $header = $row;
+            if ($this->header === null) {
+                $this->header = $row;
                 continue;
             }
 
-            $linkedRow = array_combine($header, $row);
+            $linkedRow = array_combine($this->header, $row);
 
             $user = $this->mapFromRow($linkedRow);
 
             if (!$this->isEmailValidAndAvailable($user->email)) {
-                $invalid [] = $user;
+                $user->valid = false;
+                $this->importData [] = $user;
                 continue;
             }
 
-            $valid [] = $user;
+            $user->valid = true;
+            $this->importData [] = $user;
             $this->takenEmails [] = $user->email;
         }
 
-//        print_r("VALID DATA IS");
-//        print_r($valid);
-//        print_r("INVALID DATA IS");
-//        print_r($invalid);
-
-        $this->valid = $valid;
-        $this->invalid = $invalid;
         // save new users, open their stores
         // write users that were unable to be saved to log
         // who had invalid emails or already taken
 
         //end transaction
+
+        return;
     }
 
+    /**
+     * @return ImportRow[]|array
+     */
+    public function getValid()
+    {
+        $valid = array_filter($this->importData, function (ImportRow $importRow) {
+            return $importRow->valid;
+        });
+
+        return $valid;
+    }
+
+    /**
+     * @return ImportRow[]|array
+     */
+    public function getInvalid()
+    {
+        $invalid = array_filter($this->importData, function (ImportRow $importRow) {
+            return !$importRow->valid;
+        });
+
+        return $invalid;
+    }
+
+
+    /**
+     * @param string $email
+     * @return bool
+     */
     private function isEmailValidAndAvailable(string $email)
     {
         $validator = Validator::make([
@@ -121,6 +149,8 @@ class ImportService
     }
 
     /**
+     * Takes an mapped array from CSV
+     *
      * @param array $row
      * @return ImportRow
      */
@@ -146,6 +176,11 @@ class ImportService
         return $user;
     }
 
+    /**
+     * Makes sure all 4 Packages are in database
+     *
+     * @return void
+     */
     private function ensurePackagesArePresent()
     {
         Artisan::call('db:seed', [
@@ -185,8 +220,22 @@ class ImportService
         return $emails;
     }
 
+    /**
+     * @return \App\User[]
+     */
     private function loadUsers()
     {
         return User::all();
+    }
+
+    /**
+     * Load Packages and existing users
+     * Map existing users' emails into a property to keep track of taken emails
+     */
+    private function prepareData()
+    {
+        $this->lightPackage = $this->loadLightPackage();
+        $this->users = $this->loadUsers();
+        $this->takenEmails = $this->loadTakenEmails();
     }
 }
