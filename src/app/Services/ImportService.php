@@ -7,6 +7,8 @@ namespace App\Services;
 use App\Helpers\ImportRow;
 use App\Location;
 use App\Package;
+use App\Profile;
+use App\Store;
 use App\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
@@ -100,7 +102,7 @@ class ImportService
                 continue;
             }
 
-            if (!$this->isValidCity($user->city)) {
+            if (!$this->isValidCity($user->city, $user)) {
                 $user->valid = false;
                 $user->addNote("Invalid city");
                 $this->importData [] = $user;
@@ -108,7 +110,7 @@ class ImportService
             }
 
             $user->valid = true;
-            $user->note = "To be imported";
+            $user->addNote("To be imported, location: $user->location_id");
             $this->importData [] = $user;
             $this->takenEmails [] = $user->email;
         }
@@ -122,6 +124,32 @@ class ImportService
         $this->export($fileName);
         
         return;
+    }
+
+    public function buildUser(ImportRow $row)
+    {
+        $user = new User();
+        $user->name = "$row->firstName $row->lastName";
+        $user->email = $row->email;
+        $user->confirmed = true;
+        $user->password = bcrypt('topditop');
+        $user->save();
+
+        $store = new Store();
+        $store->store_name = $row->company;
+        $store->status = true;
+        $store->user_email = $user->email;
+        //location
+
+        $profile = new Profile();
+
+
+//        return [
+//            'user' => $user,
+//            'store' => $store,
+//            'profile' => $profile,
+//        ];
+        return $user;
     }
 
     private function export($fileName)
@@ -309,26 +337,42 @@ class ImportService
         return $emails;
     }
 
-    private function isValidCity($location)
+    private function isValidCity($location, ImportRow &$row)
     {
         $clean = str_slug($location);
 
-        // munchen, dusseldorf, hamburg, wien
+        // Currently supported Locations by key:
+        // munich, düsseldorf, hamburg, vienna
 
         if (str_is('muenchen*', $clean)) {
+            $row->location_id = $this->getLocationId('*munich');
             return true;
         }
         if (str_is('*duesseldorf*', $clean)) {
+            $row->location_id = $this->getLocationId('*seldorf');
             return true;
         }
         if (str_is('*hamburg*', $clean)) {
+            $row->location_id = $this->getLocationId('*hamburg');
             return true;
         }
-        if (str_is('*wien*', $clean)) {
+        if (str_is('*vienna*', $clean)) {
+            $row->location_id = $this->getLocationId('*vienna*');
             return true;
         }
 
         return false;
+    }
+
+    private function getLocationId(string $partialName)
+    {
+        foreach ($this->locations as $location) {
+            if (str_is($partialName, $location->key)) {
+                return $location->id;
+            }
+        }
+
+        return -999;
     }
 
     /**

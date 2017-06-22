@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\TopAdminList::class,
         Commands\TopAdminCreate::class,
         Commands\TopSitemapCreate::class,
+        Commands\TopImportUsersCommand::class,
     ];
 
     /**
