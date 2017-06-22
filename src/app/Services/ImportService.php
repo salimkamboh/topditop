@@ -349,7 +349,7 @@ class ImportService
             return true;
         }
         if (str_is('*duesseldorf*', $clean)) {
-            $row->location_id = $this->getLocationId('*seldorf');
+            $row->location_id = $this->getLocationId('*seldorf*');
             return true;
         }
         if (str_is('*hamburg*', $clean)) {
