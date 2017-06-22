@@ -6,6 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
+/**
+ * App\Profile
+ *
+ * @property int $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $store_id
+ * @property int $image_id
+ * @property int $package_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Field[] $fields
+ * @property-read \App\Image $image
+ * @property-read \App\Package $package
+ * @property-read \App\Store $store
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereImageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile wherePackageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Profile extends Model
 {
     private $htmlConvertContract;

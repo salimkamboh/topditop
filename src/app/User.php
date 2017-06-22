@@ -4,6 +4,45 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * App\User
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $remember_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $store_id
+ * @property bool $confirmed
+ * @property string $confirmation_code
+ * @property bool $json_data
+ * @property string $bond_type
+ * @property string $term_acceptance_1
+ * @property string $term_acceptance_2
+ * @property bool $admin
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Registerfield[] $registerfields
+ * @property-read \App\Store $store
+ * @method static \Illuminate\Database\Query\Builder|\App\User admin()
+ * @method static \Illuminate\Database\Query\Builder|\App\User regular()
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereAdmin($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereBondType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereConfirmationCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereConfirmed($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereJsonData($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereTermAcceptance1($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereTermAcceptance2($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
     /**

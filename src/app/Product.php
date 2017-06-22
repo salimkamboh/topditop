@@ -9,6 +9,54 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
 
+/**
+ * App\Product
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $description
+ * @property string $SKU
+ * @property string $category_ids
+ * @property string $short_description
+ * @property string $weight
+ * @property string $news_from_date
+ * @property string $news_to_date
+ * @property string $country_of_manufacture
+ * @property string $price
+ * @property string $url_key
+ * @property string $mag_product_id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $image_id
+ * @property int $store_id
+ * @property int $manufacturer_id
+ * @property int $views
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $categories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Image[] $images
+ * @property-read \App\Manufacturer $manufacturer
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reference[] $references
+ * @property-read \App\Store $store
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereCategoryIds($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereCountryOfManufacture($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereImageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereMagProductId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereManufacturerId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereNewsFromDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereNewsToDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product wherePrice($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereSKU($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereShortDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereUrlKey($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereViews($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereWeight($value)
+ * @mixin \Eloquent
+ */
 class Product extends Model implements JsonInfoInterface
 {
     /**
