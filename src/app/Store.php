@@ -38,6 +38,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereUserEmail($value)
  * @mixin \Eloquent
+ * @property bool $is_light
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereIsLight($value)
  */
 class Store extends Model
 {

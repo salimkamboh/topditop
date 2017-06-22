@@ -11,11 +11,13 @@ use App\Profile;
 use App\Store;
 use App\User;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class ImportService
 {
+    const INVALID_LOCATION_ID = -99999;
 
     /**
      * @var Package
@@ -121,35 +123,57 @@ class ImportService
 
         //end transaction
 
+        $totalValid = count($this->getValid());
+
+        print_r("Importing $totalValid \n");
+
+        foreach ($this->getValid() as $validRow) {
+            $this->registerUser($validRow);
+        }
+
         $this->export($fileName);
         
         return;
     }
 
-    public function buildUser(ImportRow $row)
+    public function registerUser(ImportRow $row)
     {
-        $user = new User();
-        $user->name = "$row->firstName $row->lastName";
-        $user->email = $row->email;
-        $user->confirmed = true;
-        $user->password = bcrypt('topditop');
-        $user->save();
+        DB::beginTransaction();
 
-        $store = new Store();
-        $store->store_name = $row->company;
-        $store->status = true;
-        $store->user_email = $user->email;
-        //location
+        try {
+            print_r("Importing $row->email \n");
 
-        $profile = new Profile();
+            $store = new Store();
+            $store->store_name = $row->company;
+            $store->status = true;
+            $store->user_email = $row->email;
+            $store->location_id = $row->location_id;
+            $store->is_light = true;
+            $store->save();
+
+            $user = new User();
+            $user->name = "$row->firstName $row->lastName";
+            $user->email = $row->email;
+            $user->confirmed = true;
+            $user->password = bcrypt('topditop');
+            $user->store_id = $store->id;
+            $user->save();
 
 
-//        return [
-//            'user' => $user,
-//            'store' => $store,
-//            'profile' => $profile,
-//        ];
-        return $user;
+            $profile = new Profile();
+            $profile->package_id = $this->lightPackage->id;
+            $profile->store_id = $store->id;
+            $profile->save();
+
+            $row->addNote("Imported User $user->id $user->email, Store $store->id");
+
+            DB::commit();
+            print_r("Finished $row->email \n");
+        } catch (\Exception $e) {
+            Log::error("Failed to import row Email: $row->email City: $row->location_id");
+            print_r("Error $row->email \n");
+            DB::rollBack();
+        }
     }
 
     private function export($fileName)
@@ -372,7 +396,7 @@ class ImportService
             }
         }
 
-        return -999;
+        return self::INVALID_LOCATION_ID;
     }
 
     /**
