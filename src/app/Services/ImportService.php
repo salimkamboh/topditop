@@ -246,6 +246,14 @@ class ImportService
      */
     private function mapFromRow(array $row)
     {
+        $trimmed = [];
+
+        foreach ($row as $value) {
+            $trimmed [] = trim($value);
+        }
+
+        $row = $trimmed;
+
         $user = new ImportRow();
 
         $user->company = $row['Fa.'];
