@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Helpers\ImportRow;
 use App\Location;
@@ -125,7 +123,7 @@ class ImportService
 
         $totalValid = count($this->getValid());
 
-        print_r("Importing $totalValid \n");
+        $this->output("Importing $totalValid");
 
         foreach ($this->getValid() as $validRow) {
             $this->registerUser($validRow);
@@ -141,38 +139,32 @@ class ImportService
         DB::beginTransaction();
 
         try {
-            print_r("Importing $row->email \n");
+            $this->output("Importing $row->email => $row->company");
 
-            $store = new Store();
-            $store->store_name = $row->company;
-            $store->status = true;
-            $store->user_email = $row->email;
-            $store->location_id = $row->location_id;
-            $store->is_light = true;
-            $store->save();
-
-            $user = new User();
-            $user->name = "$row->firstName $row->lastName";
-            $user->email = $row->email;
-            $user->confirmed = true;
-            $user->password = bcrypt('topditop');
-            $user->store_id = $store->id;
-            $user->save();
-
-
-            $profile = new Profile();
-            $profile->package_id = $this->lightPackage->id;
-            $profile->store_id = $store->id;
-            $profile->save();
-
-            $row->addNote("Imported User $user->id $user->email, Store $store->id");
+            $this->attemptRegister($row);
 
             DB::commit();
-            print_r("Finished $row->email \n");
+
+            $this->output("Finished $row->email => $row->company");
         } catch (\Exception $e) {
+            $code = $e->getCode();
+            $errorMsg = $e->getMessage();
+            $this->output("Exception Code: $code, Message: $errorMsg");
+
             Log::error("Failed to import row Email: $row->email City: $row->location_id");
-            print_r("Error $row->email \n");
+
+            $this->output("Error $row->email");
+
             DB::rollBack();
+
+            // retry, append random number to company name
+            // because Store.name has unique constraint
+            if ($code == 23000) {
+                $this->output("Retrying...");
+                $random = rand(100, 999);
+                $row->company .= " $random";
+                $this->registerUser($row);
+            }
         }
     }
 
@@ -248,8 +240,8 @@ class ImportService
     {
         $trimmed = [];
 
-        foreach ($row as $value) {
-            $trimmed [] = trim($value);
+        foreach ($row as $key => $value) {
+            $trimmed[$key] = $value;
         }
 
         $row = $trimmed;
@@ -426,5 +418,40 @@ class ImportService
     private function isEmailTaken(string $email): bool
     {
         return in_array(strtolower($email), $this->takenEmails);
+    }
+
+    /**
+     * @param ImportRow $row
+     */
+    private function attemptRegister(ImportRow $row)
+    {
+        $store = new Store();
+        $store->store_name = $row->company;
+        $store->status = true;
+        $store->user_email = $row->email;
+        $store->location_id = $row->location_id;
+        $store->is_light = true;
+        $store->save();
+
+        $user = new User();
+        $user->name = trim("$row->firstName $row->lastName");
+        $user->email = $row->email;
+        $user->confirmed = true;
+        $user->password = bcrypt('topditop');
+        $user->store_id = $store->id;
+        $user->save();
+
+
+        $profile = new Profile();
+        $profile->package_id = $this->lightPackage->id;
+        $profile->store_id = $store->id;
+        $profile->save();
+
+        $row->addNote("Imported User $user->id $user->email, Store $store->id");
+    }
+
+    private function output(string $message)
+    {
+        print_r($message . PHP_EOL);
     }
 }
