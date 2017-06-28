@@ -88,14 +88,21 @@ class Profile extends Model
     public function getPackageLimit()
     {
         $packageName = $this->store->package_name();
-        if ($packageName == "TopDiTop Store") {
-            $limit = 25;
-        } else if ($packageName == "TopStore") {
-            $limit = 10;
-        } else {
-            $limit = 5;
+
+        $defaultLimit = 5;
+
+        switch ($packageName) {
+            case Package::HIGHEST:
+                return 25;
+            case Package::MIDDLE:
+                return 10;
+            case Package::LOWEST:
+                return 5;
+            case Package::LIGHT:
+                return 5;
+            default:
+                return $defaultLimit;
         }
-        return $limit;
     }
 
     /**
