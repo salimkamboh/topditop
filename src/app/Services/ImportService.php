@@ -241,7 +241,7 @@ class ImportService
         $trimmed = [];
 
         foreach ($row as $key => $value) {
-            $trimmed[$key] = $value;
+            $trimmed[$key] = trim($value);
         }
 
         $row = $trimmed;
@@ -259,9 +259,6 @@ class ImportService
         $user->city = $row['Ort'];
         $user->phone = $row['Telefon'];
         $user->email = strtolower($row['Email']);
-        $user->fax = $row['Fax'];
-        $user->website = strtolower($row['Website']);
-//        $user->mail = strtolower($row['Mail']);
 
         return $user;
     }
@@ -281,9 +278,6 @@ class ImportService
         $row['Ort'] = $user->city;
         $row['Telefon'] = $user->phone;
         $row['Email'] = $user->email;
-        $row['Fax'] = $user->fax;
-        $row['Website'] = $user->website;
-//        $row['Mail'] = $user->mail;
         $row['Note'] = $user->note;
 
         return $row;
@@ -304,9 +298,6 @@ class ImportService
         $data []= $user->city;
         $data []= $user->phone;
         $data []= $user->email;
-        $data []= $user->fax;
-        $data []= $user->website;
-//        $data []= $user->mail;
         $data []= $user->note;
 
         $csv = '';
