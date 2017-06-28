@@ -199,4 +199,24 @@ class Store extends Model
     {
         return array_filter(explode(",", Field::getSelectedValues($key, $this)));
     }
+
+    public function isTopDiTop()
+    {
+        return $this->profile->package->name == Package::HIGHEST;
+    }
+
+    public function isTop()
+    {
+        return $this->profile->package->name == Package::MIDDLE;
+    }
+
+    public function isLowest()
+    {
+        return $this->profile->package->name == Package::LOWEST;
+    }
+
+    public function isLight()
+    {
+        return $this->profile->package->name == Package::LIGHT;
+    }
 }
