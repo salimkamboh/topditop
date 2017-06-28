@@ -217,6 +217,6 @@ class Store extends Model
 
     public function isLight()
     {
-        return $this->profile->package->name == Package::LIGHT;
+        return $this->profile->package->name == Package::LIGHT || $this->is_light;
     }
 }
