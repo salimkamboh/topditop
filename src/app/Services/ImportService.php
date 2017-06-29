@@ -321,22 +321,6 @@ class ImportService
         ]);
     }
 
-    /**
-     * @return \App\Package
-     */
-    private function loadLightPackage()
-    {
-        $package = null;
-
-        try {
-            $package = Package::where('name', Package::LIGHT)->firstOrFail();
-        } catch (\Exception $e) {
-            $this->ensurePackagesArePresent();
-            $package = Package::where('name', Package::LIGHT)->first();
-        }
-
-        return $package;
-    }
 
     /**
      * @return string []
@@ -396,7 +380,7 @@ class ImportService
      */
     private function prepareData()
     {
-        $this->lightPackage = $this->loadLightPackage();
+        $this->lightPackage = Package::where('name', Package::LIGHT)->firstOrFail();
         $this->users = User::all();
         $this->takenEmails = $this->loadTakenEmails();
         $this->locations = Location::all();
