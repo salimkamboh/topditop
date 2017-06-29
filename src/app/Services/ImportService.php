@@ -8,6 +8,7 @@ use App\Package;
 use App\Profile;
 use App\Store;
 use App\User;
+use App\Origin;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -421,6 +422,20 @@ class ImportService
         $profile->package_id = $this->lightPackage->id;
         $profile->store_id = $store->id;
         $profile->save();
+
+        $origin = new Origin();
+        $origin->company = $row->company;
+        $origin->title = $row->title;
+        $origin->first_name = $row->firstName;
+        $origin->last_name = $row->lastName;
+        $origin->street = $row->street;
+        $origin->house_number = $row->houseNumber;
+        $origin->additional_address_info = $row->additionalAddressInfo;
+        $origin->postal_code = $row->postalCode;
+        $origin->city = $row->city;
+        $origin->phone = $row->phone;
+        $origin->user()->associate($user);
+        $origin->save();
 
         $row->addNote("Imported User $user->id $user->email, Store $store->id");
     }

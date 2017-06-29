@@ -200,6 +200,17 @@ class Store extends Model
         return array_filter(explode(",", Field::getSelectedValues($key, $this)));
     }
 
+    public function getLightAddress()
+    {
+        $origin = $this->user->origin;
+
+        if ($origin == null) {
+            return "";
+        }
+
+        return "$origin->street+$origin->house_number+$origin->additional_address_info+$origin->city";
+    }
+
     public function isTopDiTop()
     {
         return $this->profile->package->name == Package::HIGHEST;

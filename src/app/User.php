@@ -42,6 +42,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Query\Builder|\App\User whereTermAcceptance2($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Origin $origin
  */
 class User extends Authenticatable
 {
@@ -69,6 +70,11 @@ class User extends Authenticatable
     public function store()
     {
         return $this->belongsTo('App\Store');
+    }
+
+    public function origin()
+    {
+        return $this->hasOne(Origin::class);
     }
 
     public function registerfields()
