@@ -1,7 +1,9 @@
 <?php
 
 use App\Package;
+use App\Panel;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PackagesTableSeeder extends Seeder
 {
@@ -31,5 +33,33 @@ class PackagesTableSeeder extends Seeder
         if (!$light) {
             Package::create(['name' => Package::LIGHT]);
         }
+
+        $this->ensureLightPackagePanelsAndFieldGroupsAndTranslationsExist();
+    }
+
+    private function ensureLightPackagePanelsAndFieldGroupsAndTranslationsExist()
+    {
+        DB::transaction(function () {
+            $lightPackage = Package::where('name', Package::LIGHT)->firstOrFail();
+
+            $lowestPackage = Package::where('name', Package::LOWEST)->firstOrFail();
+            $lowestPackagePanels = $lowestPackage->panels;
+
+            foreach ($lowestPackagePanels as $existingLowestPanel) {
+                $newLightPanel = new Panel();
+                $newLightPanel->key = "light-" . $existingLowestPanel->key;
+                $newLightPanel->package_id = $lightPackage->id;
+                $newLightPanel->save();
+
+                $fieldGroupIdsOfExistingPanel = $existingLowestPanel->fieldGroups->pluck('id')->all();
+
+                $newLightPanel->fieldGroups()->sync($fieldGroupIdsOfExistingPanel);
+
+                $newLightPanel->translateOrNew('de')->name = $existingLowestPanel->translate('de')->name;
+                $newLightPanel->translateOrNew('en')->name = $existingLowestPanel->translate('en')->name;
+
+                $newLightPanel->save();
+            }
+        });
     }
 }
