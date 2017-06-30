@@ -41,7 +41,7 @@
                                             <div class="item-info-top clearfix">
                                                 <div class="width-fix">
                                             <span class="title">
-                                                @if($reference->package_name() == 'TopDiTop Store')
+                                                @if($reference->package_name() == \App\Package::HIGHEST)
                                                     <a href="{{ route("front_references_single", $reference) }}">{{$reference->title}}</a>
                                                 @else
                                                     {{$reference->title}}
@@ -76,7 +76,7 @@
                                             <div class="item-info-top clearfix">
                                                 <div class="width-fix">
                                             <span class="title">
-                                                @if($reference->package_name() == 'TopDiTop Store')
+                                                @if($reference->package_name() == \App\Package::HIGHEST)
                                                     <a href="{{ route("front_references_single", $reference) }}">{{$reference->title}}</a>
                                                 @else
                                                     {{$reference->title}}

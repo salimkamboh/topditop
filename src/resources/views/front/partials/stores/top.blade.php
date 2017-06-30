@@ -6,10 +6,19 @@
     <div class="container-fluid bg-black">
         <div class="row">
             <div class="col-md-8 no-padding">
-                <img alt="" class="img-responsive"
-                     src="{{$store->getStoreCoverImage()}}">
+                @if ($store->isLight())
+                    <iframe
+                            id="store-google-map-iframe"
+                            width="100%"
+                            height="450"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google_maps.api_key') }}&q={{ $store->getLightAddress() }}" allowfullscreen>
+                    </iframe>
+                @else
+                    <img alt="" class="img-responsive" src="{{$store->getStoreCoverImage()}}">
+                @endif
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="front-store-info">
                 <div class="content">
                     <div class="text-center hidden">
                     </div>
@@ -44,3 +53,23 @@
         </div>
     </div>
 </section>
+
+@section('footer')
+    @parent()
+
+    @if($store->isLight())
+        <script>
+            var storeInfoEl = document.getElementById('front-store-info');
+            var googleMapIframe = document.getElementById('store-google-map-iframe');
+            resizeGoogleMap();
+            $(window).resize(resizeGoogleMap);
+
+            function resizeGoogleMap() {
+                if (!storeInfoEl || !googleMapIframe) {
+                    return;
+                }
+                googleMapIframe.style.height = storeInfoEl.offsetHeight + 'px';
+            }
+        </script>
+    @endif
+@endsection

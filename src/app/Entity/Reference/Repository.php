@@ -4,6 +4,7 @@ namespace App\Entity\Reference;
 
 use App\Helpers\PowerChecker;
 use App\Helpers\VideoUrlHelper;
+use App\Package;
 use App\Product;
 use App\Reference;
 use App\Store;
@@ -82,7 +83,7 @@ class Repository extends PowerChecker
                 'resourceId' => $reference->id
             ];
             $message = '';
-            if ($store->package_name() != 'TopDiTop Store') {
+            if ($store->package_name() != Package::HIGHEST) {
                 $message = 'If you want to add description or a video, please upgrade your package to TopDiTop Store';
             }
             $request->session()->flash('success', 'Reference Saved. ' . $message);

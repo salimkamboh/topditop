@@ -4,12 +4,49 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Store
+ *
+ * @property int $id
+ * @property string $store_name
+ * @property int $mag_store_id
+ * @property int $mag_cat_id
+ * @property string $user_email
+ * @property bool $status
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $image_id
+ * @property int $location_id
+ * @property string $cover_url
+ * @property-read \App\Image $image
+ * @property-read \App\Location $location
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Manufacturer[] $manufacturers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read \App\Profile $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reference[] $references
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Query\Builder|\App\Store active()
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereCoverUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereImageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereLocationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereMagCatId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereMagStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereStoreName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereUserEmail($value)
+ * @mixin \Eloquent
+ * @property bool $is_light
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereIsLight($value)
+ */
 class Store extends Model
 {
 
-    const PACKAGE_1 = 'Store';
-    const PACKAGE_2 = 'TopStore';
-    const PACKAGE_3 = 'TopDiTop Store';
+    const PACKAGE_1 = Package::LOWEST;
+    const PACKAGE_2 = Package::MIDDLE;
+    const PACKAGE_3 = Package::HIGHEST;
 
     protected $fillable = ['store_name', 'mag_store_id', 'mag_cat_id'];
 
@@ -161,5 +198,36 @@ class Store extends Model
     public function getFieldByKey($key)
     {
         return array_filter(explode(",", Field::getSelectedValues($key, $this)));
+    }
+
+    public function getLightAddress()
+    {
+        $origin = $this->user->origin;
+
+        if ($origin == null) {
+            return "";
+        }
+
+        return "$origin->street+$origin->house_number+$origin->additional_address_info+$origin->city";
+    }
+
+    public function isTopDiTop()
+    {
+        return $this->profile->package->name == Package::HIGHEST;
+    }
+
+    public function isTop()
+    {
+        return $this->profile->package->name == Package::MIDDLE;
+    }
+
+    public function isLowest()
+    {
+        return $this->profile->package->name == Package::LOWEST;
+    }
+
+    public function isLight()
+    {
+        return $this->profile->package->name == Package::LIGHT || $this->is_light;
     }
 }

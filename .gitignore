@@ -11,3 +11,4 @@ src/magento/media
 src/magento/var/log
 src/magento/dev
 src/magento/downloader
+src/storage/import

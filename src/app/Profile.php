@@ -6,6 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
+/**
+ * App\Profile
+ *
+ * @property int $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $store_id
+ * @property int $image_id
+ * @property int $package_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Field[] $fields
+ * @property-read \App\Image $image
+ * @property-read \App\Package $package
+ * @property-read \App\Store $store
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereImageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile wherePackageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Profile whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Profile extends Model
 {
     private $htmlConvertContract;
@@ -67,14 +88,21 @@ class Profile extends Model
     public function getPackageLimit()
     {
         $packageName = $this->store->package_name();
-        if ($packageName == "TopDiTop Store") {
-            $limit = 25;
-        } else if ($packageName == "TopStore") {
-            $limit = 10;
-        } else {
-            $limit = 5;
+
+        $defaultLimit = 5;
+
+        switch ($packageName) {
+            case Package::HIGHEST:
+                return 25;
+            case Package::MIDDLE:
+                return 10;
+            case Package::LOWEST:
+                return 5;
+            case Package::LIGHT:
+                return 5;
+            default:
+                return $defaultLimit;
         }
-        return $limit;
     }
 
     /**

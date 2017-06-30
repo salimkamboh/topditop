@@ -128,7 +128,7 @@ class PackageController extends BaseController
      */
     public function editPackage(Package $package, Request $request)
     {
-        $package->name = $request->name;
+        $package->name = is_array($request->name) ? $request->name[0] : $request->name;
 
         $oldSelectedFields = $package->panels;
 

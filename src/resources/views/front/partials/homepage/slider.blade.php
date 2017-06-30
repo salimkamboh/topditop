@@ -20,19 +20,19 @@
                 <div class="slider__overlay">
                     <a href="{{route('front_show_store', $slide->slot3_store_id)}}"
                        class="slider__overlay__item"
-                       style="width: {{$slide->slot3_width}}%; left:{{$slide->slot1_width+$slide->slot2_width}}%">
+                       style="width: {{intval($slide->slot3_width)}}%; left:{{intval($slide->slot1_width)+intval($slide->slot2_width)}}%">
                     </a>
                 </div>
                 <div class="slider__overlay">
                     <a href="{{route('front_show_store', $slide->slot4_store_id)}}"
                        class="slider__overlay__item"
-                       style="width: {{$slide->slot4_width}}%; left:{{$slide->slot1_width+$slide->slot2_width+$slide->slot3_width}}%">
+                       style="width: {{intval($slide->slot4_width)}}%; left:{{intval($slide->slot1_width)+intval($slide->slot2_width)+intval($slide->slot3_width)}}%">
                     </a>
                 </div>
                 <div class="slider__overlay">
                     <a href="{{route('front_show_store', $slide->slot5_store_id)}}"
                        class="slider__overlay__item"
-                       style="width: {{$slide->slot5_width}}%; left:{{$slide->slot1_width+$slide->slot2_width+$slide->slot3_width+$slide->slot4_width}}%">
+                       style="width: {{intval($slide->slot5_width)}}%; left:{{intval($slide->slot1_width)+intval($slide->slot2_width)+intval($slide->slot3_width)+intval($slide->slot4_width)}}%">
                     </a>
                 </div>
             </div>
