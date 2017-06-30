@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entity\Reference\Repository as ReferenceRepository;
 use App\Helpers\PowerChecker;
+use App\Package;
 use App\Product;
 use App\Reference;
 use DB;
@@ -76,9 +77,9 @@ class ReferenceController extends BaseController
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
         $manufacturers = $store->manufacturers;
 
-        if ($store->package_name() == 'TopDiTop Store') {
+        if ($store->package_name() == Package::HIGHEST) {
             $allowed_images = 7;
-        } else if ($store->package_name() == 'TopStore') {
+        } else if ($store->package_name() == Package::MIDDLE) {
             $allowed_images = 1;
         } else {
             $allowed_images = 0;
@@ -129,9 +130,9 @@ class ReferenceController extends BaseController
             }
         }
 
-        if ($store->package_name() == 'TopDiTop Store') {
+        if ($store->package_name() == Package::HIGHEST) {
             $allowed_images = 7;
-        } else if ($store->package_name() == 'TopStore') {
+        } else if ($store->package_name() == Package::MIDDLE) {
             $allowed_images = 1;
         } else {
             $allowed_images = 0;

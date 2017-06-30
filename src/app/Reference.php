@@ -8,6 +8,36 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
 
+/**
+ * App\Reference
+ *
+ * @property int $id
+ * @property string $title
+ * @property bool $status
+ * @property string $description
+ * @property string $video
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $store_id
+ * @property int $views
+ * @property string $video_html
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Image[] $images
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Manufacturer[] $manufacturers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read \App\Store $store
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference active()
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereVideo($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereVideoHtml($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Reference whereViews($value)
+ * @mixin \Eloquent
+ */
 class Reference extends Model implements JsonInfoInterface
 {
 

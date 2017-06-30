@@ -136,7 +136,7 @@
         </div>
         {{--new reference grid--}}
 
-        @if($store->package_name() == 'TopDiTop Store')
+        @if($store->package_name() == \App\Package::HIGHEST)
             <div class="text-center">
                 <a href="{{ route("front_references_gallery", $store) }}"
                    class=click-button>{{ trans('messages.all_references') }}</a>

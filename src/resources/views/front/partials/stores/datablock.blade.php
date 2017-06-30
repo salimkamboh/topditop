@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
             </div>
-            @if($store->package_name() != 'Store')
+            @if($store->package_name() != \App\Package::LOWEST)
                 <div class="col-sm-4">
                     <h3>Neueste TopdiTop Marke</h3>
                     <ul>
@@ -29,7 +29,7 @@
                         <li>{{$datablock["longest_brand"]}}</li>
                     </ul>
 
-                    @if($store->package_name() == 'TopDiTop Store')
+                    @if($store->package_name() == \App\Package::HIGHEST)
                         <h3>Architekten referenzen</h3>
                         <ul>
                             @foreach($architects as $data)

@@ -36,7 +36,7 @@
                             @include('dashboard.partials.references.info')
                             @include('dashboard.partials.references.scenes')
                             @include('dashboard.partials.component.dropzone-previews')
-                            @if($store->package_name() == 'TopDiTop Store')
+                            @if($store->package_name() == \App\Package::HIGHEST)
                             @include('dashboard.partials.references.products')
                             @endif
                         </div>

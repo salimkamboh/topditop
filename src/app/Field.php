@@ -5,6 +5,40 @@ namespace App;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Field
+ *
+ * @property int $id
+ * @property string $key
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property int $fieldtype_id
+ * @property int $field_group_id
+ * @property string $cssclass
+ * @property bool $active
+ * @property int $order
+ * @property-read \App\FieldGroup $fieldGroup
+ * @property-read \App\Fieldtype $fieldtype
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Profile[] $profiles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\FieldTranslation[] $translations
+ * @method static \Illuminate\Database\Query\Builder|\App\Field listsTranslations($translationField)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field notTranslatedIn($locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field translated()
+ * @method static \Illuminate\Database\Query\Builder|\App\Field translatedIn($locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereActive($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereCssclass($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereFieldGroupId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereFieldtypeId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereKey($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereOrder($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereTranslationLike($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Field withTranslation()
+ * @mixin \Eloquent
+ */
 class Field extends Model
 {
 
