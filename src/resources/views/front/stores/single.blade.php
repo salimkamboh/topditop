@@ -1,6 +1,6 @@
 @extends("master.front-layout")
 
-@section("pageTitle") Single Product @stop
+@section("pageTitle") {{ $store->store_name }} @stop
 
 @section("header")
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/slick.css') }}">
