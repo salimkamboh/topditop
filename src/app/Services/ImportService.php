@@ -441,12 +441,18 @@ class ImportService
 
     private function resolveLocation(ImportRow $user)
     {
-        $address = "$user->street+$user->houseNumber+$user->additionalAddressInfo+$user->postalCode+$user->city";
+        $exactMatch = Location::where('long_name', $user->city)->first();
+
+        if ($exactMatch instanceof Location) {
+            return $exactMatch;
+        }
+
+        $address = "$user->street+$user->houseNumber+$user->postalCode+$user->city";
 
         $geocodeResult = $this->geocodeService->geocode($address);
 
         if (!$geocodeResult) {
-            $this->output("Google Maps did not find $address");
+            $this->output("Google Maps could not determine the city for $address");
             return null;
         }
 
