@@ -31,6 +31,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location withTranslation()
  * @mixin \Eloquent
+ * @property string $long_name
+ * @property bool $is_featured
+ * @method static \Illuminate\Database\Query\Builder|\App\Location whereIsFeatured($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Location whereLongName($value)
  */
 class Location extends Model
 {
