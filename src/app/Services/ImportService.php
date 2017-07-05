@@ -29,11 +29,6 @@ class ImportService
     public $users = [];
 
     /**
-     * @var \App\Location []
-     */
-    public $locations = [];
-
-    /**
      * @var string []
      */
     public $takenEmails = [];
@@ -53,12 +48,18 @@ class ImportService
      * @var string
      */
     private $defaultPath = 'storage/import/';
+    /**
+     * @var GeocodeService
+     */
+    private $geocodeService;
 
     /**
      * ImportService constructor.
+     * @param GeocodeService $geocodeService
      */
-    public function __construct()
+    public function __construct(GeocodeService $geocodeService)
     {
+        $this->geocodeService = $geocodeService;
     }
 
     /**
@@ -103,12 +104,16 @@ class ImportService
                 continue;
             }
 
-            if (!$this->isValidCity($user->city, $user)) {
+            $location = $this->resolveLocation($user);
+
+            if (!$location instanceof Location) {
                 $user->valid = false;
                 $user->addNote("Invalid city");
                 $this->importData [] = $user;
                 continue;
             }
+
+            $user->location_id = $location->id;
 
             $user->valid = true;
             $user->addNote("To be imported, location: $user->location_id");
@@ -364,16 +369,6 @@ class ImportService
         return false;
     }
 
-    private function getLocationId(string $partialName)
-    {
-        foreach ($this->locations as $location) {
-            if (str_is($partialName, $location->key)) {
-                return $location->id;
-            }
-        }
-
-        return self::INVALID_LOCATION_ID;
-    }
 
     /**
      * Load Packages and existing users, locations (cities)
@@ -384,7 +379,6 @@ class ImportService
         $this->lightPackage = Package::where('name', Package::LIGHT)->firstOrFail();
         $this->users = User::all();
         $this->takenEmails = $this->loadTakenEmails();
-        $this->locations = Location::all();
     }
 
     /**
@@ -444,4 +438,43 @@ class ImportService
     {
         print_r($message . PHP_EOL);
     }
+
+    private function resolveLocation(ImportRow $user)
+    {
+        $address = "$user->street+$user->houseNumber+$user->additionalAddressInfo+$user->postalCode+$user->city";
+
+        $geocodeResult = $this->geocodeService->geocode($address);
+
+        if (!$geocodeResult) {
+            $this->output("Google Maps did not find $address");
+            return null;
+        }
+
+        $long_name = $this->geocodeService->extractCityLongName($geocodeResult);
+
+        $existingLocation = Location::where('key', str_slug($long_name))->first();
+
+        if ($existingLocation instanceof Location) {
+            return $existingLocation;
+        }
+
+        $latitude = $this->geocodeService->extractLatitude($geocodeResult);
+        $longitude = $this->geocodeService->extractLongitude($geocodeResult);
+
+        return $this->createNewLocation($long_name, $latitude, $longitude);
+    }
+
+    private function createNewLocation(string $long_name, float $latitude, float $longitude)
+    {
+        $location = new Location();
+        $location->key = str_slug($long_name);
+        $location->long_name = $long_name;
+        $location->latitude = $latitude;
+        $location->longitude = $longitude;
+        $location->save();
+
+        return $location;
+    }
+
+
 }

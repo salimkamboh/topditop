@@ -39,12 +39,12 @@ class GeocodeService
 
     public function extractLatitude(\stdClass $result)
     {
-        return $result->geometry->lat;
+        return $result->geometry->location->lat;
     }
 
     public function extractLongitude(\stdClass $result)
     {
-        return $result->geometry->lng;
+        return $result->geometry->location->lng;
     }
 
     public function geocode(string $address)
