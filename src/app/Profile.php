@@ -146,6 +146,19 @@ class Profile extends Model
             $this->handleNonArrayValueField($field, $value, $locale);
         }
 
+        if ($request->has('store_latitude') && $request->has('store_longitude')) {
+            $latitude = (double) $request->store_latitude;
+            $longitude = (double) $request->store_longitude;
+
+            if ($latitude && $longitude) {
+                $store = $this->store;
+                $store->latitude = $latitude;
+                $store->longitude = $longitude;
+                $store->uses_coordinates = true;
+                $store->save();
+            }
+        }
+
         if (!$this->handleStoreNameChange($request, $this)) {
             $statusError = 'Duplicate store name';
         }
@@ -239,7 +252,7 @@ class Profile extends Model
      * @param $value
      * @param $locale
      */
-    private function handleNonArrayValueField($field, $value, $locale)
+    private function handleNonArrayValueField(Field $field, $value, $locale)
     {
         $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->get()->first();
         if ($fieldProfilePIVOT != null) {
