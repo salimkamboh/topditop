@@ -46,6 +46,7 @@ class LocationService
         $location->key = str_slug($long_name_de);
         $location->translateOrNew('de')->name = $long_name_de;
         $location->translateOrNew('en')->name = $long_name_en;
+        $location->is_featured = true;
         $location->save();
     }
 }

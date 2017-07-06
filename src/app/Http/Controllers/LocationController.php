@@ -86,7 +86,10 @@ class LocationController extends BaseController
     {
         if ($location->hasStores()) {
             return response()->json([
-                'message' => 'Cannot delete location because it has some stores',
+                'error' => [
+                    'message' => 'Cannot delete location because it has some stores',
+                    'status' => Response::HTTP_FORBIDDEN
+                ]
             ], Response::HTTP_FORBIDDEN);
         }
 
