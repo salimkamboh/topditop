@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entity\Location\Repository as LocationRepository;
 use App\Location;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 
 class LocationController extends BaseController
@@ -26,7 +27,14 @@ class LocationController extends BaseController
 
     public function index()
     {
-        $this->locations->listAll();
+        $locations = $this->locations->listAll();
+
+        return response()->json($locations);
+    }
+
+    public function list()
+    {
+        return Location::all();
     }
 
     public function listEnhancedLocations()
@@ -59,21 +67,40 @@ class LocationController extends BaseController
         return $this->locations->update($request, $location);
     }
 
+
     /**
      * @param Request $request
-     * @return bool
+     * @return Location
      */
     public function save(Request $request)
     {
         return $this->locations->saveNew($request);
     }
 
+
     /**
      * @param Location $location
-     * @return mixed
+     * @return \Illuminate\Http\JsonResponse
      */
     public function delete(Location $location)
     {
-        return $this->locations->delete($location);
+        if ($location->hasStores()) {
+            return response()->json([
+                'error' => [
+                    'message' => 'Cannot delete location because it has some stores',
+                    'status' => Response::HTTP_FORBIDDEN
+                ]
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $deleted = $this->locations->delete($location);
+
+        if (!$deleted) {
+            return response()->json([
+                'message' => 'Error deleting',
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }

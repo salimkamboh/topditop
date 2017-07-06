@@ -31,6 +31,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location withTranslation()
  * @mixin \Eloquent
+ * @property string $long_name
+ * @property bool $is_featured
+ * @method static \Illuminate\Database\Query\Builder|\App\Location whereIsFeatured($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Location whereLongName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Location featured()
  */
 class Location extends Model
 {
@@ -39,7 +44,7 @@ class Location extends Model
 
     public $translatedAttributes = ['name'];
 
-    protected $fillable = ['name', 'key', 'latitude', 'longitude'];
+    protected $fillable = ['name', 'latitude', 'longitude'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -49,11 +54,21 @@ class Location extends Model
         return $this->hasMany('App\Store'); // or Profile::class
     }
 
+    public function hasStores()
+    {
+        return count($this->stores) != 0;
+    }
+
     public function numberOfStores() {
-        return count($this->stores()->get());
+        return count($this->stores);
     }
 
     public function numberOfActiveStores() {
         return count($this->stores()->where('status', '=', 1)->get());
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', 1);
     }
 }

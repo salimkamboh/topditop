@@ -58,6 +58,7 @@ Route::localizedGroup(function () {
     Route::group(['prefix' => '/api/'], function () {
         Route::group(['prefix' => '/locations/'], function () {
             Route::get('all', ['as' => 'all_locations', 'uses' => 'LocationController@index']);
+            Route::get('/', ['as' => 'locations.list', 'uses' => 'LocationController@list']);
             Route::get('all/rest', ['as' => 'all_locations_rest', 'uses' => 'LocationController@showAll']);
             Route::get('all/custom', ['as' => 'all_locations_custom', 'uses' => 'LocationController@listEnhancedLocations']);
             Route::get('{location}', ['as' => 'view_location', 'uses' => 'LocationController@view']);

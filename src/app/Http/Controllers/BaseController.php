@@ -32,7 +32,7 @@ class BaseController extends Controller
         }
 
         $this->products_footer = Product::limit(6)->offset(0)->get();
-        $this->locations_footer = $this->homeLocations();
+        $this->locations_footer = Location::featured()->with('stores')->get();
         $this->stores_footer = Store::active()->limit(10)->offset(0)->get();
 
         View::share('current_store', $this->current_store);
@@ -54,23 +54,5 @@ class BaseController extends Controller
     public function getFormFields($fieldLocation)
     {
         return Registerfield::where('fieldlocation', $fieldLocation)->orderBy('order', 'asc')->get();
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function homeLocations()
-    {
-        $locations = Location::all();
-        $collection = new Collection();
-
-        foreach ($locations as $location) {
-
-            $location->numStores = count($location->stores);
-            $collection->add($location);
-
-        }
-
-        return $collection;
     }
 }
