@@ -108,7 +108,6 @@ class ImportRow
      */
     public $mail;
 
-
     /**
      * @var boolean
      */
@@ -118,6 +117,21 @@ class ImportRow
      * @var string
      */
     public $note = "";
+
+    /**
+     * latitude determined by geocode lookup
+     *
+     * @var double
+     */
+    public $latitude;
+
+    /**
+     * longitude determined by geocode lookup
+     *
+     * @var double
+     */
+    public $longitude;
+
 
 
     public function addNote(string $note)

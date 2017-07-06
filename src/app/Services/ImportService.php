@@ -104,7 +104,9 @@ class ImportService
                 continue;
             }
 
-            $location = $this->resolveLocation($user);
+            $locationAttempt = $this->resolveLocation($user);
+
+            $location = $locationAttempt['location'];
 
             if (!$location instanceof Location) {
                 $user->valid = false;
@@ -114,6 +116,9 @@ class ImportService
             }
 
             $user->location_id = $location->id;
+            $user->latitude = $locationAttempt['latitude'];
+            $user->longitude = $locationAttempt['longitude'];
+
 
             $user->valid = true;
             $user->addNote("To be imported, location: $user->location_id");
@@ -342,33 +347,6 @@ class ImportService
         return $emails;
     }
 
-    private function isValidCity($location, ImportRow &$row)
-    {
-        $clean = str_slug($location);
-
-        // Currently supported Locations by key:
-        // munich, düsseldorf, hamburg, vienna
-
-        if (str_is('muenchen*', $clean)) {
-            $row->location_id = $this->getLocationId('*munich');
-            return true;
-        }
-        if (str_is('*duesseldorf*', $clean)) {
-            $row->location_id = $this->getLocationId('*seldorf*');
-            return true;
-        }
-        if (str_is('*hamburg*', $clean)) {
-            $row->location_id = $this->getLocationId('*hamburg');
-            return true;
-        }
-        if (str_is('*vienna*', $clean)) {
-            $row->location_id = $this->getLocationId('*vienna*');
-            return true;
-        }
-
-        return false;
-    }
-
 
     /**
      * Load Packages and existing users, locations (cities)
@@ -401,6 +379,9 @@ class ImportService
         $store->user_email = $row->email;
         $store->location_id = $row->location_id;
         $store->is_light = true;
+        $store->latitude = $row->latitude;
+        $store->longitude = $row->longitude;
+        $store->uses_coordinates = true;
         $store->save();
 
         $user = new User();
@@ -439,21 +420,23 @@ class ImportService
         print_r($message . PHP_EOL);
     }
 
+    /**
+     * @param ImportRow $user
+     * @return array
+     */
     private function resolveLocation(ImportRow $user)
     {
-        $exactMatch = Location::where('long_name', $user->city)->first();
-
-        if ($exactMatch instanceof Location) {
-            return $exactMatch;
-        }
-
         $address = "$user->street+$user->houseNumber+$user->postalCode+$user->city";
-
+        $this->output("Searching for: $address");
         $result_de = $this->geocodeService->geocode($address);
 
         if (!$result_de) {
             $this->output("Google Maps could not determine the city for $address");
-            return null;
+            return [
+                'location' => null,
+                'latitude' => null,
+                'longitude' => null,
+            ];
         }
 
         $long_name_de = $this->geocodeService->extractCityLongName($result_de);
@@ -463,14 +446,26 @@ class ImportService
 
         $existingLocation = Location::where('key', str_slug($long_name_de))->first();
 
-        if ($existingLocation instanceof Location) {
-            return $existingLocation;
-        }
-
         $latitude = $this->geocodeService->extractLatitude($result_de);
         $longitude = $this->geocodeService->extractLongitude($result_de);
 
-        return $this->createNewLocation($long_name_de, $long_name_en, $latitude, $longitude);
+        if ($existingLocation instanceof Location) {
+            $this->output("Location already exists: $existingLocation->long_name");
+            return [
+                'location' => $existingLocation,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+            ];
+        }
+
+        $newLocation = $this->createNewLocation($long_name_de, $long_name_en, $latitude, $longitude);
+
+        $this->output("Location added: $newLocation->long_name");
+        return [
+            'location' => $newLocation,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ];
     }
 
     private function createNewLocation(string $long_name_de, string $long_name_en, float $latitude, float $longitude)
