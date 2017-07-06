@@ -2,6 +2,7 @@
 
 namespace App\Entity\Location;
 
+use App\Field;
 use App\Location;
 use App\Store;
 use Illuminate\Http\Request;
@@ -16,12 +17,13 @@ class Repository
     public function saveNew(Request $request)
     {
         $locale = App::getLocale();
+
         $location = new Location();
-        $location->key = $request->key;
         $location->latitude = $request->latitude;
         $location->longitude = $request->longitude;
         $location->translateOrNew($locale)->name = $request->name;
         $location->save();
+
         return $location;
     }
 
@@ -35,36 +37,36 @@ class Repository
 
     public function listAll()
     {
-        $locations = Location::with('stores')->get();
+        $locations = Location::with('stores')->orderBy('long_name')->get();
 
-        $locationsObjects = array();
+        $all = [];
+
         foreach ($locations as $location) {
-            $locationsObject = array();
+            $presenter = [];
 
             $translate = $location->translate();
 
-            $locationsObject["id"] = $location->id;
-            $locationsObject["key"] = $location->key;
-            $locationsObject["name"] = $translate['name'];
+            $presenter["id"] = $location->id;
+            $presenter["key"] = $location->key;
+            $presenter["name"] = $translate['name'];
 
-            $locationsObject["latitude"] = (double)$location->latitude;
-            $locationsObject["longitude"] = (double)$location->longitude;
+            $presenter["latitude"] = (float) $location->latitude;
+            $presenter["longitude"] = (float) $location->longitude;
+            $presenter["is_featured"] = $location->is_featured;
 
             /** @var Store $store */
             foreach ($location->stores as $store) {
 
-                $storeSettings = $store->getStoreData();
-
-                $locationsObject["stores"][] = array(
+                $presenter["stores"] []= [
                     "store_name" => $store->store_name,
-                    "latitude" => $storeSettings['store_latitude'],
-                    "longitude" => $storeSettings['store_longitude'],
-                );
+                    "latitude" => $store->getLatitude(),
+                    "longitude" => $store->getLongitude(),
+                ];
             }
-            $locationsObjects[] = $locationsObject;
+            $all []= $presenter;
         }
 
-        echo json_encode($locationsObjects);
+        return $all;
     }
 
     /**
@@ -84,13 +86,13 @@ class Repository
     public function update(Request $request, Location $location)
     {
         $locale = App::getLocale();
+
         $location->longitude = $request->longitude;
         $location->latitude = $request->latitude;
-        $location->key = $request->key;
-
-        $location->translateOrNew($locale)->name = $request->name;
+        $location->is_featured = $request->is_featured;
 
         $location->save();
+
         return $location;
     }
 
@@ -100,46 +102,49 @@ class Repository
     public function listEnhancedLocations()
     {
 
-        $locations = Location::all();
+        $locations = Location::with('stores.profile.fields')->get();
 
-        $locationsObjects = array();
+        $list = [];
+
         foreach ($locations as $location) {
-            $locationsObject = array();
+            $presenter = [];
 
             $translate = $location->translate();
 
-            $locationsObject["id"] = $location->id;
-            $locationsObject["key"] = $location->key;
-            $locationsObject["name"] = $translate['name'];
-            $locationsObject["numStores"] = count($location->stores);
+            $presenter['id'] = $location->id;
+            $presenter['key'] = $location->key;
+            $presenter['name'] = $translate['name'];
+            $presenter['numStores'] = count($location->stores);
 
-            $locationsObject["latitude"] = (double)$location->latitude;
-            $locationsObject["longitude"] = (double)$location->longitude;
+            $presenter['latitude'] = (float) $location->latitude;
+            $presenter['longitude'] = (float) $location->longitude;
 
             /** @var Store $store */
             foreach ($location->stores as $store) {
-                $storeSettings = $store->getStoreData();
-                $locationsObject["stores"][] = array(
-                    "store_id" => $store->id,
-                    "store_name" => $store->store_name,
-                    "latitude" => $storeSettings['store_latitude'],
-                    "longitude" => $storeSettings['store_longitude'],
-                    "img" => $store->getStoreLogo(),
-                    "numproducts" => $store->getNumberOfProducts(),
-                    "numreferences" => $store->getNumberOfReferences(),
-                );
+                $presenter['stores'] []= [
+                    'store_id' => $store->id,
+                    'store_name' => $store->store_name,
+                    'latitude' => (float) $store->getLatitude(),
+                    'longitude' => (float) $store->getLongitude(),
+                    'img' => $store->getStoreLogo(),
+                    'numproducts' => $store->getNumberOfProducts(),
+                    'numreferences' => $store->getNumberOfReferences(),
+                ];
             }
-            $locationsObjects[] = $locationsObject;
+
+            $list []= $presenter;
         }
 
-        return $locationsObjects;
+        return $list;
     }
+
 
     /**
      * @param Location $location
+     * @return bool|null
      */
     public function delete(Location $location)
     {
-        $location->delete();
+        return $location->delete();
     }
 }

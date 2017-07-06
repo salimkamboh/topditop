@@ -40,6 +40,12 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property bool $is_light
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereIsLight($value)
+ * @property float $latitude
+ * @property float $longitude
+ * @property bool $uses_coordinates
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereLatitude($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereLongitude($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereUsesCoordinates($value)
  */
 class Store extends Model
 {
@@ -193,6 +199,28 @@ class Store extends Model
         $datablock["store_longitude"] = Field::getSelectedValues("store_longitude", $store);
 
         return $datablock;
+    }
+
+    public function getLatitude()
+    {
+        if ($this->uses_coordinates) {
+            return $this->latitude;
+        } else {
+            return $this->profile->fields->first(function ($key, $value) {
+                return $value == 'store_latitude';
+            });
+        }
+    }
+
+    public function getLongitude()
+    {
+        if ($this->uses_coordinates) {
+            return $this->longitude;
+        } else {
+            return $this->profile->fields->first(function ($key, $value) {
+                return $value == 'store_longitude';
+            });
+        }
     }
 
     public function getFieldByKey($key)

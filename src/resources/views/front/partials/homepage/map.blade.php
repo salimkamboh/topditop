@@ -17,7 +17,7 @@
         <div class="col-md-2">
             <ul class="city-selector">
                 @foreach($locations_footer as $location)
-                    <li><a href="#" data-city="{{$location->key}}">{{$location->name}}</a> <sup>{{$location->numStores}}</sup></li>
+                    <li><a href="#" data-city="{{$location->key}}">{{$location->name}}</a> <sup>{{$location->numberOfStores()}}</sup></li>
                 @endforeach
             </ul>
         </div>

@@ -8,4 +8,6 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api/'], function () {
     Route::group(['middleware' => 'jwt.refresh'], function () {
         Route::get('auth/check/refresh', ['as' => 'api.admin.check', 'uses' => 'AdminAuthController@apiAdminCheck']);
     });
+
+    Route::post('geo/find', ['as' => 'geo.find', 'uses' => 'GeocodeController@find']);
 });

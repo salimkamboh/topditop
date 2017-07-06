@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\TopAdminCreate::class,
         Commands\TopSitemapCreate::class,
         Commands\TopImportUsersCommand::class,
+        Commands\TopGeocodeExistingLocationsCommand::class,
     ];
 
     /**
