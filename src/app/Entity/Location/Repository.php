@@ -52,6 +52,7 @@ class Repository
 
             $presenter["latitude"] = (float) $location->latitude;
             $presenter["longitude"] = (float) $location->longitude;
+            $presenter["is_featured"] = $location->is_featured;
 
             /** @var Store $store */
             foreach ($location->stores as $store) {
@@ -88,6 +89,7 @@ class Repository
 
         $location->longitude = $request->longitude;
         $location->latitude = $request->latitude;
+        $location->is_featured = $request->is_featured;
 
         $location->save();
 
