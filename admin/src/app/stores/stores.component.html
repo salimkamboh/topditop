@@ -27,7 +27,7 @@
             <td>{{ store.updated_at | date:'medium' }}</td>
             <td>{{ store.user_email }}</td>
             <td>{{ store.package_name }}</td>
-            <td>{{ store.status }}</td>
+            <td>{{ store.status ? 'Confirmed' : 'Not confirmed'}}</td>
             <td><a class="btn btn-link" [routerLink]="['/store', store.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
           </tr>
         </tbody>

@@ -15,6 +15,7 @@
             <th>Latitude</th>
             <th>Longitutde</th>
             <th>Location Name</th>
+            <th>Featured</th>
             <th></th>
           </tr>
         </thead>
@@ -24,6 +25,8 @@
             <td>{{ location.latitude }}</td>
             <td>{{ location.longitude }}</td>
             <td>{{ location.name }}</td>
+            <td *ngIf="location.is_featured"><span class="glyphicon glyphicon-ok"></span></td>
+            <td *ngIf="!location.is_featured"></td>
             <td><a class="btn btn-link" [routerLink]="['/location', location.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
           </tr>
         </tbody>

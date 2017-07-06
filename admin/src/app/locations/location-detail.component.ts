@@ -46,7 +46,8 @@ export class LocationDetailComponent implements OnInit {
                 key: '',
                 name: '',
                 latitude: '',
-                longitude: ''
+                longitude: '',
+                is_featured: false,
             };
             this.createFormGroup();
         }
@@ -110,7 +111,7 @@ export class LocationDetailComponent implements OnInit {
             },
             error => {
                 this.errorMessage = <any>error;
-                this.toasterService.pop('error', 'Error', 'Error with deleting location!');
+                this.toasterService.pop('error', 'Error', `Error with deleting location! ${error.message}`);
                 this.disabled = false; this.router.navigate(['/locations']);
             }
             );
@@ -122,6 +123,7 @@ export class LocationDetailComponent implements OnInit {
             'name': this.locationForm.value.name,
             'latitude': this.locationForm.value.latitude,
             'longitude': this.locationForm.value.longitude,
+            'is_featured': this.locationForm.value.is_featured,
         };
         return location;
     }
@@ -131,7 +133,8 @@ export class LocationDetailComponent implements OnInit {
             key: this.location.key,
             name: this.location.name,
             latitude: this.location.latitude,
-            longitude: this.location.longitude
+            longitude: this.location.longitude,
+            is_featured: this.location.is_featured,
         });
     }
 }
