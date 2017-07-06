@@ -31,16 +31,21 @@ class LocationService
 
     private function updateLocation(Location $location)
     {
-        $response = $this->geocodeService->geocode($location->key);
+        $response_de = $this->geocodeService->geocode($location->key);
 
-        if (!$response) {
+        if (!$response_de) {
             return;
         }
 
-        $long_name = $this->geocodeService->extractCityLongName($response);
+        $long_name_de = $this->geocodeService->extractCityLongName($response_de);
 
-        $location->long_name = $long_name;
-        $location->key = str_slug($long_name);
+        $response_en = $this->geocodeService->geocode($location->key, 'en');
+        $long_name_en = $this->geocodeService->extractCityLongName($response_en);
+
+        $location->long_name = $long_name_de;
+        $location->key = str_slug($long_name_de);
+        $location->translateOrNew('de')->name = $long_name_de;
+        $location->translateOrNew('en')->name = $long_name_en;
         $location->save();
     }
 }

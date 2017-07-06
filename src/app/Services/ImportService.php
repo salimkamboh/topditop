@@ -449,34 +449,39 @@ class ImportService
 
         $address = "$user->street+$user->houseNumber+$user->postalCode+$user->city";
 
-        $geocodeResult = $this->geocodeService->geocode($address);
+        $result_de = $this->geocodeService->geocode($address);
 
-        if (!$geocodeResult) {
+        if (!$result_de) {
             $this->output("Google Maps could not determine the city for $address");
             return null;
         }
 
-        $long_name = $this->geocodeService->extractCityLongName($geocodeResult);
+        $long_name_de = $this->geocodeService->extractCityLongName($result_de);
 
-        $existingLocation = Location::where('key', str_slug($long_name))->first();
+        $result_en = $this->geocodeService->geocode($long_name_de, 'en');
+        $long_name_en = $this->geocodeService->extractCityLongName($result_en);
+
+        $existingLocation = Location::where('key', str_slug($long_name_de))->first();
 
         if ($existingLocation instanceof Location) {
             return $existingLocation;
         }
 
-        $latitude = $this->geocodeService->extractLatitude($geocodeResult);
-        $longitude = $this->geocodeService->extractLongitude($geocodeResult);
+        $latitude = $this->geocodeService->extractLatitude($result_de);
+        $longitude = $this->geocodeService->extractLongitude($result_de);
 
-        return $this->createNewLocation($long_name, $latitude, $longitude);
+        return $this->createNewLocation($long_name_de, $long_name_en, $latitude, $longitude);
     }
 
-    private function createNewLocation(string $long_name, float $latitude, float $longitude)
+    private function createNewLocation(string $long_name_de, string $long_name_en, float $latitude, float $longitude)
     {
         $location = new Location();
-        $location->key = str_slug($long_name);
-        $location->long_name = $long_name;
+        $location->key = str_slug($long_name_de);
+        $location->long_name = $long_name_de;
         $location->latitude = $latitude;
         $location->longitude = $longitude;
+        $location->translateOrNew('de')->name = $long_name_de;
+        $location->translateOrNew('en')->name = $long_name_en;
         $location->save();
 
         return $location;

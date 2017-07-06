@@ -29,6 +29,11 @@ class LocationController extends BaseController
         $this->locations->listAll();
     }
 
+    public function list()
+    {
+        return Location::all();
+    }
+
     public function listEnhancedLocations()
     {
         return $this->locations->listEnhancedLocations();

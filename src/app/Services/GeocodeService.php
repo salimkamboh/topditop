@@ -47,9 +47,9 @@ class GeocodeService
         return $result->geometry->location->lng;
     }
 
-    public function geocode(string $address)
+    public function geocode(string $address, string $language = 'de')
     {
-        $result = $this->http->get($this->buildUrl($address));
+        $result = $this->http->get($this->buildUrl($address, $language));
 
         if ($result->getStatusCode() != 200) {
             return null;
@@ -66,13 +66,14 @@ class GeocodeService
 
     /**
      * @param string $address
+     * @param string $language
      * @return string
      */
-    private function buildUrl(string $address)
+    private function buildUrl(string $address, string $language)
     {
         $encodedAddress = urlencode($address);
 
-        $params = "address=$encodedAddress&key=$this->key";
+        $params = "address=$encodedAddress&key=$this->key&language=$language";
 
         return "$this->apiUrl?$params";
     }

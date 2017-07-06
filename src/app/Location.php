@@ -43,7 +43,7 @@ class Location extends Model
 
     public $translatedAttributes = ['name'];
 
-    protected $fillable = ['name', 'key', 'latitude', 'longitude'];
+    protected $fillable = ['name', 'latitude', 'longitude'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
