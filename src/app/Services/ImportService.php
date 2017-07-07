@@ -181,7 +181,7 @@ class ImportService
 
     private function export($fileName)
     {
-        $pathToFile = $this->defaultPath . date('Y_m_d_His') . "-" . $fileName;
+        $pathToFile = $this->defaultPath . date('Y_m_d_His') . "-import-results-report-" . $fileName;
         $file = fopen($pathToFile,"w");
 
         $headers = $this->header;
