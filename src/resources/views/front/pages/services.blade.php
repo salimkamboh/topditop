@@ -487,9 +487,16 @@
 @section("footer")
     <script type="text/javascript">
         $('.ui.modal.modal-final-register').modal();
-        $('.second-col,.third-col.last,.fourth-col').on('click', function () {
+        $('.second-col,.third-col,.fourth-col').on('click', function () {
+            var el = $(this);
+            var cl = el.attr('class');
+            var selectedPackage = cl.split(' ')[0];
+
             $('.ui.modal.modal-final-register').modal('show');
-            $('.final-register-form').find(".package-id").val($(this).data("package"));
+
+            var selected_package_id = $('.' + selectedPackage + '.last').data('package');
+
+            $('.final-register-form').find('.package-id').val(selected_package_id);
         });
 
         $(".term_acceptance_1_").on('click', function () {
