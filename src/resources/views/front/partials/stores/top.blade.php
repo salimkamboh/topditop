@@ -55,7 +55,7 @@
 </section>
 
 @section('footer')
-    @parent()
+    @parent
 
     @if($store->isLight())
         <script>
