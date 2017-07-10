@@ -404,6 +404,7 @@ class ImportService
         $origin->first_name = $row->firstName;
         $origin->last_name = $row->lastName;
         $origin->street = $row->street;
+        $origin->email = $row->email;
         $origin->house_number = $row->houseNumber;
         $origin->additional_address_info = $row->additionalAddressInfo;
         $origin->postal_code = $row->postalCode;
