@@ -11,7 +11,7 @@
         </div>
         <div class="col-sm-4">
             <h3 class="store-options__heading"><span
-                        class="store-options__heading__inner">TopdiTop Services</span></h3>
+                        class="store-options__heading__inner">TopDiTop Services</span></h3>
             <ul class="store-options__list list-unstyled">
                 @foreach($datablock["TopDiTop_Service"] as $data)
                     <li>{{$data}}</li>
@@ -20,12 +20,12 @@
         </div>
         <div class="col-sm-4">
             <h3 class="store-options__heading"><span
-                        class="store-options__heading__inner">Längste TopdiTop Markenpartnerschaft</span></h3>
+                        class="store-options__heading__inner">Längste TopDiTop Markenpartnerschaft</span></h3>
             <ul class="store-options__list list-unstyled">
                 <li>bulthaup</li>
             </ul>
             <h3 class="store-options__heading"><span
-                        class="store-options__heading__inner">Neueste TopdiTop Marke</span></h3>
+                        class="store-options__heading__inner">Neueste TopDiTop Marke</span></h3>
             <ul class="store-options__list list-unstyled">
                 <li>Vitra</li>
             </ul>

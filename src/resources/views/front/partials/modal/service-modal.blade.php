@@ -4,7 +4,7 @@
         <a class="navbar-brand" href="{{ route('dashboard_home') }}">Top<span
                     class="navbar-brand--logo-mod">Di</span>Top
             H.O.M.E.</a>
-        <h2>TopdiTopStore</h2>
+        <h2>TopDiTopStore</h2>
         <form method="post" class="final-register-form" action="{{route('confirm_registration', $user)}}">
             @foreach($registerfields_service as $field)
                 <div class="form-group">
