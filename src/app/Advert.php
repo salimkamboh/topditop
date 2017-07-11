@@ -5,6 +5,28 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * App\Advert
+ *
+ * @property int $id
+ * @property string $scanned_image_url
+ * @property string $brand_logo_url
+ * @property string $reference_image_url
+ * @property int $manufacturer_id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $name
+ * @property-read \App\Manufacturer $manufacturer
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereBrandLogoUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereManufacturerId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereReferenceImageUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereScannedImageUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Advert extends Model
 {
     protected $fillable = ['scanned_image_url', 'brand_logo_url', 'reference_image_url', 'store_id', 'manufacturer_id', 'name'];

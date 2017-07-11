@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends BaseController
 {
@@ -105,8 +105,10 @@ class AuthController extends BaseController
         ]);
     }
 
+
     /**
-     * Handle a registration request for the application.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function register(Request $request)
     {
@@ -161,25 +163,35 @@ class AuthController extends BaseController
         return back()->with('success', trans('messages.register_notification'));
     }
 
-    /**
-     * @param $confirmation_code
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
-     */
+
     public function verify($confirmation_code)
     {
         $user = User::where(['confirmation_code' => $confirmation_code])->get()->first();
 
-        if ($user->confirmed)
-            return redirect(App::getLocale() . $this->redirectTo);
-
-        if (is_object($user)) {
-            return view('front.pages.services', compact('user'));
-        } else {
+        if ($user->confirmed) {
             return redirect(App::getLocale() . $this->redirectTo);
         }
+
+        if (!$user instanceof User) {
+            return redirect(App::getLocale() . $this->redirectTo);
+        }
+
+        $packageHighest = Package::where('name', Package::HIGHEST)->firstOrFail();
+        $packageMiddle = Package::where('name', Package::MIDDLE)->firstOrFail();
+        $packageLowest = Package::where('name', Package::LOWEST)->firstOrFail();
+
+        return view('front.pages.services')
+            ->with('user', $user)
+            ->with('package_highest_id', $packageHighest->id)
+            ->with('package_middle_id', $packageMiddle->id)
+            ->with('package_lowest_id', $packageLowest->id);
     }
 
+
     /**
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function confirm(Request $request, User $user)
     {

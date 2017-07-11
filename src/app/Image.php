@@ -4,6 +4,27 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Image
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $url
+ * @property string $title
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reference[] $references
+ * @property-read \App\Store $store
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Thumbnail[] $thumbnails
+ * @method static \Illuminate\Database\Query\Builder|\App\Image whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Image whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Image whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Image whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Image whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Image whereUrl($value)
+ * @mixin \Eloquent
+ */
 class Image extends Model
 {
     public static $rules = [

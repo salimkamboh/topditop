@@ -6,7 +6,7 @@
         <div class="item-info-top clearfix">
             <div class="width-fix">
             <span class="title">
-                @if($reference->store->package_name() == 'TopDiTop Store')
+                @if($reference->store->package_name() == \App\Package::HIGHEST)
                     <a href="{{ route("front_references_single", $reference) }}">{{$reference->title}}</a>
                 @else
                     {{$reference->title}}
@@ -19,7 +19,7 @@
             <a href="{{route('front_show_store', $reference->store)}}"><i
                         class="icon-shopping-cart"></i>{{$reference->package_name()}}
                 : {{$reference->store->store_name}}</a>
-            @if($reference->store->package_name() == 'TopDiTop Store')
+            @if($reference->store->package_name() == \App\Package::HIGHEST)
                 <a class="shareBtn" href="{{ route("front_references_single", $reference) }}">+ {{ trans('messages.share') }}</a>
             @else
                 <a href=""></a>

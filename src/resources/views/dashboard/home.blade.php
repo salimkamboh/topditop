@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                @if($store->package_name() !== 'Store')
+                @if($store->isTopDiTop() || $store->isTop())
                     <div class="col-sm-4 text-center">
                         <div class="card-item item-shadow">
                             <h1>{{$numberOfReferences}}</h1>

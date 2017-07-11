@@ -5,6 +5,29 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * App\Manufacturer
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $url
+ * @property string $image_url
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $featured
+ * @property-read \App\Advert $advert
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reference[] $references
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Store[] $stores
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereFeatured($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereImageUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereUrl($value)
+ * @mixin \Eloquent
+ */
 class Manufacturer extends Model
 {
 

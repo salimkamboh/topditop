@@ -1,5 +1,0 @@
-<?php
-class Simple_Settingspage_Helper_Data extends Mage_Core_Helper_Abstract
-{
-}
-	 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Manufacturer;
+use App\Package;
 use App\Product;
 use App\Reference;
 use Illuminate\Database\Eloquent\Collection;
@@ -48,9 +49,9 @@ class AdminController extends BaseController
             }
         }
 
-        if ($reference->store->package_name() == 'TopDiTop Store') {
+        if ($reference->store->package_name() == Package::HIGHEST) {
             $allowed_images = 7;
-        } else if ($reference->store->package_name() == 'TopStore') {
+        } else if ($reference->store->package_name() == Package::MIDDLE) {
             $allowed_images = 1;
         } else {
             $allowed_images = 0;

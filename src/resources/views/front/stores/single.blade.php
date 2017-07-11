@@ -1,6 +1,6 @@
 @extends("master.front-layout")
 
-@section("pageTitle") Single Product @stop
+@section("pageTitle") {{ $store->store_name }} @stop
 
 @section("header")
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/slick.css') }}">
@@ -11,11 +11,15 @@
 
     @include('front.partials.stores.top')
 
-    @include('front.partials.stores.datablock')
+    @if(!$store->isLight())
+        @include('front.partials.stores.datablock')
 
-    @include('front.partials.stores.references')
+        @include('front.partials.stores.references')
 
-    @include('front.partials.stores.products')
+        @include('front.partials.stores.products')
+    @else
+        <section style="height: 120px"></section>
+    @endif
 
     @include('front.partials.homepage.newsletter')
 

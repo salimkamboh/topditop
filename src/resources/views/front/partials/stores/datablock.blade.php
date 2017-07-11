@@ -10,26 +10,26 @@
                 </ul>
             </div>
             <div class="col-sm-4">
-                <h3>TopdiTop Services</h3>
+                <h3>TopDiTop Services</h3>
                 <ul>
                     @foreach($datablock["TopDiTop_Service"] as $data)
                         <li>{{$data}}</li>
                     @endforeach
                 </ul>
             </div>
-            @if($store->package_name() != 'Store')
+            @if($store->package_name() != \App\Package::LOWEST)
                 <div class="col-sm-4">
-                    <h3>Neueste TopdiTop Marke</h3>
+                    <h3>Neueste TopDiTop Marke</h3>
                     <ul>
                         <li>{{$datablock["newest_brand"]}}</li>
                     </ul>
 
-                    <h3>Längste TopdiTop Markenpartnerschaft</h3>
+                    <h3>Längste TopDiTop Markenpartnerschaft</h3>
                     <ul>
                         <li>{{$datablock["longest_brand"]}}</li>
                     </ul>
 
-                    @if($store->package_name() == 'TopDiTop Store')
+                    @if($store->package_name() == \App\Package::HIGHEST)
                         <h3>Architekten referenzen</h3>
                         <ul>
                             @foreach($architects as $data)

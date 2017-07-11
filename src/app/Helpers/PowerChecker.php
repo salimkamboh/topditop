@@ -31,7 +31,7 @@ class PowerChecker
     {
         /** @var Package $userPackage */
         $userPackage = $user->store->profile->package;
-        return $userPackage->name == $userPackage::LOWEST;
+        return $userPackage->name == Package::LOWEST || $userPackage->name == Package::LIGHT;
     }
 
 }

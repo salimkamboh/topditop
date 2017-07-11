@@ -3,8 +3,9 @@ export interface Location {
     key: string,
     name: string,
     latitude: string,
-    longitude: string
+    longitude: string,
     created_at?: string,
     updated_at?: string,
-    online?: string
+    online?: string,
+    is_featured?: boolean,
 }
