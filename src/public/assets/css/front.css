@@ -1280,6 +1280,11 @@ section#front-products .page-heading {
     margin-right: 10px;
 }
 
+.ui.modal-newsletter {
+    margin-top: 0 !important;
+    top: 100px !important;
+}
+
 .ui.modal .alert {
     font-size: 14px;
 }
