@@ -83,7 +83,7 @@ window.fbAsyncInit = function () {
     }
     js = d.createElement(s);
     js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = 'https://connect.facebook.net/en_US/sdk.js';
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
@@ -92,7 +92,7 @@ $(document).on('click', '.shareBtn', function (e) {
     FB.ui({
         method: 'feed',
         link: $(this).attr('href'),
-        caption: 'An example caption',
+        caption: 'An example caption'
     }, function (response) {
     });
 });
