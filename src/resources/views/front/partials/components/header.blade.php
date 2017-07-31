@@ -27,17 +27,8 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle">{{ trans('messages.stores') }}<span
-                                    class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route("front_stores") }}"><i class="fa fa-fw fa-cog"></i> {{ trans('messages.all') }}</a></li>
-                            @foreach($stores_footer as $store)
-                                <li>
-                                    <a href="{{ route("front_show_store", $store) }}">{{$store->store_name}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
+                    <li>
+                        <a href="{{ route("front_stores") }}">{{ trans('messages.stores') }}</a>
                     </li>
                     <li>
                         <a href="{{route("front_references")}}">{{ trans('messages.references') }}</a>
