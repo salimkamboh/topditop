@@ -169,6 +169,11 @@ class Store extends Model
         return $query->where('status', 1);
     }
 
+    public function getOneStopShopData()
+    {
+        return array_filter(explode(",", Field::getSelectedValues("onestopshop", $this)));
+    }
+
     public function getStoreData()
     {
         $store = $this;
