@@ -203,7 +203,7 @@ class FrontController extends BaseController
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
-        $stores = Store::active()->get();
+        $stores = Store::active()->with('references', 'location', 'profile.fields')->get();
         $manufacturers = Manufacturer::all();
         $filter_locations = Location::all();
         return view('front.stores.list')

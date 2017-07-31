@@ -39,9 +39,10 @@
                                                 </div>
                                                 <div class="item-info-bottom">
                                                     <i class="fa fa-map-marker brown-color"></i><span>{{$store->location->name}}</span>
-                                                    <?php $datablock = $store->getStoreData(); ?>
-                                                    <i class="fa fa-tag brown-color"></i><span>{{ trans('messages.one_stop_shop') }}: @foreach($datablock["onestopshop"] as $data){{$data}}
-                                                        , @endforeach</span>
+                                                    <i class="fa fa-tag brown-color"></i><span>{{ trans('messages.one_stop_shop') }}:
+                                                        @foreach($store->getOneStopShopData() as $data)
+                                                            {{$data}} ,
+                                                        @endforeach</span>
                                                 </div>
                                             </div>
                                         </a>
