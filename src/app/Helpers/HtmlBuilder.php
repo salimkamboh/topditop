@@ -163,7 +163,7 @@ class HtmlBuilder implements HtmlConvertContract
 
     public function buildSelectBoxManufacturers($field, $selectedValue)
     {
-        $optionsArray = Manufacturer::all('name');
+        $optionsArray = Manufacturer::orderBy('name', 'asc')->get(['name']);
 
         $html = '
             <div class="work-time">
@@ -208,7 +208,7 @@ class HtmlBuilder implements HtmlConvertContract
 
         $optionsArray = Manufacturer::limit(1500)->offset(8)->get();
         $html .= "<div>";
-        $html .= "<a class='toggle-hidden-next' href='javascript:void(0)'>show all " . Manufacturer::all()->count() . " Brands</a>";
+        $html .= "<a class='toggle-hidden-next' href='javascript:void(0)'>show all " . Manufacturer::count() . " Brands</a>";
         $html .= "</div>";
         $html .= "<div class='group-checkboxes brands-limited-boxes row hidden-brands hidden'>";
 

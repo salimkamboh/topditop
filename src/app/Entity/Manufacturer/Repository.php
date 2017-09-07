@@ -31,7 +31,7 @@ class Repository
      */
     public function getAll()
     {
-        return Manufacturer::all();
+        return Manufacturer::orderBy('name', 'asc')->get();
     }
 
     /**
