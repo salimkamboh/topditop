@@ -29,7 +29,7 @@ class AdminController extends BaseController
     public function editReference(Reference $reference)
     {
 
-        $manufacturers = Manufacturer::all();
+        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
         $selected_images = Reference::find($reference->id)->images()->get();
         $selected_products = Reference::find($reference->id)->products()->get();
 

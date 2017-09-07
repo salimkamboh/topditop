@@ -51,7 +51,7 @@ class ProductsController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
-        $manufacturers = Manufacturer::all();
+        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();();
         $availableReferences = Reference::all();
         $categories = Category::all();
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
@@ -79,7 +79,7 @@ class ProductsController extends BaseController
         $products = Product::where(['store_id' => $store->id])->orderBy('id', 'desc')->get();
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
-        $manufacturers = Manufacturer::all();
+        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();();
         return view('dashboard.products.list')
             ->with('products', $products)
             ->with('store', $store)
@@ -108,7 +108,7 @@ class ProductsController extends BaseController
 
         $references = $product->references;
         $store = $this->current_store;
-        $manufacturers = Manufacturer::all();
+        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();();
         $manufacturerObject = $product->manufacturer;
         $selected_images = $product->images;
         $selected_categories = $product->categories;
