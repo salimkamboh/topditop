@@ -111,7 +111,7 @@ class Profile extends Model
      */
     public function saveProfile(Request $request)
     {
-
+        $this->touch();
         $locale = App::getLocale();
         $statusError = null;
         $id_array = array();
