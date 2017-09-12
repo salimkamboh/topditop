@@ -82,6 +82,53 @@ class Profile extends Model
         }
     }
 
+    public function hasValueForField(string $name)
+    {
+        $field = Field::where('key', $name)->first();
+
+        if (! $field instanceof Field) {
+            return false;
+        }
+
+        $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->first();
+
+        if (!$fieldProfilePIVOT instanceof FieldProfile) {
+            return false;
+        }
+
+        if (strlen($fieldProfilePIVOT->translate()->selected) < 1) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function setField(string $name, string $value)
+    {
+        $field = Field::where('key', $name)->first();
+
+        if (! $field instanceof Field) {
+            return;
+        }
+
+        $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $this->id])->first();
+
+        $locale = App::getLocale();
+
+        if ($fieldProfilePIVOT instanceof FieldProfile) {
+            //already has that field in the profile, update
+            $fieldProfilePIVOT->translateOrNew($locale)->selected = $value;
+            $fieldProfilePIVOT->save();
+        } else {
+            //doesnt have that particular field yet, create it
+            $fieldProfilePIVOT = new FieldProfile();
+            $fieldProfilePIVOT->field_id = $field->id;
+            $fieldProfilePIVOT->profile_id = $this->id;
+            $fieldProfilePIVOT->translateOrNew($locale)->selected = $value;
+            $fieldProfilePIVOT->save();
+        }
+    }
+
     /**
      * @return int
      */

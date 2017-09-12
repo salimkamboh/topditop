@@ -46,4 +46,14 @@ class Origin extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getFullName()
+    {
+        return trim("$this->first_name $this->last_name");
+    }
+
+    public function getFullAddress()
+    {
+        return trim("$this->street $this->house_number $this->additional_address_info, $this->city");
+    }
 }

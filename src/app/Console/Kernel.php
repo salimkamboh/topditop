@@ -20,6 +20,8 @@ class Kernel extends ConsoleKernel
         Commands\TopImportUsersCommand::class,
         Commands\TopGeocodeExistingLocationsCommand::class,
         Commands\TopExportUsersForNewsletterCommand::class,
+        Commands\TopSyncOneUserCommand::class,
+        Commands\TopSyncUsersCommand::class,
     ];
 
     /**
