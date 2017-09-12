@@ -52,14 +52,20 @@ class ImportService
      * @var GeocodeService
      */
     private $geocodeService;
+    /**
+     * @var SyncService
+     */
+    private $syncService;
 
     /**
      * ImportService constructor.
      * @param GeocodeService $geocodeService
+     * @param SyncService $syncService
      */
-    public function __construct(GeocodeService $geocodeService)
+    public function __construct(GeocodeService $geocodeService, SyncService $syncService)
     {
         $this->geocodeService = $geocodeService;
+        $this->syncService = $syncService;
     }
 
     /**
@@ -98,10 +104,7 @@ class ImportService
             }
 
             if ($this->isEmailTaken($user->email)) {
-                $user->valid = false;
-                $user->addNote("Invalid email taken");
-                $this->importData [] = $user;
-                continue;
+                $user->email = $this->randomizeTakenEmail($user->email);
             }
 
             $locationAttempt = $this->resolveLocation($user);
@@ -152,7 +155,9 @@ class ImportService
         try {
             $this->output("Importing $row->email => $row->company");
 
-            $this->attemptRegister($row);
+            $user = $this->attemptRegister($row);
+
+            $this->syncService->syncDashboardFromOrigin($user);
 
             DB::commit();
 
@@ -368,8 +373,10 @@ class ImportService
         return in_array(strtolower($email), $this->takenEmails);
     }
 
+
     /**
      * @param ImportRow $row
+     * @return User
      */
     private function attemptRegister(ImportRow $row)
     {
@@ -414,6 +421,8 @@ class ImportService
         $origin->save();
 
         $row->addNote("Imported User $user->id $user->email, Store $store->id");
+
+        return $user;
     }
 
     private function output(string $message)
@@ -481,6 +490,17 @@ class ImportService
         $location->save();
 
         return $location;
+    }
+
+    /**
+     * @param string $email
+     * @return mixed
+     */
+    private function randomizeTakenEmail($email)
+    {
+        $replaceWith = '.topditop.' . random_int(1000, 9999) . '@';
+
+        return str_replace('@', $replaceWith, $email);
     }
 
 
