@@ -263,4 +263,9 @@ class Store extends Model
     {
         return $this->profile->package->name == Package::LIGHT || $this->is_light;
     }
+
+    public function hasCoverImage()
+    {
+        return strlen($this->cover_url) > 0;
+    }
 }
