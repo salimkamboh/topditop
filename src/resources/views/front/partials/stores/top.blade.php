@@ -6,7 +6,7 @@
     <div class="container-fluid bg-black">
         <div class="row">
             <div class="col-md-8 no-padding">
-                @if ($store->isLight())
+                @if ($store->isLight() & !$store->hasCoverImage())
                     <iframe
                             id="store-google-map-iframe"
                             width="100%"
@@ -57,7 +57,7 @@
 @section('footer')
     @parent
 
-    @if($store->isLight())
+    @if($store->isLight() & !$store->hasCoverImage())
         <script>
             var storeInfoEl = document.getElementById('front-store-info');
             var googleMapIframe = document.getElementById('store-google-map-iframe');
