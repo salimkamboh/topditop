@@ -167,6 +167,7 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
