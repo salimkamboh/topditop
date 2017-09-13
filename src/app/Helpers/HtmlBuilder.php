@@ -190,7 +190,7 @@ class HtmlBuilder implements HtmlConvertContract
             $selectedCheckboxes []= $manufacturer->id;
         }
         // $selectedCheckboxes = $this->getSelectedCheckboxes($profile, $field);
-        $optionsArray = Manufacturer::limit(8)->offset(0)->get();
+        $optionsArray = Manufacturer::orderBy('name', 'asc')->limit(8)->offset(0)->get();
         $html = "";
         $html .= "<h4>" . $field->name . "</h4>";
         $html .= "<div class='group-checkboxes brands-limited-boxes row'>";
@@ -206,7 +206,7 @@ class HtmlBuilder implements HtmlConvertContract
 
         $html .= "</div>";
 
-        $optionsArray = Manufacturer::limit(1500)->offset(8)->get();
+        $optionsArray = Manufacturer::orderBy('name', 'asc')->limit(1500)->offset(8)->get();
         $html .= "<div>";
         $html .= "<a class='toggle-hidden-next' href='javascript:void(0)'>show all " . Manufacturer::count() . " Brands</a>";
         $html .= "</div>";
