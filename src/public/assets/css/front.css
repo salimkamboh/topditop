@@ -2325,6 +2325,13 @@ section#store-cover .bg-black {
     background-color: #232730
 }
 
+.store-cover__wrapper {
+    text-align: center;
+}
+.store-cover__wrapper__light-image {
+    display: inline-block;
+}
+
 section#store-options {
     padding-top: 40px;
     padding-bottom: 100px;
