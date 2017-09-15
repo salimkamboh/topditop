@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2519898eb6b8c7de12ee1c2d8dd6e036",
+    "content-hash": "9f9d69aea1dbc41c0766d5c99588ffb5",
     "packages": [
         {
             "name": "arcanedev/localization",
@@ -280,6 +280,40 @@
                 "webprofiler"
             ],
             "time": "2016-09-15T14:05:56+00:00"
+        },
+        {
+            "name": "catchoom/craftar-php",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Catchoom/craftar-php.git",
+                "reference": "c870a8e8346556176d95535393c3731f4f3ad801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Catchoom/craftar-php/zipball/c870a8e8346556176d95535393c3731f4f3ad801",
+                "reference": "c870a8e8346556176d95535393c3731f4f3ad801",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "craftar\\": "craftar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Catchoom Dev Team"
+                }
+            ],
+            "description": "The CraftAR Service for Augmented Reality and Image Recognition is a service that allows you to build a wide range of Image Recognition and Augmented Reality applications and services.",
+            "homepage": "https://github.com/Catchoom/craftar-php",
+            "time": "2017-03-22T16:02:40+00:00"
         },
         {
             "name": "classpreloader/classpreloader",

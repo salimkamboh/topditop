@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Validator;
 
 class ImportService
 {
+    use WritesOutputToConsole;
+
     const INVALID_LOCATION_ID = -99999;
 
     /**
@@ -425,10 +427,7 @@ class ImportService
         return $user;
     }
 
-    private function output(string $message)
-    {
-        print_r($message . PHP_EOL);
-    }
+
 
     /**
      * @param ImportRow $user

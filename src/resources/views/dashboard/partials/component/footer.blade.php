@@ -62,7 +62,7 @@
                         <div class="list-group">
                             <h5 class="list-title">Connect</h5>
                             <ul class="list-unstyled list-items">
-                                <li><a href="http://facebook.com/topditop">Facebook</a></li>
+                                <li><a href="https://www.facebook.com/">Facebook</a></li>
                             </ul>
                         </div>
                     </div>
