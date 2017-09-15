@@ -107,6 +107,8 @@ class CraftarService
 
         $advert->save();
 
+        $this->output("Synced Advert $advert->id, item $advert->craftar_item_uuid, image $advert->craftar_image_uuid");
+        
         return $advert;
     }
 
@@ -186,7 +188,7 @@ class CraftarService
         $adverts = Advert::whereRaw('LENGTH(reference_image_url) > 0')
             ->where('id', '>=', 17)
             ->where('craftar_item_uuid', '')
-            ->limit(85)
+            ->where('craftar_image_uuid', '')
             ->get();
 
         return $adverts;
