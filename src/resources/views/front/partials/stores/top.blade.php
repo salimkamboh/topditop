@@ -5,7 +5,7 @@
     </div>
     <div class="container-fluid bg-black">
         <div class="row">
-            <div class="col-md-8 no-padding">
+            <div class="col-md-8 no-padding store-cover__wrapper">
                 @if ($store->isLight() & !$store->hasCoverImage())
                     <iframe
                             id="store-google-map-iframe"
@@ -15,7 +15,7 @@
                             src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google_maps.api_key') }}&q={{ $store->getLightAddress() }}" allowfullscreen>
                     </iframe>
                 @else
-                    <img alt="" class="img-responsive" src="{{$store->getStoreCoverImage()}}">
+                    <img alt="" class="img-responsive store-cover__wrapper__light-image" src="{{$store->getStoreCoverImage()}}">
                 @endif
             </div>
             <div class="col-md-4" id="front-store-info">
