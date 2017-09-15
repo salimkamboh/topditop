@@ -22,6 +22,7 @@ class Kernel extends ConsoleKernel
         Commands\TopExportUsersForNewsletterCommand::class,
         Commands\TopSyncOneUserCommand::class,
         Commands\TopSyncUsersCommand::class,
+        Commands\TopSyncOneAdvertCommand::class,
     ];
 
     /**
