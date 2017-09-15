@@ -22,7 +22,8 @@
     "tymon/jwt-auth": "^0.5.10",
     "roumen/sitemap": "^2.6",
     "league/csv": "^8.0",
-    "barryvdh/laravel-cors": "0.9.2"
+    "barryvdh/laravel-cors": "0.9.2",
+    "catchoom/craftar-php": "^1.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

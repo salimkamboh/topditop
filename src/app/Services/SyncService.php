@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class SyncService
 {
+    use WritesOutputToConsole;
+
     public function syncMany(Collection $users)
     {
         $users->each(function (User $user) {
@@ -61,10 +63,5 @@ class SyncService
             $this->output("FINISHED store $store->id");
             $this->output("====================");
         });
-    }
-
-    private function output(string $message)
-    {
-        print_r($message . PHP_EOL);
     }
 }
