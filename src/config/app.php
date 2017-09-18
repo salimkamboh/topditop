@@ -168,6 +168,7 @@ return [
         Roumen\Sitemap\SitemapServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
     ],
 
