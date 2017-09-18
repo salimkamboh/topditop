@@ -27,12 +27,6 @@ return [
                  * You can specify individual files as well.
                  */
                 'exclude' => [
-//                    base_path('app'),
-                    base_path('bootstrap'),
-                    base_path('config'),
-                    base_path('database'),
-                    base_path('resources'),
-                    base_path('public'),
                     base_path('vendor'),
                     base_path('node_modules'),
                     storage_path(),
