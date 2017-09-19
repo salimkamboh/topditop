@@ -61,7 +61,7 @@ class CraftarService
             return $advert;
         }
 
-        $itemName = $advert->manufacturer->name . ' ' . $advert->id;
+        $itemName = str_slug($advert->manufacturer->name) . ' ' . $advert->id;
         $itemUrl = route('advert_page', $advert->id);
 
         $itemResponse = $this->createItem($itemName, [
@@ -87,7 +87,7 @@ class CraftarService
             //delete item that was created
             //return
             $this->output("Aborting Failed to create Image for Item $itemUuid for Advert $advert->id, expected 201 got $imageResponseStatusCode");
-            $this->output("deletin created Item $itemUuid ");
+            $this->output("deleting created Item $itemUuid ");
 
             $deleteItemResponse = $this->deleteItem($itemUuid);
 
