@@ -330,8 +330,10 @@ class ImageRepository
 
     function isFileUploadRequestValid()
     {
-        $post_max_size = ini_get('post_max_size') * 1024 * 1024;
-        $upload_max_filesize = ini_get('upload_max_filesize') * 1024 * 1024;
+        $maxPostSize = (int) ini_get('post_max_size');
+        $post_max_size = $maxPostSize * 1024 * 1024;
+        $maxFileSize = (int) ini_get('upload_max_filesize');
+        $upload_max_filesize = $maxFileSize * 1024 * 1024;
         $request_content_length = isset($_SERVER['CONTENT_LENGTH']) ? (int)$_SERVER['CONTENT_LENGTH'] : 0;
 
         return $request_content_length < $post_max_size && $request_content_length < $upload_max_filesize;
