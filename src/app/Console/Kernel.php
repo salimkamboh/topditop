@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
         Commands\TopSyncUsersCommand::class,
         Commands\TopSyncOneAdvertCommand::class,
         Commands\TopSyncAllAdvertsCommand::class,
+        Commands\TopStorePackageUpgradeCommand::class,
     ];
 
     /**

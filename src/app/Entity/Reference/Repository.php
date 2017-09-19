@@ -23,12 +23,15 @@ class Repository extends PowerChecker
 
         $reference->title = $request->title;
         $reference->description = $request->description;
+        $reference->video = $request->get('video', '');
+        if ($reference->video) {
+            $reference->video_html = VideoUrlHelper::parse($request->video);
 
-        $reference->video = $request->video;
-        $reference->video_html = VideoUrlHelper::parse($request->video);
-
-        if(!$reference->video_html) {
-            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            if(!$reference->video_html) {
+                $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            }
+        } else {
+            $reference->video_html = '';
         }
 
         $reference->status = Reference::STATUS_PUBLISHED;
@@ -52,11 +55,15 @@ class Repository extends PowerChecker
     {
         $reference->title = $request->title;
         $reference->description = $request->description;
-        $reference->video = $request->video;
-        $reference->video_html = VideoUrlHelper::parse($request->video);
+        $reference->video = $request->get('video', '');
+        if ($reference->video) {
+            $reference->video_html = VideoUrlHelper::parse($request->video);
 
-        if(!$reference->video_html) {
-            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            if(!$reference->video_html) {
+                $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            }
+        } else {
+            $reference->video_html = '';
         }
 
         $reference->addImages($request, $reference, true);
@@ -181,11 +188,15 @@ class Repository extends PowerChecker
     {
         $reference->title = $request->title;
         $reference->description = $request->description;
-        $reference->video = $request->video;
-        $reference->video_html = VideoUrlHelper::parse($request->video);
+        $reference->video = $request->get('video', '');
+        if ($reference->video) {
+            $reference->video_html = VideoUrlHelper::parse($request->video);
 
-        if(!$reference->video_html) {
-            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            if(!$reference->video_html) {
+                $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            }
+        } else {
+            $reference->video_html = '';
         }
 
         $reference->addProductsRest($request, $reference);
@@ -203,11 +214,15 @@ class Repository extends PowerChecker
         $reference = new Reference();
         $reference->title = $request->title;
         $reference->description = $request->description;
-        $reference->video = $request->video;
-        $reference->video_html = VideoUrlHelper::parse($request->video);
+        $reference->video = $request->get('video', '');
+        if ($reference->video) {
+            $reference->video_html = VideoUrlHelper::parse($request->video);
 
-        if(!$reference->video_html) {
-            $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            if(!$reference->video_html) {
+                $request->session()->flash('fail', trans('messages.video_url_invalid'));
+            }
+        } else {
+            $reference->video_html = '';
         }
 
         $reference->save();
