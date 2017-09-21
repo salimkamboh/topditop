@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Field;
 use App\FieldProfile;
+use App\Helpers\ImportRow;
+use App\Http\Requests\Stores\FullStoreSetupRequest;
 use App\Image;
+use App\Location;
 use App\Package;
 use App\Product;
 use App\Profile;
 use App\Reference;
+use App\Services\ImportService;
 use App\Store;
 use App\User;
-use DB;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Mail;
 
 class StoreController extends BaseController
 {
@@ -340,33 +343,6 @@ class StoreController extends BaseController
         return $arrayOfData;
     }
 
-    static public function slugify($text)
-    {
-        // replace non letter or digits by -
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-        // transliterate
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        // remove unwanted characters
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        // trim
-        $text = trim($text, '-');
-
-        // remove duplicate -
-        $text = preg_replace('~-+~', '-', $text);
-
-        // lowercase
-        $text = strtolower($text);
-
-        if (empty($text)) {
-            return 'n-a';
-        }
-
-        return $text;
-    }
-
     /**
      * @param Store $store
      * @return Store
@@ -421,7 +397,12 @@ class StoreController extends BaseController
 
     public function delete(Store $store)
     {
-        return $store->delete();
+        if ($store->delete()) {
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+        return response()->json([
+            'error' => 'failed to delete store ' . $store->id,
+        ]);
     }
 
     public function upgradePackage($entity)
@@ -429,4 +410,20 @@ class StoreController extends BaseController
         return view('dashboard.pages.upgrade-package')->with('entity', $entity);
     }
 
+    public function fullSetup(FullStoreSetupRequest $request, ImportService $importService)
+    {
+        $package = Package::findOrFail($request->get('package_id'));
+        $location = Location::findOrFail($request->get('location_id'));
+
+        $row = new ImportRow();
+        $row->email = $request->get('email');
+        $row->company = $request->get('company');
+        $row->location_id = $location->id;
+        $row->latitude = $location->latitude;
+        $row->longitude = $location->longitude;
+
+        $user = $importService->registerUser($row, $package, false, false);
+
+        return response()->json($user->store)->setStatusCode(Response::HTTP_CREATED);
+    }
 }

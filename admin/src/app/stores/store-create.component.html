@@ -1,0 +1,53 @@
+<h4 class="text-center" *ngIf="!packages || !locations">
+    <span class="glyphicon glyphicon-refresh spin"></span> Loading Store Details
+</h4>
+
+<form class="form-horizontal" [formGroup]="storeForm" (ngSubmit)="onSubmit($event)" *ngIf="storeForm && packages && locations">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Store Details
+        </div>
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">User Email</label>
+                <div class="col-xs-6">
+                    <input type="email" class="form-control col-8" formControlName="email" value="{{ email }}" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Store Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control col-8" formControlName="company" value="{{ company }}" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Location</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="location_id" required>
+                        <option *ngFor="let location of locations" [value]="location.id">{{ location.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Select Packages</label>
+                <div class="col-xs-6">
+                    <select class="form-control col-8" formControlName="package_id" required>
+                        <option *ngFor="let package of packages" [value]="package.id">{{ package.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" routerLink="/stores"><span class="glyphicon glyphicon-chevron-left"></span>back</a>
+            <div class="pull-right">
+                <span class="glyphicon glyphicon-refresh spin" *ngIf="disabled"></span>
+                <button type="submit" class="btn btn-primary" [disabled]='disabled'> <span class="glyphicon glyphicon-ok"></span> save</button>
+            </div>
+        </div>
+    </div>
+</form>

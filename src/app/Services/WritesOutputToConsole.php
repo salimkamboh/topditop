@@ -4,8 +4,12 @@ namespace App\Services;
 
 trait WritesOutputToConsole
 {
+    public $outputEnabled = false;
+
     private function output(string $message)
     {
-        print_r($message . PHP_EOL);
+        if ($this->outputEnabled) {
+            print_r($message . PHP_EOL);
+        }
     }
 }

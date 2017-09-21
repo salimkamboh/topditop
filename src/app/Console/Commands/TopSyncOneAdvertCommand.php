@@ -40,6 +40,8 @@ class TopSyncOneAdvertCommand extends Command
      */
     public function handle(CraftarService $craftarService)
     {
+        $craftarService->outputEnabled = true;
+
         $id = (int)$this->argument('id');
 
         $advert = Advert::findOrFail($id);
