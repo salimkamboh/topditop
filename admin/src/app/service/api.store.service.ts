@@ -39,7 +39,7 @@ export class ApiStoreService {
 
         return this.http.post(this.apiUrl, data, options)
             .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+            .catch((error: any) => Observable.throw(error.json() || 'Server error'));
     }
 
     activateStore(id: number, data: Object): Observable<Object> {
