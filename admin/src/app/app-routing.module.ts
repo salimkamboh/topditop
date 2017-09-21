@@ -9,6 +9,7 @@ import { AdvertisementDetailComponent } from './advertisements/advertisement-det
 import { PageNotFoundComponent } from './not-found.component';
 import { StoresComponent } from './stores/stores.component';
 import { StoreDetailComponent } from './stores/store-detail.component';
+import { StoreCreateComponent } from './stores/store-create.component';
 import { SlidesComponent } from './slides/slides.component';
 import { SlideDetailComponent } from './slides/slide-detail.component';
 import { ManufacturersComponent } from './manufacturers/manufacturers.component';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
       { path: 'advertisements', component: AdvertisementsComponent },
       { path: 'advertisement/:id', component: AdvertisementDetailComponent },
       { path: 'stores', component: StoresComponent },
+      { path: 'store/create', component: StoreCreateComponent },
       { path: 'store/:id', component: StoreDetailComponent },
       { path: 'slides', component: SlidesComponent },
       { path: 'slide/:id', component: SlideDetailComponent },

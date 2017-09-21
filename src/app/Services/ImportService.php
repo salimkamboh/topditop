@@ -150,20 +150,27 @@ class ImportService
         return;
     }
 
-    public function registerUser(ImportRow $row)
+    public function registerUser(ImportRow $row, Package $package = null, $saveOrigin = true, $syncDashboard = true)
     {
         DB::beginTransaction();
 
         try {
             $this->output("Importing $row->email => $row->company");
 
-            $user = $this->attemptRegister($row);
+            if ($package == null) {
+                $package = $this->lightPackage;
+            }
+            $user = $this->attemptRegister($row, $package, $saveOrigin);
 
-            $this->syncService->syncDashboardFromOrigin($user);
+            if ($saveOrigin && $syncDashboard) {
+                $this->syncService->syncDashboardFromOrigin($user);
+            }
 
             DB::commit();
 
             $this->output("Finished $row->email => $row->company");
+
+            return $user;
         } catch (\Exception $e) {
             $code = $e->getCode();
             $errorMsg = $e->getMessage();
@@ -378,16 +385,24 @@ class ImportService
 
     /**
      * @param ImportRow $row
+     * @param Package $package
+     * @param bool $saveOrigin
      * @return User
      */
-    private function attemptRegister(ImportRow $row)
+    private function attemptRegister(ImportRow $row, Package $package, $saveOrigin = true)
     {
+        $isLightStore = false;
+
+        if ($package->name === Package::LIGHT) {
+            $isLightStore = true;
+        }
+
         $store = new Store();
         $store->store_name = $row->company;
         $store->status = true;
         $store->user_email = $row->email;
         $store->location_id = $row->location_id;
-        $store->is_light = true;
+        $store->is_light = $isLightStore;
         $store->latitude = $row->latitude;
         $store->longitude = $row->longitude;
         $store->uses_coordinates = true;
@@ -403,24 +418,26 @@ class ImportService
 
 
         $profile = new Profile();
-        $profile->package_id = $this->lightPackage->id;
+        $profile->package_id = $package->id;
         $profile->store_id = $store->id;
         $profile->save();
 
-        $origin = new Origin();
-        $origin->company = $row->company;
-        $origin->title = $row->title;
-        $origin->first_name = $row->firstName;
-        $origin->last_name = $row->lastName;
-        $origin->street = $row->street;
-        $origin->email = $row->email;
-        $origin->house_number = $row->houseNumber;
-        $origin->additional_address_info = $row->additionalAddressInfo;
-        $origin->postal_code = $row->postalCode;
-        $origin->city = $row->city;
-        $origin->phone = $row->phone;
-        $origin->user()->associate($user);
-        $origin->save();
+        if ($saveOrigin) {
+            $origin = new Origin();
+            $origin->company = $row->company;
+            $origin->title = $row->title;
+            $origin->first_name = $row->firstName;
+            $origin->last_name = $row->lastName;
+            $origin->street = $row->street;
+            $origin->email = $row->email;
+            $origin->house_number = $row->houseNumber;
+            $origin->additional_address_info = $row->additionalAddressInfo;
+            $origin->postal_code = $row->postalCode;
+            $origin->city = $row->city;
+            $origin->phone = $row->phone;
+            $origin->user()->associate($user);
+            $origin->save();
+        }
 
         $row->addNote("Imported User $user->id $user->email, Store $store->id");
 

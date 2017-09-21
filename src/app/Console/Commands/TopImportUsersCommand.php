@@ -39,6 +39,8 @@ class TopImportUsersCommand extends Command
      */
     public function handle(ImportService $importService)
     {
+        $importService->outputEnabled = true;
+
         $filename = $this->argument('filename');
 
         $exists = Storage::disk('storage')->exists("import/$filename");

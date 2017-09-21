@@ -34,6 +34,7 @@ class TopSitemapCreate extends Command
     /**
      * Execute the console command.
      *
+     * @param SitemapService $sitemapService
      * @return mixed
      */
     public function handle(SitemapService $sitemapService)
