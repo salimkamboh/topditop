@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Advert;
 use App\Entity\Advert\Repository as AdvertRepository;
+use App\Events\AdvertImageWasSet;
 use App\Http\Requests\Adverts\CreateAdvertRequest;
 use App\Http\Requests\Adverts\Images\SetAdvertImageRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Event;
 
 
 class AdvertController extends BaseController
@@ -56,21 +59,34 @@ class AdvertController extends BaseController
 
     public function save(CreateAdvertRequest $request)
     {
-        return $this->adverts->saveNew($request);
+        $advert = $this->adverts->saveNew($request);
+
+        return $advert;
     }
 
     /**
      * @param Advert $advert
-     * @return mixed
+     * @return Response
      */
     public function delete(Advert $advert)
     {
-        return $this->adverts->delete($advert);
+        $deleted = $this->adverts->delete($advert);
+
+        if ($deleted) {
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+        return response()->json([
+            'error' => 'Failed to delete advert.',
+        ], Response::HTTP_BAD_REQUEST);
     }
 
     public function setImage(Advert $advert, SetAdvertImageRequest $request)
     {
-        return $this->adverts->setImage($advert, $request->base64, $request->type);
+        $updatedAdvert = $this->adverts->setImage($advert, $request->base64, $request->type);
+
+        Event::fire(new AdvertImageWasSet($updatedAdvert));
+
+        return $updatedAdvert;
     }
 
 }

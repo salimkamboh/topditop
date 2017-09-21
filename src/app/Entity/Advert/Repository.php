@@ -87,12 +87,14 @@ class Repository
         return $advert;
     }
 
+
     /**
      * @param Advert $advert
+     * @return bool|null
      */
     public function delete(Advert $advert)
     {
-        $advert->delete();
+        return $advert->delete();
     }
 
     /**
