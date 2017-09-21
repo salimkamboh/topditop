@@ -41,6 +41,8 @@ class TopSyncOneUserCommand extends Command
      */
     public function handle(SyncService $syncService)
     {
+        $syncService->outputEnabled = true;
+
         $idOrEmail = $this->argument('idOrEmail');
 
         $user = null;

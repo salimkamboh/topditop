@@ -40,6 +40,8 @@ class TopSyncUsersCommand extends Command
      */
     public function handle(SyncService $syncService)
     {
+        $syncService->outputEnabled = true;
+
         $fromId = (int) $this->argument('from');
         $toId = (int) $this->argument('to');
 

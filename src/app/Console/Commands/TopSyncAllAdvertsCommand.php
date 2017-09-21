@@ -39,6 +39,7 @@ class TopSyncAllAdvertsCommand extends Command
      */
     public function handle(CraftarService $craftarService)
     {
+        $craftarService->outputEnabled = true;
         $craftarService->syncAll();
     }
 }

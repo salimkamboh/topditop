@@ -4,7 +4,7 @@ namespace App\Services;
 
 trait WritesOutputToConsole
 {
-    protected $outputEnabled = false;
+    public $outputEnabled = false;
 
     private function output(string $message)
     {
