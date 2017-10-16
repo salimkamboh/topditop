@@ -40,8 +40,8 @@ class FrontController extends BaseController
 
     public function advertisementShow(Advert $advert, Request $request)
     {
-        $latitude = $request->has('latitude') ? $request->get('latitude') : config('advertisement.fallback_latitude');
-        $longitude = $request->has('longitude') ? $request->get('longitude') : config('advertisement.fallback_longitude');
+        $latitude = (float) $request->get('latitude', config('advertisement.fallback_latitude'));
+        $longitude = (float) $request->get('longitude', config('advertisement.fallback_longitude'));
 
         $params = array($latitude, $longitude);
         $allStoreLocations = $advert->getAllLocationsOfStores(app()->getLocale(), $advert->manufacturer->name);
@@ -49,6 +49,10 @@ class FrontController extends BaseController
         $locationsMatch = $advert->getCloseLocations($allStoreLocations, $params);
         $storeArray = current($locationsMatch);
         $closestStore = Store::find($storeArray[2]);
+
+        if (! $closestStore instanceof Store) {
+            $closestStore = Store::inRandomOrder()->first();
+        }
 
         return redirect()->route('front_show_store', ['id' => $closestStore->id]);
     }
