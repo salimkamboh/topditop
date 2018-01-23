@@ -29,8 +29,10 @@
                                 @foreach($references as $reference)
                                     <div class="col-md-6">
                                         <div class="single-item item-shadow">
-                                            <img alt="" class="img-responsive"
-                                                 src="@if($reference->getImageByThumb('reference_thumb') !== null) {{$reference->getImageByThumb('reference_thumb')}} @endif">
+                                            <a href="{{route('front_show_store', $reference->store)}}">
+                                                <img alt="" class="img-responsive"
+                                                     src="@if($reference->getImageByThumb('reference_thumb') !== null) {{$reference->getImageByThumb('reference_thumb')}} @endif">
+                                            </a>
                                             <div class="item-info">
                                                 <div class="item-info-top clearfix">
                                                     <div class="width-fix">

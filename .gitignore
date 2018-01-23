@@ -3,6 +3,7 @@ src/storage
 src/vendor
 src/.env
 src/images
+src/public/images
 src/magento/app/etc/local.xml
 src/magento/var/session
 src/magento/var/report

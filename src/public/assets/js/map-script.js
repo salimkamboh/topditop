@@ -38,23 +38,9 @@ function initialize() {
             return function () {
                 var contentString =
                     '<div class="container-fluid map-holder-over">' +
-                    '   <div class="">' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' +
-                    '           <img style="width:150px;height:auto;" src="' + locationsJSON.stores[i].img + '">' +
-                    '       </a>' +
-                    '   </div>' +
                     '   <h2>' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' + locationsJSON.stores[i].store_name + '</a>' +
+                    '       <a style="text-align:center;" href=' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' + locationsJSON.stores[i].store_name + '</a>' +
                     '   </h2>' +
-
-                    '   <div class="row">' +
-                    '       <div class="col-xs-6">' +
-                    '           <span>' + locationsJSON.stores[i].numproducts + '</span> <small>Products</small>' +
-                    '       </div>' +
-                    '       <div class="col-xs-6 map__window__manufacturers">' +
-                    '           <span>' + locationsJSON.stores[i].numreferences + '</span> <small>References</small>' +
-                    '       </div>' +
-                    '   </div>' +
                     '</div>';
                 //infowindow.setContent(locationsJSON.stores[i]["store_name"]);
                 infowindow.setContent(contentString);
@@ -99,23 +85,9 @@ function newLocation(city) {
             return function () {
                 var contentString =
                     '<div class="container-fluid map-holder-over">' +
-                    '   <div class="">' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' +
-                    '           <img style="width:150px;height:auto;" src="' + newLocation.stores[i].img + '">' +
-                    '       </a>' +
-                    '   </div>' +
                     '   <h2>' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' + newLocation.stores[i].store_name + '</a>' +
+                    '       <a  style="text-align:center;" href=' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' + newLocation.stores[i].store_name + '</a>' +
                     '   </h2>' +
-
-                    '   <div class="row">' +
-                    '       <div class="col-xs-6">' +
-                    '           <span>' + newLocation.stores[i].numproducts + '</span> <small>Products</small>' +
-                    '       </div>' +
-                    '       <div class="col-xs-6 map__window__manufacturers">' +
-                    '           <span>' + newLocation.stores[i].numreferences + '</span> <small>References</small>' +
-                    '       </div>' +
-                    '   </div>' +
                     '</div>';
                 infowindow.setContent(contentString);
                 infowindow.open(map, marker);

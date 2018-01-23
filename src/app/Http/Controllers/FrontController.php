@@ -189,6 +189,12 @@ class FrontController extends BaseController
             ->with('imagesByReference', $imagesByReference);
     }
 
+    public function showStoresForBrand(Manufacturer $manufacturer) {
+        $data= Manufacturer::with('Stores')->where(['id' => $manufacturer->id])->get();
+        return view('front.brand.stores')
+            ->with('data', $data[0]);
+    }
+
     public function showProducts()
     {
         $products = Product::orderBy('id', 'desc')->get();

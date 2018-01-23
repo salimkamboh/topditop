@@ -61,7 +61,9 @@ function performFilter() {
             html +=
                 '<div class="col-md-6">' +
                 '<div class="single-item single-item-product item-shadow" data-product-id="' + item.id + '">' +
+                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store.id + '">'+
                 '<img alt="" class="img-responsive" src="' + item.image + '">' +
+                '</a>'+
                 '<div class="item-info">' +
                 '<div class="item-info-top clearfix">' +
                 '<div class="width-fix">' +
@@ -72,7 +74,7 @@ function performFilter() {
                 '</div>' +
                 '<div class="item-info-bottom">' +
                 '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store.id + '"><i class="icon-shopping-cart"></i>' + item.package_name + ' : ' + item.store_name + '</a>' +
-                '<a href="#" class="pull-left"><i class="icon-tags"></i> ' + item.manufacturer_name + ' </a>' +
+                '<a href="'+ _globalRoute + '/' + _globalLang + '/front/brand/' + item.manufacturer_id + '/stores/' + '" class="pull-left"><i class="icon-tags"></i> ' + item.manufacturer_name + ' </a>' +
                 '<a class="shareBtn" href="javascript:void(0)">+ Share</a>' +
                 '</div>' +
                 '</div>' +

@@ -1,3 +1,4 @@
+@if(isset($references_newest[0]) || isset($references_most[0]))
 <section id="home-references">
     <div class="container">
         <div class="row">
@@ -144,3 +145,4 @@
         @endif
     </div>
 </section>
+@endif

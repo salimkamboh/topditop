@@ -108,31 +108,33 @@ class Repository
 
         foreach ($locations as $location) {
             $presenter = [];
+            // return only locations with 10 or more stores
+            if(count($location->stores) >= 10) {
+                $translate = $location->translate();
 
-            $translate = $location->translate();
+                $presenter['id'] = $location->id;
+                $presenter['key'] = $location->key;
+                $presenter['name'] = $translate['name'];
+                $presenter['numStores'] = count($location->stores);
 
-            $presenter['id'] = $location->id;
-            $presenter['key'] = $location->key;
-            $presenter['name'] = $translate['name'];
-            $presenter['numStores'] = count($location->stores);
+                $presenter['latitude'] = (float) $location->latitude;
+                $presenter['longitude'] = (float) $location->longitude;
 
-            $presenter['latitude'] = (float) $location->latitude;
-            $presenter['longitude'] = (float) $location->longitude;
+                /** @var Store $store */
+                foreach ($location->stores as $store) {
+                    $presenter['stores'] []= [
+                        'store_id' => $store->id,
+                        'store_name' => $store->store_name,
+                        'latitude' => (float) $store->getLatitude(),
+                        'longitude' => (float) $store->getLongitude(),
+                        'img' => $store->getStoreLogo(),
+                        'numproducts' => $store->getNumberOfProducts(),
+                        'numreferences' => $store->getNumberOfReferences(),
+                    ];
+                }
 
-            /** @var Store $store */
-            foreach ($location->stores as $store) {
-                $presenter['stores'] []= [
-                    'store_id' => $store->id,
-                    'store_name' => $store->store_name,
-                    'latitude' => (float) $store->getLatitude(),
-                    'longitude' => (float) $store->getLongitude(),
-                    'img' => $store->getStoreLogo(),
-                    'numproducts' => $store->getNumberOfProducts(),
-                    'numreferences' => $store->getNumberOfReferences(),
-                ];
+                $list []= $presenter;
             }
-
-            $list []= $presenter;
         }
 
         return $list;
