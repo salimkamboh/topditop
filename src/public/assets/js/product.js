@@ -88,8 +88,17 @@ productObject = {
     'references': [],
     'images': [],
     'categories': defaultCats,
+    'show_brand_link': $("[name='product_show_brand_link']").val(),
     _token: $("[name='_token']").val()
 };
+
+$("#product_show_brand_link").click(function() {
+    if($("[name='product_show_brand_link']").val() == 0) {
+        $("[name='product_show_brand_link']").val(1);
+    }else {
+        $("[name='product_show_brand_link']").val(0);
+    }
+});
 
 $('.ui.dropdown-brand').dropdown();
 
@@ -116,6 +125,7 @@ $(document).on('click', '.save_product', function (e) {
     productObject.description = $('textarea[name="product_description"]').val();
     productObject.price = $('input[name="product_price"]').val();
     productObject.manufacturer = $('input[name="manufacturer"]').val();
+    productObject.show_brand_link = $("[name='product_show_brand_link']").val();
 
     function callBackFunction(context, response) {
         if (response.code == 200) {

@@ -57,7 +57,9 @@ function performFilter() {
     function callBackFunction(context, response) {
         productList = response;
         var html = '';
+
         $.each(productList, function (index, item) {
+            var brandLink = item.show_brand_link == 1 ? '<a href="'+ _globalRoute + '/' + _globalLang + '/front/brand/' + item.manufacturer_id + '/stores/' + '" class="pull-left"><i class="icon-tags"></i> ' + item.manufacturer_name + ' </a>' : '';
             html +=
                 '<div class="col-md-6">' +
                 '<div class="single-item single-item-product item-shadow" data-product-id="' + item.id + '">' +
@@ -74,7 +76,7 @@ function performFilter() {
                 '</div>' +
                 '<div class="item-info-bottom">' +
                 '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store.id + '"><i class="icon-shopping-cart"></i>' + item.package_name + ' : ' + item.store_name + '</a>' +
-                '<a href="'+ _globalRoute + '/' + _globalLang + '/front/brand/' + item.manufacturer_id + '/stores/' + '" class="pull-left"><i class="icon-tags"></i> ' + item.manufacturer_name + ' </a>' +
+                brandLink +
                 '<a class="shareBtn" href="javascript:void(0)">+ Share</a>' +
                 '</div>' +
                 '</div>' +

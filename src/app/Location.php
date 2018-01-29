@@ -14,16 +14,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $latitude
  * @property float $longitude
  * @property bool $online
+ * @property string $long_name
+ * @property bool $is_featured
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Store[] $stores
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\LocationTranslation[] $translations
+ * @method static \Illuminate\Database\Query\Builder|\App\Location featured()
  * @method static \Illuminate\Database\Query\Builder|\App\Location listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Location notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Location translated()
  * @method static \Illuminate\Database\Query\Builder|\App\Location translatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Location whereIsFeatured($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereKey($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereLatitude($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Location whereLongName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereLongitude($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereOnline($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereTranslation($key, $value, $locale = null)
@@ -31,11 +36,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Location withTranslation()
  * @mixin \Eloquent
- * @property string $long_name
- * @property bool $is_featured
- * @method static \Illuminate\Database\Query\Builder|\App\Location whereIsFeatured($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Location whereLongName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Location featured()
  */
 class Location extends Model
 {

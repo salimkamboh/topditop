@@ -19,8 +19,10 @@
                 @foreach($products_newest as $product)
                     <div class="col-md-4">
                         <div class="single-item item-shadow single-item-product" data-product-id="{{$product->id}}">
-                            <img alt="" class="img-responsive"
-                                 src="@if($product->getImageByThumb('reference_thumb') !== null) {{$product->getImageByThumb('reference_thumb')}} @endif">
+                            <a href="{{route("front_show_store", $product->store)}}" class="">
+                                <img alt="" class="img-responsive"
+                                     src="@if($product->getImageByThumb('reference_thumb') !== null) {{$product->getImageByThumb('reference_thumb')}} @endif">
+                            </a>
                             <div class="item-info">
                                 <div class="item-info-top clearfix">
                                     <div class="width-fix">
@@ -35,8 +37,11 @@
                                 <div class="item-info-bottom">
                                     <a href="{{route("front_show_store", $product->store)}}"><i
                                                 class="icon-shopping-cart"></i>{{$product->store->store_name}}</a>
-                                    <a class="product-no-link-brand"  href="javascript:void(0)"><i
-                                                class="fa fa-bookmark"></i>{{$product->manufacturer->name}}</a>
+                                    @if($product->show_brand_link == 1)
+                                        <a class="product-no-link-brand"
+                                           href="{{ route("front_brand_stores", $product->manufacturer_id) }}"><i
+                                                    class="fa fa-bookmark"></i>{{$product->manufacturer->name}}</a>
+                                    @endif
                                     <a href="{{route("front_products")}}#{{$product->id}}">+ {{ trans('messages.share') }}</a>
                                 </div>
                             </div>
@@ -51,8 +56,10 @@
                 @foreach($products_most as $product)
                     <div class="col-md-4">
                         <div class="single-item item-shadow single-item-product" data-product-id="{{$product->id}}">
-                            <img alt="" class="img-responsive"
-                                 src="@if($product->getImageByThumb('reference_thumb') !== null) {{$product->getImageByThumb('reference_thumb')}} @endif">
+                            <a href="{{route("front_show_store", $product->store)}}" class="">
+                                <img alt="" class="img-responsive"
+                                     src="@if($product->getImageByThumb('reference_thumb') !== null) {{$product->getImageByThumb('reference_thumb')}} @endif">
+                            </a>
                             <div class="item-info">
                                 <div class="item-info-top clearfix">
                                     <div class="width-fix">
@@ -67,8 +74,11 @@
                                 <div class="item-info-bottom">
                                     <a href="{{route("front_show_store", $product->store)}}"><i
                                                 class="icon-shopping-cart"></i>{{$product->store->store_name}}</a>
-                                    <a class="product-no-link-brand" href="javascript:void(0)"><i
-                                                class="fa fa-bookmark"></i>{{$product->manufacturer->name}}</a>
+                                    @if($product->show_brand_link == 1)
+                                        <a class="product-no-link-brand"
+                                           href="{{ route("front_brand_stores", $product->manufacturer_id) }}"><i
+                                                    class="fa fa-bookmark"></i>{{$product->manufacturer->name}}</a>
+                                    @endif
                                     <a href="{{route("front_products")}}#{{$product->id}}">+ {{ trans('messages.share') }}</a>
                                 </div>
                             </div>

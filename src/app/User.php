@@ -22,6 +22,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $term_acceptance_1
  * @property string $term_acceptance_2
  * @property bool $admin
+ * @property-read \App\Origin $origin
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Registerfield[] $registerfields
  * @property-read \App\Store $store
  * @method static \Illuminate\Database\Query\Builder|\App\User admin()
@@ -42,7 +43,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Query\Builder|\App\User whereTermAcceptance2($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \App\Origin $origin
  */
 class User extends Authenticatable
 {
