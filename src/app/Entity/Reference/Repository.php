@@ -35,9 +35,10 @@ class Repository extends PowerChecker
         }
 
         $reference->status = Reference::STATUS_PUBLISHED;
-        $reference->save();
 
         $reference->store()->associate($store);
+        $reference->save();
+
         $reference->addImages($request, $reference, false);
         $reference->addProducts($request, $reference, false);
         $reference->addBrands($request, $reference, false);
@@ -225,9 +226,9 @@ class Repository extends PowerChecker
             $reference->video_html = '';
         }
 
+        $reference->store()->associate($store);
         $reference->save();
 
-        $reference->store()->associate($store);
         $reference->addProductsRest($request, $reference);
         $reference->addBrandsFromArray($request, $reference, $editMode);
         $reference->addImagesRest($request, $editMode);
