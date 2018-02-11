@@ -10,8 +10,8 @@
     <section id="front-stores">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12" style="text-align: center;">
-                    <img style="width: 300px; height: auto;" src="{{$data->getImageUrl()}}" alt="">
+                <div class="col-sm-4 col-md-offset-4 text-center">
+                    <img class="img-responsive" src="{{$manufacturer->getImageUrl()}}" alt="">
                 </div>
             </div>
             <div class="row">
@@ -19,7 +19,7 @@
                     <h3 class="page-heading">TopDiTop Stores</h3>
                     <div class="row list-all-stores">
                         <?php /** @var $store App\Store */ ?>
-                        @foreach($data->stores as $store)
+                        @foreach($manufacturer->stores as $store)
                             <div class="col-sm-6">
                                 <a href="{{ route('front_show_store', $store) }}"
                                    class="single-item item-shadow">
@@ -36,8 +36,8 @@
                                             <i class="fa fa-map-marker brown-color"></i><span>{{$store->location->name}}</span>
                                             <i class="fa fa-tag brown-color"></i><span>{{ trans('messages.one_stop_shop') }}
                                                 :
-                                                @foreach($store->getOneStopShopData() as $data)
-                                                    {{$data}} ,
+                                                @foreach($store->getOneStopShopData() as $item)
+                                                    {{$item}} ,
                                                 @endforeach</span>
                                         </div>
                                     </div>

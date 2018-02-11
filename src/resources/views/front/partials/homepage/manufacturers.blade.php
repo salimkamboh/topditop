@@ -14,7 +14,7 @@
                             <a href="{{ route("front_brand_stores", $manufacturer->id) }}">
                                 <img alt="{{$manufacturer->name}}" class="img-responsive full-width"
                                      src="{{$manufacturer->getImageUrl()}}">
-                            </a>A
+                            </a>
                         </div>
                     </div>
                 @endforeach

@@ -59,16 +59,14 @@ class Location extends Model
         return count($this->stores) != 0;
     }
 
-    public function numberOfStores() {
-        return count($this->stores);
-    }
-
-    public function numberOfActiveStores() {
-        return count($this->stores()->where('status', '=', 1)->get());
-    }
-
     public function scopeFeatured($query)
     {
         return $query->where('is_featured', 1);
+    }
+
+    public function scopePopular($query)
+    {
+        // Locations that have 10 or more stores
+        return $query->with('stores')->withCount('stores')->has('stores', '>=', 10);
     }
 }

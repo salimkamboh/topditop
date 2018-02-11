@@ -57,7 +57,7 @@
                             <a href="{{ route("front_brand_stores", $manufacturers->get($i + 1)) }}">
                                 <img alt="{{$manufacturers->get($i + 1)->name}}" class="img-responsive full-width"
                                      src="{{$manufacturers->get($i + 1)->getImageUrl()}}">
-                            </a>a
+                            </a>
                         </div>
                     </div>
                 @endif

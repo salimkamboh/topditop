@@ -17,9 +17,7 @@
         <div class="col-md-2">
             <ul class="city-selector">
                 @foreach($locations_footer as $location)
-                    @if ($location->numberOfStores() >= 10)
-                    <li><a href="#" data-city="{{$location->key}}">{{$location->name}}</a> <sup>{{$location->numberOfStores()}}</sup></li>
-                    @endif
+                    <li><a href="#" data-city="{{$location->key}}">{{$location->name}}</a> <sup>{{ count($location->stores) }}</sup></li>
                 @endforeach
             </ul>
         </div>

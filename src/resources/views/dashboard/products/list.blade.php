@@ -35,7 +35,7 @@
                                                     <span class="title">
                                                     <a href="{{ route('dashboard_product_edit', $product) }}">{{$product->title}}</a>
                                                     </span>
-                                                        <span class="number-of pull-left">({{$product->getNumberOfReferences()}}
+                                                        <span class="number-of pull-left">({{ count($product->references)}}
                                                             {{ trans('messages.references') }})</span></div>
                                                     <span class="price"><i
                                                                 class="icon-eur"></i>{{$product->price}}</span>

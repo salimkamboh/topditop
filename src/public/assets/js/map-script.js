@@ -35,17 +35,17 @@ function initialize() {
         });
 
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            var imgTag = locationsJSON.stores[i].img ? '<img style="width: 100px; height: auto;" src="' + locationsJSON.stores[i].img + '">' : '';
             return function () {
                 var contentString =
                     '<div class="container-fluid map-holder-over">' +
-                    '   <h2>' +
-                    '       <a style="text-align:center;" href=' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' + locationsJSON.stores[i].store_name + '</a>' +
-                    '   </h2>' +
+                        imgTag +
+                        '<h2>' +
+                        '<a style="text-align:center;" href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' + locationsJSON.stores[i].store_name + '</a>' +
+                        '</h2>' +
                     '</div>';
-                //infowindow.setContent(locationsJSON.stores[i]["store_name"]);
                 infowindow.setContent(contentString);
                 infowindow.open(map, marker);
-                console.log(locationsJSON.stores[i]);
             }
         })(marker, i));
     }

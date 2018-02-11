@@ -101,45 +101,48 @@ class Repository
      */
     public function listEnhancedLocations()
     {
-
-        $locations = Location::with('stores.profile.fields')->get();
+        $locations = Location::with(['stores.profile.fields', 'translations'])->withCount('stores')->has('stores', '>=', 10)->get();
 
         $list = [];
 
         foreach ($locations as $location) {
             $presenter = [];
-            // return only locations with 10 or more stores
-            if(count($location->stores) >= 10) {
-                $translate = $location->translate();
 
-                $presenter['id'] = $location->id;
-                $presenter['key'] = $location->key;
-                $presenter['name'] = $translate['name'];
-                $presenter['numStores'] = count($location->stores);
+            $translate = $location->translate();
 
-                $presenter['latitude'] = (float) $location->latitude;
-                $presenter['longitude'] = (float) $location->longitude;
+            $presenter['id'] = $location->id;
+            $presenter['key'] = $location->key;
+            $presenter['name'] = $translate['name'];
+            $presenter['numStores'] = $location->stores_count;
 
-                /** @var Store $store */
-                foreach ($location->stores as $store) {
-                    $presenter['stores'] []= [
-                        'store_id' => $store->id,
-                        'store_name' => $store->store_name,
-                        'latitude' => (float) $store->getLatitude(),
-                        'longitude' => (float) $store->getLongitude(),
-                        'img' => $store->getStoreLogo(),
-                        'numproducts' => $store->getNumberOfProducts(),
-                        'numreferences' => $store->getNumberOfReferences(),
-                    ];
-                }
+            $presenter['latitude'] = (float) $location->latitude;
+            $presenter['longitude'] = (float) $location->longitude;
 
-                $list []= $presenter;
+            /** @var Store $store */
+            foreach ($location->stores as $store) {
+                $presenter['stores'] [] = [
+                    'store_id' => $store->id,
+                    'store_name' => $store->store_name,
+                    'latitude' => (float) $store->getLatitude(),
+                    'longitude' => (float) $store->getLongitude(),
+                    'img' => $store->getStoreLogo(),
+                    'numproducts' => $store->getNumberOfProducts(),
+                    'numreferences' => $store->getNumberOfReferences(),
+                ];
             }
+
+            $list [] = $presenter;
         }
 
         return $list;
     }
 
+    public function getAndCountLocationsWithActiveStores()
+    {
+        return Location::with('translations')->withCount(['stores' => function ($query) {
+            $query->where('status', true);
+        }])->get();
+    }
 
     /**
      * @param Location $location
