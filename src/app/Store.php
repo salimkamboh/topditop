@@ -18,6 +18,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $image_id
  * @property int $location_id
  * @property string $cover_url
+ * @property bool $is_light
+ * @property float $latitude
+ * @property float $longitude
+ * @property bool $uses_coordinates
  * @property-read \App\Image $image
  * @property-read \App\Location $location
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Manufacturer[] $manufacturers
@@ -30,22 +34,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereImageId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereIsLight($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereLatitude($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereLocationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereLongitude($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereMagCatId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereMagStoreId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereStatus($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereStoreName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereUserEmail($value)
- * @mixin \Eloquent
- * @property bool $is_light
- * @method static \Illuminate\Database\Query\Builder|\App\Store whereIsLight($value)
- * @property float $latitude
- * @property float $longitude
- * @property bool $uses_coordinates
- * @method static \Illuminate\Database\Query\Builder|\App\Store whereLatitude($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Store whereLongitude($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereUsesCoordinates($value)
+ * @mixin \Eloquent
  */
 class Store extends Model
 {

@@ -1,3 +1,4 @@
+@if(isset($products_newest[0]) || isset($products_most[0]))
 <section id="home-references">
     <div class="container">
         <div class="row">
@@ -80,3 +81,4 @@
         </div>
     </div>
 </section>
+@endif

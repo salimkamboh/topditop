@@ -12,14 +12,16 @@ use Illuminate\Support\Facades\DB;
  * @property string $scanned_image_url
  * @property string $brand_logo_url
  * @property string $reference_image_url
- * @property string $craftar_image_uuid
- * @property string $craftar_item_uuid
  * @property int $manufacturer_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $name
+ * @property string $craftar_item_uuid
+ * @property string $craftar_image_uuid
  * @property-read \App\Manufacturer $manufacturer
  * @method static \Illuminate\Database\Query\Builder|\App\Advert whereBrandLogoUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereCraftarImageUuid($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Advert whereCraftarItemUuid($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Advert whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Advert whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Advert whereManufacturerId($value)

@@ -10,7 +10,8 @@
                 <div class="menu" tabindex="-1">
                     @foreach($filter_locations as $location)
                         <div class="item" data-value="{{$location->id}}">{{$location->name}}
-                            <span>({{$location->numberOfActiveStores()}})</span></div>
+                            {{-- stores_count has been eager loaded --}}
+                            <span>({{ $location->stores_count }})</span></div>
                     @endforeach
                 </div>
             </div>
@@ -27,7 +28,7 @@
                     @foreach($manufacturers as $manufacturer)
                         <div class="item"
                              data-value="{{$manufacturer->id}}">{{$manufacturer->name}}
-                            <span>({{$manufacturer->numberOfStores()}})</span>
+                            <span>({{ count($manufacturer->references) }})</span>
                             </div>
                     @endforeach
                 </div>

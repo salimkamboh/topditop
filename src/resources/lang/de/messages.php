@@ -132,5 +132,5 @@ return [
         'main_text' => 'Bitte wählen Sie Ihre Marken in',
         'link_text' => 'den Partnereinstellungen',
     ],
-
+    'product_has_brand_link' => 'Das Produkt hat einen Link zur Markenseite',
 ];

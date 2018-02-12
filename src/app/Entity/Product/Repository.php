@@ -24,6 +24,7 @@ class Repository extends PowerChecker
         $product->title = $request->title;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->show_brand_link = $request->show_brand_link;
         $product->save();
         $product->store()->associate($store);
         $product->addImages($request, $product, false);
@@ -69,6 +70,7 @@ class Repository extends PowerChecker
         $product->title = $request->title;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->show_brand_link = $request->show_brand_link;
         $product->addImages($request, $product, true);
         $product->addBrand($request, $product, true);
         $product->addReferences($request, $product, true);
