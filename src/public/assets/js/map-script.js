@@ -82,12 +82,14 @@ function newLocation(city) {
         });
 
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            var imgTag = newLocation.stores[i].img ? '<img style="width: 100px; height: auto;" src="' + newLocation.stores[i].img + '">' : '';
             return function () {
                 var contentString =
                     '<div class="container-fluid map-holder-over">' +
-                    '   <h2>' +
-                    '       <a  style="text-align:center;" href=' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' + newLocation.stores[i].store_name + '</a>' +
-                    '   </h2>' +
+                    imgTag +
+                    '<h2>' +
+                    '<a style="text-align:center;" href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' + newLocation.stores[i].store_name + '</a>' +
+                    '</h2>' +
                     '</div>';
                 infowindow.setContent(contentString);
                 infowindow.open(map, marker);

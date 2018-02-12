@@ -1,11 +1,11 @@
 <section id="home-references">
     <div class="container">
+        @if(isset($manufacturers) && count($manufacturers) > 0)
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="text-center">{{ trans('messages.manufacturers') }}</h3>
             </div>
         </div>
-        @if(isset($manufacturers))
             @for ($i = 0; $i < count($manufacturers); $i += 3)
                 <div class="row">
                     @if($i < count($manufacturers))

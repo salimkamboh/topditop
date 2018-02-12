@@ -13,7 +13,7 @@
             </p>
         </div>
     </div>
-    <div class="row">
+    <div class="row city-selector-wrapper">
         <div class="col-md-2">
             <ul class="city-selector">
                 @foreach($locations_footer as $location)
