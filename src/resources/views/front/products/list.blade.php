@@ -32,8 +32,10 @@
                                     <div class="col-md-6">
                                         <div class="single-item single-item-product item-shadow"
                                              data-product-id="{{$product->id}}">
-                                            <img alt="" class="img-responsive"
-                                                 src="{{$product->getImageByThumb('reference_thumb')}}">
+                                            <a href="{{route("front_show_store", $product->store)}}" class="">
+                                                <img alt="" class="img-responsive"
+                                                     src="{{$product->getImageByThumb('reference_thumb')}}">
+                                            </a>
                                             <div class="item-info">
                                                 <div class="item-info-top clearfix">
                                                     <div class="width-fix">
@@ -51,9 +53,11 @@
                                                     <a href="{{route("front_show_store", $product->store)}}" class=""><i
                                                                 class="icon-shopping-cart"></i>{{ $product->store->store_name }}
                                                     </a>
-                                                    <a class="product-no-link-brand" href="#" class="pull-left"><i
+                                                    @if($product->show_brand_link == 1)
+                                                    <a class="product-no-link-brand" style="cursor: pointer;" href="{{ route("front_brand_stores", $product->manufacturer_id) }}" class="pull-left"><i
                                                                 class="fa fa-bookmark"></i>{{$product->getManufacturerName()}}
                                                     </a>
+                                                    @endif
                                                     <a href="{{route('front_products')}}#{{$product->id}}"
                                                        class="shareBtn pull-right">+ {{trans('messages.share')}}</a>
                                                 </div>

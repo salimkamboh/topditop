@@ -101,8 +101,7 @@ class Repository
      */
     public function listEnhancedLocations()
     {
-
-        $locations = Location::with('stores.profile.fields')->get();
+        $locations = Location::with(['stores.profile.fields', 'translations'])->withCount('stores')->has('stores', '>=', 10)->get();
 
         $list = [];
 
@@ -114,14 +113,14 @@ class Repository
             $presenter['id'] = $location->id;
             $presenter['key'] = $location->key;
             $presenter['name'] = $translate['name'];
-            $presenter['numStores'] = count($location->stores);
+            $presenter['numStores'] = $location->stores_count;
 
             $presenter['latitude'] = (float) $location->latitude;
             $presenter['longitude'] = (float) $location->longitude;
 
             /** @var Store $store */
             foreach ($location->stores as $store) {
-                $presenter['stores'] []= [
+                $presenter['stores'] [] = [
                     'store_id' => $store->id,
                     'store_name' => $store->store_name,
                     'latitude' => (float) $store->getLatitude(),
@@ -132,12 +131,18 @@ class Repository
                 ];
             }
 
-            $list []= $presenter;
+            $list [] = $presenter;
         }
 
         return $list;
     }
 
+    public function getAndCountLocationsWithActiveStores()
+    {
+        return Location::with('translations')->withCount(['stores' => function ($query) {
+            $query->where('status', true);
+        }])->get();
+    }
 
     /**
      * @param Location $location
