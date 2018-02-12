@@ -31,6 +31,7 @@ use Intervention\Image\ImageManager;
  * @property int $store_id
  * @property int $manufacturer_id
  * @property int $views
+ * @property bool $show_brand_link
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $categories
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Image[] $images
  * @property-read \App\Manufacturer $manufacturer
@@ -49,6 +50,7 @@ use Intervention\Image\ImageManager;
  * @method static \Illuminate\Database\Query\Builder|\App\Product wherePrice($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereSKU($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereShortDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereShowBrandLink($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereStoreId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereUpdatedAt($value)

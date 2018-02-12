@@ -132,5 +132,5 @@ return [
         'main_text' => 'Please select your brands in the',
         'link_text' => 'Partners section',
     ],
-
+    'product_has_brand_link' => 'Product has link to brand page',
 ];

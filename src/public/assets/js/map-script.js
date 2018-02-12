@@ -35,31 +35,17 @@ function initialize() {
         });
 
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            var imgTag = locationsJSON.stores[i].img ? '<img style="width: 100px; height: auto;" src="' + locationsJSON.stores[i].img + '">' : '';
             return function () {
                 var contentString =
                     '<div class="container-fluid map-holder-over">' +
-                    '   <div class="">' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' +
-                    '           <img style="width:150px;height:auto;" src="' + locationsJSON.stores[i].img + '">' +
-                    '       </a>' +
-                    '   </div>' +
-                    '   <h2>' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' + locationsJSON.stores[i].store_name + '</a>' +
-                    '   </h2>' +
-
-                    '   <div class="row">' +
-                    '       <div class="col-xs-6">' +
-                    '           <span>' + locationsJSON.stores[i].numproducts + '</span> <small>Products</small>' +
-                    '       </div>' +
-                    '       <div class="col-xs-6 map__window__manufacturers">' +
-                    '           <span>' + locationsJSON.stores[i].numreferences + '</span> <small>References</small>' +
-                    '       </div>' +
-                    '   </div>' +
+                        imgTag +
+                        '<h2>' +
+                        '<a style="text-align:center;" href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + locationsJSON.stores[i].store_id + '">' + locationsJSON.stores[i].store_name + '</a>' +
+                        '</h2>' +
                     '</div>';
-                //infowindow.setContent(locationsJSON.stores[i]["store_name"]);
                 infowindow.setContent(contentString);
                 infowindow.open(map, marker);
-                console.log(locationsJSON.stores[i]);
             }
         })(marker, i));
     }
@@ -96,26 +82,14 @@ function newLocation(city) {
         });
 
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            var imgTag = newLocation.stores[i].img ? '<img style="width: 100px; height: auto;" src="' + newLocation.stores[i].img + '">' : '';
             return function () {
                 var contentString =
                     '<div class="container-fluid map-holder-over">' +
-                    '   <div class="">' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' +
-                    '           <img style="width:150px;height:auto;" src="' + newLocation.stores[i].img + '">' +
-                    '       </a>' +
-                    '   </div>' +
-                    '   <h2>' +
-                    '       <a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' + newLocation.stores[i].store_name + '</a>' +
-                    '   </h2>' +
-
-                    '   <div class="row">' +
-                    '       <div class="col-xs-6">' +
-                    '           <span>' + newLocation.stores[i].numproducts + '</span> <small>Products</small>' +
-                    '       </div>' +
-                    '       <div class="col-xs-6 map__window__manufacturers">' +
-                    '           <span>' + newLocation.stores[i].numreferences + '</span> <small>References</small>' +
-                    '       </div>' +
-                    '   </div>' +
+                    imgTag +
+                    '<h2>' +
+                    '<a style="text-align:center;" href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + newLocation.stores[i].store_id + '">' + newLocation.stores[i].store_name + '</a>' +
+                    '</h2>' +
                     '</div>';
                 infowindow.setContent(contentString);
                 infowindow.open(map, marker);

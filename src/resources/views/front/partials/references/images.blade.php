@@ -6,8 +6,10 @@
         ?>
         <div class="col-md-6 special-padding">
             <div class="single-item item-shadow .special-height">
-                <img alt="" class="img-responsive full-width"
-                     src="{{ $image1->getImageByThumb('gallery_1') }}">
+                <a href="{{route('front_show_store', $reference->store)}}">
+                    <img alt="" class="img-responsive full-width"
+                         src="{{ $image1->getImageByThumb('gallery_1') }}">
+                </a>
                 <div class="item-info">
                     <div class="item-info-top clearfix">
                         <div class="width-fix">
@@ -37,8 +39,10 @@
                 ?>
                 <div class="col-sm-12 special-padding">
                     <div class="single-item item-shadow">
-                        <img alt="" class="img-responsive full-width"
-                             src="{{ $image2->getImageByThumb('gallery_2') }}">
+                        <a href="{{route('front_show_store', $reference->store)}}">
+                            <img alt="" class="img-responsive full-width"
+                                 src="{{ $image2->getImageByThumb('gallery_2') }}">
+                        </a>
                         <div class="item-info">
                             <div class="item-info-top clearfix">
                                 <div class="width-fix">
@@ -66,8 +70,10 @@
                 ?>
                 <div class="col-md-6 special-padding">
                     <div class="single-item item-shadow">
-                        <img alt="" class="img-responsive"
-                             src="{{ $image3->getImageByThumb('gallery_3') }}">
+                        <a href="{{route('front_show_store', $reference->store)}}">
+                            <img alt="" class="img-responsive"
+                                 src="{{ $image3->getImageByThumb('gallery_3') }}">
+                        </a>
                         <div class="item-info">
                             <div class="item-info-top clearfix">
                                 <div class="width-fix">
@@ -94,8 +100,10 @@
                 ?>
                 <div class="col-md-6 special-padding">
                     <div class="single-item item-shadow">
-                        <img alt="" class="img-responsive full-width"
-                             src="{{ $image4->getImageByThumb('gallery_3') }}">
+                        <a href="{{route('front_show_store', $reference->store)}}">
+                            <img alt="" class="img-responsive full-width"
+                                 src="{{ $image4->getImageByThumb('gallery_3') }}">
+                        </a>
                         <div class="item-info">
                             <div class="item-info-top clearfix">
                                 <div class="width-fix">
@@ -127,8 +135,10 @@
         ?>
         <div class="col-md-6 text-center special-padding">
             <div class="single-item item-shadow">
-                <img alt="" class="img-responsive full-width"
-                     src="{{ $image5->getImageByThumb('gallery_1') }}">
+                <a href="{{route('front_show_store', $reference->store)}}">
+                    <img alt="" class="img-responsive full-width"
+                         src="{{ $image5->getImageByThumb('gallery_1') }}">
+                </a>
                 <div class="item-info">
                     <div class="item-info-top clearfix">
                         <div class="width-fix">
@@ -155,8 +165,10 @@
         ?>
         <div class="col-md-6 text-center special-padding">
             <div class="single-item item-shadow">
-                <img alt="" class="img-responsive full-width"
-                     src="{{ $image6->getImageByThumb('gallery_1') }}">
+                <a href="{{route('front_show_store', $reference->store)}}">
+                    <img alt="" class="img-responsive full-width"
+                         src="{{ $image6->getImageByThumb('gallery_1') }}">
+                </a>
                 <div class="item-info">
                     <div class="item-info-top clearfix">
                         <div class="width-fix">
@@ -187,8 +199,10 @@
     <div class="row special-margin">
         <div class="col-md-12 special-padding">
             <div class="single-item item-shadow">
-                <img alt="" class="img-responsive full-width"
-                     src="{{ $image7->getImageByThumb('gallery_4') }}">
+                <a href="{{route('front_show_store', $reference->store)}}">
+                    <img alt="" class="img-responsive full-width"
+                         src="{{ $image7->getImageByThumb('gallery_4') }}">
+                </a>
                 <div class="item-info">
                     <div class="item-info-top clearfix">
                         <div class="width-fix">

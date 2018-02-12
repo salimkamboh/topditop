@@ -92,7 +92,7 @@ function performFilter() {
             }
 
             html += '<div class="col-md-6">' +
-                '<a href="" class="single-item item-shadow">' +
+                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.id + '" class="single-item item-shadow">' +
                 '<div class="store-image-holder"><img class="img-responsive" src="' + imageUrl + '"></div>' +
                 '<div class="item-info show-info">' +
                 '<div class="item-info-top clearfix">' +

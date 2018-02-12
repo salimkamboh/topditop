@@ -103,31 +103,6 @@ class Manufacturer extends Model
         return url('images' . $this->image_url);
     }
 
-    /**
-     * @return int
-     */
-    public function numberOfStores()
-    {
-
-        $res = \Illuminate\Support\Facades\DB::select('SELECT count(DISTINCT `references`.store_id)
-FROM `references`
-INNER JOIN manufacturer_reference
-ON `references`.id=manufacturer_reference.reference_id
-where manufacturer_reference.manufacturer_id= :id', ['id' => $this->id]);
-        $count = $this->get_val($res);
-        return $count;
-    }
-
-    public function get_val($res)
-    {
-        $val = $res[0];
-        $num = 0;
-        foreach ($val as $item) {
-            $num = $item;
-        }
-        return $num;
-    }
-
     private function cutAbsolutePath()
     {
         if (! $this->image_url) {

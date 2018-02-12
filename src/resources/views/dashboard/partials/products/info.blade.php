@@ -16,6 +16,9 @@
             <textarea cols="30" rows="7" name="product_description" id="product_description">{{$product->description}}</textarea>
         </div>
         <div class="form-holder">
+            <input name="product_show_brand_link" id="product_show_brand_link" class="checkbox-inline" @if(isset($product->id))value={{$product->show_brand_link}}@else value="0"@endif  type="checkbox" style="margin-right: 5px; position: relative; top: -3px;"  @if ($product->show_brand_link == '1') checked="checked" @endif><label for="product_show_brand_link">{{ trans('messages.product_has_brand_link') }}</label>
+        </div>
+        <div class="form-holder">
             <label>{{ trans('messages.product_brand') }}:</label><br>
             <div class="ui dropdown dropdown-brand full-width" tabindex="0">
                 <input name="manufacturer" type="hidden"

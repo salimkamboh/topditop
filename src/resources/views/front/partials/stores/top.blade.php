@@ -40,14 +40,6 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <h3>Philosophie</h3>
-                    <p>{{$datablock["philosophy"]}}</p>
-                    <h3>Zitat</h3>
-                    <p>{{$datablock["quotation"]}}</p>
-                    <h3>Ihr Ansprechpartner</h3>
-                    <p>{{$datablock["owner"]}}</p>
-                    <a class="mobile-tel" href="tel:{{$datablock["telephone_number"]}}">Tel.{{$datablock["telephone_number"]}}</a>
-                    <p>Email: <a class="mail-link" href="mailto:{{$datablock["contact_mail"]}}">{{$datablock["contact_mail"]}}</a></p>
                 </div>
             </div>
         </div>

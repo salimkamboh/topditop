@@ -62,7 +62,9 @@ function performFilter() {
 
             html += '<div class="col-md-6">' +
                 '<div class="single-item item-shadow">' +
+                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store_id + '">'+
                 '<img alt="" class="img-responsive" src="' + item.image + '">' +
+                '</a>'+
                 '<div class="item-info">' +
                 '<div class="item-info-top clearfix">' +
                 '<div class="width-fix">' +
@@ -72,7 +74,7 @@ function performFilter() {
                 '<span class="date pull-right">' + item.date + '</span>' +
                 '</div>' +
                 '<div class="item-info-bottom">' +
-                '<a href="' + _globalRoute + '/' + _globalLang + '/front/references/single/' + item.id + '"><i' +
+                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store_id + '"><i' +
                 'class="icon-shopping-cart"></i>' + item.package_name + ' : ' + item.store_name + ' </a>' +
                 '<a class="shareBtn" href="' + _globalRoute + '/' + _globalLang + '/front/references/single/' + item.id + '">+ Share</a>' +
                 '</div>' +

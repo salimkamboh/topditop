@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Advert;
 use App\Entity\Store\Repository as StoreRepository;
+use App\Entity\Location\Repository as LocationRepository;
 use App\Field;
 use App\Location;
 use App\Manufacturer;
@@ -19,15 +20,21 @@ class FrontController extends BaseController
 {
 
     private $settingsRepository;
+    /**
+     * @var LocationRepository
+     */
+    private $locationRepository;
 
     /**
      * FrontController constructor.
      * @param StoreRepository $settingsRepository
+     * @param LocationRepository $locationRepository
      */
-    public function __construct(StoreRepository $settingsRepository)
+    public function __construct(StoreRepository $settingsRepository, LocationRepository $locationRepository)
     {
         parent::__construct();
         $this->settingsRepository = $settingsRepository;
+        $this->locationRepository = $locationRepository;
     }
 
     /**
@@ -175,7 +182,7 @@ class FrontController extends BaseController
         $reference->incrementViews();
 
         $datablock = $this->settingsRepository->getStoreData($this->current_store);
-        $selected_products = Reference::find($reference->id)->products()->get();
+        $selected_products = $reference->products;
         $imagesByReference = $reference->images()->get();
         $allow_sharing = Field::getSelectedValues("allow_sharing", $reference->store);
         $manufacturers = $reference->manufacturers;
@@ -189,27 +196,34 @@ class FrontController extends BaseController
             ->with('imagesByReference', $imagesByReference);
     }
 
+    public function showStoresForBrand($id) {
+
+        $manufacturer = Manufacturer::with('stores')->findOrFail($id);
+
+        return view('front.brand.stores')
+            ->with('manufacturer', $manufacturer);
+    }
+
     public function showProducts()
     {
-        $products = Product::orderBy('id', 'desc')->get();
+        $products = Product::with('references', 'manufacturer')->orderBy('id', 'desc')->get();
         $stores = Store::active()->get();
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
         return view('front.products.list')
             ->with('products', $products)
-            ->with('manufacturers', $manufacturers)
             ->with('manufacturers', $manufacturers)
             ->with('stores', $stores);
     }
 
     public function showStores()
     {
-
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
         $stores = Store::active()->with('references', 'location', 'profile.fields')->get();
-        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
-        $filter_locations = Location::all();
+        $manufacturers = Manufacturer::with('references')->orderBy('name', 'asc')->get();
+        $filter_locations = $this->locationRepository->getAndCountLocationsWithActiveStores();
+
         return view('front.stores.list')
             ->with('products', $products)
             ->with('manufacturers', $manufacturers)
