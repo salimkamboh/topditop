@@ -2214,18 +2214,18 @@ section#store-cover {
 }
 
 section#store-cover .store-heading h3 {
-    background-color: transparent;
+    background: #fff;
     margin: 0 auto;
     font-size: 48px;
     font-family: 'Vollkorn', serif;
-
+    display: inline;
+    position: relative;
+    top: -32px;
 }
 
 section#store-cover .store-heading h3 span {
-    background-color: #fff;
     padding: 30px;
     position: relative;
-    top: -30px;
 }
 
 section#store-cover .store-heading hr {
@@ -2234,9 +2234,27 @@ section#store-cover .store-heading hr {
     border-top: 1px solid #000;
 }
 
+@media screen and (max-width: 767px) {
+    section#store-cover .store-heading {
+        margin-top: 40px;
+    }
+    section#store-cover .store-heading h3 span {
+        padding: 6px;
+        background: none;
+    }
+    section#store-cover .store-heading h3 {
+        font-size: 28px;
+    }
+    section#store-cover .store-heading hr {
+        display: none;
+    }
+}
+
+
 section#store-cover .store-heading {
     padding-top: 20px;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 section#store-cover .content {
