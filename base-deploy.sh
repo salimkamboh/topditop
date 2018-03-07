@@ -46,6 +46,8 @@ docker-machine ssh topditop-production -A "cd ${remote_deploy_path} && git check
 
 docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/local/bin/composer install'
 
+docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan backup:run --only-db'
+
 docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan migrate --force'
 
 docker exec -it ${web_container} /bin/bash -c 'cd /var/www/html/ && /usr/bin/php artisan config:clear'
