@@ -1,6 +1,6 @@
 webpackJsonp([1,3],{
 
-/***/ 1046:
+/***/ 1047:
 /***/ (function(module, exports) {
 
 /*
@@ -253,7 +253,7 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 1049:
+/***/ 1050:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(450);
@@ -324,10 +324,10 @@ module.exports = function() {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(749);
+var content = __webpack_require__(750);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(1046)(content, {});
+var update = __webpack_require__(1047)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -345,7 +345,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 749:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(277)();
@@ -353,12 +353,12 @@ exports = module.exports = __webpack_require__(277)();
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.glyphicon-spin {\n    -webkit-animation: spin 1000ms infinite linear;\n    animation: spin 1000ms infinite linear;\n}\n.spin {\n  -webkit-animation: spin 2s infinite linear;\n  animation: spin 2s infinite linear;\n}\n@-webkit-keyframes spin {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n\n.panel {\n  border-color: #af865c;\n}\n\n.panel-primary > .panel-heading {\n  background: #af865c ;\n  border-color: #af865c;\n  font-weight: bold;\n}\n\n.panel-primary > .panel-footer {\n   border-top-color: none;\n}\n\n.panel-footer > .btn-primary, .panel-footer > .btn-primary:active {\n   background: #af865c;\n   border-color: #af865c;\n}\n\nspan.di {\n    color:gray;\n    background: none;\n}\n\ntbody>tr>td>a.btn-link, tbody>tr>td>a.btn-link:hover  {\n   color: #af865c;\n}\n\ndiv.navbar-header>a.navbar-brand{\n  color: #af865c;\n}\n\nul.dropdown-menu>li>a, ul.nav.navbar-nav>li>a {\n   color: #000;\n}\n\nul.dropdown-menu>li>a:hover, div.navbar-header>a.navbar-brand:hover, ul.nav.navbar-nav>li>a:hover {\n   color: #af865c;\n}\n\nul.dropdown-menu>li>a:focus, div.navbar-header>a.navbar-brand:focus, ul.nav.navbar-nav>li>a:focus {\n   color: #af865c;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.glyphicon-spin {\n    -webkit-animation: spin 1000ms infinite linear;\n    animation: spin 1000ms infinite linear;\n}\n.spin {\n  -webkit-animation: spin 2s infinite linear;\n  animation: spin 2s infinite linear;\n}\n@-webkit-keyframes spin {\n  from {\n    -webkit-transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  from {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n\n.package-buttons > .btn {\n    margin-right: 8px;\n}\n\n.panel {\n  border-color: #af865c;\n}\n\n.panel-primary > .panel-heading {\n  background: #af865c ;\n  border-color: #af865c;\n  font-weight: bold;\n}\n\n.panel-primary > .panel-footer {\n   border-top-color: none;\n}\n\n.panel-footer > .btn-primary, .panel-footer > .btn-primary:active {\n   background: #af865c;\n   border-color: #af865c;\n}\n\nspan.di {\n    color:gray;\n    background: none;\n}\n\ntbody>tr>td>a.btn-link, tbody>tr>td>a.btn-link:hover  {\n   color: #af865c;\n}\n\ndiv.navbar-header>a.navbar-brand{\n  color: #af865c;\n}\n\nul.dropdown-menu>li>a, ul.nav.navbar-nav>li>a {\n   color: #000;\n}\n\nul.dropdown-menu>li>a:hover, div.navbar-header>a.navbar-brand:hover, ul.nav.navbar-nav>li>a:hover {\n   color: #af865c;\n}\n\nul.dropdown-menu>li>a:focus, div.navbar-header>a.navbar-brand:focus, ul.nav.navbar-nav>li>a:focus {\n   color: #af865c;\n}\n", ""]);
 
 // exports
 
 
 /***/ })
 
-},[1049]);
+},[1050]);
 //# sourceMappingURL=styles.bundle.js.map

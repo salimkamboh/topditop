@@ -98,7 +98,7 @@ var AuthenticationService = (function () {
 
 /***/ }),
 
-/***/ 1048:
+/***/ 1049:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(449);
@@ -548,11 +548,11 @@ var ApiReferenceService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__advertisements_advertisements_component__ = __webpack_require__(562);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__advertisements_advertisement_detail_component__ = __webpack_require__(561);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__not_found_component__ = __webpack_require__(580);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__stores_stores_component__ = __webpack_require__(596);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__stores_store_detail_component__ = __webpack_require__(595);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__stores_store_create_component__ = __webpack_require__(594);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__slides_slides_component__ = __webpack_require__(593);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__slides_slide_detail_component__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__stores_stores_component__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__stores_store_detail_component__ = __webpack_require__(596);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__stores_store_create_component__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__slides_slides_component__ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__slides_slide_detail_component__ = __webpack_require__(593);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__manufacturers_manufacturers_component__ = __webpack_require__(579);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__manufacturers_manufacturer_detail_component__ = __webpack_require__(578);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__categories_categories_component__ = __webpack_require__(565);
@@ -563,18 +563,18 @@ var ApiReferenceService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__fields_field_detail_component__ = __webpack_require__(569);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__fieldgroups_fieldgroups_component__ = __webpack_require__(568);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__fieldgroups_fieldgroup_detail_component__ = __webpack_require__(567);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__panels_panels_component__ = __webpack_require__(584);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__panels_panel_detail_component__ = __webpack_require__(583);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__packages_packages_component__ = __webpack_require__(582);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__packages_package_detail_component__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__panels_panels_component__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__panels_panel_detail_component__ = __webpack_require__(584);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__packages_packages_component__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__packages_package_detail_component__ = __webpack_require__(582);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__locations_locations_component__ = __webpack_require__(575);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__locations_location_detail_component__ = __webpack_require__(574);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__registerfields_registerfields_component__ = __webpack_require__(590);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__registerfields_registerfield_detail_component__ = __webpack_require__(589);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__references_references_component__ = __webpack_require__(588);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__references_reference_detail_component__ = __webpack_require__(587);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__products_products_component__ = __webpack_require__(586);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__products_product_detail_component__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__registerfields_registerfields_component__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__registerfields_registerfield_detail_component__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__references_references_component__ = __webpack_require__(589);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__references_reference_detail_component__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__products_products_component__ = __webpack_require__(587);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__products_product_detail_component__ = __webpack_require__(586);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__login_login_component__ = __webpack_require__(576);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return declarations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AppRoutingModule; });
@@ -727,8 +727,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(754),
-            styles: [__webpack_require__(750)]
+            template: __webpack_require__(755),
+            styles: [__webpack_require__(751)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__service_authentication_service__["a" /* AuthenticationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__service_authentication_service__["a" /* AuthenticationService */]) === 'function' && _a) || Object])
     ], AppComponent);
@@ -809,7 +809,7 @@ webpackEmptyContext.id = 448;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(598);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(534);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(52);
@@ -1049,7 +1049,7 @@ var AdvertisementDetailComponent = (function () {
     AdvertisementDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-advertisement-detail',
-            template: __webpack_require__(752)
+            template: __webpack_require__(753)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], AdvertisementDetailComponent);
@@ -1098,7 +1098,7 @@ var AdvertisementsComponent = (function () {
     AdvertisementsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-advertisement',
-            template: __webpack_require__(753)
+            template: __webpack_require__(754)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], AdvertisementsComponent);
@@ -1121,7 +1121,7 @@ var AdvertisementsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__(376);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__service_api_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__service_api_en_service__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__service_api_en_service__ = __webpack_require__(592);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_api_panel_service__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_api_store_service__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_api_location_service__ = __webpack_require__(131);
@@ -1279,7 +1279,7 @@ var CategoriesComponent = (function () {
     CategoriesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-categories',
-            template: __webpack_require__(755)
+            template: __webpack_require__(756)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], CategoriesComponent);
@@ -1383,7 +1383,7 @@ var CategoryDetailComponent = (function () {
     CategoryDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-category-detail',
-            template: __webpack_require__(756)
+            template: __webpack_require__(757)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], CategoryDetailComponent);
@@ -1563,7 +1563,7 @@ var FieldgroupDetailComponent = (function () {
     FieldgroupDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-fieldgroup-detail',
-            template: __webpack_require__(757)
+            template: __webpack_require__(758)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], FieldgroupDetailComponent);
@@ -1612,7 +1612,7 @@ var FieldgroupsComponent = (function () {
     FieldgroupsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-fieldgroups',
-            template: __webpack_require__(758)
+            template: __webpack_require__(759)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], FieldgroupsComponent);
@@ -1730,7 +1730,7 @@ var FieldDetailComponent = (function () {
     FieldDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-field-detail',
-            template: __webpack_require__(759)
+            template: __webpack_require__(760)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], FieldDetailComponent);
@@ -1779,7 +1779,7 @@ var FieldsComponent = (function () {
     FieldsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-fields',
-            template: __webpack_require__(760)
+            template: __webpack_require__(761)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], FieldsComponent);
@@ -1882,7 +1882,7 @@ var FieldtypeDetailComponent = (function () {
     FieldtypeDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-fieldtype-detail',
-            template: __webpack_require__(761)
+            template: __webpack_require__(762)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], FieldtypeDetailComponent);
@@ -1927,7 +1927,7 @@ var FieldtypesComponent = (function () {
     FieldtypesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-fieldtypes',
-            template: __webpack_require__(762)
+            template: __webpack_require__(763)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], FieldtypesComponent);
@@ -2089,7 +2089,7 @@ var LocationDetailComponent = (function () {
     LocationDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-location-detail',
-            template: __webpack_require__(763),
+            template: __webpack_require__(764),
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_location_service__["a" /* ApiLocationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_location_service__["a" /* ApiLocationService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], LocationDetailComponent);
@@ -2136,7 +2136,7 @@ var LocationsComponent = (function () {
     LocationsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-locations',
-            template: __webpack_require__(764),
+            template: __webpack_require__(765),
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_location_service__["a" /* ApiLocationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_location_service__["a" /* ApiLocationService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], LocationsComponent);
@@ -2191,7 +2191,7 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login',
-            template: __webpack_require__(765)
+            template: __webpack_require__(766)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_authentication_service__["a" /* AuthenticationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_authentication_service__["a" /* AuthenticationService */]) === 'function' && _b) || Object])
     ], LoginComponent);
@@ -2387,7 +2387,7 @@ var ManufacturerDetailComponent = (function () {
     ManufacturerDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-manufacturer-detail',
-            template: __webpack_require__(766)
+            template: __webpack_require__(767)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], ManufacturerDetailComponent);
@@ -2436,7 +2436,7 @@ var ManufacturersComponent = (function () {
     ManufacturersComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-manufacturers',
-            template: __webpack_require__(767)
+            template: __webpack_require__(768)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], ManufacturersComponent);
@@ -2479,6 +2479,30 @@ var PageNotFoundComponent = (function () {
 /***/ }),
 
 /***/ 581:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Packages; });
+var Packages = (function () {
+    function Packages() {
+    }
+    Packages.paid = function () {
+        return [this.STORE, this.TOPSTORE, this.TOPDITOPSTORE];
+    };
+    Packages.all = function () {
+        return [this.LIGHT].concat(this.paid());
+    };
+    Packages.TOPDITOPSTORE = 'TopDiTop Store';
+    Packages.TOPSTORE = 'TopStore';
+    Packages.STORE = 'Store';
+    Packages.LIGHT = 'Light Store';
+    return Packages;
+}());
+//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/Packages.js.map
+
+/***/ }),
+
+/***/ 582:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2636,7 +2660,7 @@ var PackageDetailComponent = (function () {
     PackageDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-package-detail',
-            template: __webpack_require__(768)
+            template: __webpack_require__(769)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__service_api_panel_service__["a" /* ApiPanelService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__service_api_panel_service__["a" /* ApiPanelService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["d" /* FormBuilder */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__["b" /* ToasterService */]) === 'function' && _f) || Object])
     ], PackageDetailComponent);
@@ -2647,7 +2671,7 @@ var PackageDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 582:
+/***/ 583:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2681,7 +2705,7 @@ var PackagesComponent = (function () {
     PackagesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-packages',
-            template: __webpack_require__(769)
+            template: __webpack_require__(770)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], PackagesComponent);
@@ -2692,7 +2716,7 @@ var PackagesComponent = (function () {
 
 /***/ }),
 
-/***/ 583:
+/***/ 584:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2858,7 +2882,7 @@ var PanelDetailComponent = (function () {
     PanelDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-panel-detail',
-            template: __webpack_require__(770)
+            template: __webpack_require__(771)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__["a" /* ApiPanelService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__["a" /* ApiPanelService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */]) === 'function' && _f) || Object])
     ], PanelDetailComponent);
@@ -2869,7 +2893,7 @@ var PanelDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 584:
+/***/ 585:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2903,7 +2927,7 @@ var PanelsComponent = (function () {
     PanelsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-panels',
-            template: __webpack_require__(771)
+            template: __webpack_require__(772)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__["a" /* ApiPanelService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__["a" /* ApiPanelService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], PanelsComponent);
@@ -2914,7 +2938,7 @@ var PanelsComponent = (function () {
 
 /***/ }),
 
-/***/ 585:
+/***/ 586:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3171,7 +3195,7 @@ var ProductDetailComponent = (function () {
     ProductDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-product-detail',
-            template: __webpack_require__(772)
+            template: __webpack_require__(773)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__["a" /* ApiReferenceService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__["a" /* ApiReferenceService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__["a" /* ApiProductService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__["a" /* ApiProductService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__service_api_store_service__["a" /* ApiStoreService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__service_api_store_service__["a" /* ApiStoreService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* Router */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* ActivatedRoute */]) === 'function' && _f) || Object, (typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__angular_forms__["d" /* FormBuilder */]) === 'function' && _g) || Object, (typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_8_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_8_angular2_toaster__["b" /* ToasterService */]) === 'function' && _h) || Object])
     ], ProductDetailComponent);
@@ -3182,7 +3206,7 @@ var ProductDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 586:
+/***/ 587:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3216,7 +3240,7 @@ var ProductsComponent = (function () {
     ProductsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-products',
-            template: __webpack_require__(773)
+            template: __webpack_require__(774)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_product_service__["a" /* ApiProductService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_product_service__["a" /* ApiProductService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], ProductsComponent);
@@ -3227,7 +3251,7 @@ var ProductsComponent = (function () {
 
 /***/ }),
 
-/***/ 587:
+/***/ 588:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3469,7 +3493,7 @@ var ReferenceDetailComponent = (function () {
     ReferenceDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-reference-detail',
-            template: __webpack_require__(774)
+            template: __webpack_require__(775)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__["a" /* ApiReferenceService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__["a" /* ApiReferenceService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__["a" /* ApiProductService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__["a" /* ApiProductService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__service_api_store_service__["a" /* ApiStoreService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__service_api_store_service__["a" /* ApiStoreService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* Router */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* ActivatedRoute */]) === 'function' && _f) || Object, (typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__angular_forms__["d" /* FormBuilder */]) === 'function' && _g) || Object, (typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_8_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_8_angular2_toaster__["b" /* ToasterService */]) === 'function' && _h) || Object])
     ], ReferenceDetailComponent);
@@ -3480,7 +3504,7 @@ var ReferenceDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 588:
+/***/ 589:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3517,7 +3541,7 @@ var ReferencesComponent = (function () {
     ReferencesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-references',
-            template: __webpack_require__(775)
+            template: __webpack_require__(776)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_reference_service__["a" /* ApiReferenceService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_reference_service__["a" /* ApiReferenceService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], ReferencesComponent);
@@ -3528,7 +3552,7 @@ var ReferencesComponent = (function () {
 
 /***/ }),
 
-/***/ 589:
+/***/ 590:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3663,7 +3687,7 @@ var RegisterfieldDetailComponent = (function () {
     RegisterfieldDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-registerfield-detail',
-            template: __webpack_require__(776)
+            template: __webpack_require__(777)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
     ], RegisterfieldDetailComponent);
@@ -3674,7 +3698,7 @@ var RegisterfieldDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 590:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3708,7 +3732,7 @@ var RegisterfieldsComponent = (function () {
     RegisterfieldsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-registerfields',
-            template: __webpack_require__(777)
+            template: __webpack_require__(778)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], RegisterfieldsComponent);
@@ -3719,7 +3743,7 @@ var RegisterfieldsComponent = (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 592:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3795,7 +3819,7 @@ var ApiEnService = (function () {
 
 /***/ }),
 
-/***/ 592:
+/***/ 593:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4004,7 +4028,7 @@ var SlideDetailComponent = (function () {
     SlideDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-slide-detail',
-            template: __webpack_require__(778)
+            template: __webpack_require__(779)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__service_api_store_service__["a" /* ApiStoreService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__service_api_store_service__["a" /* ApiStoreService */]) === 'function' && _f) || Object])
     ], SlideDetailComponent);
@@ -4015,7 +4039,7 @@ var SlideDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 594:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4053,7 +4077,7 @@ var SlidesComponent = (function () {
     SlidesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-slides',
-            template: __webpack_require__(779)
+            template: __webpack_require__(780)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], SlidesComponent);
@@ -4064,7 +4088,7 @@ var SlidesComponent = (function () {
 
 /***/ }),
 
-/***/ 594:
+/***/ 595:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4164,7 +4188,7 @@ var StoreCreateComponent = (function () {
     StoreCreateComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-store-create',
-            template: __webpack_require__(780)
+            template: __webpack_require__(781)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_7__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_store_service__["a" /* ApiStoreService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_store_service__["a" /* ApiStoreService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_location_service__["a" /* ApiLocationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_location_service__["a" /* ApiLocationService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === 'function' && _f) || Object, (typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */]) === 'function' && _g) || Object])
     ], StoreCreateComponent);
@@ -4175,7 +4199,7 @@ var StoreCreateComponent = (function () {
 
 /***/ }),
 
-/***/ 595:
+/***/ 596:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4187,6 +4211,7 @@ var StoreCreateComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__packages_Packages__ = __webpack_require__(581);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoreDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4204,6 +4229,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var StoreDetailComponent = (function () {
     function StoreDetailComponent(apiStoreService, apiLocationService, router, route, fb, toasterService) {
         this.apiStoreService = apiStoreService;
@@ -4214,6 +4240,10 @@ var StoreDetailComponent = (function () {
         this.toasterService = toasterService;
         this.disabled = false;
         this.dirty = false;
+        this.upgrading = false;
+        this.paidPackages = __WEBPACK_IMPORTED_MODULE_7__packages_Packages__["a" /* Packages */].paid();
+        this.packages = new __WEBPACK_IMPORTED_MODULE_7__packages_Packages__["a" /* Packages */]();
+        this.upgradedPackageName = null;
     }
     StoreDetailComponent.prototype.ngOnInit = function () {
         this.id = this.route.snapshot.params['id'];
@@ -4222,6 +4252,19 @@ var StoreDetailComponent = (function () {
     StoreDetailComponent.prototype.onSubmit = function () {
         this.disabled = true;
         this.updateStore(this.id);
+    };
+    StoreDetailComponent.prototype.upgrade = function (packageName) {
+        var _this = this;
+        this.upgrading = true;
+        this.apiStoreService.upgrade(this.id, packageName)
+            .subscribe(function () {
+            _this.upgradedPackageName = packageName;
+            _this.toasterService.pop('success', 'Upgraded package');
+        }, function () {
+            _this.toasterService.pop('error', 'Failed to upgrade package');
+        }, function () {
+            _this.upgrading = false;
+        });
     };
     StoreDetailComponent.prototype.updateStore = function (id) {
         var _this = this;
@@ -4309,7 +4352,7 @@ var StoreDetailComponent = (function () {
     StoreDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-store-detail',
-            template: __webpack_require__(781)
+            template: __webpack_require__(782)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_store_service__["a" /* ApiStoreService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_store_service__["a" /* ApiStoreService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__service_api_location_service__["a" /* ApiLocationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__service_api_location_service__["a" /* ApiLocationService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["d" /* FormBuilder */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__["b" /* ToasterService */]) === 'function' && _f) || Object])
     ], StoreDetailComponent);
@@ -4320,7 +4363,7 @@ var StoreDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 596:
+/***/ 597:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4357,7 +4400,7 @@ var StoresComponent = (function () {
     StoresComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-stores',
-            template: __webpack_require__(782)
+            template: __webpack_require__(783)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_store_service__["a" /* ApiStoreService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_store_service__["a" /* ApiStoreService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__["b" /* ToasterService */]) === 'function' && _b) || Object])
     ], StoresComponent);
@@ -4368,41 +4411,41 @@ var StoresComponent = (function () {
 
 /***/ }),
 
-/***/ 597:
+/***/ 598:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(612);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(613);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(601);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(602);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(608);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(607);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(603);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(611);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(612);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(600);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(601);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(600);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(609);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(610);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(602);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(603);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(610);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(611);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(608);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(609);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(613);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(614);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(1047);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(1048);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 
 
@@ -4493,7 +4536,7 @@ var ExtendedHttpService = (function (_super) {
 
 /***/ }),
 
-/***/ 750:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(277)();
@@ -4511,217 +4554,217 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 752:
+/***/ 753:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!advert\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Advertisement\n</h4>\n\n<label *ngIf=\"advert\">{{ id === '-1' ? 'New' : 'Edit' }} Advertisement Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"advertForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"advert\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Advertisement Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ advert.name }}\">\n                </div>\n                <a *ngIf=\"id != -1\" href=\"{{domain}}/front/stores/ad/{{id}}\" target=\"_blank\">Ad Preview</a>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Brand</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"manufacturer_id\" [value]=\"advert.manufacturer_id\" required>\n                       <option *ngFor=\"let brand of brands\" [value]=\"brand.id\">{{brand.name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Product Image URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" id=\"scanned_image_url\" value=\"{{ advert.scanned_image_url }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"filename_scanned_image_url\" (change)=\"changeListener($event)\"\n                    />\n                </div>\n                <div class=\"col-xs-6\">\n                    <img class=\"img img-responsive\" [src]='advert.scanned_image_url'>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Brand Logo URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" id=\"brand_logo_url\" value=\"{{ advert.brand_logo_url }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"filename_brand_logo_url\" (change)=\"changeListener($event)\"\n                    />\n                </div>\n                <div class=\"col-xs-6\">\n                    <img class=\"img img-responsive\" [src]='advert.brand_logo_url'>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Reference Image URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" id=\"reference_image_url\" value=\"{{ advert.reference_image_url }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"filename_reference_image_url\" (change)=\"changeListener($event)\"\n                    />\n                </div>\n                <div class=\"col-xs-6\">\n                    <img class=\"img img-responsive\" [src]='advert.reference_image_url'>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/advertisements\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteAdvert(advert.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 753:
+/***/ 754:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!adverts\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Advertisements\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Advertisement Dashboard\n  </div>\n  <div class=\"panel-body\" *ngIf=\"adverts && adverts.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Name</th>\n            <th>Manufacturer ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let advert of adverts\">\n            <td>{{ advert.id }}</td>\n            <td>{{ advert.name }}</td>\n            <td>{{ advert.manufacturer_id }}</td>\n            <td>{{ advert.created_at | date:'medium' }}</td>\n            <td>{{ advert.updated_at | date:'medium' }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/advertisement', advert.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/advertisement', -1]\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 754:
+/***/ 755:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-default\" *ngIf=\"isLoggedIn\" >\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\"\n          aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          </button>\n          <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" routerLink=\"/advertisements\">Top<span class=\"di\">Di</span>Top Admin</a>\n          </div>\n      </div>\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n        <ul class=\"nav navbar-nav\">\n          <li><a routerLink=\"/advertisements\">Advertisements</a></li>\n          <li><a routerLink=\"/stores\">Stores</a></li>\n          <li class=\"dropdown\">\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Manage<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li><a routerLink=\"/slides\">Slides</a></li>\n              <li><a routerLink=\"/manufacturers\">Manufacturers</a></li>\n              <li><a routerLink=\"/categories\">Categories</a></li>\n              <li><a routerLink=\"/locations\">Locations</a></li>\n              <li><a routerLink=\"/registerfields\">Registration Fields</a></li>\n              <li><a routerLink=\"/references\">References</a></li>\n              <li><a routerLink=\"/products\">Products</a></li>\n            </ul>\n          </li>\n          <li class=\"dropdown\">\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Package Manager<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li><a routerLink=\"/fieldtypes\">Fieldtypes</a></li>\n              <li><a routerLink=\"/fields\">Fields</a></li>\n              <li><a routerLink=\"/fieldgroups\">Fieldgroups</a></li>\n              <li><a routerLink=\"/panels\">Panels</a></li>\n              <li><a routerLink=\"/packages\">Packages</a></li>\n            </ul>\n          </li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li><a routerLink=\"/logout\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\n        </ul>\n      </div>\n      <!-- /.navbar-collapse -->\n    </div>\n    <!-- /.container-fluid -->\n  </nav>\n  <toaster-container></toaster-container>\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!categories\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Categories\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Categories Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"categories && categories.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Category Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let category of categories\">\n            <td>{{ category.id }}</td>\n            <td>{{ category.created_at | date:'medium' }}</td>\n            <td>{{ category.updated_at | date:'medium' }}</td>\n            <td>{{ category.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/category', category.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/category', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 756:
+/***/ 757:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!category\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Category Details\n</h4>\n\n<label *ngIf=\"category\">{{ id === '-1' ? 'New' : 'Edit' }} Category Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"categoryForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"category\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Category Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" formControlName=\"name\" value=\"{{ category.name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Description</label>\n                <div class=\"col-xs-6\">\n                    <textarea class=\"form-control\" rows=\"5\" formControlName=\"description\" value=\"{{ category.description }}\" required></textarea>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/categories\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteCategory(category.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 757:
+/***/ 758:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!fieldgroup || !fields\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Fieldgroup Details\n</h4>\n\n<label *ngIf=\"fieldgroup && fields\">{{ id === '-1' ? 'New' : 'Edit' }} Fieldgroup Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"fieldgroupForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"fieldgroup && fields\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Fieldgroup Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ fieldgroup.name }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">CSS Class</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"cssclass\" value=\"{{ fieldgroup.cssclass }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Fields</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" formControlName=\"selectedFields\" size=\"8\" required>\n                            <option *ngFor=\"let field of fields\" [value]=\"field.id\">{{ field.name }}</option>\n                    </select>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/fieldgroups\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteFieldgroup(fieldgroup.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 758:
+/***/ 759:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!fieldgroups\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Fieldgroups\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Fieldgroups Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"fieldgroups && fieldgroups.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let fieldgroup of fieldgroups\">\n            <td>{{ fieldgroup.id }}</td>\n            <td>{{ fieldgroup.created_at | date:'medium' }}</td>\n            <td>{{ fieldgroup.updated_at | date:'medium' }}</td>\n            <td>{{ fieldgroup.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/fieldgroup', fieldgroup.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/fieldgroup', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 759:
+/***/ 760:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!field\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Field Details\n</h4>\n\n<label *ngIf=\"field\">{{ id === '-1' ? 'New' : 'Edit' }} Field Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"fieldForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"field\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Field Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Key</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"key\" value=\"{{ field.key }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ field.name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">CSS Class</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"cssclass\" value=\"{{ field.cssclass }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Field Type</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"fieldtype_id\" [value]=\"field.fieldtype_id\" required>\n                            <option *ngFor=\"let fieldtype of fieldtypes\" [value]=\"fieldtype.id\">{{fieldtype.name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Values (comma separated)</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"values\" value=\"{{ field.values }}\">\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/fields\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteField(field.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 760:
+/***/ 761:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!fields\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Fields\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Fields Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"fields && fields.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let field of fields\">\n            <td>{{ field.id }}</td>\n            <td>{{ field.created_at | date:'medium' }}</td>\n            <td>{{ field.updated_at | date:'medium' }}</td>\n            <td>{{ field.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/field', field.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/field', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 761:
+/***/ 762:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!fieldtype\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Fieldtype Details\n</h4>\n\n<label *ngIf=\"fieldtype\">{{ id === '-1' ? 'New' : 'Edit' }} Fieldtype Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"fieldtypeForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"fieldtype\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Fieldtype Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ fieldtype.name }}\" required>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/fieldtypes\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteFieldtype(fieldtype.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 762:
+/***/ 763:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!fieldtypes\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Fieldtypes\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Fieldtypes Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"fieldtypes && fieldtypes.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let fieldtype of fieldtypes\">\n            <td>{{ fieldtype.id }}</td>\n            <td>{{ fieldtype.created_at | date:'medium' }}</td>\n            <td>{{ fieldtype.updated_at | date:'medium' }}</td>\n            <td>{{ fieldtype.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/fieldtype', fieldtype.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/fieldtype', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 763:
+/***/ 764:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!location\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Location Details\n</h4>\n\n<label *ngIf=\"location\">{{ id === '-1' ? 'New' : 'Edit' }} Location Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"locationForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"location\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Location Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Key</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"key\" value=\"{{ location.key }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ location.name }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Latitude</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" step=\"0.00000001\" class=\"form-control col-8\" formControlName=\"latitude\" value=\"{{ location.latitude }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Longitude</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" step=\"0.00000001\" class=\"form-control col-8\" formControlName=\"longitude\" value=\"{{ location.longitude }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Featured</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"checkbox\" formControlName=\"is_featured\" value=\"{{ location.is_featured }}\">\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/locations\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteLocation(location.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 764:
+/***/ 765:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!locations\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Locations\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Locations Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"locations && locations.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Latitude</th>\n            <th>Longitutde</th>\n            <th>Location Name</th>\n            <th>Featured</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let location of locations\">\n            <td>{{ location.id }}</td>\n            <td>{{ location.latitude }}</td>\n            <td>{{ location.longitude }}</td>\n            <td>{{ location.name }}</td>\n            <td *ngIf=\"location.is_featured\"><span class=\"glyphicon glyphicon-ok\"></span></td>\n            <td *ngIf=\"!location.is_featured\"></td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/location', location.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/location', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 765:
+/***/ 766:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3\">\n    <h2>TopDiTop Admin Login</h2>\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate>\n        <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\n            <label for=\"username\">Email</label>\n            <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required />\n            <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Email is required</div>\n        </div>\n        <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n            <label for=\"password\">Password</label>\n            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required />\n            <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n        </div>\n        <div class=\"form-group\">\n            <button [disabled]=\"loading\" class=\"btn btn-primary btn-block\">\n                <img *ngIf=\"loading\"  src=\"../../assets/loading.gif\"/>\n                Login <span class=\"glyphicon glyphicon-log-in\"></span></button>\n        </div>\n        <div *ngIf=\"error\" class=\"alert alert-danger\">{{error}}</div>\n    </form>\n</div>\n"
 
 /***/ }),
 
-/***/ 766:
+/***/ 767:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!manufacturer\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Manufacturer Details\n</h4>\n\n<label *ngIf=\"manufacturer\">{{ id === '-1' ? 'New' : 'Edit' }} Manufacturer Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"manufacturerForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"manufacturer\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Manufacturer Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" formControlName=\"name\" value=\"{{ manufacturer.name }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Image URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" id=\"image_url\" value=\"{{ manufacturer.image_url }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Featured</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"checkbox\" formControlName=\"featured\" value=\"{{ manufacturer.featured }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"image_url\" (change)=\"changeListener($event)\" />\n                </div>\n                <div class=\"col-xs-6\">\n                    <img class=\"img img-responsive\" [src]='manufacturer.image_url'>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/manufacturers\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteManufacturer(manufacturer.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 767:
+/***/ 768:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!manufacturers\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Manufacturers\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Manufacturers Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"manufacturers && manufacturers.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let manufacturer of manufacturers\">\n            <td>{{ manufacturer.id }}</td>\n            <td>{{ manufacturer.created_at | date:'medium' }}</td>\n            <td>{{ manufacturer.updated_at | date:'medium' }}</td>\n            <td>{{ manufacturer.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/manufacturer', manufacturer.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/manufacturer', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!pack || !panels\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Package Details\n</h4>\n\n<label *ngIf=\"pack && panels\">{{ id === '-1' ? 'New' : 'Edit' }} Package Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"packageForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"pack && panels\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Package Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ pack.name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Panels</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" formControlName=\"selectedPanels\" size=\"8\" required>\n                            <option *ngFor=\"let panel of panels\" [ngValue]=\"panel.id\">{{panel.key}}</option>\n                    </select>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/packages\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deletePackage(pack.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!packages\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Packages\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Packages Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"packages && packages.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let package of packages\">\n            <td>{{ package.id }}</td>\n            <td>{{ package.created_at | date:'medium' }}</td>\n            <td>{{ package.updated_at | date:'medium' }}</td>\n            <td>{{ package.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/package', package.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/package', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!panel\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Panel Details\n</h4>\n\n<label *ngIf=\"panel\">{{ id === '-1' ? 'New' : 'Edit' }} Panel Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"panelForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"panel\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Panel Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ panel.name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Key</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"key\" value=\"{{ panel.key }}\" required>\n                </div>\n            </div>\n\n            <div class=\"form-group\" formArrayName=\"selectedFieldGroups\">\n                <div class=\"col-xs-3 control-label\">\n                    <button type=\"button\" class=\"btn btn-primary\" (click)=\"addNewFieldGroup()\"><span class=\"glyphicon glyphicon-plus\"></span> add</button>\n                </div>\n                <div class=\"col-xs-6\">\n                    <div *ngFor=\"let selectedFieldGroup of panelForm.controls.selectedFieldGroups.controls; let i = index;\"\n                        [formGroupName]=\"i\">\n                        <select class=\"form-control col-8\" formControlName=\"id\">\n                        <option *ngFor=\"let fg of allFieldGroups\" [value]=\"fg.id\" >{{fg.name}}</option>\n                    </select>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"panel-footer\">\n        <a class=\"btn btn-default\" routerLink=\"/panels\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n        <div class=\"pull-right\">\n            <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n            <button type=\"button\" class=\"btn btn-danger\" (click)=\"deletePanel(panel.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n        </div>\n    </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!panels\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Panels\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Panels Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"panels && panels.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Key</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let panel of panels\">\n            <td>{{ panel.id }}</td>\n            <td>{{ panel.created_at | date:'medium' }}</td>\n            <td>{{ panel.updated_at | date:'medium' }}</td>\n            <td>{{ panel.key }}</td>\n            <td>{{ panel.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/panel', panel.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/panel', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 772:
+/***/ 773:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!product || !allCategories || !allReferences || !manufacturers\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Product Details\n</h4>\n\n<label *ngIf=\"product && allCategories && allReferences && manufacturers\">{{ id === '-1' ? 'New' : 'Edit' }} product Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"product && allCategories && allReferences && manufacturers\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Product Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Title</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"title\" value=\"{{ product.title }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Description</label>\n                <div class=\"col-xs-6\">\n                    <textarea class=\"form-control\" rows=\"8\" formControlName=\"description\" value=\"{{ product.description }}\" required></textarea>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Price</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\"  min=\"0\" class=\"form-control col-8\" formControlName=\"price\" value=\"{{ product.price }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Store</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"store_id\" required>\n                            <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{ store.store_name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">References</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" formControlName=\"selectedReferences\" size=\"8\" required>\n                            <option *ngFor=\"let reference of allReferences\" [ngValue]=\"reference.id\">{{ reference.title }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Categories</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" formControlName=\"selectedCategories\" size=\"8\" required>\n                            <option *ngFor=\"let category of allCategories\" [ngValue]=\"category.id\">{{ category.name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Manufacturer</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"manufacturer_id\" required>\n                            <option *ngFor=\"let manufacturer of manufacturers\" [value]=\"manufacturer.id\">{{ manufacturer.name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Add Image +</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"image_url\" (change)=\"changeListener($event)\" />\n                </div>\n            </div>\n            <div class=\"col-xs-offset-3 col-xs-6\" *ngFor=\"let photo of newImages\">\n                <img class=\"img img-responsive\"  [src]='photo'>\n            </div>\n            <div class=\"form-group\">\n                <div class=\"col-xs-offset-3 col-xs-6\" *ngFor=\"let image of myImages; let i=index;\">\n                    <img class=\"img img-responsive\" [src]='image.url'>\n                    <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"deleteImage(image.id, i)\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> remove</button>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/products\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteProduct(product.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 773:
+/***/ 774:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!products\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Products\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Product Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"products && products.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Store ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Title</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let product of products\">\n            <td>{{ product.id }}</td>\n            <td>{{ product.store_id }}</td>\n            <td>{{ product.created_at | date:'medium' }}</td>\n            <td>{{ product.updated_at | date:'medium' }}</td>\n            <td>{{ product.title }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/product', product.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/product', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 774:
+/***/ 775:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!reference || !allProducts ||  !allManufacturers\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Reference Details\n</h4>\n\n<label *ngIf=\"reference && allProducts && allManufacturers\">{{ id === '-1' ? 'New' : 'Edit' }} reference Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"referenceForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"reference && allProducts && allManufacturers\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Reference Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Title</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"title\" value=\"{{ reference.title }}\" required>\n                </div>\n            </div>\n           <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Description</label>\n                <div class=\"col-xs-6\">\n                    <textarea class=\"form-control\" rows=\"8\" formControlName=\"description\" value=\"{{ reference.description }}\" required></textarea>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Video</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"video\" value=\"{{ reference.video }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Store</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"store_id\" required>\n                            <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{ store.store_name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Products</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" formControlName=\"selectedProducts\" size=\"8\" required>\n                            <option *ngFor=\"let product of allProducts\" [ngValue]=\"product.id\">{{ product.title }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Manufacturers</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" formControlName=\"selectedManufacturers\" size=\"8\" required>\n                            <option *ngFor=\"let manufacturer of allManufacturers\" [ngValue]=\"manufacturer.id\">{{ manufacturer.name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Add Image +</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"image_url\" (change)=\"changeListener($event)\"\n                    />\n                </div>\n            </div>\n            <div class=\"col-xs-offset-3 col-xs-6\" *ngFor=\"let photo of newImages\">\n                <img class=\"img img-responsive\"  [src]='photo'>\n            </div>\n            <div class=\"form-group\">\n                <div class=\"col-xs-offset-3 col-xs-6\" *ngFor=\"let image of myImages; let i=index;\">\n                    <img  class=\"img img-responsive\" [src]=\"image.url\">\n                    <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"deleteImage(image.id, i)\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> remove</button>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/references\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteReference(reference.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 775:
+/***/ 776:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!references\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading References\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Reference Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"references && references.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Store ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Title</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let reference of references\">\n            <td>{{ reference.id }}</td>\n            <td>{{ reference.store_id }}</td>\n            <td>{{ reference.created_at | date:'medium' }}</td>\n            <td>{{ reference.updated_at | date:'medium' }}</td>\n            <td>{{ reference.title }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/reference', reference.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/reference', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 776:
+/***/ 777:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!registerfield\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Registerfield Details\n</h4>\n\n<label *ngIf=\"registerfield\">{{ id === '-1' ? 'New' : 'Edit' }} Registerfield Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"registerfieldForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"registerfield\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Registerfield Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Key</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"key\" value=\"{{ registerfield.key }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"name\" value=\"{{ registerfield.name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Location</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"location\" [value]=\"registerfield.fieldlocation\" required>\n                            <option>Firma</option>\n                            <option>Ansprechpartner</option>\n                            <option>Service</option>\n                            <option>Not selected</option>\n                    </select>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/registerfields\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteRegisterfield(registerfield.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 777:
+/***/ 778:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!registerfields\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Registerfields\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Registerfields Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"registerfields && registerfields.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let registerfield of registerfields\">\n            <td>{{ registerfield.id }}</td>\n            <td>{{ registerfield.created_at | date:'medium' }}</td>\n            <td>{{ registerfield.updated_at | date:'medium' }}</td>\n            <td>{{ registerfield.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/registerfield', registerfield.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/registerfield', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 778:
+/***/ 779:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!slide\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Slide\n</h4>\n\n<label *ngIf=\"slide\">{{ id === '-1' ? 'New' : 'Edit' }} Slide Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"slideForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"slide\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Slide Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Title</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" formControlName=\"title\" value=\"{{ slide.title }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Image URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" value=\"{{ slide.image_url }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 1 Store ID</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control\" formControlName=\"slot1_store_id\" [value]=\"slide.slot1_store_id\">\n                        <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{store.store_name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 1 Width (%)</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" min=\"0\" max=\"100\" class=\"form-control\" formControlName=\"slot1_width\" value=\"{{ slide.slot1_width }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 1 Expiration Date</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"date\" class=\"form-control\" formControlName=\"slot1_valid_until\" value=\"{{ slide.slot1_valid_until }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 2 Store ID</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control\" formControlName=\"slot2_store_id\" [value]=\"slide.slot2_store_id\">\n                        <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{store.store_name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 2 Width (%)</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" min=\"0\" max=\"100\" class=\"form-control\" formControlName=\"slot2_width\" value=\"{{ slide.slot2_width }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 2 Expiration Date</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"date\" class=\"form-control\" formControlName=\"slot2_valid_until\" value=\"{{ slide.slot2_valid_until }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 3 Store ID</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control\" formControlName=\"slot3_store_id\" [value]=\"slide.slot3_store_id\">\n                        <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{store.store_name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 3 Width (%)</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" min=\"0\" max=\"100\" class=\"form-control\" formControlName=\"slot3_width\" value=\"{{ slide.slot3_width }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 3 Expiration Date</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"date\" class=\"form-control\" formControlName=\"slot3_valid_until\" value=\"{{ slide.slot3_valid_until }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 4 Store ID</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control\" formControlName=\"slot4_store_id\" [value]=\"slide.slot4_store_id\">\n                        <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{store.store_name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 4 Width (%)</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" min=\"0\" max=\"100\" class=\"form-control\" formControlName=\"slot4_width\" value=\"{{ slide.slot4_width }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 4 Expiration Date</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"date\" class=\"form-control\" formControlName=\"slot4_valid_until\" value=\"{{ slide.slot4_valid_until }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 5 Store ID</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control\" formControlName=\"slot5_store_id\" [value]=\"slide.slot5_store_id\">\n                        <option *ngFor=\"let store of stores\" [value]=\"store.id\">{{store.store_name}}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 5 Width (%)</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"number\" min=\"0\" max=\"100\" class=\"form-control\" formControlName=\"slot5_width\" value=\"{{ slide.slot5_width }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Slot 5 Expiration Date</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"date\" class=\"form-control\" formControlName=\"slot5_valid_until\" value=\"{{ slide.slot5_valid_until }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"image_url\" (change)=\"changeListener($event)\" />\n                </div>\n            </div>\n            <div class=\"col-xs-offset-3 col-xs-6\">\n                <img class=\"img img-responsive\" [src]='slide.image_url'>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/slides\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteSlide(slide.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 779:
+/***/ 780:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!slides\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Slides\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Slide Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"slides && slides.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Slide Title</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let slide of slides\">\n            <td>{{ slide.id }}</td>\n            <td>{{ slide.created_at | date:'medium' }}</td>\n            <td>{{ slide.updated_at | date:'medium' }}</td>\n            <td>{{ slide.title }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/slide', slide.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/slide', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 780:
+/***/ 781:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!packages || !locations\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Store Details\n</h4>\n\n<form class=\"form-horizontal\" [formGroup]=\"storeForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"storeForm && packages && locations\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Store Details\n        </div>\n        <div class=\"panel-body\">\n\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">User Email</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"email\" class=\"form-control col-8\" formControlName=\"email\" value=\"{{ email }}\" required>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Store Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"company\" value=\"{{ company }}\" required>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Location</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"location_id\" required>\n                        <option *ngFor=\"let location of locations\" [value]=\"location.id\">{{ location.name }}</option>\n                    </select>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Packages</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"package_id\" required>\n                        <option *ngFor=\"let package of packages\" [value]=\"package.id\">{{ package.name }}</option>\n                    </select>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/stores\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 781:
+/***/ 782:
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"text-center\" *ngIf=\"!store || !locations\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Store Details\n</h4>\n\n<label *ngIf=\"store\">Edit Store Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"storeForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"store && locations\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Store Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">User ID</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\"  value=\"{{ store.user_id }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">User Email</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"email\" class=\"form-control col-8\" formControlName=\"email\" value=\"{{ store.user_email }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Package</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" value=\"{{ store.package_name }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Store Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"store\" value=\"{{ store.store_name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Status</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"status\" [value]=\"store.status\" required>                \n                            <option [value]=\"1\">Yes</option>\n                            <option [value]=\"0\">No</option>\n                    </select>\n                </div>\n            </div>\n            <!--<div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Category</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" required>\n                            <option  [value]=\"0\">Default Category</option>\n                            <option  [value]=\"1\">Living room furniture</option>\n                            <option  [value]=\"2\">Bedroom furniture</option>\n                            <option  [value]=\"3\">Another Category</option>\n                    </select>\n                </div>\n            </div>-->\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Location</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"location\" required>\n                            <option *ngFor=\"let location of locations\" [value]=\"location.id\">{{ location.name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\"> Fields and values</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" size=\"8\">\n                            <option *ngFor=\"let registerfield of store.user.registerfields\" [ngValue]=\"registerfield.id\">{{ registerfield.name }} = {{ registerfield.pivot.valueEntered }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\"> Select Image</label>\n                <input class=\"col-xs-6\" type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"filename_reference_image_url\" (change)=\"changeListener($event)\"\n                />\n            </div>\n            <div class=\"col-xs-offset-3 col-xs-6\">\n                <img class=\"img img-responsive\" [src]='store.cover_url'>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/stores\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteStore(store.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
+module.exports = "<h4 class=\"text-center\" *ngIf=\"!store || !locations\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Store Details\n</h4>\n\n<label *ngIf=\"store\">Edit Store Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"storeForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"store && locations\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Store Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">User ID</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\"  value=\"{{ store.user_id }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">User Email</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"email\" class=\"form-control col-8\" formControlName=\"email\" value=\"{{ store.user_email }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\" *ngIf=\"!upgradedPackageName && store.package_name === 'Light Store'\">\n                <label class=\"col-xs-3 control-label\">Package Upgrade</label>\n                <div class=\"col-xs-6 package-buttons\">\n                    <div class=\"alert alert-warning\">\n                        This is Light Store. Clicking on a package to upgrade it <strong>instantly</strong>.\n                    </div>\n                    <button class=\"btn\" type=\"button\"\n                       *ngFor=\"let package of paidPackages\"\n                       (click)=\"upgrade(package)\"\n                       [disabled]=\"upgrading\"\n                       [ngClass]=\"package === store.package_name ? 'btn-default' : 'btn-primary'\">\n                        {{package}}\n                        <span *ngIf=\"package === 'Light Store'\">(current)</span>\n                    </button>\n                </div>\n            </div>\n            <div class=\"form-group\" *ngIf=\"upgradedPackageName || store.package_name !== 'Light Store'\">\n                <label class=\"col-xs-3 control-label\">Package</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" value=\"{{ upgradedPackageName || store.package_name }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Store Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control col-8\" formControlName=\"store\" value=\"{{ store.store_name }}\" required>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Status</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"status\" [value]=\"store.status\" required>                \n                            <option [value]=\"1\">Yes</option>\n                            <option [value]=\"0\">No</option>\n                    </select>\n                </div>\n            </div>\n            <!--<div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Category</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" required>\n                            <option  [value]=\"0\">Default Category</option>\n                            <option  [value]=\"1\">Living room furniture</option>\n                            <option  [value]=\"2\">Bedroom furniture</option>\n                            <option  [value]=\"3\">Another Category</option>\n                    </select>\n                </div>\n            </div>-->\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Location</label>\n                <div class=\"col-xs-6\">\n                    <select class=\"form-control col-8\" formControlName=\"location\" required>\n                            <option *ngFor=\"let location of locations\" [value]=\"location.id\">{{ location.name }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\"> Fields and values</label>\n                <div class=\"col-xs-6\">\n                    <select multiple class=\"form-control col-8\" size=\"8\">\n                            <option *ngFor=\"let registerfield of store.user.registerfields\" [ngValue]=\"registerfield.id\">{{ registerfield.name }} = {{ registerfield.pivot.valueEntered }}</option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\"> Select Image</label>\n                <input class=\"col-xs-6\" type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"filename_reference_image_url\" (change)=\"changeListener($event)\"\n                />\n            </div>\n            <div class=\"col-xs-offset-3 col-xs-6\">\n                <img class=\"img img-responsive\" [src]='store.cover_url'>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/stores\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteStore(store.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ 782:
+/***/ 783:
 /***/ (function(module, exports) {
 
 module.exports = "<h4 class=\"text-center\" *ngIf=\"!stores\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Stores\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Activate Stores\n  </div>\n  <div class=\"panel-body\" *ngIf=\"stores && stores.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped \">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>User Email</th>\n            <th>Package</th>\n            <th>Status</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let store of stores\">\n            <td>{{ store.id }}</td>\n            <td>{{ store.created_at | date:'medium' }}</td>\n            <td>{{ store.updated_at | date:'medium' }}</td>\n            <td>{{ store.user_email }}</td>\n            <td>{{ store.package_name }}</td>\n            <td>{{ store.status ? 'Confirmed' : 'Not confirmed'}}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/store', store.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/store/create']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
@@ -4779,6 +4822,11 @@ var ApiStoreService = (function () {
             .map(function (res) { return res.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
     };
+    ApiStoreService.prototype.upgrade = function (id, packageName) {
+        return this.http.post(this.apiUrl + id + '/upgrade', { package_name: packageName })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
     ApiStoreService.prototype.create = function (data) {
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
@@ -4809,5 +4857,5 @@ var ApiStoreService = (function () {
 
 /***/ })
 
-},[1048]);
+},[1049]);
 //# sourceMappingURL=main.bundle.js.map
