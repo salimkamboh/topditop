@@ -34,6 +34,10 @@
   }
 }
 
+.package-buttons > .btn {
+    margin-right: 8px;
+}
+
 .panel {
   border-color: #af865c;
 }

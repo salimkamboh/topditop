@@ -33,6 +33,12 @@ export class ApiStoreService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    upgrade(id: number, packageName: string): Observable<Object> {
+        return this.http.post(this.apiUrl + id + '/upgrade', { package_name: packageName })
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     create(data: Object): Observable<Object> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
