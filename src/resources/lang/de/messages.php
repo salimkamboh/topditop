@@ -32,7 +32,7 @@ return [
     'best_deals' => 'Verpassen Sie nicht unsere TopDiTop-News',
     'save_money_best_deals' => 'Bleiben Sie informiert über die neuesten und spannendsten Projekte unserer TopDiTop Stores',
     'subscribe' => 'Zum Newsletter anmelden',
-    'month_products' => 'Unsere Dezember Produktauswahl',
+    'month_products' => 'Unsere Produkt Highlights',
     'all_products' => 'Alle Produkte',
     'share' => 'Teilen',
     'scene' => 'Impression',

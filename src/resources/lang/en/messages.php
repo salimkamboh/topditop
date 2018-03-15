@@ -32,7 +32,7 @@ return [
     'best_deals' => 'Don\'t miss the best deals',
     'save_money_best_deals' => 'Be the first to hear about new products and offers. Save money with best deals.',
     'subscribe' => 'Subscribe to our newsletter',
-    'month_products' => 'Our December Product Selection',
+    'month_products' => 'Our Product Highlights',
     'all_products' => 'View all products',
     'share' => 'Share',
     'scene' => 'scenes',

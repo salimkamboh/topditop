@@ -22,10 +22,26 @@
                     <input type="email" class="form-control col-8" formControlName="email" value="{{ store.user_email }}" required>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="!upgradedPackageName && store.package_name === 'Light Store'">
+                <label class="col-xs-3 control-label">Package Upgrade</label>
+                <div class="col-xs-6 package-buttons">
+                    <div class="alert alert-warning">
+                        This is Light Store. Clicking on a package to upgrade it <strong>instantly</strong>.
+                    </div>
+                    <button class="btn" type="button"
+                       *ngFor="let package of paidPackages"
+                       (click)="upgrade(package)"
+                       [disabled]="upgrading"
+                       [ngClass]="package === store.package_name ? 'btn-default' : 'btn-primary'">
+                        {{package}}
+                        <span *ngIf="package === 'Light Store'">(current)</span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group" *ngIf="upgradedPackageName || store.package_name !== 'Light Store'">
                 <label class="col-xs-3 control-label">Package</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control col-8" value="{{ store.package_name }}" disabled>
+                    <input type="text" class="form-control col-8" value="{{ upgradedPackageName || store.package_name }}" disabled>
                 </div>
             </div>
             <div class="form-group">

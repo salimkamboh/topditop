@@ -5,6 +5,9 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
+    "build": "ng build --bh /admin/",
+    "build:staging": "ng build --env=staging --bh /admin/",
+    "build:prod": "ng build --env=prod --bh /admin/",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
