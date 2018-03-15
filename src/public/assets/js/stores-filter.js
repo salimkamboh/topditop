@@ -81,34 +81,34 @@ function performFilter() {
         _token: $("[name='_token']").val()
     };
 
-    function callBackFunction(context, response) {
-        storeList = response;
+    function callBackFunction(context, stores) {
         var html = '';
-        $.each(storeList, function (index, item) {
-            if (item.image != null)
-                var imageUrl = item.image.url;
-            else {
-                var imageUrl = '';
+        for (var i = 0; i < stores.length; i++) {
+            var store = stores[i];
+            var imageUrl = '/assets/img/topditop-missing-logo-image-xs.jpg';
+
+            if (store.image !== null) {
+                imageUrl = store.image.url;
             }
 
             html += '<div class="col-md-6">' +
-                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.id + '" class="single-item item-shadow">' +
+                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + store.id + '" class="single-item item-shadow">' +
                 '<div class="store-image-holder"><img class="img-responsive" src="' + imageUrl + '"></div>' +
                 '<div class="item-info show-info">' +
                 '<div class="item-info-top clearfix">' +
-                '<span class="title">' + item.store_name + '</span>' +
-                '<span class="number-of pull-left">(' + item.numberReferences + ' ' + item.scenes + ')</span>' +
+                '<span class="title">' + store.store_name + '</span>' +
+                '<span class="number-of pull-left">(' + store.numberReferences + ' ' + store.scenes + ')</span>' +
                 '</div>' +
                 '<div class="item-info-bottom">' +
-                '<i class="fa fa-map-marker brown-color"></i><span>' + item.location.name + '</span>' +
-                '<i class="fa fa-tag brown-color"></i><span>One stop shop for: ' + item.oneStopShop.join(", ") + '</span>' +
+                '<i class="fa fa-map-marker brown-color"></i><span>' + store.location.name + '</span>' +
+                '<i class="fa fa-tag brown-color"></i><span>One stop shop for: ' + store.oneStopShop.join(", ") + '</span>' +
                 '</div>' +
                 '</div>' +
                 '</a>' +
                 '</div>'
-        });
+        }
 
-        $(".list-all-stores").empty().append(html);
+        $(".list-all-stores").html(html);
     }
 
     connector.getData("POST", $("form.filter-multi").attr("action"), "json", dataToSend, callBackFunction, "");
