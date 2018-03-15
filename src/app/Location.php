@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Location featured()
  * @method static \Illuminate\Database\Query\Builder|\App\Location listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Location notTranslatedIn($locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Location popular()
  * @method static \Illuminate\Database\Query\Builder|\App\Location translated()
  * @method static \Illuminate\Database\Query\Builder|\App\Location translatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Location whereCreatedAt($value)

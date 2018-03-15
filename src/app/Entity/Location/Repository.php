@@ -101,7 +101,7 @@ class Repository
      */
     public function listEnhancedLocations()
     {
-        $locations = Location::with(['stores.profile.fields', 'translations'])->withCount('stores')->has('stores', '>=', 10)->get();
+        $locations = Location::with(['stores.profile.fields', 'stores.image', 'translations'])->withCount('stores')->has('stores', '>=', 10)->get();
 
         $list = [];
 
