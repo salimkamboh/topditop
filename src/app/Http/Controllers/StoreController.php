@@ -13,6 +13,7 @@ use App\Product;
 use App\Profile;
 use App\Reference;
 use App\Services\ImportService;
+use App\Services\PackageService;
 use App\Store;
 use App\User;
 use Illuminate\Http\Request;
@@ -386,10 +387,11 @@ class StoreController extends BaseController
      */
     public function viewAll()
     {
-        $stores = Store::with('user')->get();
+        $stores = Store::with('user', 'profile.package')->get();
 
         foreach ($stores as $store) {
             $store->user_email = $store->user->email;
+            $store->package_name = $store->profile->package->name;
         }
 
         return $stores;
@@ -403,6 +405,29 @@ class StoreController extends BaseController
         return response()->json([
             'error' => 'failed to delete store ' . $store->id,
         ]);
+    }
+
+    public function upgrade($id, Request $request, PackageService $packageService)
+    {
+        $store = Store::findOrFail($id);
+
+        if (!$store->isLight()) {
+            return response()->json([
+                'error' => 'Store must be Light Store',
+            ]);
+        }
+
+        $package = Package::whereName($request->get('package_name'))->firstOrFail();
+
+        try {
+            $upgradedStore = $packageService->upgrade($store, $package);
+
+            return $upgradedStore;
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage(),
+            ]);
+        }
     }
 
     public function upgradePackage($entity)

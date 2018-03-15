@@ -7,6 +7,7 @@ import { Location } from '../data/location';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
+import {Packages} from "../packages/Packages";
 
 @Component({
     selector: 'app-store-detail',
@@ -22,6 +23,11 @@ export class StoreDetailComponent implements OnInit {
     private storeForm: FormGroup;
     private base64: string;
     private dirty: boolean = false;
+
+    public upgrading: boolean = false;
+    public paidPackages: string[] = Packages.paid();
+    public packages: Packages = new Packages();
+    private upgradedPackageName: string = null;
 
     constructor(
         private apiStoreService: ApiStoreService,
@@ -40,6 +46,23 @@ export class StoreDetailComponent implements OnInit {
     onSubmit() {
         this.disabled = true;
         this.updateStore(this.id);
+    }
+
+    upgrade(packageName: string) {
+        this.upgrading = true;
+        this.apiStoreService.upgrade(this.id, packageName)
+            .subscribe(
+                () => {
+                    this.upgradedPackageName = packageName;
+                    this.toasterService.pop('success', 'Upgraded package');
+                },
+                () => {
+                    this.toasterService.pop('error', 'Failed to upgrade package');
+                },
+                () => {
+                    this.upgrading = false;
+                },
+            )
     }
 
     updateStore(id: number) {
