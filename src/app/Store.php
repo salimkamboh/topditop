@@ -128,7 +128,7 @@ class Store extends Model
         if (!empty($this->image))
             return $this->image->getImageUrl();
         else
-            return '';
+            return asset('assets/img/topditop-missing-logo-image-xs.jpg');
     }
 
     public function getStoreCoverImage()
