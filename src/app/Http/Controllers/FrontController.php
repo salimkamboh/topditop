@@ -221,7 +221,7 @@ class FrontController extends BaseController
 
         $products = Product::all();
         $stores = Store::active()->with('references', 'location', 'profile.fields')->get();
-        $manufacturers = Manufacturer::with('references')->orderBy('name', 'asc')->get();
+        $manufacturers = Manufacturer::with('references', 'stores')->orderBy('name', 'asc')->get();
         $filter_locations = $this->locationRepository->getAndCountLocationsWithActiveStores();
 
         return view('front.stores.list')
