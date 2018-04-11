@@ -111,24 +111,26 @@ class StoresFilter implements FilterHelper
         $searchObject = $request->searchObject;
         $brandParams = $searchObject[$brandKey];
 
-        $store_ids = array();
-        foreach ($brandParams as $brandParam) {
-            /** @var Manufacturer $manufacturer */
-            $manufacturer = Manufacturer::find($brandParam);//->get();
-            $references = $manufacturer->references()->get();
+        $store_ids = [];
 
-            foreach ($references as $reference) {
-                $store = $reference->store;
-                if (!in_array($store->id, $store_ids)) {
-                    $store_ids[] = $store->id;
-                }
+        $manufacturers = Manufacturer::whereIn('id', $brandParams)->with('stores')->get();
+
+        foreach ($manufacturers as $manufacturer) {
+            foreach ($manufacturer->stores as $store) {
+                $store_ids []= $store->id;
             }
         }
-        $stores = Store::active()->whereIn('id', $store_ids)->with('image')->get();
+
+        $uniqueStoreIds = array_unique($store_ids);
+
+        $stores = Store::active()->whereIn('id', $uniqueStoreIds)->with('image', 'references')->get();
+
         foreach ($stores as $store) {
-            $store = $this->buildReturnObject($store);
-            if (!$collection->contains($store))
-                $collection->add($store);
+            $item = $this->buildReturnObject($store);
+
+            if (!$collection->contains($item)) {
+                $collection->add($item);
+            }
         }
         return $collection;
     }

@@ -28,7 +28,7 @@
                     @foreach($manufacturers as $manufacturer)
                         <div class="item"
                              data-value="{{$manufacturer->id}}">{{$manufacturer->name}}
-                            <span>({{ count($manufacturer->references) }})</span>
+                            <span>({{ count($manufacturer->stores) }})</span>
                             </div>
                     @endforeach
                 </div>
