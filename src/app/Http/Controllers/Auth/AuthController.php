@@ -151,9 +151,9 @@ class AuthController extends BaseController
                 "confirmation_code" => $this->confirmation_code
             );
 
-            Mail::send('emails.mailtest', $emailData, function ($message) use ($request) {
+            Mail::send('emails.verify', $emailData, function ($message) use ($request) {
                 $message->to($request->email, $request->name)
-                    ->subject('Verify your email address');
+                    ->subject('Verifizierung Ihrer Email Addresse');
             });
         } catch (\Swift_TransportException $e) {
             $response = $e->getMessage();
