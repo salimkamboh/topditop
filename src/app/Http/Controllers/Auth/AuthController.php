@@ -197,15 +197,15 @@ class AuthController extends BaseController
     {
 
         if ($request->term_acceptance_1 != '1') {
-            return back()->with('fail', 'Please accept the terms of use.');
+            return back()->with('fail', trans('messages.register_error_terms'));
         }
 
         if ($request->confirm_field_service != 'on') {
-            return back()->with('fail', 'Please accept the payment conditions.');
+            return back()->with('fail', trans('messages.register_error_payment'));
         }
 
         if ($request->bondtype == '') {
-            return back()->with('fail', 'Please choose the service type.');
+            return back()->with('fail', trans('messages.register_error_bondtype'));
         }
 
         $user->bond_type = $request->bondtype;
