@@ -40,14 +40,7 @@
                             TopDiTop-Home fördert den Austausch vom designhandel, Projektentwickler, Architekten und
                             Konsumenten mit dem Ziel das Premiumbewußtsein der Wohnkultur auch im Markt effektiv zu
                             verstärken.</p>
-
-                        <div class="checkbox">
-                            <input type="checkbox" id="confirm-field" class="term_acceptance_1_" name="confirm-field">
-                            <label for="confirm-field">
-                                Ja, Ich möchte mich in der Welt von TopDiTop-Home einmieten. Dei allgemeinen
-                                Geschäftsbedingungen habe ich durchgelesen und erkläre mich damit einverstanden.
-                            </label>
-                        </div>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -462,10 +455,23 @@
                 </div>
             </div>
 
+            <br>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="checkbox">
+                        <input type="checkbox" id="confirm-field" class="term_acceptance_1_" name="confirm-field">
+                        <label for="confirm-field">
+                            Ja, Ich möchte mich in der Welt von TopDiTop-Home einmieten. Dei allgemeinen
+                            Geschäftsbedingungen habe ich durchgelesen und erkläre mich damit einverstanden.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-9 col-sm-push-3 special-radios">
                     <div>
-                        <input type="radio" id="radio01" name="radio" value="2years">
+                        <input type="radio" id="radio01" name="radio" value="2years" checked>
                         <label for="radio01"><span></span>Bei Bindung auf 2 Jahre erste zwei Monate mietfrei.</label>
                     </div>
 
