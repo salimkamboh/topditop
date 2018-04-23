@@ -30,17 +30,16 @@
                 <div class="checkbox">
                     <input type="checkbox" id="confirm_field" name="confirm_field">
                     <label for="confirm_field">
-                        Qualitätszeugnis: Ich erkläre hiermit ausdrücklich in meninem Store real und digital
-                        ausschliesslich Premium-Produkte und Originale anzubieten. Es handelt Designer-Erzeugnisse oder
-                        Produkte aus
-                        Designmanufakturen, die patentrechtlich geschützt sind. Als TopDiTop-Partner darf ich das
-                        Markenzeichen von TopDiTop, das für den absoluten Premium-Designhandel steht, in
-                        meiner Kommunikation führen.
-                        Den Handel mit Kopien oder minderwertiger Ware, die in Diskontkaufhäusern angeboten wird,
-                        kann ich ausschließen. Andernfalls ist mir bewusst, dass ich mit sofortiger Wirkung von
-                        TopDiTop-Home ausgeschlossen werde und das Markenzeichen von TopDiTop in keiner Weise mehr
-                        nützen darf. Das Mietverhältnis kann spätestens drei Monate vor Ablauf der Frist gekündigt
-                        werden, andernfalls verlängert sich das Mietverhältnis um ein weiteres Jahr.
+                        Qualitätszeugnis: Ich erkläre hiermit ausdrücklich in meinem Store real und digital
+                        ausschließlich Premium- Produkte und Originale anzubieten. Es handelt sich dabei um
+                        Designer-Erzeugnisse oder Produkte aus Designmanufakturen, die patentrechtlich geschützt
+                        sind. Als TopDiTop – Partner darf ich das Markenzeichen von TopDiTop, das für den absoluten
+                        Premium-Designhandel steht, in meiner Kommunikation führen. Den Handel mit Kopien oder
+                        minderwertiger Ware, die in Discount Kaufhäusern angeboten wird, kann ich ausschließen.
+                        Andernfalls ist es mir bewusst, dass ich mit sofortiger Wirkung von TopDiTop-Home
+                        ausgeschlossen werde und das Markenzeichen von TopDiTop in keiner Weise mehr nutzen darf.
+                        Das Mietverhältnis kann spätestens drei Monate vor Ablauf der Frist gekündigt werden,
+                        andernfalls verlängert sich das Mietverhältnis um ein weiteres Jahr.
                     </label>
                 </div>
                 {{csrf_field()}}
