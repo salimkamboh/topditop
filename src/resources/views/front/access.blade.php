@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('assets/css/lib/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/front.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') . '?v=' . date("Y-m-d") }}">
     <link rel="stylesheet" href="{{ asset('assets/css/access.css') }}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
