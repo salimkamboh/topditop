@@ -52,6 +52,7 @@ Route::localizedGroup(function () {
         Route::get('/stores/', ['as' => 'front_stores', 'uses' => 'FrontController@showStores']);
         Route::get('/contact', ['as' => 'front_contact_page', 'uses' => 'HomeController@contactPage']);
         Route::get('/terms', ['as' => 'front_terms_page', 'uses' => 'HomeController@termsPage']);
+        Route::get('/privacy', ['as' => 'front_privacy_page', 'uses' => 'HomeController@privacyPage']);
         Route::get('/single-advertisement', ['as' => 'single_advertisement', 'uses' => 'HomeController@advertisementPage']);
         Route::get('/ad/{advert}', ['as' => 'single_advertisement_view', 'uses' => 'HomeController@advertisementShow']);
     });
