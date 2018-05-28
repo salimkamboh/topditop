@@ -4,204 +4,260 @@
 
 @stop
 
-@section("pageTitle") Privacy policy @stop
+@section("pageTitle")
+    Datenschutz
+@stop
 
 @section('content')
+<section id="terms-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3>Datenschutz</h3>
+                <p>
+                    Die Webseite <a href="https://www.topditop.com/" target="_blank">www.topditop.com</a> ist das
+                    Internet-Angebot der IQ Verlags GmbH. Ihre Privatsphäre und der Schutz Ihrer Daten ist
+                    uns sehr wichtig. Wir speichern nur jene Daten, die Sie uns mit Zustimmung überlassen und
+                    wir verwenden diese ausschließlich für jene Zwecke, die Ihnen bekannt sind. Sehr gerne geben
+                    wir Ihnen hier jederzeit Auskunft. Selbstverständlich werden die gesetzlichen Bestimmungen
+                    zum Datenschutz strikt eingehalten.
+                </p>
+                <p>
+                    Personenbezogene Daten werden von uns nur gemäß diesen Bestimmungen erhoben und verarbeitet. Die
+                    nachfolgenden Vorschriften informieren Sie über Art, Umfang und Zweck der Erhebung, Verarbeitung
+                    und Nutzung personenbezogener Daten und konkretisieren den sicheren Umgang mit Ihren Daten.
+                </p>
+                <p>
+                    Diese Datenschutzerklärung bezieht sich auf unsere Webseite
+                    <a href="https://www.topditop.com/" target="_blank">www.topditop.com</a>. Falls Sie über Links auf andere
+                    Seiten weitergeleitet werden, bitten wir Sie sich bei diesen Webseiten über den jeweiligen
+                    Umgang mit Ihren Daten, die der Betreiber erhebt, zu informieren.
+                </p>
 
-    <section id="privacy-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <h2>Allgemeine Geschäftsbedingungen</h2>
+                <h3>Definition „personenbezogene Daten“</h3>
+                <p>
+                    Personenbezogene Daten sind alle Informationen über persönliche oder sachliche Verhältnisse einer
+                    bestimmten oder bestimmbaren natürlichen Person. D.h., es handelt sich um Informationen, die
+                    direkt mit Ihrer wirklichen Identität in Verbindung gebracht werden, wie Ihr richtiger Name,
+                    Adresse, Postanschrift, Telefonnummer, Geschlecht, gegebenfalls Alter. 
+                </p>
+                <p>
+                    Sämtliche Daten, die nicht einer Person zugeordnet werden können wie Statistiken über
+                    Nutzerverhalten (wie z.B. anonymisierte IP-Adressen) sind davon nicht betroffen.
+                </p>
 
+                <h3>Erhebung, Verarbeitung und Nutzung und Weitergabe an Dritte Ihrer personenbezogener Daten</h3>
+                <p>
+                    Sie können unsere Seite besuchen und anonym bleiben. Es ist nicht nötig Angaben zu Ihrer Person
+                    zu machen. Ein Rückschluss auf Ihre Person ist nicht möglich.
+                </p>
+                <p>
+                    Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit uns aufnehmen, werden Ihre
+                    angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns
+                    gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+                </p>
+                <p>
+                    Personenbezogene Daten werden nur erhoben, wenn Sie uns diese freiwillig mitteilen. Ihre
+                    Einwilligung wird abgefragt und liegt dann vor.
+                </p>
+                <p>
+                    Im Fall Ihrer Bestellung eines Abonnements  werden zum Zweck der Vertragsabwicklung folgende Daten
+                    bei uns gespeichert: [Anrede, Name, Vorname, (Rechnungs-)Anschrift, Alter, Geschlecht, Zahlungsart,
+                    Bankverbindung und E-Mail-Adresse, sowie weitere für das Abonnement-spezifische Daten (bspw.
+                    Abo-Art, Lieferbeginn)]. Die von Ihnen bereit gestellten Daten sind zur Vertragserfüllung bzw
+                    zur Durchführung vorvertraglicher Maßnahmen erforderlich. Ohne diese Daten können wir den Vertrag
+                    mit Ihnen nicht abschließen. Eine Datenübermittlung an Dritte erfolgt nur soweit das zum Zweck
+                    der Vertragsabwicklung oder zu Abrechnungszwecke erforderlich ist, etwa die Übermittlung der
+                    Zahlungsdaten an die abwickelnden Bankinstitute/Zahlungsdienstleister zum Zwecke der
+                    Abbuchung des Einkaufspreises sowie an den von uns beauftragte Abodienstleister zur
+                    Zustellung der Ware sowie an unseren Steuerberater zur Erfüllung unserer steuerrechtlichen
+                    Verpflichtungen. Im Fall der Teilnahme an Gewinnspielen erheben, verarbeiten und speichern
+                    speichern wir Anrede, Name, Vorname, Anschrift, Alter, Geschlecht, E-Mail-Adresse soweit dies
+                    zur Ermittlung der Gewinner, ihrer Verständigung und die Zurverfügungstellung der Preise
+                    erforderlich ist. Eine Datenübermittlung an Dritte erfolgt im Zurverfügungstellung der Preise
+                    erforderlichen Umfang. Namen und Bilder der Gewinner werden im Rahmen der Teilnahmebedingungen zu
+                    den Gewinnspielen aufgrund einer bei der Teilnahme allenfalls erteilten Einwilligung der
+                    Teilnehmer veröffentlicht.
+                </p>
+                <p>
+                    Sie haben die Möglichkeit, über unsere Website unseren Newsletter zu abonnieren. Hierfür benötigen
+                    wir Ihren Namen und Ihre E-Mail-Adresse und Ihre Erklärung, dass Sie mit dem Bezug des Newsletters
+                    einverstanden sind. Sobald Sie sich für den Newsletter angemeldet haben, senden wir Ihnen ein
+                    Bestätigungs-E-Mail mit einem Link zur Bestätigung der Anmeldung. Die Anmeldungen zum Newsletter
+                    werden protokolliert, um den Anmeldeprozess entsprechend den rechtlichen Anforderungen nachweisen
+                    zu können. Hierzu gehört die Speicherung des Anmelde- und des Bestätigungszeitpunkts, als
+                    auch der IP-Adresse.
+                </p>
+                <p>
+                    Die Bestellung des Newsletters können Sie jederzeit stornieren. Senden Sie Ihre Stornierung bitte an folgende E-Mail-Adresse: info{at}aheadmedia{dot}com. Wir löschen anschließend umgehend Ihre Daten im Zusammenhang mit dem Newsletter-Versand. Nach Abbruch eines Bestellvorganges bzw. bei Unterbleiben der Bestätigung der Anmeldung zum Newsletter werden die bei uns gespeicherten Daten gelöscht.
+                </p>
+                <p>
+                    Generell löschen wir die bei uns gespeicherten personenbezogenen Daten nach 6 Monaten, soweit wir dies nicht aufgrund rechtlicher Vorschriften oder zu Beweiszwecken länger aufbewahren müssen. So werden im Falle eines Vertragsabschlusses sämtliche Daten aus dem Vertragsverhältnis bis zum Ablauf der steuerrechtlichen Aufbewahrungsfrist (10 Jahre) gespeichert. Nach Ablauf allfälliger Aufbewahrungsfristen beziehungsweise dem Erfordernis der Beweissicherung löschen wir die Daten umgehend.
+                </p>
+                <p>
+                    Die Datenverarbeitung erfolgt auf Basis Ihrer Einwilligung und/oder der Notwendigkeit zur Vertragserfüllung.
+                </p>
 
-                    <h3>1. Geltungsbereich, Vertragspartner, Nutzer</h3>
+                <h3>Rechte auf Auskunft, Berichtigung , Löschung oder Einschränkung der Datenverarbeitung sowie Widerspruchsrecht</h3>
+                <p>
+                    Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung oder Einschränkung (soweit Ihre personenbezogenen Daten nicht zur Vertragserfüllung notwendig sind, oder aufgrund gesetzlicher Vorschriften gespeichert werden müssen), Datenübertragbarkeit, Widerruf und Widerspruch zu.
+                </p>
+                <p>
+                    Eine erteilte Einwilligung zur Verarbeitung personenbezogener Daten kann jederzeit widerrufen werden, ohne dass das die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung berührt. 
+                </p>
+                <p>
+                    Voraussetzung für die Geltendmachung Ihres Rechtes auf Auskunft, Berichtigung, Löschung oder Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch ist Ihre schriftliche Anfrage, das Vorliegen einer persönlichen Unterschrift sowie der Kopie eines amtlichen Ausweises, die auch elektronisch übertragen werden können, um Missbrauch durch Dritte auszuschließen.
+                </p>
+                <p>
+                    Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren.
+                </p>
+                <p>
+                    Die Aufsichtsbehörde ist der Berliner Beauftragte für Datenschutz und Informationsfreiheit:
+                    <br>Maja Smoltczyk 
+                    <br>An der Urania 4-10 
+                    <br>10787 Berlin
+                    <br>Telefon: 030/138 89-0
+                    <br>Telefax: 030/215 50 50
+                    <br>E-Mail: mailbox{at}datenschutz-berlin{dot}de (PGP Key)
+                    <br> Homepage: <a href="http://www.datenschutz-berlin.de" target="_blank">http://www.datenschutz-berlin.de</a>
+                </p>
 
-                    <p>
-                        1.1. Vertragspartner für das TopDiTop Portal ist die IQ VerlagsgesellschaftmbH, Schlesische Strasse 29/Block M 10997 Berlin,  (im Folgenden „TDT“ genannt).
-                    </p>
-                    <p>
-                        1.2. Die nachfolgenden Allgemeinen Geschäftsbedingungen (AGB) sind wesentlicher Bestandteil des Nutzungsvertrages, der zwischen Nutzern der kostenpflichtigen Profile (Store-, TopStore- und TopDiTopStore-Profil) des durch TDT unter www.topditop.com angebotenen Onlineportals sowie der entsprechenden App (im Folgenden: Plattform) zustandekommt.
-                    </p>
-                    <p>
-                        1.3.	Verträge über die Nutzung der Plattform kommen nur wirksam zustande, wenn der Nutzer Unternehmer im Sinne des § 14 BGB sind. Unternehmer ist jede natürliche oder juristische Person oder eine rechtsfähige Personengesellschaft, die bei Abschluss eines Rechtsgeschäfts in Ausübung ihrer gewerblichen oder selbständigen beruflichen Tätigkeit handelt.
-                    </p>
-                    <p>
-                        1.4.	AGB von Nutzern bzw. von den vorliegenden AGB abweichende Bedingungen finden keine Anwendung.
-                    </p>
+                <h3>Social-Plugins</h3>
+                <p>
+                    Diese Webseite enthält ggf. Plug-Ins, die von der Facebook Inc., 1601 S. California Ave, Palo Alto,
+                    CA 94304, USA ("Facebook"), der Twitter Inc.: 539 Bryant St. Suite 402, San Francisco, CA 94107,
+                    USA („Twitter“), der Pinterest, Inc., 808 Brannan StreetSan Francisco 94103 USA („Pinterest“), der
+                    YouTube, LLC. 901 Cherry Ave. San Bruno, CA 94066. USA („YouTube“) und Instagram, 181 South Park;
+                    San Francisco, California 51107 USA („Instagram“) betrieben werden. In all diesen Fällen können
+                    Sie Nachrichten an das entsprechende Soziale Netzwerk übermitteln. Sind Sie bei einem dieser
+                    Netzwerke eingeloggt und rufen dann eine Seite mit einer solchen Funktion auf, baut Ihr Browser
+                    eine Verbindung mit diesem Sozialen Netzwerk auf und das Soziale Netzwerk kann den Besuch der
+                    Seite Ihrem Konto bei dem entsprechenden Sozialen Netzwerk zuordnen. Wenn Sie dies nicht möchten,
+                    besuchen Sie unsere Webseiten, ohne bei einem dieser Sozialen Netzwerke eingeloggt zu sein. 
+                </p>
+                <p>
+                    Weitere Informationen und Widerspruchsmöglichkeiten:
+                    <br> - Datenschutzinformationen von Facebook: <a href="https://www.facebook.com/about/privacy/update" target="_blank">https://www.facebook.com/about/privacy/update</a>
+                    <br> - Datenschutzinformationen von Twitter: <a href="https://twitter.com/de/privacy" target="_blank">https://twitter.com/de/privacy</a>
+                    <br> - Datenschutzinformationen von Pinterest: <a href="https://policy.pinterest.com/de/privacy-policy" target="_blank">https://policy.pinterest.com/de/privacy-policy</a>
+                    <br> - Datenschutzinformationen von Youtube: <a href="https://policies.google.com/privacy?hl=de" target="_blank">https://policies.google.com/privacy?hl=de</a>
+                    <br> - Datenschutzinformationen von Instagram: <a href="https://help.instagram.com/519522125107875?helpref=page_content" target="_blank">https://help.instagram.com/519522125107875?helpref=page_content</a>
+                </p>
 
-                    <h3>2. Vertragsgegenstand und Vertragsschluss</h3>
+                <h3>Server-Log-Files</h3>
+                <p>
+                    Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log
+                    Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                    <br> - Browsertyp / Browserversion
+                    <br> - verwendetes Betriebssystem
+                    <br> - Referrer URL
+                    <br> - Hostname des zugreifenden Rechners
+                    <br> - Uhrzeit der Serveranfrage
+                    Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenführung dieser Daten mit
+                    anderen Datenquellen wird nicht vorgenommen. Wir behalten uns vor, diese Daten nachträglich zu
+                    prüfen, wenn uns konkrete Anhaltspunkte für eine rechtswidrige Nutzung bekannt werden. 
+                </p>
 
-                    <p>
-                        2.1.	TDT betreibt die Plattform als Suchmaschine für Ladengeschäfte im Bereich Premium-Möbeldesign und räumt den Nutzern das Recht zur Nutzung der Plattform ein, um sich gegenüber Besuchern der Website auf den aktuell gängigen Web-Browsern präsentieren zu können. TDT stellt den Nutzern die technischen Voraussetzungen zur Verfügung, sich auf der Plattform ein Profil für eine digitale Darstellung seines real existierenden Ladengeschäfts zu erstellen und in dieses Daten und Inhalte einzupflegen.
-                    </p>
-                    <p>
-                        2.2.	Die Anmeldung und Erstellung eines Profils ist grundsätzlich kostenpflichtig. Der Nutzer hat die Möglichkeit, die virtuelle Darstellung als „Store“, „TopStore“ oder „TopDiTopStore“ mit jeweils unterschiedlichem Leistungsumfang zu buchen. Die Freischaltung des Profils erfolgt erst nach vollständiger Zahlung der Nutzungsgebühr gemäß Ziffer 6.
-                    </p>
-                    <p>
-                        2.3.	Der Vertrag mit TDT über die Nutzung eines Profils kommt durch Abschluss des Buchungsvorgangs durch den Nutzer oder mit Bestätigung des Auftrages durch TDT in Textform zustande.
-                    </p>
+                <h3>Durchführung von Webanalyse</h3>
+                <p>
+                    Erstellung pseudonymer Nutzungsprofile zur Webanalyse: Zum Zwecke der Werbung, der Marktforschung
+                    oder zur bedarfsgerechten Gestaltung unserer Angebote erstellen wir unter Verwendung von
+                    Nutzungsdaten pseudonymisierte Nutzungsprofile.  Die Nutzungsprofile werden nicht mit
+                    Ihren personenbezogenen Daten zusammengeführt.
+                </p>
 
-                    <h3>3. 	Rechte und Pflichten TDT</h3>
+                <h3>Verwendung von Cookies</h3>
+                <p>
+                    Wie allgemein gebräuchlich verwenden wir auf verschiedene Seiten sogenannte Cookies. 
+                    Hierbei handelt es sich um kleine Textdateien, die auf Ihrem Endgerät abgelegt werden.
+                    Einige der von uns verwendeten Cookies werden nach dem Ende der Browser-Sitzung, also nach
+                    Schließen Ihres Browsers, wieder gelöscht (sog. Sitzungs-Cookies). Andere Cookies verbleiben
+                    auf Ihrem Endgerät und ermöglichen uns oder unseren Partnerunternehmen, Ihren Browser beim
+                    nächsten Besuch wiederzuerkennen (persistente Cookies).
+                </p>
+                <p>
+                    Über Cookies kann weder auf andere Dateien auf Ihrem Computer zugegriffen werden noch Ihre
+                    E-Mail-Adresse ermittelt werden.
+                </p>
+                <p>
+                    Die meisten Browser sind so eingestellt, dass sie Cookies automatisch akzeptieren. Wenn in Ihrem
+                    Browser die Standardeinstellungen für Cookies gespeichert sind, laufen alle Prozesse unbemerkt
+                    für Sie im Hintergrund. Allerdings können diese Einstellungen von Ihnen verändert werden.
+                </p>
+                <p>
+                    Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und
+                    einzeln über deren Annahme entscheiden oder die Annahme von Cookies für bestimmte Fälle oder
+                    generell ausschließen. Einige Webseiten - so auch unsere - können jedoch ohne Cookies nicht richtig
+                    genutzt werden, da diese Dateien für Abläufe, wie beispielsweise Bestellungen, benötigt werden.
+                </p>
 
-                    <p>
-                        3.1.	TDT stellt dem Nutzer die oben beschriebene Plattform zur Nutzung zur Verfügung. Der Nutzer hat keinen Anspruch auf eine jederzeitige und vollumfängliche Verfügbarkeit der Website. TDT bemüht sich jedoch, die Website möglichst durchgängig verfügbar zu halten und wird notwendige Wartungs- und Sicherheitsarbeiten auf die Nachtzeiten beschränken.
-                    </p>
-                    <p>
-                        3.2.	TDT ist berechtigt, die von dem Nutzer eingestellten oder übermittelten Inhalte ohne vorherige Mitteilung oder Zustimmung des Nutzers zu bearbeiten oder zu verändern. Dies bezieht sich auch auf die technische Bearbeitung des Profils des Nutzers, sowie die darin enthaltenen Angebote und Inhalte, insbesondere zur Gewährleistung der einheitlichen Darstellung auf mobilen Endgeräten, Softwareapplicationen u.ä.. Weitergehende Rechte der TDT, insbesondere Maßnahmen nach Ziffer 4.5. bleiben unberührt. TDT ist insbesondere jederzeit und ohne Angaben von Gründen berechtigt, Inhalte ohne Vorankündigung von seiner Website und aus dem jeweiligen Profil zu entfernen.
-                    </p>
-                    <p>
-                        3.3.	TDT ist zur Prüfung der von Nutzern eingestellten Daten und Inhalte berechtigt, aber nicht verpflichtet und übernimmt ausdrücklich keine Haftung für deren Rechtmäßigkeit oder Richtigkeit.
-                    </p>
-                    <p>
-                        3.4.	TDT behält sich vor, die auf seiner Plattform angebotenen Dienste zu ändern oder abweichende Dienste anzubieten, es sei denn, dies ist für den Nutzer nicht zumutbar.
-                    </p>
-                    <p>
-                        3.5.	TDT stellt den Nutzern das Markenzeichen von TopDiTop zur Verfügung, das vom Nutzer in seiner Kommunikation geführt werden darf.
-                    </p>
+                <h3>Informationen über Google Analytics</h3>
+                <p>
+                    Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc., 600 Amphitheatre
+                    Parkway, Mountain View, CA 94043 (“Google”). Google Analytics verwendet sog. “Cookies”,
+                    Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der
+                    Website durch Sie ermöglicht. Die durch den Cookie erzeugten Informationen über Ihre Benutzung
+                    dieser Website (einschließlich Ihrer IP-Adresse, die jedoch vor dem Speichern mit der Methode
+                    anonymizeIp anonymisiert wird, so dass sie nicht mehr einem Anschluss zugeordnet werden kann)
+                    wird auf der Grundlage des EU-US Privacy Shield an einen Server von Google in den USA übertragen
+                    und dort gespeichert. Die Auswertung und Aufbereitung dieser Daten erfolgt sowohl in Staaten der
+                    EU als auch in den USA. Google wird diese Informationen benutzen, um Ihre Nutzung der Website
+                    auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen
+                    und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu
+                    erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies
+                    gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag von Google verarbeiten.
+                    Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten bei Google in Verbindung bringen. 
+                    Wir erhalten ausschließlich Auswertungen ohne Personenbezug.
+                </p>
+                <p>
+                    Durch die Nutzung unserer Website erklären Sie sich mit der Bearbeitung der über Sie erhobenen
+                    Daten in der zuvor beschriebenen Art und Weise sowie Zweck durch Google einverstanden.
+                </p>
+                <p>
+                    Sie können der Erhebung der Daten durch Google für den Webanalysedienst Google Analytics mit
+                    Wirkung für die Zukunft widersprechen, indem Sie ein Deaktivierungs-Add-on
+                    <a href="http://tools.google.com/dlpage/gaoptout?hl=de" target="_blank">http://tools.google.com/dlpage/gaoptout?hl=de</a>
+                    für Ihren Browser installieren. Weitere Informationen zur Google Inc. und Google Analytics finden
+                    Sie unter <a href="http://www.google.com/intl/de/analytics/privacyoverview.html" target="_blank">http://www.google.com/intl/de/analytics/privacyoverview.html</a> (allgemeine Informationen
+                    zu Google Analytics und Datenschutz). Wir weisen Sie darauf hin, dass auf dieser Webseite Google
+                    Analytics erweitert wurde, um eine anonymisierte Erfassung von IP-Adressen (sog. IP-Masking)
+                    zu gewährleisten. 
+                </p>
 
-                    <h3>4. 	Rechte und Pflichten Nutzer</h3>
+                <h3>Links zu anderen Webseiten</h3>
+                <p>
+                    Unsere Webseite enthält Links zu anderen Webseiten. Wir haben keinen Einfluss darauf, ob
+                    deren Betreiber die Datenschutzbestimmungen einhalten. Bitte informieren Sie sich jeweils in
+                    den dortigen Datenschutzerklärungen.
+                </p>
 
-                    <p>
-                        4.1.	Mitwirkungspflichten
-                    </p>
-                    <p>
-                        Der Nutzer wird TDT alle zur Erbringung der vertraglich geschuldeten Leistung benötigten Informationen rechtzeitig und kostenfrei zur Verfügung stellen. Der Nutzer verpflichtet sich, sämtliche Inhalte bei Änderungen unverzüglich zu aktualisieren.
-                    </p>
-                    <p>
-                        4.2.	Qualitätsgarantie
-                    </p>
-                    <p>
-                        Der Nutzer garantiert, in seinem Ladengeschäft (real und digital) ausschließlich Premium-Produkte und Originale anzubieten, d.h Designererzeugnisse oder Produkte aus Designmanufakturen, die gewerblich geschützt sind. Raubkopien oder minderwertige Waren werden nicht angeboten.
-                    </p>
-                    <p>
-                        4.3.	Login
-                    </p>
-                    <p>
-                        Für die Erstellung eines Profils und den Zugriff auf die Plattform ist die Erstellung eines Kontos erforderlich. Eine Nutzung der Plattform ist nur nach Mitteilung der Pflichtangaben möglich. Der Nutzer sichert zu, dass die bei der Erstellung seines Kontos und des Profils verwendeten Daten zutreffend und vollständig sind. Der Nutzer wird Änderungen seiner Pflichtangaben umgehend gegenüber TDT anzeigen.
-                    </p>
-                    <p>
-                        4.4.	Verbotene Inhalte
-                    </p>
-                    <p>
-                        Der Nutzer verpflichtet sich, keine Inhalte oder Daten in sein Profil einzustellen oder der TDT zur Einpflegung zu liefern, die gegen gesetzliche Vorschriften (insbesondere Straf-, Wettbewerbs- und Jugendschutzrecht), die Rechte Dritter (insbesondere Marken-, Urheber-, Persönlichkeits- und Datenschutzrechte) oder diese Allgemeinen Geschäftsbedingungen verstoßen. Für seine Daten, Inhalte oder Verlinkungen ist der Nutzer selbst verantwortlich, unabhängig davon, ob er sie selbst oder durch TDT eingepflegt hat.
-                    </p>
-                    <p>
-                        4.5.	Prüfungspflichten
-                    </p>
-                    <p>
-                        Der Nutzer versichert, sein Profil umgehend nach Freischaltung durch TDT und danach regelmäßig zu überprüfen. Dies beinhaltet insbesondere die Pflege und Überprüfung der eingestellten Inhalte. Soweit ein Profil nicht die vereinbarten Funktionalitäten aufweist, hat der Nutzer TDT umgehend darüber zu informieren.
-                    </p>
-                    <p>
-                        4.6.	Freistellung
-                    </p>
-                    <p>
-                        Sollten Dritte TDT wegen möglicher Rechtsverstöße in Bezug auf die Inhalte oder verlinkten Seiten des Nutzers in Anspruch nehmen, verpflichtet sich der Nutzer, TDT von jeglicher Haftung freizustellen und ihr sämtliche Kosten zu ersetzen, die ihr wegen der möglichen Rechtsverletzung entstehen, insbesondere die Kosten zur notwendigen Rechtsverteidigung. Der Nutzer ist verpflichtet, TDT bei der Rechtsverteidigung umfassend mit der Überlassung von Informationen und Unterlagen zu unterstützen. Weitergehende Ansprüche und Rechte der TDT bleiben unberührt.
-                    </p>
-                    <p>
-                        4.7.	Folgen bei Missachtung der Pflichten
-                    </p>
-                    <p>
-                        Kommt der Nutzer den vorstehenden Pflichten trotz Aufforderung der TDT innerhalb einer angemessenen Frist nicht nach, kann TDT die nach ihrem Ermessen geeigneten Maßnahmen zur Sicherung ihrer Rechte und der Rechte Dritter ergreifen. Dazu gehören insbesondere die Korrektur bzw. das Löschen von Angeboten oder Inhalten, die Verwarnung von Nutzern, Einschränkung der Nutzungsmöglichkeiten sowie die endgültige Sperrung des Nutzers. Die Entscheidung über die Erforderlichkeit und Angemessenheit einer solchen Maßnahme obliegt allein TDT. Die Rechte aus Ziffer 3.2. bleiben unberührt.
-                    </p>
-                    <p>
-                        4.8.	Duldungspflichten
-                    </p>
-                    <p>
-                        Der Nutzer hat alle Maßnahmen zu dulden, die TDT aus Sicherheitsgründen oder Verbesserung ihres Angebots ergreift, insbesondere die vorübergehende Nichtverfügbarkeit wegen Wartungsarbeiten bzw. der Gefahr von Sicherheitsproblemen, sowie die Verzögerung der Veröffentlichung von Angeboten und Inhalten aus Sicherheitsgründen.
-                    </p>
-                    <p>
-                        4.9.	Unterlassungspflicht
-                    </p>
-                    <p>
-                        Der Nutzer verpflichtet sich, jede Tätigkeit zu unterlassen, die geeignet ist, den Betrieb der Plattform oder der dahinterstehenden technischen Infrastruktur zu beeinträchtigen und/oder übermäßig zu belasten. Dazu zählen insbesondere das automatische Auslesen, Blockieren, Überschreiben, Modifizieren, Kopieren von Daten und/oder sonstigen Inhalten, soweit dies nicht für die ordnungsgemäße Nutzung der Plattform erforderlich ist, sowie die Verbreitung und/oder öffentliche Wiedergabe von Inhalten des Portals ohne Einwilligung durch TDT.
-                    </p>
+                <h3>Ansprechpartner für Datenschutz</h3>
+                <p>
+                    Bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten, bei Auskünften,
+                    Berichtigung, Sperrung oder Löschung von Daten sowie Widerruf erteilter Einwilligungen wenden
+                    Sie sich bitte an: 
+                    <br>Herrn Friedrich Streng 
+                    <br>InTime Media Services GmbH 
+                    <br>Bajuwarenring 14 
+                    <br>82041 Oberhaching 
+                    <br>E-Mail: datenschutz{at}aheadmedia{dot}com
+                </p>
 
-                    <h3>5. 	Gewährleistung und Schadensersatz</h3>
-
-                    <p>
-                        5.1.	Soweit nicht ausdrücklich etwas anderes vereinbart ist, richten sich die Gewährleistungsansprüche nach den gesetzlichen Bestimmungen des Mietrechts, §§ 535 ff BGB.
-                    </p>
-                    <p>
-                        5.2.	Sofern die nachfolgend genannten Schäden nicht durch TDT, Mitarbeiter und/oder Erfüllungsgehilfen von TDT vorsätzlich oder grob fahrlässig verursacht werden, haftet TDT nicht für Schäden, die durch Fehler, Verzögerungen oder Unterbrechungen in der Übermittlung, bei Störungen der technischen Anlagen und Plattform, Verlust oder Löschung von Daten, Viren oder in sonstiger Weise beim Nutzer entstehen können.
-                    </p>
-                    <p>
-                        m Übrigen leistet TDT nur Schadensersatz bei der Verletzung des Lebens, der Gesundheit und des Körpers sowie bei der Verletzung wesentlicher Vertragspflichten sowie bei sonstigen Schäden, die auf einer  vorsätzlichen oder grobfahrlässigen Pflichtverletzung von TDT (einschließlich ihrer Mitarbeiter und/oder Erfüllungsgehilfe) beruhen. Unter wesentlichen Vertragspflichten sind solche Pflichten zu verstehen, deren Erreichung zur Erfüllung des Vertragszweckes erforderlich ist.
-                    </p>
-                    <p>
-                        Die Haftung nach dem Produkthaftungsgesetzt bleibt unberührt.
-                    </p>
-                    <p>
-                        5.3.	Soweit ein Profil nicht wie vertraglich vereinbart genutzt werden kann, hat TDT sich um die Herstellung des entsprechenden Zustandes zu bemühen. Der Nutzer hat eine Einschränkung der Nutzungsmöglichkeit umgehend TDT mitzuteilen. Der Nutzer erkennt an, dass eine stets abrufbare und störungsfreie Bereitstellung der Plattform nicht immer möglich ist und insbesondere Störungen aufgrund von Wartungs- oder Sicherungsmaßnahmen sowie Ereignissen, die außerhalb des Machtbereichs von TDT liegen, zu einer nur eingeschränkten Abrufbarkeit oder vorübergehenden Einstellung der Dienste auf der Plattform führen können und der Nutzer diesbezüglich keinerlei Rechte, insbesondere keine Selbstvornahme-, Schadensersatz-, Rücktritts- oder Minderungsrechte, zustehen.
-                    </p>
-
-                    <h3>6. 	Rechnung und Zahlungsverzug</h3>
-                    <p>
-                        6.1.	Es gelten die jeweils auf der Plattform kommunizierten Nutzungsgebühren. Die angegebenen Gebühren beinhalten nicht die Umsatzsteuer. Die Nutzungsgebühren sind innerhalb von 10 Tagen ab Rechnungsdatum fällig, sofern nicht im Einzelfall eine andere Zahlungsfrist oder Vorauszahlung vereinbart ist.
-                    </p>
-                    <p>
-                        6.2.	Bei Zahlungsverzug oder Stundung werden Zinsen sowie Einziehungskosten berechnet. Bei Kaufleuten im Sinne des HGB tritt der Verzug auch ohne Zusendung einer Mahnung durch den Auftragnehmer ein.
-                    </p>
-                    <p>
-                        6.3.	Zusätzliche Kosten des Zahlungsverkehrs, die ggfs. anfallen, sind vom Nutzer zu tragen. Sofern TDT Kosten dadurch entstehen, dass eine Zahlung abgelehnt wird und der Nutzer dies verschuldet hat, ist TDT berechtigt, die dadurch entstandenen Kosten in tatsächlicher Höhe an den Nutzer weiterzubelasten.
-                    </p>
-                    <p>
-                        6.4.	Der Nutzer ist gegenüber TDT nur zur Aufrechnung unbestrittener oder rechtskräftig festgestellter Gegenansprüche berechtigt.
-                    </p>
-
-                    <h3>7. 	Vertragsdauer und Kündigung</h3>
-
-                    <p>
-                        7.1.	Soweit nichts anderes vereinbart ist, hat der Vertrag eine Laufzeit von einem Jahr ab Vertragsbeginn. Er verlängert sich automatisch um jeweils ein weiteres Jahr, wenn er nicht von einer der Parteien unter Einhaltung einer Kündigungsfrist von 90 Tagen gekündigt wird. Die Kündigung hat schriftlich zu erfolgen. Das Recht von TDT zur Sperrung aus Ziffer 3.2. und Ziffer 4.7. bleibt hiervon unberührt.
-                    </p>
-                    <p>
-                        7.2.	Das Recht zur Kündigung aus wichtigem Grund bleibt unberührt. TDT ist insbesondere berechtigt, den Nutzungsvertrag mit sofortiger Wirkung zu kündigen oder den Zugang des Nutzers zur Plattform (auch temporär) zu sperren oder zu löschen, wenn der Nutzer schwerwiegend oder wiederholt gegen die Bestimmungen des Nutzervertrages und/oder dieser AGB verstößt. Dies gilt insbesondere für den Fall, dass Inhalte gegen Rechte Dritter verstoßen oder die Qualitätsgarantie der Ziffer 4.2. verletzt wird.
-                    </p>
-                    <p>
-                        7.3.	Im Falle der Beendigung des Nutzervertrages, gleich aus welchem Grund, ist die weitere Nutzung des Qualitätssigels/Markenzeichens von TopDiTop untersagt und muss unverzüglich von allen Kommunikationsmaterialien entfernt werden.
-                    </p>
-
-                    <h3>8. 	Datenschutz</h3>
-
-                    <p>
-                        Im Rahmen der Abwicklung der Nutzungsverträge erhebt und verarbeitet TDT auch personenbezogene Daten der Nutzer in Übereinstimmung mit den geltenden gesetzlichen Vorschriften, insbesondere denen des Telemediengesetzes und des Bundesdatenschutzgesetzes. Der Umgang von TDT mit personenbezogenen Daten ist im Übrigen in der Datenschutzverklärung geregelt, die unter www.topditop.com/datenschutz abgerufen werden kann.
-                    </p>
-
-                    <h3>9. 	Urheberrechte</h3>
-
-                    <p>
-                        9.1.	Alle Rechte an während der Leistungserfüllung durch TDT entstehenden Arbeitsergebnissen, insbesondere Urheberrechte an Konzepten, Layouts, Datenverarbeitungs- und Computerprogrammen verbleiben bei TDT. Der Nutzer erhält ein einfaches Nutzungsrecht ausschließlich für den vertraglich vorgesehenen Gebrauch während der Vertragslaufzeit.
-                    </p>
-                    <p>
-                        9.2.	Der Nutzer räumt TDT für die Dauer des Nutzungsvertrages ein einfaches Nutzungsrecht an den von ihm auf die Plattform geladenen Inhalten (insbesondere Texte, Logos, Fotos, Videos, Marken, etc.) ein. Nach Beendigung des Nutzungsvertrages wird TDT sämtliche Inhalte innerhalb einer Frist von vier (4) Wochen löschen.
-                    </p>
-
-                    <h3>10. 	Schlussbestimmungen</h3>
-
-                    <p>
-                        10.1.	Erfüllungsort ist der Sitz der Gesellschaft von TDT.
-                    </p>
-                    <p>
-                        10.2.	Für Streitigkeiten zwischen den Parteien findet, soweit gesetzlich zulässig, ausschließlich deutsches Recht Anwendung unter Ausschluss des Internationalen Privatrechts und des U.N. Kaufrechts.
-                    </p>
-                    <p>
-                        10.3.	Ausschließlicher Gerichtsstand für alle Streitigkeiten aus und im Zusammenhang mit diesem Vertrag gleich welcher Rechtsgrundlage ist Berlin, soweit der Nutzer Kaufmann ist.
-                    </p>
-                    <p>
-                        10.4.	Sofern einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sind oder werden,  berührt dies die Wirksamkeit der übrigen Bestimmungen nicht.
-                    </p>
-                    <p>
-                        10.5	TDT behält sich vor, diese AGB jederzeit mit Wirkung für die Zukunft zu ändern und anzupassen. TDT wird die Nutzer rechtzeitig, mindestens jedoch einen (1) Monat vor dem Inkrafttreten neuer AGB in geeigneter Weise (z.B. durch Benachrichtigung per E-Mail) auf die Änderungen hinweisen. Sofern der Nutzer nicht innerhalb eines (1) Monats ab Zugang der Änderungsmitteilung widerspricht und topditop weiter nutzt, gelten die neuen AGB als genehmigt. Im Falle des Widerspruchs behält sich TDT ausdrücklich das Recht zur fristgerechten, ordentlichen Kündigung vor. Mit dem Hinweis auf eine anstehende Änderung der AGB wird TDT den Nutzer auf die Möglichkeit des Widerspruchs, die Widerspruchsfrist und die Rechtsfolgen, insbesondere für den Fall eines nicht erklärten Widerspruchs, gesondert hinweisen.
-                    </p>
-
-
-
-                </div>
+                <h3>Änderungsvorbehalt</h3>
+                <p>
+                    Die verantwortliche Stelle behält sich das Recht vor, diese Erklärung zum Datenschutz unter
+                    Beachtung der rechtlichen Vorgaben jederzeit zu ändern. Die Entwicklung des Internet und die
+                    Veränderung gesetzlicher Bestimmungen machen von Zeit zu Zeit Anpassungen unserer
+                    Datenschutzerklärung erforderlich. An dieser Stelle können Sie sich jederzeit aktuell darüber
+                    informieren, wie die verantwortliche Stelle mit personenbezogenen Daten umgeht.
+                </p>
+                <p>
+                    Berlin, Februar 2018
+                </p>
             </div>
         </div>
-    </section>
-
-
+    </div>
+</section>
 @endsection
 
 @section("footer")
