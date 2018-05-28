@@ -29,6 +29,14 @@ class HomeController extends BaseController
     /**
      * @return View
      */
+    public function termsPage()
+    {
+        return view('front.pages.terms');
+    }
+
+    /**
+     * @return View
+     */
     public function privacyPage()
     {
         return view('front.pages.privacy');

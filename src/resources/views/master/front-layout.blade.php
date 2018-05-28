@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/transition.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/dropdown.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') . '?v=' . date("Y-m-d") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') }}">
