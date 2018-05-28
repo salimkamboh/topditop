@@ -4,11 +4,13 @@
 
 @stop
 
-@section("pageTitle") Privacy policy @stop
+@section("pageTitle")
+    Allgemeine Geschäftsbedingungen
+@stop
 
 @section('content')
 
-    <section id="privacy-page">
+    <section id="terms-page">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">

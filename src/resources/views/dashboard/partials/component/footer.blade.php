@@ -70,7 +70,7 @@
                         <div class="list-group">
                             <h5 class="list-title">About</h5>
                             <ul class="list-unstyled list-items">
-                                <li><a href="{{ route('front_privacy_page') }}">Privacy policy</a></li>
+                                <li><a href="{{ route('front_terms_page') }}">AGBs</a></li>
                             </ul>
                         </div>
                     </div>

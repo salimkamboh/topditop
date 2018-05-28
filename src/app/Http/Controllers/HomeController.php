@@ -29,9 +29,9 @@ class HomeController extends BaseController
     /**
      * @return View
      */
-    public function privacyPage()
+    public function termsPage()
     {
-        return view('front.pages.privacy');
+        return view('front.pages.terms');
     }
 
     /**

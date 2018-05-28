@@ -2485,16 +2485,16 @@ section#home-references .special-reference-grid.home-design .width-fix {
     color: #333 !important;
 }
 
-section#privacy-page h1, section#privacy-page h2, section#privacy-page h3, section#privacy-page h4, section#privacy-page p {
+section#terms-page h1, section#terms-page h2, section#terms-page h3, section#terms-page h4, section#terms-page p {
     text-align: left !important;
 }
-section#privacy-page p {
+section#terms-page p {
     margin-bottom: 12px;
 }
-section#privacy-page h2 {
+section#terms-page h2 {
     margin-top: 16px;
     margin-bottom: 32px;
 }
-section#privacy-page h3 {
+section#terms-page h3 {
     margin-bottom: 18px;
 }
