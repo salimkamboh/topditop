@@ -61,17 +61,6 @@ class FrontController extends BaseController
         return redirect()->route('front_show_store', $closestStore->id);
     }
 
-    public function array_contains($itemsNew, $insertItem)
-    {
-        foreach ($itemsNew as $item) {
-            if ($item->store_id == $insertItem->store_id && $item->key == $insertItem->key) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
     /**
      * @param Store $store
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -227,66 +216,6 @@ class FrontController extends BaseController
             ->with('filter_locations', $filter_locations)
             ->with('fieldsOneStopShop', $fieldsOneStopShop)
             ->with('stores', $stores);
-    }
-
-
-    public function adTest(Advert $advert, $latitude, $longitude)
-    {
-
-        $params = array($latitude, $longitude);
-        //$allStoreLocations = $advert->getAllLocationsOfStores(, $advert->manufacturer->name);
-        $locale = app()->getLocale();
-        $brandName = $advert->manufacturer->name;
-
-        $selectQuery = 'SELECT field_profile_translations.selected, fields.key, profiles.store_id as store_id, stores.store_name as store_name, `references`.id as refId,`manufacturers`.name as brandname
-FROM fields
-INNER JOIN field_profile
-ON fields.id=field_profile.field_id
-INNER JOIN field_profile_translations ON field_profile.id = field_profile_translations.field_profile_id
-INNER JOIN profiles ON profiles.id = field_profile.profile_id
-INNER JOIN stores ON stores.id = profiles.store_id
-INNER JOIN `references` ON `references`.`store_id` = stores.id
-INNER JOIN manufacturer_reference ON `manufacturer_reference`.`reference_id` = `references`.id
-INNER JOIN manufacturers ON `manufacturers`.`id` = `manufacturer_reference`.`manufacturer_id`
-WHERE field_profile_translations.locale = \'' . $locale . '\' AND `manufacturers`.name = \'' . $brandName . '\' AND ( `key` = \'store_longitude\' OR `key` = \'store_latitude\')
-ORDER BY field_profile.profile_id';
-
-        $items = DB::select($selectQuery);
-
-        $itemsNew = array();
-        foreach ($items as $item) {
-            if (!$this->array_contains($itemsNew, $item))
-                $itemsNew[] = $item;
-        }
-
-        $storeIds = array();
-        foreach ($itemsNew as $item) {
-            if (!in_array($item->store_id, $storeIds))
-                $storeIds[] = $item->store_id;
-        }
-
-        $result = array();
-        foreach ($storeIds as $storeId) {
-            $resultItem = array();
-            $counter = 1;
-            foreach ($itemsNew as $item) {
-                if ($item->store_id == $storeId) {
-                    $resultItem[] = $item->selected;
-
-                    if ($counter == 2) {
-                        if (!in_array($item->store_id, $resultItem))
-                            $resultItem[] = $item->store_id;
-
-                        if (!in_array($item->store_name, $resultItem))
-                            $resultItem[] = $item->store_name;
-                    }
-                    $counter++;
-                }
-            }
-            $result[] = $resultItem;
-        }
-
-        return $result;
     }
 
 }
