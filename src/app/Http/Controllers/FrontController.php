@@ -11,6 +11,7 @@ use App\Manufacturer;
 use App\Package;
 use App\Product;
 use App\Reference;
+use App\Services\StoreService;
 use App\Store;
 use DB;
 use Illuminate\Http\Request;
@@ -45,23 +46,19 @@ class FrontController extends BaseController
         return view('front.pages.contact');
     }
 
-    public function advertisementShow(Advert $advert, Request $request)
+    public function advertisementShow(Advert $advert, Request $request, StoreService $storeService)
     {
         $latitude = (float) $request->get('latitude', config('advertisement.fallback_latitude'));
         $longitude = (float) $request->get('longitude', config('advertisement.fallback_longitude'));
 
-        $params = array($latitude, $longitude);
-        $allStoreLocations = $advert->getAllLocationsOfStores(app()->getLocale(), $advert->manufacturer->name);
-
-        $locationsMatch = $advert->getCloseLocations($allStoreLocations, $params);
-        $storeArray = current($locationsMatch);
-        $closestStore = Store::find($storeArray[2]);
+        $closestStore = $storeService->findNearestStoreForManufacturer($advert->manufacturer_id, $latitude, $longitude);
 
         if (! $closestStore instanceof Store) {
-            $closestStore = Store::inRandomOrder()->first();
+            // redirect to brand page instead
+            return redirect()->route('front_brand_stores', $advert->manufacturer_id);
         }
 
-        return redirect()->route('front_show_store', ['id' => $closestStore->id]);
+        return redirect()->route('front_show_store', $closestStore->id);
     }
 
     public function array_contains($itemsNew, $insertItem)
