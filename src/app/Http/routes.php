@@ -1,6 +1,4 @@
 <?php
-Route::get('/mapa/{advert}/{latitude}/{longitude}', ['as' => 'default', 'uses' => 'FrontController@adTest']);
-
 Route::localizedGroup(function () {
     // ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP
     Route::get('/', ['as' => 'default', 'uses' => 'HomeController@homepage']);
@@ -54,7 +52,6 @@ Route::localizedGroup(function () {
         Route::get('/terms', ['as' => 'front_terms_page', 'uses' => 'HomeController@termsPage']);
         Route::get('/privacy', ['as' => 'front_privacy_page', 'uses' => 'HomeController@privacyPage']);
         Route::get('/single-advertisement', ['as' => 'single_advertisement', 'uses' => 'HomeController@advertisementPage']);
-        Route::get('/ad/{advert}', ['as' => 'single_advertisement_view', 'uses' => 'HomeController@advertisementShow']);
     });
 
     Route::group(['prefix' => '/api/'], function () {
