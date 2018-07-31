@@ -167,7 +167,7 @@ class FrontController extends BaseController
 
         $reference->incrementViews();
 
-        $datablock = $this->settingsRepository->getStoreData($this->current_store);
+        $datablock = $this->settingsRepository->getStoreData($reference->store);
         $selected_products = $reference->products;
         $imagesByReference = $reference->images()->get();
         $allow_sharing = Field::getSelectedValues("allow_sharing", $reference->store);
