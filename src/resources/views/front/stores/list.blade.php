@@ -20,12 +20,14 @@
                 <div class="col-sm-12">
                     <div class="row">
                         @include('front.partials.widgets.stores.filter')
-                        <div class="col-sm-8">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
                             <h3 class="page-heading">TopDiTop Stores</h3>
                             <div class="row list-all-stores">
                                 <?php /** @var $store App\Store */ ?>
                                 @foreach($stores as $store)
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <a href="{{ route('front_show_store', $store) }}"
                                            class="single-item item-shadow">
                                             <div class="store-image-holder">
@@ -49,6 +51,11 @@
                                     </div>
                                 @endforeach
                             </div>
+                        </div>
+                    </div>
+                    <div class="row list-all-stores-pagination">
+                        <div class="text-center">
+                            {{ $stores->links() }}
                         </div>
                     </div>
                 </div>

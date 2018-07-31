@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <a href="javascript:void(0)" class="clear-filter"><span>x</span>{{trans('messages.clear_filter')}}</a>
+        <a href="{{ route('front_stores') }}" class="clear-filter"><span>x</span>{{trans('messages.clear_filter')}}</a>
 
         {{csrf_field()}}
     </form>

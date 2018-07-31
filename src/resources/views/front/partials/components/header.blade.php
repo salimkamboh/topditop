@@ -57,14 +57,13 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left alt" action="{{route('front_show_store_results')}}"
-                          method="post">
+                          method="get">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon search-icon"><i class="fa fa-search"></i></span>
-                                <input type="text" name="search_store" class="form-control" placeholder="{{ trans('messages.search_stores') }}">
+                                <input type="text" name="name" class="form-control" placeholder="{{ trans('messages.search_stores') }}">
                             </div>
                         </div>
-                        {{csrf_field()}}
                     </form>
                 </ul>
             </div>
