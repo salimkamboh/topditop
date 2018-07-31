@@ -164,13 +164,6 @@ class Profile extends Model
         $id_array = array();
         $requestData = $request->all();
 
-        if ($this->getPackageLimit() < $this->numOfBrandsInRequest($request)) {
-            $statusError = trans('messages.profil_maximum_text') . $this->getPackageLimit() . trans('messages.profil_maximum_brands');
-            return redirect()->action('StoreController@settings')
-                ->with('fail', $statusError);
-        }
-
-
         foreach ($requestData as $item => $value) {
             $field = Field::where('key', $item)->get()->first();
 
