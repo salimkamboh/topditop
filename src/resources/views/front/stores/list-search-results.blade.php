@@ -14,19 +14,17 @@
                 <div class="col-sm-12 pagination-main">
                     <a href="{{route('default')}}"><i class="icon-arrow-left"></i><span>{{ trans('messages.back_homepage') }}</span></a>
                     <span>&laquo;</span>
-                    <a href="#"><span>Stores</span></a>
+                    <a href="{{ route('front_stores') }}"><span>Stores</span></a>
                 </div>
 
                 <div class="col-sm-12">
                     <div class="row">
-                        @include('front.partials.widgets.stores.filter')
-
-                        <div class="col-sm-8">
-                            <h3 class="page-heading">TopDiTop Stores</h3>
+                        <div class="col-sm-12">
+                            <h3 class="page-heading">Suchergebnisse für "{{ $name }}".</h3>
                             <div class="row list-all-stores">
                                 <?php /** @var $store App\Store */ ?>
                                 @foreach($stores as $store)
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <a href="{{ route('front_show_store', $store)  }}" class="single-item item-shadow">
                                             <div class="store-image-holder">
                                                 <img src="{{$store->getStoreLogo()}}" alt="" class="img-responsive">
@@ -46,6 +44,11 @@
                                     </div>
                                 @endforeach
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            {{ $stores->appends(['name' => $name])->links() }}
                         </div>
                     </div>
                 </div>

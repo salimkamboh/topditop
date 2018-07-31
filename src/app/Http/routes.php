@@ -37,10 +37,10 @@ Route::localizedGroup(function () {
 
     Route::group(['prefix' => '/front/'], function () {
         Route::get('/', ['as' => 'show_store_front', 'uses' => 'StoreController@showFront']);
+        Route::get('/stores/results/', ['as' => 'front_show_store_results', 'uses' => 'FrontController@frontShowResults']);
         Route::get('/stores/{store}', ['as' => 'front_show_store', 'uses' => 'FrontController@frontShowStore']);
         Route::get('/stores/ad/{advert}', ['as' => 'advert_page', 'uses' => 'FrontController@advertisementShow']);
         Route::get('/stores/location/{location}', ['as' => 'front_stores_by_location', 'uses' => 'FrontController@frontShowStoresLocation']);
-        Route::post('/stores/results/', ['as' => 'front_show_store_results', 'uses' => 'FrontController@frontShowResults']);
         Route::get('/references/', ['as' => 'front_references', 'uses' => 'FrontController@showReferences']);
         Route::get('/references/gallery/store/{store}/', ['as' => 'front_references_gallery', 'uses' => 'FrontController@showReferenceGallery']);
         Route::get('/references/single/{reference}', ['as' => 'front_references_single', 'uses' => 'FrontController@showReferenceSingle']);
