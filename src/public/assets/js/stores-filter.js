@@ -91,7 +91,7 @@ function performFilter() {
                 imageUrl = store.image.url;
             }
 
-            html += '<div class="col-md-6">' +
+            html += '<div class="col-md-4">' +
                 '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + store.id + '" class="single-item item-shadow">' +
                 '<div class="store-image-holder"><img class="img-responsive" src="' + imageUrl + '"></div>' +
                 '<div class="item-info show-info">' +
@@ -109,6 +109,7 @@ function performFilter() {
         }
 
         $(".list-all-stores").html(html);
+        $(".list-all-stores-pagination").remove();
     }
 
     connector.getData("POST", $("form.filter-multi").attr("action"), "json", dataToSend, callBackFunction, "");

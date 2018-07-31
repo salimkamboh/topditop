@@ -110,14 +110,19 @@ class FrontController extends BaseController
 
     public function frontShowResults(Request $request)
     {
+        $name = $request->get('name', null);
+        if ($name == null) {
+            return redirect()->route('front_stores');
+        }
 
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
-        $stores = Store::where('store_name', 'LIKE', '%' . $request->search_store . '%')->where('status', '=' , 1)->get();
+        $stores = Store::active()->where('store_name', 'LIKE', '%' . $name . '%')->paginate(12);
         $products = Product::all();
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
         $filter_locations = Location::all();
         return view('front.stores.list-search-results')
             ->with('products', $products)
+            ->with('name', $name)
             ->with('filter_locations', $filter_locations)
             ->with('manufacturers', $manufacturers)
             ->with('fieldsOneStopShop', $fieldsOneStopShop)
@@ -167,7 +172,7 @@ class FrontController extends BaseController
 
         $reference->incrementViews();
 
-        $datablock = $this->settingsRepository->getStoreData($this->current_store);
+        $datablock = $this->settingsRepository->getStoreData($reference->store);
         $selected_products = $reference->products;
         $imagesByReference = $reference->images()->get();
         $allow_sharing = Field::getSelectedValues("allow_sharing", $reference->store);
@@ -206,7 +211,7 @@ class FrontController extends BaseController
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
-        $stores = Store::active()->with('references', 'location', 'profile.fields')->get();
+        $stores = Store::active()->with('references', 'location', 'profile.fields')->paginate(30);
         $manufacturers = Manufacturer::with('references', 'stores')->withCount('stores')->has('stores', '>', 0)->orderBy('name', 'asc')->get();
         $filter_locations = $this->locationRepository->getAndCountLocationsWithActiveStores();
 

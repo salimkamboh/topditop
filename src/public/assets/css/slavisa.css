@@ -285,3 +285,25 @@ ADDED BY BOGOLJUB START ==>
 #insertproduct .new-brand.error, #insertproduct .dropdown-categories .text.error {
     background: rgba(255, 40, 49, 0.42);
 }
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #ac865e;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #ac865e;
+    border-color: #ac865e;
+}
+
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #ac865e;
+}
