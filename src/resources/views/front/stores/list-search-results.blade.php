@@ -20,7 +20,9 @@
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3 class="page-heading">Suchergebnisse für "{{ $name }}".</h3>
+                            @if(isset($name))
+                                <h3 class="page-heading">Suchergebnisse für "{{ $name }}".</h3>
+                            @endif
                             <div class="row list-all-stores">
                                 <?php /** @var $store App\Store */ ?>
                                 @foreach($stores as $store)
@@ -46,11 +48,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="text-center">
-                            {{ $stores->appends(['name' => $name])->links() }}
+                    @if(isset($name))
+                        <div class="row">
+                            <div class="text-center">
+                                {{ $stores->appends(['name' => $name])->links() }}
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
