@@ -45,6 +45,14 @@ class HomeController extends BaseController
     /**
      * @return View
      */
+    public function impressumPage()
+    {
+        return view('front.pages.impressum');
+    }
+
+    /**
+     * @return View
+     */
     public function homepage()
     {
         $references_newest = Reference::active()->limit(6)->offset(0)->orderBy('id', 'desc')->get();

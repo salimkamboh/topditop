@@ -71,6 +71,7 @@
                             <h5 class="list-title">About</h5>
                             <ul class="list-unstyled list-items">
                                 <li><a href="{{ route('front_terms_page') }}">AGBs</a></li>
+                                <li><a href="{{ route('front_impressum_page') }}">Impressum</a></li>
                                 <li><a href="{{ route('front_privacy_page') }}">Datenschutz</a></li>
                             </ul>
                         </div>
