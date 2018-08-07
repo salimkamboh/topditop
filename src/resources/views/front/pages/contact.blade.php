@@ -17,15 +17,13 @@
                         H.O.M.E.</a>
                     <div class="clearfix"></div>
                     <div class="data-holder">
-                        <p><i class="fa fa-map-marker"></i>Margaretenstrassen 52, Vienna</p>
-                        <p>
-                            <i class="fa fa-clock-o"></i><span>Mon - Fri 10-19</span><span>Sat 10-18</span><span>Sun closed</span>
-                        </p>
-                        <p><i class="fa fa-globe"></i><a href="#" class="brown-color">wwww.wienfurniture.au</a></p>
-                        <p><i class="fa fa-phone"></i><a href="#" class="brown-color">+4369911820719</a></p>
-                        <div class="social-icon-holder">
-                            <a href="#"><i class="fa fa-facebook-square"></i></a>
-                        </div>
+                        <p>TopDiTop H.O.M.E.</p>
+                        <p><a href="https://goo.gl/maps/FFG4K2tdH612" target="_blank">Schlesische Straße 29/30</a></p>
+                        <p>Aufgang M / 3. Stock</p>
+                        <p>10997 Berlin</p>
+                        <p>Tel.: +49 (0)30 611308-0</p>
+                        <p>Fax: +49 (0)30 611308-8</p>
+                        <p>E-Mail: <a href="mailto:info@topditop.com" target="_blank">info@topditop.com</a></p>
                     </div>
                 </div>
                 <div class="col-sm-8">

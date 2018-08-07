@@ -143,11 +143,11 @@ class AjaxController extends BaseController
             );
 
             Mail::send('emails.contact_email', $emailData, function ($message) use ($request) {
-                $message->to($request->customer_email, "Top Di Top Contact")
+                $message->to(config('mail.admin'), "Top Di Top Contact")
                     ->subject('Contact form submission');
             });
 
-            return back()->with('success', 'Thank you.');
+            return back()->with('success', trans('messages.message_sent'));
         } catch (\Swift_TransportException $e) {
             $response = $e->getMessage();
             return back()->with('fail', $response);

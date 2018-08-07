@@ -109,4 +109,15 @@ return [
 
     'sendmail' => '/usr/sbin/sendmail -bs',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin email address
+    |--------------------------------------------------------------------------
+    |
+    | Using this address when contact form is submitted etc.
+    |
+    */
+
+    'admin' => 'info@topditop.com',
+
 ];
