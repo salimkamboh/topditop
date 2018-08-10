@@ -12,12 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <a class="navbar-brand" href="{{ route('default') }}">Top<span
-                                class="navbar-brand--logo-mod">Di</span>Top
-                        H.O.M.E.</a>
-                    <div class="clearfix"></div>
                     <div class="data-holder">
-                        <p>TopDiTop H.O.M.E.</p>
                         <p><a href="https://goo.gl/maps/FFG4K2tdH612" target="_blank">Schlesische Straße 29/30</a></p>
                         <p>Aufgang M / 3. Stock</p>
                         <p>10997 Berlin</p>
@@ -34,8 +29,8 @@
                             <input id="customer_name" name="customer_name" type="text" placeholder="NAME">
                         </div>
                         <div class="form-group">
-                            <label for="email">{{ trans('messages.email_address') }}:</label>
-                            <input id="email" name="customer_email" type="text" placeholder="EMAIL">
+                            <label for="contact_email">{{ trans('messages.email_address') }}:</label>
+                            <input id="contact_email" name="customer_email" type="text" placeholder="EMAIL">
                         </div>
                         <div class="form-group">
                             <input type="text" name="customer_phone" placeholder="{{ trans('messages.telefon') }}">

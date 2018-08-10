@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
+    {{-- implement cache busting minute --}}
+    <?php $version = '?v=' . date("Y-m-d-H-i") ?>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/switchery.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') . $version }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') . $version }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/transition.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/dropdown.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/modal.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') . $version }}">
 
     <script>
         _globalLang = "{{$locale}}";

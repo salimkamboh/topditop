@@ -1,9 +1,10 @@
 <div class="ui modal modal-final-register" style="position: relative; overflow: visible;">
     <i class="close icon"></i>
     <div class="dialog">
-        <a class="navbar-brand" href="{{ route('dashboard_home') }}">Top<span
-                    class="navbar-brand--logo-mod">Di</span>Top
-            H.O.M.E.</a>
+        <a href="#">
+            <img src="{{ asset('assets/img/topditop-logo.jpg') }}" class="topditop-logo img-responsive" alt="TopDiTop Home Logo">
+        </a>
+        <hr>
         <h2>TopDiTopStore</h2>
         <form method="post" class="final-register-form" action="{{route('confirm_registration', $user)}}">
             @foreach($registerfields_service as $field)

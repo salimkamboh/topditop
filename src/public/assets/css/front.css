@@ -282,14 +282,14 @@ footer .logo-inverse {
 }
 
 footer .list-group {
-    text-align: right
+    text-align: left;
 }
 
 footer .list-title {
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 15px;
-    text-align: right;
+    text-align: left;
 }
 
 footer .list-items li {
