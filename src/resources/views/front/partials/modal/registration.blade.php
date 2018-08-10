@@ -6,7 +6,7 @@
                 <img src="{{ asset('assets/img/topditop-logo.jpg') }}" class="topditop-logo img-responsive" alt="TopDiTop Home Logo">
             </a>
             <hr>
-            <h2>Registration</h2>
+            <h2>TopDiTop Store Registrierung</h2>
             <p>Eröffnen Sie Ihren TopDiTop-Store. Nach Eingang Ihrer Registríerung senden wir Ihnen die Informationen
                 zur Eröffnung eines TopDiTop Stores per Email. Wir freuen uns auf Ihren Store.</p>
             <form role="form" method="POST" action="{{ url('/register') }}">

@@ -13,7 +13,7 @@
                 @else
                     <div class="pull-right">
                         <a class="btn btn-default login-modal-open" href="{{url('/login')}}">Login</a>
-                        <a class="btn btn-default registration-button" href="javascript:void(0)">Sign up</a>
+                        <a class="btn btn-default registration-button" href="javascript:void(0)">TopDiTop Store Registrierung</a>
                     </div>
                 @endif
             </div>
