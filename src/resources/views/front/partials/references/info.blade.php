@@ -10,9 +10,6 @@
                 <p><i class="fa fa-globe"></i><a href="mailto:{{$datablock["contact_mail"]}}" class="brown-color">{{$datablock["contact_mail"]}}</a></p>
                 <p><i class="fa fa-internet-explorer"></i><a href="{{$datablock["website"]}}" class="brown-color">{{$datablock["website"]}}</a></p>
                 <p><i class="fa fa-phone"></i><a href="tel:{{$datablock["telephone_number"]}}" class="brown-color">{{$datablock["telephone_number"]}}</a></p>
-                <div class="social-icon-holder">
-                    <a href="#"><i class="fa fa-facebook-square"></i></a>
-                </div>
             </div>
         </div>
         <div class="col-sm-8 description-text">
