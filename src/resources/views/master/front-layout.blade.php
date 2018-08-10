@@ -16,10 +16,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/transition.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/dropdown.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') . '?v=' . date("Y-m-d") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') }}">
+    {{-- implement cache busting minute --}}
+    <?php $version = '?v=' . date("Y-m-d-H-i") ?>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') . $version }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') . $version }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') . $version }}">
 
     <script>
         _globalLang = "{{$locale}}";

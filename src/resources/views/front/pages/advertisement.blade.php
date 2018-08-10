@@ -9,11 +9,6 @@
 @section('content')
 
     <section id="advertisement">
-
-        <div class="social-icon-holder">
-            <a class="shareBtn" href="{{URL::to('/')}}"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-        </div>
-
         <a href="{{ route('front_show_store', $closestStore) }}">
         <img src="{{$closestStore->getStoreCoverImage()}}" alt="" class="img-responsive">
         </a>

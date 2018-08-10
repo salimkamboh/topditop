@@ -3,10 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/font.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/slavisa.css') }}">
+    {{-- implement cache busting minute --}}
+    <?php $version = '?v=' . date("Y-m-d-H-i") ?>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/style.css') . $version }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/font.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/slavisa.css') . $version }}">
 
     <title>TopDiTop</title>
 
