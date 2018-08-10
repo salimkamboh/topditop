@@ -42,6 +42,7 @@ return [
     'email_address' => 'Email Adresse',
     'telefon' => 'Telefonnummer',
     'send_message' => 'Nachricht abschicken',
+    'message_sent' => 'Ihre Nachricht wurde gesendet.',
     'topditop_service' => 'TopDiTop Service',
     'replace_logo' => 'Store Logo ersetzen',
     'manage_reference' => 'Referenzen bearbeiten',

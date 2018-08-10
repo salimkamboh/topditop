@@ -11,7 +11,4 @@
     <p><i class="fa fa-globe"></i><a href="#" class="brown-color">{{$datablock["contact_mail"]}}</a></p>
     <p><i class="fa fa-globe"></i><a href="#" class="brown-color">{{$datablock["website"]}}</a></p>
     <p><i class="fa fa-phone"></i><a href="#" class="brown-color">{{$datablock["telephone_number"]}}</a></p>
-    <div class="social-icon-holder">
-        <a href="{{$datablock["facebook_fanpage"]}}"><i class="fa fa-facebook-square"></i></a>
-    </div>
 </div>

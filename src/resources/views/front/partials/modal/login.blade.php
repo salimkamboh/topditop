@@ -2,9 +2,10 @@
     <i class="close icon"></i>
     <div class="content">
         <div class="dialog">
-            <a class="navbar-brand" href="{{route('default')}}">Top<span
-                        class="navbar-brand--logo-mod">Di</span>Top
-                H.O.M.E.</a>
+            <a href="#">
+                <img src="{{ asset('assets/img/topditop-logo.jpg') }}" class="topditop-logo img-responsive" alt="TopDiTop Home Logo">
+            </a>
+            <hr>
             <h2>Sign in</h2>
             <form role="form" method="POST" action="{{ url('/login') }}">
                 {{ csrf_field() }}

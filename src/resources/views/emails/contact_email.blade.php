@@ -6,24 +6,10 @@
 <body>
 <h2>Contact Form Submission</h2>
 
-<div>
-
-    <table>
-        <tr>
-            <td>{{$customer_name}}</td>
-        </tr>
-        <tr>
-            <td>{{$customer_email}}</td>
-        </tr>
-        <tr>
-            <td>{{$customer_phone}}</td>
-        </tr>
-        <tr>
-            <td>{{$customer_message}}</td>
-        </tr>
-    </table>
-
-</div>
+<p>Name: {{$customer_name}}</p>
+<p>Email: {{$customer_email}}</p>
+<p>Phone: {{$customer_phone}}</p>
+<p>Message: {{$customer_message}}</p>
 
 </body>
 </html>

@@ -6,7 +6,6 @@ $(document).ready(function () {
                 required: true,
                 email: true
             },
-            customer_phone: "required",
             customer_message: "required"
         },
         submitHandler: function (form) {

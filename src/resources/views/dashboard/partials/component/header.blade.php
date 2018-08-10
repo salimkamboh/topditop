@@ -8,9 +8,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route("default") }}">Top<span
-                            class="navbar-brand--logo-mod">Di</span>Top
-                    H.O.M.E.</a>
+                <a href="{{ route('default') }}">
+                    <img src="{{ asset('assets/img/topditop-logo.jpg') }}" class="topditop-logo img-responsive" alt="TopDiTop Home Logo">
+                </a>
             </div>
 
             <div class="collapse navbar-collapse">

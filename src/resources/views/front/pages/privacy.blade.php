@@ -235,12 +235,11 @@
                 <p>
                     Bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten, bei Auskünften,
                     Berichtigung, Sperrung oder Löschung von Daten sowie Widerruf erteilter Einwilligungen wenden
-                    Sie sich bitte an: 
-                    <br>Herrn Friedrich Streng 
-                    <br>InTime Media Services GmbH 
-                    <br>Bajuwarenring 14 
-                    <br>82041 Oberhaching 
-                    <br>E-Mail: datenschutz{at}aheadmedia{dot}com
+                    Sie sich bitte an:
+                    <br>Herrn Andreas Bohn
+                    <br><a href="https://www.google.com/maps?q=Oeder+Weg+160+60318+Frankfurt+a.+M&entry=gmail&source=g" target="_blank">Oeder Weg 160
+                    <br>60318 Frankfurt a. M.</a>
+                    <br>E-Mail: TopDiTopDatenschutz{at}aheadmedia{dot}com
                 </p>
 
                 <h3>Änderungsvorbehalt</h3>

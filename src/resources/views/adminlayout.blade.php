@@ -32,9 +32,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route("dashboard_home") }}">Top<span
-                            class="navbar-brand--logo-mod">Di</span>Top
-                    H.O.M.E.</a>
+                <a href="{{ route('dashboard_home') }}">
+                    <img src="{{ asset('assets/img/topditop-logo.jpg') }}" class="topditop-logo img-responsive" alt="TopDiTop Home Logo">
+                </a>
             </div>
 
 
