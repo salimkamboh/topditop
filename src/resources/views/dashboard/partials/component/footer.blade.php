@@ -1,10 +1,11 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-sm-6">
                 <img src="{{ asset('assets/img/topditop-logo-inverse.jpg') }}" class="topditop-logo img-responsive" alt="TopDiTop Home Logo">
             </div>
-            <div class="col-xs-6">
+            <div class="col-sm-6">
+                <br class="visible-xs">
                 @if (Auth::check())
                     <div class="pull-right">
                         <a href="{{route('dashboard_settings_profile')}}" class="btn btn-default">{{ trans('messages.edit_profil_footer') }}</a>
@@ -13,7 +14,7 @@
                 @else
                     <div class="pull-right">
                         <a class="btn btn-default login-modal-open" href="{{url('/login')}}">Login</a>
-                        <a class="btn btn-default registration-button" href="javascript:void(0)">Sign up</a>
+                        <a class="btn btn-default registration-button" href="javascript:void(0)">TopDiTop Store Registrierung</a>
                     </div>
                 @endif
             </div>
