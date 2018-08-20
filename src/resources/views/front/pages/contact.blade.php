@@ -13,6 +13,8 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="data-holder">
+                        <h4 class="pull-left">IQ Verlags GmbH</h4>
+                        <br>
                         <p><a href="https://goo.gl/maps/FFG4K2tdH612" target="_blank">Schlesische Straße 29/30</a></p>
                         <p>Aufgang M / 3. Stock</p>
                         <p>10997 Berlin</p>
