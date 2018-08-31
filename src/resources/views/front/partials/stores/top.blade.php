@@ -12,7 +12,7 @@
                             width="100%"
                             height="450"
                             frameborder="0" style="border:0"
-                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google_maps.api_key') }}&q={{ $store->getLightAddress() }}" allowfullscreen>
+                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google_maps.api_key') }}&q={{ $store->getGoogleQueryString() }}" allowfullscreen>
                     </iframe>
                 @else
                     <img alt="" class="img-responsive store-cover__wrapper__light-image" src="{{$store->getStoreCoverImage()}}">
