@@ -244,6 +244,15 @@ class Store extends Model
         return "$origin->street+$origin->house_number+$origin->additional_address_info+$origin->city";
     }
 
+    public function getGoogleQueryString()
+    {
+        $lightAddress = $this->getLightAddress();
+        if ($lightAddress == "") {
+            return "$this->latitude, $this->longitude";
+        }
+        return $lightAddress;
+    }
+
     public function isTopDiTop()
     {
         return $this->profile->package->name == Package::HIGHEST;
