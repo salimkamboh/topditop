@@ -100,7 +100,11 @@ $("#product_show_brand_link").click(function() {
     }
 });
 
-$('.ui.dropdown-brand').dropdown();
+$('.ui.dropdown-brand').dropdown({
+    onChange: function () {
+        $('.new-brand').removeClass('error');
+    }
+});
 
 $('.ui.dropdown-categories').dropdown({
     onChange: function (val) {
@@ -111,11 +115,20 @@ $('.ui.dropdown-categories').dropdown({
 $(document).on('click', '.save_product', function (e) {
     e.preventDefault();
 
-    if (!$("#insertproduct").valid()) {
-        if ($("[name='categories']").val() == '') {
+    var form = $("#insertproduct");
+    var categories = $("[name='categories']");
+    var manufacturer = $("[name='manufacturer']");
+
+    if (manufacturer.val() === '') {
+        $('.new-brand').addClass('error');
+        return;
+    }
+
+    if (!form.valid()) {
+        if (categories.val() === '') {
             $('.dropdown-categories .text').addClass('error');
         }
-        if ($("[name='manufacturer']").val() == '') {
+        if (manufacturer.val() === '') {
             $('.new-brand').addClass('error');
         }
         return false;
