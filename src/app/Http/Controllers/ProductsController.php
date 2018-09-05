@@ -51,11 +51,11 @@ class ProductsController extends BaseController
             return redirect()->route('dashboard_home')->with('fail', trans('messages.please_upgrade'));
 
         $store = $this->current_store;
-        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
-        $availableReferences = Reference::all();
+        $manufacturers = $store->manufacturers()->orderBy('name', 'asc')->get();
+        $availableReferences = $store->references;
         $categories = Category::all();
-        $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
-        $numberOfProducts = Product::where(['store_id' => $store->id])->count();
+        $numberOfReferences = count($availableReferences);
+        $numberOfProducts = count($store->products);
         return view('dashboard.products.single-product')
             ->with('store', $store)
             ->with('manufacturers', $manufacturers)
@@ -108,18 +108,15 @@ class ProductsController extends BaseController
 
         $references = $product->references;
         $store = $this->current_store;
-        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
+        $manufacturers = $store->manufacturers()->orderBy('name', 'asc')->get();
         $manufacturerObject = $product->manufacturer;
         $selected_images = $product->images;
         $selected_categories = $product->categories;
         $selected_references = $product->references;
         $categories = Category::all();
-        $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
-        $numberOfProducts = Product::where(['store_id' => $store->id])->count();
-
-
+        $numberOfReferences = count($store->references);
+        $numberOfProducts = count($store->products);
         $selectedReferencesIds = $selected_references->getQueueableIds();
-
         $availableReferences = Reference::active()->where('store_id', $store->id)
                                 ->with('products')->get()
                                 ->except($selectedReferencesIds);
