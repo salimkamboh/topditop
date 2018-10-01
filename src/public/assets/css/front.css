@@ -2499,3 +2499,16 @@ section#terms-page h2 {
 section#terms-page h3 {
     margin-bottom: 18px;
 }
+
+.mobile-app-link.mobile-app-ios a {
+    padding: 7px 5px;
+}
+.mobile-app-link.mobile-app-ios a img {
+    max-height: 36px;
+}
+.mobile-app-link.mobile-app-android a {
+    padding: 0 5px;
+}
+.mobile-app-link.mobile-app-android a img {
+    max-height: 50px;
+}
