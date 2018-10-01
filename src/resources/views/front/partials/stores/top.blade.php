@@ -28,7 +28,7 @@
                         <div class="col-sm-6">
                             <h3>Address</h3>
                             <p>{!! $datablock["address"] !!}</p>
-                            <p>PLZ: {{ $datablock["postal_code"] }}</p>
+                            <p>{{ $datablock["postal_code"] }}</p>
                             <p><a target="_blank" href="https://www.google.com/maps/place/{!! $datablock["address"] !!}"><i
                                             class="fa fa-map-marker" aria-hidden="true"></i> View map</a>
                             </p>
