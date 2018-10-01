@@ -2256,6 +2256,7 @@ section#store-cover .store-heading {
 section#store-cover .content {
     background-color: #232730;
     padding: 40px;
+    min-height: 600px;
 }
 
 section#store-cover .content p span {
