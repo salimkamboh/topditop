@@ -54,6 +54,16 @@
                         <li><a class="registration-button" href="#">{{trans('messages.open_your_store_online')}}</a></li>
                     @endif
 
+                    <li class="mobile-app-link mobile-app-ios">
+                        <a href="https://itunes.apple.com/us/app/topditop-home/id1266287332?mt=8" target="_blank">
+                            <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png" alt="Download on the App Store">
+                        </a>
+                    </li>
+                    <li class="mobile-app-link mobile-app-android">
+                        <a href='https://play.google.com/store/apps/details?id=com.topditop.recognition&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank">
+                            <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left alt" action="{{route('front_show_store_results')}}"

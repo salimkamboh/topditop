@@ -28,6 +28,7 @@
                         <div class="col-sm-6">
                             <h3>Address</h3>
                             <p>{!! $datablock["address"] !!}</p>
+                            <p>PLZ: {{ $datablock["postal_code"] }}</p>
                             <p><a target="_blank" href="https://www.google.com/maps/place/{!! $datablock["address"] !!}"><i
                                             class="fa fa-map-marker" aria-hidden="true"></i> View map</a>
                             </p>
@@ -37,6 +38,7 @@
                             <p>Werktags: {{$datablock["from_working_days"]}} bis {{$datablock["to_working_days"]}}
                                 Uhr</p>
                             <p>Samstags: {{$datablock["from_weekends"]}} bis {{$datablock["to_weekends"]}} Uhr</p>
+                            <p>Telefonnummer: {{ $datablock["telephone_number"] }}</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>

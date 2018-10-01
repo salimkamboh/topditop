@@ -29,6 +29,7 @@ class Repository
         $datablock["to_working_days"] = Field::getSelectedValues("to_working_days", $store);
         $datablock["from_weekends"] = Field::getSelectedValues("from_weekends", $store);
         $datablock["to_weekends"] = Field::getSelectedValues("to_weekends", $store);
+        $datablock["postal_code"] = Field::getSelectedValues("postal_code", $store);
 
         $datablock["philosophy"] = Field::getSelectedValues("philosophy", $store);
         $datablock["quotation"] = Field::getSelectedValues("quotation", $store);
