@@ -414,7 +414,8 @@ class ImportService
         $brandIds = $row->getBrandIds();
 
         if (count($brandIds) > 0) {
-            $store->manufacturers()->sync($brandIds);
+            $brands = Manufacturer::find($brandIds);
+            $store->manufacturers()->sync($brands->pluck('id')->toArray());
             $store->save();
         }
 
