@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Helpers\ImportRow;
 use App\Location;
+use App\Manufacturer;
 use App\Package;
 use App\Profile;
 use App\Store;
@@ -274,16 +275,17 @@ class ImportService
         $user = new ImportRow();
 
         $user->company = $row['Fa.'];
-        $user->title = $row['AP'];
-        $user->firstName = $row['Vorname'];
-        $user->lastName = $row['Nachname'];
+        $user->title = isset($row['AP.']) ? $row['AP.'] : "";
+        $user->firstName = isset($row['Vorname']) ? $row['Vorname'] : "";
+        $user->lastName = isset($row['Nachname']) ? $row['Nachname'] : "";
         $user->street = $row['Straße'];
         $user->houseNumber = $row['Hausnr.'];
         $user->additionalAddressInfo = $row['Adresszusatz'];
         $user->postalCode = $row['PLZ'];
         $user->city = $row['Ort'];
-        $user->phone = $row['Telefon'];
+        $user->phone = isset($row['Telefon']) ? $row['Telefon'] : "";
         $user->email = strtolower($row['Email']);
+        $user->brandIdsRaw = $row['Brands'];
 
         return $user;
     }
@@ -407,6 +409,14 @@ class ImportService
         $store->longitude = $row->longitude;
         $store->uses_coordinates = true;
         $store->save();
+
+
+        $brandIds = $row->getBrandIds();
+
+        if (count($brandIds) > 0) {
+            $store->manufacturers()->sync($brandIds);
+            $store->save();
+        }
 
         $user = new User();
         $user->name = trim("$row->firstName $row->lastName");
