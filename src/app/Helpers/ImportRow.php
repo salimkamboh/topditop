@@ -132,6 +132,19 @@ class ImportRow
      */
     public $longitude;
 
+    /**
+     * Brand (manufacurer) ids in raw format
+     *
+     * @var string
+     */
+    public $brandIdsRaw;
+
+    public function getBrandIds()
+    {
+        preg_match_all('!\d+!', $this->brandIdsRaw, $matches);
+
+        return collect($matches)->flatten()->map(function ($member) { return (int) $member; })->toArray();
+    }
 
 
     public function addNote(string $note)
