@@ -76,6 +76,6 @@
 @endif
 
 @yield("footer")
-
+@include("partials.analytics")
 </body>
 </html>
