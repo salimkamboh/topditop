@@ -37,6 +37,6 @@
 <script type="text/javascript" src="{{ URL::asset('assets/js/script.js')}}"></script>
 
 @yield("footer")
-
+@include("partials.analytics")
 </body>
 </html>

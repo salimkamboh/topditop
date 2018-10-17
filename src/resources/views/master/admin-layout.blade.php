@@ -60,6 +60,6 @@
 <script src="{{ asset('assets/js/script.js')}}"></script>
 
 @yield("footer")
-
+@include("partials.analytics")
 </body>
 </html>
