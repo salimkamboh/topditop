@@ -13,11 +13,13 @@ use App\Package;
 use App\Panel;
 use App\Product;
 use App\Reference;
+use App\Http\CaptchaTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class AjaxController extends BaseController
 {
+    use CaptchaTrait;
 
     protected $image;
     protected $reference;
@@ -133,6 +135,9 @@ class AjaxController extends BaseController
     }
 
     public function contactPageSend(Request $request) {
+        if (! $this->captchaCheck()) {
+            return back()->with('fail', 'Captcha invalid');
+        }
 
         try {
             $emailData = array(
