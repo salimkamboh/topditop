@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
  * @property \Carbon\Carbon $updated_at
  * @property string $featured
  * @property-read \App\Advert $advert
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\BrandReference[] $brandReferences
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reference[] $references
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Store[] $stores
@@ -44,6 +45,11 @@ class Manufacturer extends Model
     public function references()
     {
         return $this->belongsToMany('App\Reference'); // or Profile::class
+    }
+
+    public function brandReferences()
+    {
+        return $this->hasMany(BrandReference::class);
     }
 
     /**
