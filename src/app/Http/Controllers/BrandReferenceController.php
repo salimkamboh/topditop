@@ -73,6 +73,9 @@ class BrandReferenceController extends Controller
 
         // TODO: handle image upload
 
+        $manufacturer->brandreferences_count = count($manufacturer->brandreferences);
+        $manufacturer->save();
+
         return response()->json($reference, 201);
     }
 
