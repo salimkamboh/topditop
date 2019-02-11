@@ -26,8 +26,7 @@ class BrandReferenceStoreRequest extends Request
         return [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,jpg,png',
-            'category_id' => 'required|exists:categories,id',
+            'image' => 'mimes:jpeg,jpg,png|max:8192',
         ];
     }
 }

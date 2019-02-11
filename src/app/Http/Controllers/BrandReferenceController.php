@@ -8,11 +8,8 @@ use App\Http\Requests\BrandReferenceStoreRequest;
 use App\Manufacturer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Exception\NotFoundException;
+use Intervention\Image\ImageManager;
 
 class BrandReferenceController extends Controller
 {
@@ -40,22 +37,36 @@ class BrandReferenceController extends Controller
     {
         $manufacturer = Manufacturer::findOrFail($id);
         $categoryId = $request->get('category_id');
-        $category = Category::findOrFail($categoryId);
+        $category = Category::find($categoryId);
 
         $reference = new BrandReference();
         $reference->title = $request->get('title');
         $reference->description = $request->get('description');
         $reference->manufacturer_id = $manufacturer->id;
-        $reference->category_id = $category->id;
+        if ($category instanceof Category) {
+            $reference->category_id = $category->id;
+        } else {
+            $reference->category_id = null;
+        }
         $reference->save();
 
         $image = $request->file('image');
 
-        $fileName = 'brandreference_'. $reference->id . '_' . str_random(6) . '.' . $image->getClientOriginalExtension();
-        $relativePath = 'full_size/' . $fileName;
-        Storage::disk('images')->put($relativePath, file_get_contents($image->getRealPath()));
+        $name = 'brandreference_' . $reference->id . '_' . str_random(6);
+        $largeName = $name . '.' . $image->getClientOriginalExtension();
+        $thumbnailName = $name . '.300xAUTO.' . $image->getClientOriginalExtension();
 
-        $reference->image_url = $relativePath;
+        $largeImageRelativePath = 'full_size/' . $largeName;
+        $thumbnailImageRelativePath = 'full_size/' . $thumbnailName;
+        $binary = file_get_contents($image->getRealPath());
+        Storage::disk('images')->put($largeImageRelativePath, $binary);
+
+        $manager = new ImageManager();
+        $manager->make($binary)->resize(300, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save(base_path('images/') . $thumbnailImageRelativePath);
+
+        $reference->image_url = $largeImageRelativePath;
         $reference->save();
 
         // TODO: handle image upload

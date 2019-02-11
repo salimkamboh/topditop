@@ -74,4 +74,31 @@ export class ApiReferenceService {
       .map((res: Response) => { res.json(); })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  getBrandReferences(brandId: number): Observable<Object> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(`${environment.domain_url}api/brands/${brandId}/references`, options)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  createBrandReferences(data: Object): Observable<Object> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.apiUrl, data, options)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  deleteBrandReference(brandId: number, brandreferenceId: number): Observable<boolean> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.delete(`${environment.domain_url}api/brands/${brandId}/references/${brandreferenceId}`, options)
+      .map((res: Response) => res.status === 204 ? true : false)
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }
