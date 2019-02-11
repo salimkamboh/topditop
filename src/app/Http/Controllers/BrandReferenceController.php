@@ -53,9 +53,9 @@ class BrandReferenceController extends Controller
 
         $image = $request->file('image');
 
-        $name = 'brandreference_' . $reference->id . '_' . str_random(6);
-        $largeName = $name . '.' . $image->getClientOriginalExtension();
-        $thumbnailName = $name . '.300xAUTO.' . $image->getClientOriginalExtension();
+        $name = 'brandreferences/' . $reference->id;
+        $largeName = $name . '/original.' . $image->getClientOriginalExtension();
+        $thumbnailName = $name . '/thumbnail-300xAUTO.' . $image->getClientOriginalExtension();
 
         $largeImageRelativePath = 'full_size/' . $largeName;
         $thumbnailImageRelativePath = 'full_size/' . $thumbnailName;
