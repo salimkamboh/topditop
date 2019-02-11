@@ -42,6 +42,24 @@ class BrandReference extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function hasCategory()
+    {
+        if ($this->category instanceof Category) {
+            return true;
+        }
+        return false;
+    }
+
+    public function getImageUrl()
+    {
+        return url('images' . $this->image_url);
+    }
+
+    public function getThumbnailUrl()
+    {
+        return url('images' . $this->thumbnail_url);
     }
 }

@@ -95,6 +95,7 @@
                 <div *ngFor="let br of reverseBrandreferences" class="brandreference-list-item">
                     <h3>{{br.title}}</h3>
                     <p>{{br.description}}</p>
+                    <p>Category: {{br.category ? br.category.name : 'none'}}</p>
                     <div>
                         <img src="{{domain}}images{{br.thumbnail_url}}" class="brandreference-list-item-image">
                     </div>

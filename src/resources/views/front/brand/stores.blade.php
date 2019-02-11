@@ -18,14 +18,13 @@
                 <div class="col-sm-12">
                     <h3 class="page-heading">TopDiTop Stores</h3>
                     <div class="row list-all-stores">
-                        <?php /** @var $store App\Store */ ?>
                         @foreach($manufacturer->stores as $store)
                             <div class="col-sm-6">
                                 <a href="{{ route('front_show_store', $store) }}"
                                    class="single-item item-shadow">
-                                    <div class="store-image-holder" style="height:530px">
-                                        <img src="{{$store->getStoreLogo()}}" alt="" class="img-responsive">
-                                    </div>
+                                    {{--<div class="store-image-holder" style="height:530px">--}}
+                                        <img src="{{$store->getStoreLogo()}}">
+                                    {{--</div>--}}
                                     <div class="item-info show-info">
                                         <div class="item-info-top clearfix">
                                             <span class="title">{{$store->store_name}}</span>
@@ -47,6 +46,22 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <h3 class="page-heading">Marken Referenzen</h3>
+                <div class="col-sm-12">
+                    <div id="brandreferences-macy">
+                        @foreach($manufacturer->brandreferences as $brandreference)
+                            <div class="brandreference">
+                                <a href="{{$brandreference->getImageUrl()}}">
+                                    <img src="{{$brandreference->getThumbnailUrl()}}">
+                                </a>
+                                <p class="brandreference-heading">{{$brandreference->title}}</p>
+                                <p class="brandreference-description">{{$brandreference->description}}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -56,4 +71,21 @@
     <script type="text/javascript" src="{{ asset('assets/js/lib/transition.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/lib/dropdown.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/references-filter.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/macy.js') }}"></script>
+    <script>
+        var macyInstance = Macy({
+            container: '#brandreferences-macy',
+            columns: 3,
+            margin: {
+                x: 10,
+                y: 40
+            },
+            breakAt: {
+                940: 3,
+                720: 2,
+                400: 1
+            }
+        });
+        macyInstance.reInit();
+    </script>
 @stop

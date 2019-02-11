@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\BrandReference[] $brandreferences
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @method static \Illuminate\Database\Query\Builder|\App\Category whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Category whereDescription($value)
@@ -31,5 +32,10 @@ class Category extends Model
 
     public function numberOfProducts() {
         return count($this->products()->get());
+    }
+
+    public function brandreferences()
+    {
+        return $this->hasMany(BrandReference::class);
     }
 }

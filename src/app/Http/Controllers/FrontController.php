@@ -189,7 +189,7 @@ class FrontController extends BaseController
 
     public function showStoresForBrand($id) {
 
-        $manufacturer = Manufacturer::with('stores')->findOrFail($id);
+        $manufacturer = Manufacturer::with('stores', 'brandreferences.category')->findOrFail($id);
 
         return view('front.brand.stores')
             ->with('manufacturer', $manufacturer);

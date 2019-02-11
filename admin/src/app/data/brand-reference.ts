@@ -1,3 +1,5 @@
+import { Category } from './category';
+
 export class BrandReference {
     id: number;
     title: string;
@@ -8,4 +10,6 @@ export class BrandReference {
     created_at: string;
     image_url: string;
     thumbnail_url: string;
+
+    category: Category;
 }

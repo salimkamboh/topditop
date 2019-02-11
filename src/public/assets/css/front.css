@@ -2512,3 +2512,20 @@ section#terms-page h3 {
 .mobile-app-link.mobile-app-android a img {
     max-height: 50px;
 }
+
+.brandreference .brandreference-heading {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+.brandreference .brandreference-description {
+    text-align: left;
+    font-size: 14px;
+    color: #686868;
+}
+.brandreference .brandreference-category {
+    text-align: left;
+    font-size: 14px;
+    color: #9e9e9e;
+}
+

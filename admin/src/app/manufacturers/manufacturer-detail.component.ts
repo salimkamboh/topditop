@@ -49,7 +49,9 @@ export class ManufacturerDetailComponent implements OnInit {
         this.createbrandreferenceFormGroup();
         this.apiService.getAll('categories/all')
             .subscribe(
-                categories => this.categories = <Category[]>categories,
+                categories => {
+                    this.categories = <Category[]>categories;
+                },
                 error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with loading categories'); }
             )
         if (this.id != -1) {
@@ -92,6 +94,14 @@ export class ManufacturerDetailComponent implements OnInit {
         }
     }
 
+    setCategories(brs: BrandReference[]) {
+        brs.forEach(br => this.setCategory(br));
+    }
+
+    setCategory(br: BrandReference) {
+        br.category = br.category_id ? this.categories.find(cat => cat.id === br.category_id) : null;
+    }
+
     createManufacturer() {
         let manufacturer = this.createDataObject();
         this.apiService
@@ -120,6 +130,7 @@ export class ManufacturerDetailComponent implements OnInit {
             .subscribe(
                 brandreferences => {
                     this.brandreferences = <BrandReference[]>brandreferences;
+                    this.setCategories(this.brandreferences);
                 },
                 error => {
                     this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with brand references');
@@ -214,7 +225,9 @@ export class ManufacturerDetailComponent implements OnInit {
         this.apiReferenceService.createBrandReferences(this.manufacturer.id, formdata)
             .subscribe(
                 brandreference => {
-                    this.brandreferences.push(<BrandReference>brandreference);
+                    const br = (<BrandReference>brandreference);
+                    this.setCategory(br);
+                    this.brandreferences.push(br);
                     this.brandreferenceImage = null;
                     this.progress.brandreference.creating = false
                     this.brandreferenceForm.reset();
