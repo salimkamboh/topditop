@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrandReferencesTable extends Migration
+class CreateBrandreferencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -32,6 +32,6 @@ class CreateBrandReferencesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('brand_references');
+        Schema::drop('brandreferences');
     }
 }

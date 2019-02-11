@@ -16,6 +16,7 @@ class BrandReferenceController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function index($id)
