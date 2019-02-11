@@ -24,8 +24,8 @@ class BrandReferenceStoreRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|max:80',
+            'description' => 'required|max:255',
             'image' => 'mimes:jpeg,jpg,png|max:8192',
         ];
     }
