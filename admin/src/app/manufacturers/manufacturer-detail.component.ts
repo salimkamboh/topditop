@@ -7,6 +7,7 @@ import { Brand } from '../data/brand';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-manufacturer-detail',
@@ -24,6 +25,16 @@ export class ManufacturerDetailComponent implements OnInit {
     private brandreferenceForm: FormGroup;
     private brandreferences: BrandReference[] = [];
     private categories: Category[] = [];
+    private domain: string = environment.domain_url;
+    progress = {
+        brandreference: {
+            creating: false,
+            deleteMap: {}
+        }
+    }
+    brandreferenceImage: any;
+
+    get reverseBrandreferences() { return [].concat(this.brandreferences).sort((a, b) => a.id > b.id ? -1 : 1) }
 
     constructor(
         private apiService: ApiService,
@@ -66,6 +77,10 @@ export class ManufacturerDetailComponent implements OnInit {
             };
             this.createFormGroup();
         }
+    }
+
+    resetBrandreferenceImage() {
+        this.brandreferenceImage = null;
     }
 
     onSubmit() {
@@ -116,8 +131,8 @@ export class ManufacturerDetailComponent implements OnInit {
         let manufacturer = this.createDataObject();
         this.apiService.update(this.entity, this.id, manufacturer)
             .subscribe(
-            manufacturer => { this.manufacturer = <Brand>manufacturer; this.toasterService.pop('success', 'Success', 'Manufacturer updated!'); this.router.navigate(['/manufacturers']); this.disabled = false; },
-            error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with updating manufacturer!'); this.disabled = false; this.router.navigate(['/manufacturers']); }
+                manufacturer => { this.manufacturer = <Brand>manufacturer; this.toasterService.pop('success', 'Success', 'Manufacturer updated!'); this.router.navigate(['/manufacturers']); this.disabled = false; },
+                error => { this.errorMessage = <any>error; this.toasterService.pop('error', 'Error', 'Error with updating manufacturer!'); this.disabled = false; this.router.navigate(['/manufacturers']); }
             );
     }
 
@@ -141,10 +156,12 @@ export class ManufacturerDetailComponent implements OnInit {
     }
 
     deleteBrandReference(br: BrandReference) {
+        this.progress.brandreference.deleteMap[br.id] = true;
         this.apiReferenceService.deleteBrandReference(br.manufacturer_id, br.id)
             .subscribe(
                 success => this.brandreferences = this.brandreferences.filter(ref => ref.id !== br.id),
                 error => this.toasterService.pop('error', 'Error', 'Error with deleting brand reference!'),
+                () => this.progress.brandreference.deleteMap[br.id] = false,
             );
     }
 
@@ -155,7 +172,7 @@ export class ManufacturerDetailComponent implements OnInit {
     readThis(inputValue: any): void {
         let file: File = inputValue.files[0];
         let myReader: FileReader = new FileReader();
-        if( !inputValue.files || inputValue.files.length === 0 ) {
+        if (!inputValue.files || inputValue.files.length === 0) {
             return;
         }
         myReader.onloadend = (e) => {
@@ -163,6 +180,50 @@ export class ManufacturerDetailComponent implements OnInit {
             this.manufacturer.image_url = myReader.result;
         }
         myReader.readAsDataURL(file);
+    }
+
+    onFileChange(event) {
+        if (event.target.files && event.target.files.length > 0) {
+            this.brandreferenceImage = event.target.files[0];
+        }
+    }
+
+    onSubmitBrandReference() {
+        if (this.brandreferenceForm.invalid) {
+            this.toasterService.pop('warning', 'Fill in the form', 'Fill in all fields and select 1 image');
+            return;
+        }
+
+        if (!this.brandreferenceImage) {
+            this.toasterService.pop('warning', 'Image not selected', 'Select brand reference image');
+            return;
+        }
+
+        this.progress.brandreference.creating = true;
+
+        const formdata = new FormData();
+
+        const title = this.brandreferenceForm.get('title').value;
+        formdata.append('title', title);
+        const description = this.brandreferenceForm.get('description').value;
+        formdata.append('description', description);
+        const category_id = this.brandreferenceForm.get('category_id').value;
+        formdata.append('category_id', category_id);
+        formdata.append('image', this.brandreferenceImage);
+
+        this.apiReferenceService.createBrandReferences(this.manufacturer.id, formdata)
+            .subscribe(
+                brandreference => {
+                    this.brandreferences.push(<BrandReference>brandreference);
+                    this.brandreferenceImage = null;
+                    this.progress.brandreference.creating = false
+                    this.brandreferenceForm.reset();
+                },
+                error => {
+                    this.toasterService.pop('error', 'Error', 'Error with creating brand reference!');
+                    this.progress.brandreference.creating = false;
+                },
+            )
     }
 
     createFormGroup() {
@@ -177,13 +238,14 @@ export class ManufacturerDetailComponent implements OnInit {
             title: new FormControl('', Validators.required),
             description: new FormControl('', Validators.required),
             category_id: new FormControl(null),
+            image: new FormControl(null, Validators.required),
         });
     }
 
     createDataObject() {
         let manufacturer = {
             "name": this.manufacturerForm.value.name,
-            "featured": this.manufacturerForm.value.featured ? '1': '',
+            "featured": this.manufacturerForm.value.featured ? '1' : '',
         };
         if (this.base64 != null) {
             manufacturer['base64'] = this.base64;

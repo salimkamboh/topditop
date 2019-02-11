@@ -54,11 +54,11 @@ class BrandReferenceController extends Controller
         $image = $request->file('image');
 
         $name = 'brandreferences/' . $reference->id;
-        $largeName = $name . '/original.' . $image->getClientOriginalExtension();
+        $largeName = $name . '/image.' . $image->getClientOriginalExtension();
         $thumbnailName = $name . '/thumbnail-300xAUTO.' . $image->getClientOriginalExtension();
 
-        $largeImageRelativePath = 'full_size/' . $largeName;
-        $thumbnailImageRelativePath = 'full_size/' . $thumbnailName;
+        $largeImageRelativePath = '/full_size/' . $largeName;
+        $thumbnailImageRelativePath = '/full_size/' . $thumbnailName;
         $binary = file_get_contents($image->getRealPath());
         Storage::disk('images')->put($largeImageRelativePath, $binary);
 
@@ -68,6 +68,7 @@ class BrandReferenceController extends Controller
         })->save(base_path('images/') . $thumbnailImageRelativePath);
 
         $reference->image_url = $largeImageRelativePath;
+        $reference->thumbnail_url = $thumbnailImageRelativePath;
         $reference->save();
 
         // TODO: handle image upload
@@ -129,18 +130,16 @@ class BrandReferenceController extends Controller
             throw new ModelNotFoundException();
         }
 
-        $reference = $manufacturer->brandReferences->find($referenceId);
+        $brandreference = $manufacturer->brandReferences->find($referenceId);
 
-        if (!$reference instanceof BrandReference) {
+        if (!$brandreference instanceof BrandReference) {
             throw new ModelNotFoundException();
         }
 
-        // TODO: handle query param to delete image from disk
+        $brandreferenceDirectory = '/full_size/brandreferences/'. $brandreference->id;
 
-        $relativeImagePath = $reference->image_url;
-
-        if ($reference->delete()) {
-            Storage::disk('images')->delete($relativeImagePath);
+        if ($brandreference->delete()) {
+            Storage::disk('images')->deleteDirectory($brandreferenceDirectory);
             return response()->json([], 204);
         } else {
             return response()->json([

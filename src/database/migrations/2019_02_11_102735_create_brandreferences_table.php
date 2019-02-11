@@ -17,6 +17,7 @@ class CreateBrandreferencesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('image_url');
+            $table->string('thumbnail_url');
             $table->integer('manufacturer_id')->unsigned()->nullable();
             $table->foreign('manufacturer_id')->references('id')->on('manufacturers')->onDelete('cascade');
             $table->integer('category_id')->unsigned()->nullable();

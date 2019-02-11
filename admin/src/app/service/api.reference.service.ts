@@ -1,11 +1,12 @@
 import { ExtendedHttpService } from './extended-http.service';
 import { Injectable } from '@angular/core';
-import { Response, Headers, RequestOptions } from '@angular/http';
+import { Response, Headers, RequestOptions, RequestOptionsArgs, Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { AuthenticationService } from './authentication.service';
 
 
 @Injectable()
@@ -13,7 +14,13 @@ export class ApiReferenceService {
 
   private apiUrl = `${environment.domain_url}api/references/`;
 
-  constructor(private http: ExtendedHttpService) { }
+  constructor(
+    private http: ExtendedHttpService,
+    private authService: AuthenticationService,
+    private simplehttp: Http, // some methods use this because ExtendedHttpService couldnt submit FormData request properly
+  ) { }
+
+  get bearer() { return `Bearer ${this.authService.token}`; }
 
   getAll(): Observable<Object[]> {
     return this.http.get(this.apiUrl + 'all')
@@ -84,11 +91,11 @@ export class ApiReferenceService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  createBrandReferences(data: Object): Observable<Object> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+  createBrandReferences(brandId: number, data: FormData): Observable<Object> {
+    const uri = `${environment.domain_url}api/brands/${brandId}/references`;
 
-    return this.http.post(this.apiUrl, data, options)
+    // Uses simple http because ExtendedHttpService couldnt submit form request
+    return this.simplehttp.post(uri, data, { headers: new Headers({ 'Authorization': this.bearer }) })
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
@@ -97,7 +104,8 @@ export class ApiReferenceService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.delete(`${environment.domain_url}api/brands/${brandId}/references/${brandreferenceId}`, options)
+    const uri = `${environment.domain_url}api/brands/${brandId}/references/${brandreferenceId}`;
+    return this.http.delete(uri, options)
       .map((res: Response) => res.status === 204 ? true : false)
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

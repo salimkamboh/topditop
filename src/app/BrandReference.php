@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property string $description
  * @property string $image_url
+ * @property string $thumbnail_url
  * @property int $manufacturer_id
  * @property int $category_id
  * @property \Carbon\Carbon $created_at
@@ -23,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\BrandReference whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\BrandReference whereImageUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\BrandReference whereManufacturerId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\BrandReference whereThumbnailUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\BrandReference whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\BrandReference whereUpdatedAt($value)
  * @mixin \Eloquent

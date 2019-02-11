@@ -7,4 +7,5 @@ export class BrandReference {
     updated_at: string;
     created_at: string;
     image_url: string;
+    thumbnail_url: string;
 }
