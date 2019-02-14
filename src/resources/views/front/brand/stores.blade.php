@@ -47,17 +47,23 @@
                 </div>
             </div>
             <div class="row">
-                <h3 class="page-heading">Marken Referenzen</h3>
                 <div class="col-sm-12">
-                    <div id="brandreferences-macy">
+                    <h3 class="page-heading">Marken Referenzen</h3>
+                    <div class="brandreferences-macy">
                         @foreach($manufacturer->brandreferences as $brandreference)
-                            <div class="brandreference">
-                                <a href="{{$brandreference->getImageUrl()}}">
-                                    <img src="{{$brandreference->getThumbnailUrl()}}">
-                                </a>
-                                <p class="brandreference-heading">{{$brandreference->title}}</p>
-                                <p class="brandreference-description">{{$brandreference->description}}</p>
+                        <div class="brandreference">
+                            <a href="{{$brandreference->getImageUrl()}}" target="_blank">
+                                <img src="{{$brandreference->getThumbnailUrl()}}">
+                            </a>
+                            <div class="brandreference-text">
+                                <p class="brandreference-text-title">{{$brandreference->title}}
+                                    @if($brandreference->category != null)
+                                    <span class="brandreference-text-category">{{$brandreference->category->name}}</span>
+                                    @endif
+                                </p>
+                                <p class="brandreference-text-description">{{$brandreference->description}}</p>
                             </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -74,16 +80,15 @@
     <script type="text/javascript" src="{{ asset('js/macy.js') }}"></script>
     <script>
         var macyInstance = Macy({
-            container: '#brandreferences-macy',
+            container: '.brandreferences-macy',
             columns: 3,
             margin: {
                 x: 10,
                 y: 40
             },
             breakAt: {
-                940: 3,
-                720: 2,
-                400: 1
+                940: 2,
+                640: 1
             }
         });
         macyInstance.reInit();

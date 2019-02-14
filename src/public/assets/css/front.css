@@ -2513,19 +2513,63 @@ section#terms-page h3 {
     max-height: 50px;
 }
 
-.brandreference .brandreference-heading {
-    text-align: left;
-    font-size: 24px;
-    margin-bottom: 6px;
+.img-responsive-full {
+    display: block;
+    width: 100%;
+    height: auto;
 }
-.brandreference .brandreference-description {
-    text-align: left;
-    font-size: 14px;
-    color: #686868;
+
+
+
+
+
+
+
+
+
+
+
+.brandreference {
+    position: relative;
+    margin-bottom: 30px;
+    display: inline-block;
 }
-.brandreference .brandreference-category {
-    text-align: left;
-    font-size: 14px;
-    color: #9e9e9e;
+.brandreference img {
+    width: 100%;
+    height: auto;
 }
+.brandreference .brandreference-text {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 100px;
+    z-index: 1;
+    background: black;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+}
+.brandreference .brandreference-text .brandreference-text-title {
+    font-weight: 700;
+    text-align: left;
+}
+.brandreference .brandreference-text .brandreference-text-title .brandreference-text-category {
+    font-weight: 400;
+    font-style: italic;
+    float: right;
+}
+.brandreference .brandreference-text .brandreference-text-description {
+    font-weight: 400;
+    text-align: left;
+}
+.brandreference:hover .brandreference-text {
+    display: block;
+}
+
+
+
+
+
+
 
