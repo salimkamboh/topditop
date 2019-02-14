@@ -44,7 +44,8 @@ Route::localizedGroup(function () {
         Route::get('/references/', ['as' => 'front_references', 'uses' => 'FrontController@showReferences']);
         Route::get('/references/gallery/store/{store}/', ['as' => 'front_references_gallery', 'uses' => 'FrontController@showReferenceGallery']);
         Route::get('/references/single/{reference}', ['as' => 'front_references_single', 'uses' => 'FrontController@showReferenceSingle']);
-        Route::get('/brand/{manufacturer}/stores', ['as' => 'front_brand_stores', 'uses' => 'FrontController@showStoresForBrand']);
+        Route::get('/brand/{manufacturer}/stores', 'FrontController@redirectToPluralshowStoresForBrand');
+        Route::get('/brands/{manufacturer}/stores', ['as' => 'front_brand_stores', 'uses' => 'FrontController@showStoresForBrand']);
         Route::get('/products/', ['as' => 'front_products', 'uses' => 'FrontController@showProducts']);
         Route::get('/product/{product}', ['as' => 'front_show_product', 'uses' => 'FrontController@showProduct']);
         Route::get('/stores/', ['as' => 'front_stores', 'uses' => 'FrontController@showStores']);

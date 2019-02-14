@@ -187,6 +187,11 @@ class FrontController extends BaseController
             ->with('imagesByReference', $imagesByReference);
     }
 
+    public function redirectToPluralshowStoresForBrand($id)
+    {
+        return redirect()->route('front_brand_stores', $id);
+    }
+
     public function showStoresForBrand($id) {
 
         $manufacturer = Manufacturer::with('stores', 'brandreferences.category')->findOrFail($id);
