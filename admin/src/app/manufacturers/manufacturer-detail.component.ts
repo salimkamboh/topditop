@@ -75,7 +75,8 @@ export class ManufacturerDetailComponent implements OnInit {
                 name: '',
                 url: '',
                 image_url: '',
-                featured: ''
+                featured: '',
+                brandreferences_count: 0,
             };
             this.createFormGroup();
         }
