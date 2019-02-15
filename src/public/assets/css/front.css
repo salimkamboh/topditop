@@ -1496,6 +1496,11 @@ section#front-stores .single-item .store-image-holder {
     justify-content: center;
 }
 
+.store-image-holder img {
+    width: 100%;
+    height: auto;
+}
+
 section#front-stores .single-item .item-info {
     background-color: white;
     min-height: 90px;
@@ -2558,17 +2563,24 @@ section#terms-page h3 {
     font-weight: 400;
     font-style: italic;
     float: right;
+    color: #b89166;
 }
 .brandreference .brandreference-text .brandreference-text-description {
     font-weight: 400;
     text-align: left;
+    color: #8c8c8c;
 }
 .brandreference:hover .brandreference-text {
     display: block;
 }
 
-
-
+.brandreferences-section {
+    padding: 40px;
+}
+.brandreferences-section .page-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
 
 
 

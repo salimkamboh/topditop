@@ -67,10 +67,17 @@ class FrontController extends BaseController
      */
     public function frontShowStore(Store $store)
     {
+        $store->load('manufacturers.brandreferences.category');
         if ($store->status == 0) {
           throw new ModelNotFoundException();
         }
         $manufacturers = $store->manufacturers;
+        $brandreferences = [];
+        foreach ($manufacturers as $manufacturer) {
+            foreach ($manufacturer->brandreferences as $brandreference) {
+                $brandreferences []= $brandreference;
+            }
+        }
         $datablock = $this->settingsRepository->getStoreData($store);
 
         $references_newest = Reference::active()->where('store_id', $store->id)->limit(12)->offset(0)->orderBy('id', 'desc')->get();
@@ -82,11 +89,14 @@ class FrontController extends BaseController
         $architects = explode(',', $datablock["add-new-architect"]);
         array_pop($architects);
 
+
+
         return view('front.stores.single')
             ->with('store', $store)
             ->with('references_newest', $references_newest)
             ->with('references_most', $references_most)
             ->with('manufacturers', $manufacturers)
+            ->with('brandreferences', $brandreferences)
             ->with('products_newest', $products_newest)
             ->with('products_most', $products_most)
             ->with('architects', $architects)

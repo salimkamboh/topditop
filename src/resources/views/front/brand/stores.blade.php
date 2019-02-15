@@ -22,9 +22,9 @@
                             <div class="col-sm-6">
                                 <a href="{{ route('front_show_store', $store) }}"
                                    class="single-item item-shadow">
-                                    {{--<div class="store-image-holder" style="height:530px">--}}
+                                    <div class="store-image-holder" style="height:530px">
                                         <img src="{{$store->getStoreLogo()}}">
-                                    {{--</div>--}}
+                                    </div>
                                     <div class="item-info show-info">
                                         <div class="item-info-top clearfix">
                                             <span class="title">{{$store->store_name}}</span>
@@ -46,6 +46,7 @@
                     </div>
                 </div>
             </div>
+            @if(count($manufacturer->brandreferences) > 0)
             <div class="row">
                 <div class="col-sm-12">
                     <h3 class="page-heading">Marken Referenzen</h3>
@@ -68,6 +69,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </section>
 
