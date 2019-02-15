@@ -41,6 +41,9 @@
                             <textarea cols="20" rows="5" id="contact-message" name="customer_message"
                                       placeholder="Enter your message here"></textarea>
                         </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6Lf5oooUAAAAAMhiMJZnL23J2DnkP6fuwol87SQW"></div>
+                        </div>
                         <button style="width: 100%;max-width: 100%;" class="click-button send-contact-email">{{ trans('messages.send_message') }}
                         </button>
                         {{csrf_field()}}

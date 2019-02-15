@@ -15,10 +15,15 @@ use Illuminate\Support\Facades\DB;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $featured
+ * @property int $brandreference_count
+ * @property int $brandreferences_count
  * @property-read \App\Advert $advert
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\BrandReference[] $brandreferences
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Reference[] $references
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Store[] $stores
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereBrandreferenceCount($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereBrandreferencesCount($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereFeatured($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Manufacturer whereId($value)
@@ -44,6 +49,11 @@ class Manufacturer extends Model
     public function references()
     {
         return $this->belongsToMany('App\Reference'); // or Profile::class
+    }
+
+    public function brandreferences()
+    {
+        return $this->hasMany(BrandReference::class);
     }
 
     /**

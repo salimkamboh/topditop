@@ -5,5 +5,6 @@ export interface Brand {
     image_url: string,
     created_at?: string,
     updated_at?: string,
-    featured: string
+    featured: string,
+    brandreferences_count: number,
 }

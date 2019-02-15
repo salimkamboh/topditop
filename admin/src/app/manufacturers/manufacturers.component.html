@@ -15,6 +15,7 @@
             <th>Created</th>
             <th>Updated</th>
             <th>Name</th>
+            <th>References</th>
             <th></th>
           </tr>
         </thead>
@@ -24,13 +25,16 @@
             <td>{{ manufacturer.created_at | date:'medium' }}</td>
             <td>{{ manufacturer.updated_at | date:'medium' }}</td>
             <td>{{ manufacturer.name }}</td>
-            <td><a class="btn btn-link" [routerLink]="['/manufacturer', manufacturer.id]"><span class="glyphicon glyphicon-pencil"></span> edit</a></td>
+            <td>{{ manufacturer.brandreferences_count }}</td>
+            <td><a class="btn btn-link" [routerLink]="['/manufacturer', manufacturer.id]"><span
+                  class="glyphicon glyphicon-pencil"></span> edit</a></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="panel-footer">
-    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/manufacturer', '-1']"><span class="glyphicon glyphicon-plus"></span> add new</a>
+    <a type="button" class="btn btn-sm btn-primary" [routerLink]="['/manufacturer', '-1']"><span
+        class="glyphicon glyphicon-plus"></span> add new</a>
   </div>
 </div>

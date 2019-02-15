@@ -12,6 +12,7 @@ src/magento/var/log
 src/magento/dev
 src/magento/downloader
 src/storage/import
+src/refreshdb.sh
 production-backup.sh
 staging-backup.sh
 staging-download.sh

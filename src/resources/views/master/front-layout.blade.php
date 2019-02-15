@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') . $version }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') . $version }}">
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
         _globalLang = "{{$locale}}";
         if (_globalLang == "")
