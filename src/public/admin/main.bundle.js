@@ -1,103 +1,5 @@
 webpackJsonp([0,3],{
 
-/***/ 102:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular2_jwt__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var AuthenticationService = (function () {
-    function AuthenticationService(http, router) {
-        this.http = http;
-        this.router = router;
-        this.loggedIn = new __WEBPACK_IMPORTED_MODULE_4_rxjs__["BehaviorSubject"](false);
-        this.redirectUrl = '';
-        // set token if saved in local storage
-        this.user = JSON.parse(localStorage.getItem('user'));
-        this.token = localStorage.getItem('token');
-    }
-    AuthenticationService.prototype.login = function (username, password) {
-        var _this = this;
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].domain_url + "api/auth/login", { email: username, password: password })
-            .map(function (response) {
-            _this.user = response.json().user;
-            _this.token = response.json().token;
-            _this.loggedIn.next(true);
-            localStorage.setItem('user', JSON.stringify({ Object: _this.user }));
-            localStorage.setItem('token', _this.token);
-        })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs__["Observable"].throw(error || 'Server error'); });
-    };
-    AuthenticationService.prototype.logout = function () {
-        // clear token remove user from local storage to log user out
-        this.token = null;
-        this.user = null;
-        this.loggedIn.next(false);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        this.router.navigate(['/login']);
-    };
-    AuthenticationService.prototype.check = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
-        headers.append('Authorization', "Bearer " + this.token);
-        headers.append('Accept', 'application/json');
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]({ headers: headers });
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].domain_url + "api/auth/check", options)
-            .map(function (response) {
-            _this.user = response.json().user;
-            _this.token = response.json().token;
-            _this.loggedIn.next(true);
-            localStorage.setItem('user', JSON.stringify({ Object: _this.user }));
-            localStorage.setItem('token', _this.token);
-        })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs__["Observable"].throw(error || 'Server error'); });
-    };
-    AuthenticationService.prototype.isLoggedIn = function () {
-        return this.loggedIn.asObservable();
-    };
-    AuthenticationService.prototype.tokenStillActive = function () {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_angular2_jwt__["tokenNotExpired"])('token');
-    };
-    AuthenticationService.prototype.tokenExpired = function () {
-        return !this.tokenStillActive();
-    };
-    AuthenticationService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === 'function' && _b) || Object])
-    ], AuthenticationService);
-    return AuthenticationService;
-    var _a, _b;
-}());
-//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/authentication.service.js.map
-
-/***/ }),
-
 /***/ 1049:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -115,7 +17,7 @@ module.exports = __webpack_require__(449);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
@@ -190,7 +92,7 @@ var ApiService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__extended_http_service__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
@@ -258,7 +160,7 @@ var ApiLocationService = (function () {
 
 /***/ }),
 
-/***/ 182:
+/***/ 132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -267,7 +169,134 @@ var ApiLocationService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__authentication_service__ = __webpack_require__(87);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiReferenceService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var ApiReferenceService = (function () {
+    function ApiReferenceService(http, authService, simplehttp) {
+        this.http = http;
+        this.authService = authService;
+        this.simplehttp = simplehttp;
+        this.apiUrl = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].domain_url + "api/references/";
+    }
+    Object.defineProperty(ApiReferenceService.prototype, "bearer", {
+        get: function () { return "Bearer " + this.authService.token; },
+        enumerable: true,
+        configurable: true
+    });
+    ApiReferenceService.prototype.getAll = function () {
+        return this.http.get(this.apiUrl + 'all')
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.get = function (id) {
+        return this.http.get(this.apiUrl + id)
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.getProducts = function (id) {
+        return this.http.get(this.apiUrl + id + '/products')
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.getManufacturers = function (id) {
+        return this.http.get(this.apiUrl + id + '/manufacturers')
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.getImages = function (id) {
+        return this.http.get(this.apiUrl + id + '/images')
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.create = function (data) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
+        return this.http.post(this.apiUrl, data, options)
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.update = function (id, data) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
+        return this.http.post(this.apiUrl + 'update/' + id, data, options)
+            .map(function (res) { res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.delete = function (id) {
+        return this.http.delete(this.apiUrl + 'delete/' + id)
+            .map(function (res) { })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.deleteImage = function (id, data) {
+        return this.http.post(this.apiUrl + 'images/delete/' + id, data)
+            .map(function (res) { res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.getBrandReferences = function (brandId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].domain_url + "api/brands/" + brandId + "/references", options)
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.createBrandReferences = function (brandId, data) {
+        var uri = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].domain_url + "api/brands/" + brandId + "/references";
+        // Uses simple http because ExtendedHttpService couldnt submit form request
+        return this.simplehttp.post(uri, data, { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Authorization': this.bearer }) })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService.prototype.deleteBrandReference = function (brandId, brandreferenceId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
+        var uri = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].domain_url + "api/brands/" + brandId + "/references/" + brandreferenceId;
+        return this.http.delete(uri, options)
+            .map(function (res) { return res.status === 204 ? true : false; })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
+    };
+    ApiReferenceService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__extended_http_service__["a" /* ExtendedHttpService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__extended_http_service__["a" /* ExtendedHttpService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__authentication_service__["a" /* AuthenticationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__authentication_service__["a" /* AuthenticationService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]) === 'function' && _c) || Object])
+    ], ApiReferenceService);
+    return ApiReferenceService;
+    var _a, _b, _c;
+}());
+//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/api.reference.service.js.map
+
+/***/ }),
+
+/***/ 183:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__extended_http_service__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
@@ -344,7 +373,7 @@ var ApiPanelService = (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -353,7 +382,7 @@ var ApiPanelService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
@@ -437,102 +466,6 @@ var ApiProductService = (function () {
     var _a;
 }());
 //# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/api.product.service.js.map
-
-/***/ }),
-
-/***/ 184:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__extended_http_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiReferenceService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var ApiReferenceService = (function () {
-    function ApiReferenceService(http) {
-        this.http = http;
-        this.apiUrl = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].domain_url + "api/references/";
-    }
-    ApiReferenceService.prototype.getAll = function () {
-        return this.http.get(this.apiUrl + 'all')
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.get = function (id) {
-        return this.http.get(this.apiUrl + id)
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.getProducts = function (id) {
-        return this.http.get(this.apiUrl + id + '/products')
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.getManufacturers = function (id) {
-        return this.http.get(this.apiUrl + id + '/manufacturers')
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.getImages = function (id) {
-        return this.http.get(this.apiUrl + id + '/images')
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.create = function (data) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
-        return this.http.post(this.apiUrl, data, options)
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.update = function (id, data) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
-        return this.http.post(this.apiUrl + 'update/' + id, data, options)
-            .map(function (res) { res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.delete = function (id) {
-        return this.http.delete(this.apiUrl + 'delete/' + id)
-            .map(function (res) { })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService.prototype.deleteImage = function (id, data) {
-        return this.http.post(this.apiUrl + 'images/delete/' + id, data)
-            .map(function (res) { res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
-    };
-    ApiReferenceService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__extended_http_service__["a" /* ExtendedHttpService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__extended_http_service__["a" /* ExtendedHttpService */]) === 'function' && _a) || Object])
-    ], ApiReferenceService);
-    return ApiReferenceService;
-    var _a;
-}());
-//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/api.reference.service.js.map
 
 /***/ }),
 
@@ -689,7 +622,7 @@ var AppRoutingModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_authentication_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_authentication_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -743,7 +676,7 @@ var AppComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
@@ -790,6 +723,19 @@ var AuthGuard = (function () {
 
 /***/ }),
 
+/***/ 42:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+var environment = {
+    production: false,
+    domain_url: 'http://topditop.com:8080/'
+};
+//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/environment.js.map
+
+/***/ }),
+
 /***/ 448:
 /***/ (function(module, exports) {
 
@@ -812,7 +758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(598);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(534);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app___ = __webpack_require__(573);
 
 
@@ -827,19 +773,6 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 52:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-var environment = {
-    production: false,
-    domain_url: 'http://topditop.com:8080/'
-};
-//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/environment.js.map
-
-/***/ }),
-
 /***/ 561:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -849,7 +782,7 @@ var environment = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__(42);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdvertisementDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1114,7 +1047,7 @@ var AdvertisementsComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_auth_guard__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__ = __webpack_require__(9);
@@ -1122,11 +1055,11 @@ var AdvertisementsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__(376);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__service_api_service__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__service_api_en_service__ = __webpack_require__(592);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_api_panel_service__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_api_panel_service__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_api_store_service__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_api_location_service__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_api_reference_service__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_api_product_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_api_reference_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_api_product_service__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__auth_module__ = __webpack_require__(564);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1198,7 +1131,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_jwt__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_extended_http_service__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_authentication_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_authentication_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(17);
 /* unused harmony export authHttpServiceFactory */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthModule; });
@@ -2153,7 +2086,7 @@ var LocationsComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_authentication_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_authentication_service__ = __webpack_require__(87);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2206,7 +2139,7 @@ var LoginComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_authentication_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_authentication_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogoutComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2245,11 +2178,13 @@ var LogoutComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_api_reference_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_service__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__environments_environment__ = __webpack_require__(42);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManufacturerDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2265,9 +2200,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var ManufacturerDetailComponent = (function () {
-    function ManufacturerDetailComponent(apiService, router, route, fb, toasterService) {
+    function ManufacturerDetailComponent(apiService, apiReferenceService, router, route, fb, toasterService) {
         this.apiService = apiService;
+        this.apiReferenceService = apiReferenceService;
         this.router = router;
         this.route = route;
         this.fb = fb;
@@ -2275,16 +2213,36 @@ var ManufacturerDetailComponent = (function () {
         this.entity = 'manufacturers';
         this.base64 = null;
         this.disabled = false;
+        this.brandreferences = [];
+        this.categories = [];
+        this.domain = __WEBPACK_IMPORTED_MODULE_6__environments_environment__["a" /* environment */].domain_url;
+        this.progress = {
+            brandreference: {
+                creating: false,
+                deleteMap: {}
+            }
+        };
     }
+    Object.defineProperty(ManufacturerDetailComponent.prototype, "reverseBrandreferences", {
+        get: function () { return [].concat(this.brandreferences).sort(function (a, b) { return a.id > b.id ? -1 : 1; }); },
+        enumerable: true,
+        configurable: true
+    });
     ManufacturerDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.id = this.route.snapshot.params['id'];
+        this.createbrandreferenceFormGroup();
+        this.apiService.getAll('categories/all')
+            .subscribe(function (categories) {
+            _this.categories = categories;
+        }, function (error) { _this.errorMessage = error; _this.toasterService.pop('error', 'Error', 'Error with loading categories'); });
         if (this.id != -1) {
             this.apiService
                 .get(this.entity, this.id)
                 .subscribe(function (manufacturer) {
                 _this.manufacturer = manufacturer;
                 _this.createFormGroup();
+                _this.loadBrandReferences();
             }, function (error) {
                 _this.errorMessage = error;
                 _this.toasterService.pop('error', 'Error', 'Manufacturer with given ID doesn`t exist!');
@@ -2297,10 +2255,14 @@ var ManufacturerDetailComponent = (function () {
                 name: '',
                 url: '',
                 image_url: '',
-                featured: ''
+                featured: '',
+                brandreferences_count: 0,
             };
             this.createFormGroup();
         }
+    };
+    ManufacturerDetailComponent.prototype.resetBrandreferenceImage = function () {
+        this.brandreferenceImage = null;
     };
     ManufacturerDetailComponent.prototype.onSubmit = function () {
         this.disabled = true;
@@ -2310,6 +2272,13 @@ var ManufacturerDetailComponent = (function () {
         else {
             this.createManufacturer();
         }
+    };
+    ManufacturerDetailComponent.prototype.setCategories = function (brs) {
+        var _this = this;
+        brs.forEach(function (br) { return _this.setCategory(br); });
+    };
+    ManufacturerDetailComponent.prototype.setCategory = function (br) {
+        br.category = br.category_id ? this.categories.find(function (cat) { return cat.id === br.category_id; }) : null;
     };
     ManufacturerDetailComponent.prototype.createManufacturer = function () {
         var _this = this;
@@ -2327,6 +2296,20 @@ var ManufacturerDetailComponent = (function () {
             _this.toasterService.pop('error', 'Error', 'Error with creating manufacturer!');
             _this.disabled = false;
             _this.router.navigate(['/manufacturers']);
+        });
+    };
+    ManufacturerDetailComponent.prototype.loadBrandReferences = function () {
+        var _this = this;
+        if (!this.manufacturer) {
+            return;
+        }
+        this.apiReferenceService.getBrandReferences(this.manufacturer.id)
+            .subscribe(function (brandreferences) {
+            _this.brandreferences = brandreferences;
+            _this.setCategories(_this.brandreferences);
+        }, function (error) {
+            _this.errorMessage = error;
+            _this.toasterService.pop('error', 'Error', 'Error with brand references');
         });
     };
     ManufacturerDetailComponent.prototype.updateManufacturer = function (id) {
@@ -2351,6 +2334,12 @@ var ManufacturerDetailComponent = (function () {
             _this.router.navigate(['/manufacturers']);
         });
     };
+    ManufacturerDetailComponent.prototype.deleteBrandReference = function (br) {
+        var _this = this;
+        this.progress.brandreference.deleteMap[br.id] = true;
+        this.apiReferenceService.deleteBrandReference(br.manufacturer_id, br.id)
+            .subscribe(function (success) { return _this.brandreferences = _this.brandreferences.filter(function (ref) { return ref.id !== br.id; }); }, function (error) { return _this.toasterService.pop('error', 'Error', 'Error with deleting brand reference!'); }, function () { return _this.progress.brandreference.deleteMap[br.id] = false; });
+    };
     ManufacturerDetailComponent.prototype.changeListener = function ($event) {
         this.readThis($event.target);
     };
@@ -2367,10 +2356,55 @@ var ManufacturerDetailComponent = (function () {
         };
         myReader.readAsDataURL(file);
     };
+    ManufacturerDetailComponent.prototype.onFileChange = function (event) {
+        if (event.target.files && event.target.files.length > 0) {
+            this.brandreferenceImage = event.target.files[0];
+        }
+    };
+    ManufacturerDetailComponent.prototype.onSubmitBrandReference = function () {
+        var _this = this;
+        if (this.brandreferenceForm.invalid) {
+            this.toasterService.pop('warning', 'Fill in the form', 'Fill in all fields and select 1 image');
+            return;
+        }
+        if (!this.brandreferenceImage) {
+            this.toasterService.pop('warning', 'Image not selected', 'Select brand reference image');
+            return;
+        }
+        this.progress.brandreference.creating = true;
+        var formdata = new FormData();
+        var title = this.brandreferenceForm.get('title').value;
+        formdata.append('title', title);
+        var description = this.brandreferenceForm.get('description').value;
+        formdata.append('description', description);
+        var category_id = this.brandreferenceForm.get('category_id').value;
+        formdata.append('category_id', category_id);
+        formdata.append('image', this.brandreferenceImage);
+        this.apiReferenceService.createBrandReferences(this.manufacturer.id, formdata)
+            .subscribe(function (brandreference) {
+            var br = brandreference;
+            _this.setCategory(br);
+            _this.brandreferences.push(br);
+            _this.brandreferenceImage = null;
+            _this.progress.brandreference.creating = false;
+            _this.brandreferenceForm.reset();
+        }, function (error) {
+            _this.toasterService.pop('error', 'Error', 'Error with creating brand reference!');
+            _this.progress.brandreference.creating = false;
+        });
+    };
     ManufacturerDetailComponent.prototype.createFormGroup = function () {
         this.manufacturerForm = this.fb.group({
             name: this.manufacturer.name,
             featured: this.manufacturer.featured
+        });
+    };
+    ManufacturerDetailComponent.prototype.createbrandreferenceFormGroup = function () {
+        this.brandreferenceForm = this.fb.group({
+            title: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["e" /* Validators */].required),
+            description: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["e" /* Validators */].required),
+            category_id: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormControl */](null),
+            image: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormControl */](null, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["e" /* Validators */].required),
         });
     };
     ManufacturerDetailComponent.prototype.createDataObject = function () {
@@ -2385,14 +2419,14 @@ var ManufacturerDetailComponent = (function () {
         return manufacturer;
     };
     ManufacturerDetailComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-manufacturer-detail',
             template: __webpack_require__(767)
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormBuilder */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4_angular2_toaster__["b" /* ToasterService */]) === 'function' && _e) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_api_service__["a" /* ApiService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__service_api_reference_service__["a" /* ApiReferenceService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__service_api_reference_service__["a" /* ApiReferenceService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5_angular2_toaster__["b" /* ToasterService */]) === 'function' && _f) || Object])
     ], ManufacturerDetailComponent);
     return ManufacturerDetailComponent;
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
 }());
 //# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/manufacturer-detail.component.js.map
 
@@ -2510,7 +2544,7 @@ var Packages = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_api_panel_service__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_api_panel_service__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__ = __webpack_require__(9);
@@ -2721,7 +2755,7 @@ var PackagesComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_service__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(27);
@@ -2898,7 +2932,7 @@ var PanelDetailComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_panel_service__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__ = __webpack_require__(9);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PanelsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2945,9 +2979,9 @@ var PanelsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_api_store_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_api_service__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(27);
@@ -3211,7 +3245,7 @@ var ProductDetailComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_product_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_product_service__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__ = __webpack_require__(9);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3258,9 +3292,9 @@ var ProductsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_api_reference_service__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_api_store_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_api_product_service__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_api_service__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(27);
@@ -3509,7 +3543,7 @@ var ReferenceDetailComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_reference_service__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_api_reference_service__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_toaster__ = __webpack_require__(9);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReferencesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3752,7 +3786,7 @@ var RegisterfieldsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
@@ -4471,7 +4505,7 @@ var StoresComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_jwt__);
@@ -4655,14 +4689,14 @@ module.exports = "<div class=\"col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3
 /***/ 767:
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"text-center\" *ngIf=\"!manufacturer\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Manufacturer Details\n</h4>\n\n<label *ngIf=\"manufacturer\">{{ id === '-1' ? 'New' : 'Edit' }} Manufacturer Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"manufacturerForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"manufacturer\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Manufacturer Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" formControlName=\"name\" value=\"{{ manufacturer.name }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Image URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" id=\"image_url\" value=\"{{ manufacturer.image_url }}\" disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Featured</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"checkbox\" formControlName=\"featured\" value=\"{{ manufacturer.featured }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"image_url\" (change)=\"changeListener($event)\" />\n                </div>\n                <div class=\"col-xs-6\">\n                    <img class=\"img img-responsive\" [src]='manufacturer.image_url'>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/manufacturers\"><span class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteManufacturer(manufacturer.id)\" *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span> delete</button>\n            </div>\n        </div>\n    </div>\n</form>"
+module.exports = "<h4 class=\"text-center\" *ngIf=\"!manufacturer\">\n    <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Manufacturer Details\n</h4>\n\n<label *ngIf=\"manufacturer\">{{ id === '-1' ? 'New' : 'Edit' }} Manufacturer Entry</label>\n\n<form class=\"form-horizontal\" [formGroup]=\"manufacturerForm\" (ngSubmit)=\"onSubmit($event)\" *ngIf=\"manufacturer\">\n    <div class=\"panel panel-primary\">\n        <div class=\"panel-heading\">\n            Manufacturer Details\n        </div>\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Name</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" formControlName=\"name\" value=\"{{ manufacturer.name }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Image URL</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"text\" class=\"form-control\" id=\"image_url\" value=\"{{ manufacturer.image_url }}\"\n                        disabled>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Featured</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"checkbox\" formControlName=\"featured\" value=\"{{ manufacturer.featured }}\">\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"col-xs-3 control-label\">Select Image</label>\n                <div class=\"col-xs-6\">\n                    <input type=\"file\" placeholder=\"Choose File\" accept=\"image/*\" id=\"image_url\"\n                        (change)=\"changeListener($event)\" />\n                </div>\n                <div class=\"col-xs-6\">\n                    <img class=\"img img-responsive\" [src]='manufacturer.image_url'>\n                </div>\n            </div>\n        </div>\n        <div class=\"panel-footer\">\n            <a class=\"btn btn-default\" routerLink=\"/manufacturers\"><span\n                    class=\"glyphicon glyphicon-chevron-left\"></span>back</a>\n            <div class=\"pull-right\">\n                <span class=\"glyphicon glyphicon-refresh spin\" *ngIf=\"disabled\"></span>\n                <button type=\"submit\" class=\"btn btn-primary\" [disabled]='disabled'> <span\n                        class=\"glyphicon glyphicon-ok\"></span> save</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteManufacturer(manufacturer.id)\"\n                    *ngIf=\"id != -1\" [disabled]='disabled'><span class=\"glyphicon glyphicon-remove\"></span>\n                    delete</button>\n            </div>\n        </div>\n    </div>\n</form>\n\n<div class=\"panel panel-primary\" *ngIf=\"manufacturer\">\n    <div class=\"panel-heading\">Manufacturer References ({{reverseBrandreferences.length}})</div>\n    <div class=\"panel-body\">\n        <div class=\"container\">\n            <div class=\"col-sm-6\">\n                <form action=\"\" class=\"form\" [formGroup]=\"brandreferenceForm\" autocomplete=\"off\"\n                    (ngSubmit)=\"onSubmitBrandReference($event)\">\n                    <div class=\"form-group\">\n                        <label for=\"title\">Title</label>\n                        <input type=\"text\" name=\"title\" class=\"form-control\" formControlName=\"title\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"description\">Description</label>\n                        <input type=\"text\" name=\"description\" class=\"form-control\" formControlName=\"description\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"category_id\">Category</label>\n                        <select name=\"category_id\" class=\"form-control\" formControlName=\"category_id\">\n                            <option [value]=\"null\">None</option>\n                            <option [value]=\"category.id\" *ngFor=\"let category of categories\">{{ category.name }}\n                            </option>\n                        </select>\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"image\">Image</label>\n                        <input type=\"file\" name=\"image\" (change)=\"onFileChange($event)\" formControlName=\"image\">\n                    </div>\n                    <div class=\"form-group\">\n                        <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"progress.brandreference.creating\">\n                            <span class=\"glyphicon glyphicon-ok\"></span> save\n                        </button>\n                        <button type=\"reset\" class=\"btn btn-default\" [disabled]=\"progress.brandreference.creating\">\n                            <span class=\"glyphicon glyphicon-remove\"></span> reset</button>\n                    </div>\n                </form>\n            </div>\n            <div class=\"col-sm-6\">\n                <div *ngFor=\"let br of reverseBrandreferences\" class=\"brandreference-list-item\">\n                    <h3>{{br.title}}</h3>\n                    <p>{{br.description}}</p>\n                    <p>Category: {{br.category ? br.category.name : 'none'}}</p>\n                    <div>\n                        <img src=\"{{domain}}images{{br.thumbnail_small_url}}\" class=\"brandreference-list-item-image\">\n                    </div>\n                    <p>\n                        <a class=\"btn btn-default\" target=\"_blank\" href=\"{{domain}}images{{br.image_url}}\"><span\n                                class=\"glyphicon glyphicon-eye-open\"></span> view full\n                            size</a>\n                        <button class=\"btn btn-danger\" (click)=\"deleteBrandReference(br)\"\n                            [disabled]=\"progress.brandreference.deleteMap[br.id]\"><span\n                                class=\"glyphicon glyphicon-remove\"></span> delete</button>\n                    </p>\n                    <hr>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 768:
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\"text-center\" *ngIf=\"!manufacturers\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Manufacturers\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Manufacturers Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"manufacturers && manufacturers.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let manufacturer of manufacturers\">\n            <td>{{ manufacturer.id }}</td>\n            <td>{{ manufacturer.created_at | date:'medium' }}</td>\n            <td>{{ manufacturer.updated_at | date:'medium' }}</td>\n            <td>{{ manufacturer.name }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/manufacturer', manufacturer.id]\"><span class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/manufacturer', '-1']\"><span class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>"
+module.exports = "<h4 class=\"text-center\" *ngIf=\"!manufacturers\">\n  <span class=\"glyphicon glyphicon-refresh spin\"></span> Loading Manufacturers\n</h4>\n\n<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    Manufacturers Managment\n  </div>\n  <div class=\"panel-body\" *ngIf=\"manufacturers && manufacturers.length\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-condensed table-hover table-striped\">\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Created</th>\n            <th>Updated</th>\n            <th>Name</th>\n            <th>References</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let manufacturer of manufacturers\">\n            <td>{{ manufacturer.id }}</td>\n            <td>{{ manufacturer.created_at | date:'medium' }}</td>\n            <td>{{ manufacturer.updated_at | date:'medium' }}</td>\n            <td>{{ manufacturer.name }}</td>\n            <td>{{ manufacturer.brandreferences_count }}</td>\n            <td><a class=\"btn btn-link\" [routerLink]=\"['/manufacturer', manufacturer.id]\"><span\n                  class=\"glyphicon glyphicon-pencil\"></span> edit</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"panel-footer\">\n    <a type=\"button\" class=\"btn btn-sm btn-primary\" [routerLink]=\"['/manufacturer', '-1']\"><span\n        class=\"glyphicon glyphicon-plus\"></span> add new</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -4780,7 +4814,7 @@ module.exports = "<h4 class=\"text-center\" *ngIf=\"!stores\">\n  <span class=\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(62);
@@ -4854,6 +4888,104 @@ var ApiStoreService = (function () {
     var _a;
 }());
 //# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/api.store.service.js.map
+
+/***/ }),
+
+/***/ 87:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular2_jwt__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var AuthenticationService = (function () {
+    function AuthenticationService(http, router) {
+        this.http = http;
+        this.router = router;
+        this.loggedIn = new __WEBPACK_IMPORTED_MODULE_4_rxjs__["BehaviorSubject"](false);
+        this.redirectUrl = '';
+        // set token if saved in local storage
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.token = localStorage.getItem('token');
+    }
+    AuthenticationService.prototype.login = function (username, password) {
+        var _this = this;
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].domain_url + "api/auth/login", { email: username, password: password })
+            .map(function (response) {
+            _this.user = response.json().user;
+            _this.token = response.json().token;
+            _this.loggedIn.next(true);
+            localStorage.setItem('user', JSON.stringify({ Object: _this.user }));
+            localStorage.setItem('token', _this.token);
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs__["Observable"].throw(error || 'Server error'); });
+    };
+    AuthenticationService.prototype.logout = function () {
+        // clear token remove user from local storage to log user out
+        this.token = null;
+        this.user = null;
+        this.loggedIn.next(false);
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.router.navigate(['/login']);
+    };
+    AuthenticationService.prototype.check = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
+        headers.append('Authorization', "Bearer " + this.token);
+        headers.append('Accept', 'application/json');
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["RequestOptions"]({ headers: headers });
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].domain_url + "api/auth/check", options)
+            .map(function (response) {
+            _this.user = response.json().user;
+            _this.token = response.json().token;
+            _this.loggedIn.next(true);
+            localStorage.setItem('user', JSON.stringify({ Object: _this.user }));
+            localStorage.setItem('token', _this.token);
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs__["Observable"].throw(error || 'Server error'); });
+    };
+    AuthenticationService.prototype.isLoggedIn = function () {
+        return this.loggedIn.asObservable();
+    };
+    AuthenticationService.prototype.tokenStillActive = function () {
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_angular2_jwt__["tokenNotExpired"])('token');
+    };
+    AuthenticationService.prototype.tokenExpired = function () {
+        return !this.tokenStillActive();
+    };
+    AuthenticationService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === 'function' && _b) || Object])
+    ], AuthenticationService);
+    return AuthenticationService;
+    var _a, _b;
+}());
+//# sourceMappingURL=/Users/shone/Projects/topditop/topditop/admin/src/authentication.service.js.map
 
 /***/ })
 
