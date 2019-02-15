@@ -29,7 +29,7 @@ class BrandReferenceController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * @throws
      * @param  int $id
      * @param BrandReferenceStoreRequest $request
      * @return \Illuminate\Http\Response
@@ -44,34 +44,17 @@ class BrandReferenceController extends Controller
         $reference->title = $request->get('title');
         $reference->description = $request->get('description');
         $reference->manufacturer_id = $manufacturer->id;
+        $reference->category_id = null;
         if ($category instanceof Category) {
             $reference->category_id = $category->id;
-        } else {
-            $reference->category_id = null;
         }
         $reference->save();
 
         $image = $request->file('image');
-
-        $name = 'brandreferences/' . $reference->id;
-        $largeName = $name . '/image.' . $image->getClientOriginalExtension();
-        $thumbnailName = $name . '/thumbnail-300xAUTO.' . $image->getClientOriginalExtension();
-
-        $largeImageRelativePath = '/full_size/' . $largeName;
-        $thumbnailImageRelativePath = '/full_size/' . $thumbnailName;
         $binary = file_get_contents($image->getRealPath());
-        Storage::disk('images')->put($largeImageRelativePath, $binary);
-
-        $manager = new ImageManager();
-        $manager->make($binary)->resize(300, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(base_path('images/') . $thumbnailImageRelativePath);
-
-        $reference->image_url = $largeImageRelativePath;
-        $reference->thumbnail_url = $thumbnailImageRelativePath;
+        $reference->saveOriginal($binary);
+        $reference->generateThumbnails();
         $reference->save();
-
-        // TODO: handle image upload
 
         $manufacturer->brandreferences_count = count($manufacturer->brandreferences);
         $manufacturer->save();

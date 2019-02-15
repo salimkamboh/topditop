@@ -9,7 +9,9 @@ export class BrandReference {
     updated_at: string;
     created_at: string;
     image_url: string;
-    thumbnail_url: string;
+    thumbnail_small_url: string;
+    thumbnail_medium_url: string;
+    thumbnail_large_url: string;
 
     category: Category;
 }

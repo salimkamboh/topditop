@@ -53,7 +53,7 @@
                         @foreach($manufacturer->brandreferences as $brandreference)
                         <div class="brandreference">
                             <a href="{{$brandreference->getImageUrl()}}" target="_blank">
-                                <img src="{{$brandreference->getThumbnailUrl()}}">
+                                <img src="{{$brandreference->getThumbnailMediumUrl()}}">
                             </a>
                             <div class="brandreference-text">
                                 <p class="brandreference-text-title">{{$brandreference->title}}
