@@ -27,6 +27,8 @@
 
     @include('front.partials.stores.manufacturers')
 
+    @include('front.partials.stores.brandreferences')
+
     @include('front.partials.modal.single-product')
 
 @stop

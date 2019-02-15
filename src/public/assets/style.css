@@ -1000,7 +1000,7 @@ a:focus, button:focus {
 .img-responsive-full {
     display: block;
     width: 100%;
-    height: auto
+    height: auto;
 }
 
 .sr-only {
