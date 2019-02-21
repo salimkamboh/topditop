@@ -7,11 +7,11 @@
                 <div class="brandreferences-macy">
                     @foreach($brandreferences as $brandreference)
                         <div class="brandreference">
-                            <a href="{{$brandreference->getImageUrl()}}" target="_blank">
+                            <a href="{{ route('front_brand_stores', $brandreference->manufacturer_id) }}">
                                 <img src="{{$brandreference->getThumbnailMediumUrl()}}">
                             </a>
                             <div class="brandreference-text">
-                                <p class="brandreference-text-title">{{$brandreference->title}}
+                                <p class="brandreference-text-title">{{ $brandreference->manufacturer->name }}: {{$brandreference->title}}
                                     @if($brandreference->category != null)
                                         <span class="brandreference-text-category">{{$brandreference->category->name}}</span>
                                     @endif

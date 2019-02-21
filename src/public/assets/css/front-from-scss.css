@@ -41,3 +41,40 @@ section.references-single {
       text-align: left; }
   section.references-single .references-single-see-all {
     padding: 40px 0; }
+
+.brandreference {
+  position: relative;
+  margin-bottom: 30px;
+  display: inline-block; }
+  .brandreference img {
+    width: 100%;
+    height: auto; }
+  .brandreference .brandreference-text {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 100px;
+    z-index: 1;
+    background: black;
+    padding: 15px;
+    color: white;
+    font-size: 15px; }
+    .brandreference .brandreference-text .brandreference-text-title {
+      font-weight: 700;
+      text-align: left; }
+      .brandreference .brandreference-text .brandreference-text-title .brandreference-text-category {
+        font-weight: 400;
+        font-style: italic;
+        float: right; }
+    .brandreference .brandreference-text .brandreference-text-description {
+      font-weight: 400;
+      text-align: left; }
+  .brandreference:hover .brandreference-text {
+    display: block; }
+
+.brandreferences-section {
+  padding: 40px; }
+  .brandreferences-section .page-heading {
+    margin-bottom: 40px;
+    text-align: center; }

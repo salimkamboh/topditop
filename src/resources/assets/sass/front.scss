@@ -54,3 +54,52 @@ section.references-single {
     padding: 40px 0;
   }
 }
+
+.brandreference {
+  position: relative;
+  margin-bottom: 30px;
+  display: inline-block;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .brandreference-text {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 100px;
+    z-index: 1;
+    background: black;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    .brandreference-text-title {
+      font-weight: 700;
+      text-align: left;
+      .brandreference-text-category {
+        font-weight: 400;
+        font-style: italic;
+        float: right;
+      }
+    }
+    .brandreference-text-description {
+      font-weight: 400;
+      text-align: left;
+    }
+  }
+  &:hover {
+    .brandreference-text {
+      display: block;
+    }
+  }
+}
+
+.brandreferences-section {
+  padding: 40px;
+  .page-heading {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
