@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advert;
+use App\BrandReference;
 use App\Entity\Store\Repository as StoreRepository;
 use App\Entity\Location\Repository as LocationRepository;
 use App\Field;
@@ -208,6 +209,20 @@ class FrontController extends BaseController
 
         return view('front.brand.stores')
             ->with('manufacturer', $manufacturer);
+    }
+
+    public function showBrandReference($manufacturerId, $referenceId)
+    {
+        $manufacturer = Manufacturer::with('stores', 'brandreferences.category')->findOrFail($manufacturerId);
+        $brandreference = BrandReference::findOrFail($referenceId);
+
+        $storesCount = count($manufacturer->stores);
+        $brandreferencesCount = count($manufacturer->brandreferences);
+
+        return view('front.brand.references.references-single')
+            ->with('storesCount', $storesCount)
+            ->with('brandreferencesCount', $brandreferencesCount)
+            ->with('brandreference', $brandreference);
     }
 
     public function showProducts()
