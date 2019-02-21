@@ -1,0 +1,56 @@
+$top-bg: #af865c;
+$top-text: #af865c;
+
+.btn-top {
+  margin: 0 auto;
+  color: black;
+  font-weight: 700;
+  padding: 10px 20px;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  border: 2px solid $top-text;
+  font-size: 15px;
+  height: 45px;
+  background: white;
+  display: inline-block;
+  &:hover {
+    background: darken(white, 10%);
+  }
+  &:focus {
+    color: black;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+.non-draggable {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+section.references-single {
+  padding: 20px 0;
+  .page-header {
+    margin: 40px 0 20px;
+    h1, h2, h3 {
+      text-align: left;
+      .references-single-category {
+        float: right;
+        color: $top-text;
+        font-style: italic;
+      }
+    }
+    .references-single-description {
+      font-size: 28px;
+      color: darkgray;
+      text-align: left;
+    }
+  }
+  .references-single-see-all {
+    padding: 40px 0;
+  }
+}

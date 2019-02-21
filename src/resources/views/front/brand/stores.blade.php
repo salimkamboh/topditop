@@ -53,7 +53,7 @@
                     <div class="brandreferences-macy">
                         @foreach($manufacturer->brandreferences as $brandreference)
                         <div class="brandreference">
-                            <a href="{{$brandreference->getImageUrl()}}" target="_blank">
+                            <a href="{{ route('front_brand_references_single', ['manufacturer' => $brandreference->manufacturer_id, '$brandreference' => $brandreference->id]) }}">
                                 <img src="{{$brandreference->getThumbnailMediumUrl()}}">
                             </a>
                             <div class="brandreference-text">

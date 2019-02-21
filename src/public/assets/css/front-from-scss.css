@@ -1,0 +1,43 @@
+.btn-top {
+  margin: 0 auto;
+  color: black;
+  font-weight: 700;
+  padding: 10px 20px;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  border: 2px solid #af865c;
+  font-size: 15px;
+  height: 45px;
+  background: white;
+  display: inline-block; }
+  .btn-top:hover {
+    background: #e6e6e6; }
+  .btn-top:focus {
+    color: black;
+    outline: none;
+    text-decoration: none; }
+
+.non-draggable {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; }
+
+section.references-single {
+  padding: 20px 0; }
+  section.references-single .page-header {
+    margin: 40px 0 20px; }
+    section.references-single .page-header h1, section.references-single .page-header h2, section.references-single .page-header h3 {
+      text-align: left; }
+      section.references-single .page-header h1 .references-single-category, section.references-single .page-header h2 .references-single-category, section.references-single .page-header h3 .references-single-category {
+        float: right;
+        color: #af865c;
+        font-style: italic; }
+    section.references-single .page-header .references-single-description {
+      font-size: 28px;
+      color: darkgray;
+      text-align: left; }
+  section.references-single .references-single-see-all {
+    padding: 40px 0; }

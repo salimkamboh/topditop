@@ -19,6 +19,7 @@
     {{-- implement cache busting minute --}}
     <?php $version = '?v=' . date("Y-m-d-H-i") ?>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') . $version }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front-from-scss.css') . $version }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') . $version }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') . $version }}">
 
