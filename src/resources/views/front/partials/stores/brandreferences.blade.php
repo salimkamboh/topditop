@@ -25,23 +25,4 @@
         </div>
     </div>
 </section>
-
-@section("footer")
-    <script type="text/javascript" src="{{ asset('js/macy.js') }}"></script>
-    <script>
-        var macyInstance = Macy({
-            container: '.brandreferences-macy',
-            columns: 3,
-            margin: {
-                x: 10,
-                y: 40
-            },
-            breakAt: {
-                940: 2,
-                640: 1
-            }
-        });
-        macyInstance.reInit();
-    </script>
-@stop
 @endif
