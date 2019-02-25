@@ -101,7 +101,7 @@ function newLocation(city) {
 $(".city-selector a").on("click", function (e) {
     e.preventDefault();
     var city = $(this).data("city");
-    var storeCount = $(this).parent().find("sup").text();
+    var storeCount = $(this).find("sup").text();
     if (storeCount == 0) {
         return;
     }
