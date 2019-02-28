@@ -63,7 +63,7 @@ class HomeController extends BaseController
         $products_newest = Product::where('store_id', '!=', null)->where('manufacturer_id', '!=', null)->limit(6)->offset(0)->orderBy('id', 'desc')->get();
 
         $manufacturers = Manufacturer::where('featured', 1)->limit(6)->get();
-        $brandreferences = BrandReference::inRandomOrder()->take(9)->get();
+        $brandreferences = BrandReference::inRandomOrder()->take(12)->get();
 
         $slides = Slide::all();
         return view('front.index')
