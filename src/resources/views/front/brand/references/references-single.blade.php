@@ -1,6 +1,6 @@
 @extends("master.front-layout")
 
-@section("pageTitle") Brand-Stores @stop
+@section("pageTitle") {{ $brandreference->manufacturer->name }} - {{ $brandreference->title }} @stop
 
 @section("header")
 @stop

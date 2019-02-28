@@ -29,7 +29,7 @@
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropdown-toggle">References <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route("front_references")}}">All</a></li>
+                            <li><a href="{{route("front_brand_references_index")}}">All</a></li>
 
                         </ul>
                     </li>

@@ -31,7 +31,7 @@
                         <a href="{{ route("front_stores") }}">{{ trans('messages.stores') }}</a>
                     </li>
                     <li>
-                        <a href="{{route("front_references")}}">{{ trans('messages.references') }}</a>
+                        <a href="{{route("front_brand_references_index")}}">{{ trans('messages.references') }}</a>
                     </li>
                     <li><a href="{{route('front_contact_page')}}">{{ trans('messages.contact_us') }}</a></li>
 
