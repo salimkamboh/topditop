@@ -23,6 +23,13 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center">
+            <a href="{{ route('front_brand_references_index') }}" class="btn-top">More References</a>
+          </div>
+        </div>
+      </div>
     </div>
   @endif
 </section>

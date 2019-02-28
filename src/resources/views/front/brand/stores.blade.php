@@ -1,6 +1,6 @@
 @extends("master.front-layout")
 
-@section("pageTitle") Brand-Stores @stop
+@section("pageTitle") {{ $manufacturer->name }} - Stores & References @stop
 
 @section("header")
 @stop
@@ -74,10 +74,3 @@
     </section>
 
 @endsection
-
-@section("footer")
-    <script type="text/javascript" src="{{ asset('assets/js/lib/transition.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/lib/dropdown.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/references-filter.js') }}"></script>
-
-@stop

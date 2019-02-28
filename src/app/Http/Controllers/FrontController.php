@@ -211,6 +211,14 @@ class FrontController extends BaseController
             ->with('manufacturer', $manufacturer);
     }
 
+    public function brandReferencesIndex()
+    {
+        $brandreferences = BrandReference::with('category')->paginate(2);
+
+        return view('front.brandreferences.index')
+            ->with('brandreferences', $brandreferences);
+    }
+
     public function showBrandReference($manufacturerId, $referenceId)
     {
         $manufacturer = Manufacturer::with('stores', 'brandreferences.category')->findOrFail($manufacturerId);
