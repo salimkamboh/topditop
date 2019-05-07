@@ -71,7 +71,7 @@ class StoresFilter implements FilterHelper
      */
     public function buildDefaultCollection(Collection $collection)
     {
-        $stores = Store::active()->with('image')->get();
+        $stores = Store::active()->with('image')->orderBy('store_name')->get();
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
             if (!$collection->contains($store))
@@ -90,7 +90,7 @@ class StoresFilter implements FilterHelper
     {
         $searchObject = $request->searchObject;
         $locationParams = $searchObject[$locationKey];
-        $stores = Store::active()->whereIn('location_id', $locationParams)->with('image')->get();
+        $stores = Store::active()->whereIn('location_id', $locationParams)->with('image')->orderBy('store_name')->get();
 
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
@@ -123,7 +123,7 @@ class StoresFilter implements FilterHelper
 
         $uniqueStoreIds = array_unique($store_ids);
 
-        $stores = Store::active()->whereIn('id', $uniqueStoreIds)->with('image', 'references')->get();
+        $stores = Store::active()->whereIn('id', $uniqueStoreIds)->with('image', 'references')->orderBy('store_name')->get();
 
         foreach ($stores as $store) {
             $item = $this->buildReturnObject($store);
@@ -169,7 +169,7 @@ class StoresFilter implements FilterHelper
                 }
             }
         }
-        $stores = Store::active()->whereIn('id', $store_ids)->with('image')->get();
+        $stores = Store::active()->whereIn('id', $store_ids)->with('image')->orderBy('store_name')->get();
 
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
