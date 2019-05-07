@@ -13,16 +13,20 @@
             </p>
         </div>
     </div>
-    <div class="row city-selector-wrapper">
-        <div class="col-md-2">
-            <ul class="city-selector">
-                @foreach($locations_footer as $location)
-                    <li><a href="#" data-city="{{$location->key}}">{{$location->name}}</a> <sup>{{ count($location->stores) }}</sup></li>
-                @endforeach
-            </ul>
-        </div>
-        <div class="col-md-10">
-            <div id="map-canvas"></div>
+    <div class="row">
+        <div class="col-md-12 topditop-map-margin-bottom">
+            <div class="topditop-map">
+                <div class="city-selector-left">
+                    <ul class="city-selector">
+                        @foreach($locations_footer as $location)
+                            <li><a href="#" data-city="{{$location->key}}">{{$location->name}} <sup>{{ count($location->stores) }}</sup></a></li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="city-selector-right">
+                    <div id="map-canvas"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

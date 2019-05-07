@@ -1,6 +1,6 @@
 @extends("master.front-layout")
 
-@section("pageTitle") Brand-Stores @stop
+@section("pageTitle") {{ $manufacturer->name }} - Stores & References @stop
 
 @section("header")
 @stop
@@ -53,7 +53,7 @@
                     <div class="brandreferences-macy">
                         @foreach($manufacturer->brandreferences as $brandreference)
                         <div class="brandreference">
-                            <a href="{{$brandreference->getImageUrl()}}" target="_blank">
+                            <a href="{{ route('front_brand_references_single', ['manufacturer' => $brandreference->manufacturer_id, '$brandreference' => $brandreference->id]) }}">
                                 <img src="{{$brandreference->getThumbnailMediumUrl()}}">
                             </a>
                             <div class="brandreference-text">
@@ -74,25 +74,3 @@
     </section>
 
 @endsection
-
-@section("footer")
-    <script type="text/javascript" src="{{ asset('assets/js/lib/transition.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/lib/dropdown.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/references-filter.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/macy.js') }}"></script>
-    <script>
-        var macyInstance = Macy({
-            container: '.brandreferences-macy',
-            columns: 3,
-            margin: {
-                x: 10,
-                y: 40
-            },
-            breakAt: {
-                940: 2,
-                640: 1
-            }
-        });
-        macyInstance.reInit();
-    </script>
-@stop

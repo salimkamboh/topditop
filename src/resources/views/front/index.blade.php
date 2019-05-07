@@ -13,7 +13,8 @@
 @section('content')
     @include('front.partials.homepage.slider')
     @include('front.partials.homepage.map')
-    @include('front.partials.homepage.references')
+    {{--@include('front.partials.homepage.references')--}}
+    @include('front.partials.homepage.brandreferences')
     @include('front.partials.homepage.manufacturers')
     @include('front.partials.homepage.newsletter')
     @include('front.partials.modal.newsletter')

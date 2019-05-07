@@ -7,11 +7,11 @@
                 <div class="brandreferences-macy">
                     @foreach($brandreferences as $brandreference)
                         <div class="brandreference">
-                            <a href="{{$brandreference->getImageUrl()}}" target="_blank">
+                            <a href="{{ route('front_brand_stores', $brandreference->manufacturer_id) }}">
                                 <img src="{{$brandreference->getThumbnailMediumUrl()}}">
                             </a>
                             <div class="brandreference-text">
-                                <p class="brandreference-text-title">{{$brandreference->title}}
+                                <p class="brandreference-text-title">{{ $brandreference->manufacturer->name }}: {{$brandreference->title}}
                                     @if($brandreference->category != null)
                                         <span class="brandreference-text-category">{{$brandreference->category->name}}</span>
                                     @endif
@@ -25,23 +25,4 @@
         </div>
     </div>
 </section>
-
-@section("footer")
-    <script type="text/javascript" src="{{ asset('js/macy.js') }}"></script>
-    <script>
-        var macyInstance = Macy({
-            container: '.brandreferences-macy',
-            columns: 3,
-            margin: {
-                x: 10,
-                y: 40
-            },
-            breakAt: {
-                940: 2,
-                640: 1
-            }
-        });
-        macyInstance.reInit();
-    </script>
-@stop
 @endif

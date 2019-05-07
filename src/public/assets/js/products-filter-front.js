@@ -59,13 +59,13 @@ function performFilter() {
         var html = '';
 
         $.each(productList, function (index, item) {
-            var brandLink = item.show_brand_link == 1 ? '<a href="'+ _globalRoute + '/' + _globalLang + '/front/brand/' + item.manufacturer_id + '/stores/' + '" class="pull-left"><i class="icon-tags"></i> ' + item.manufacturer_name + ' </a>' : '';
+            var brandLink = item.show_brand_link == 1 ? '<a href="' + _globalRoute + '/' + _globalLang + '/front/brands/' + item.manufacturer_id + '/stores/' + '" class="pull-left"><i class="icon-tags"></i> ' + item.manufacturer_name + ' </a>' : '';
             html +=
                 '<div class="col-md-6">' +
                 '<div class="single-item single-item-product item-shadow" data-product-id="' + item.id + '">' +
-                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store.id + '">'+
+                '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + item.store.id + '">' +
                 '<img alt="" class="img-responsive" src="' + item.image + '">' +
-                '</a>'+
+                '</a>' +
                 '<div class="item-info">' +
                 '<div class="item-info-top clearfix">' +
                 '<div class="width-fix">' +

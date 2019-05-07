@@ -91,7 +91,7 @@
             @endif
         </div>
         <div class="text-center">
-            <a href="{{ route("front_references") }}" class=click-button>{{ trans('messages.all_references') }}</a>
+            <a href="{{ route("front_brand_references_index") }}" class=click-button>{{ trans('messages.all_references') }}</a>
         </div>
     </div>
 </section>

@@ -19,6 +19,7 @@
     {{-- implement cache busting minute --}}
     <?php $version = '?v=' . date("Y-m-d-H-i") ?>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front.css') . $version }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/front-from-scss.css') . $version }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') . $version }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slavisa.css') . $version }}">
 
@@ -60,6 +61,23 @@
 <script type="text/javascript" src="{{ asset('assets/js/lang.dist.js') }}"></script>
 <script>
     Lang.setLocale(_globalLang);
+</script>
+
+<script type="text/javascript" src="{{ asset('js/macy.js') }}"></script>
+<script>
+    var macyInstance = Macy({
+        container: '.brandreferences-macy',
+        columns: 3,
+        margin: {
+            x: 10,
+            y: 40
+        },
+        breakAt: {
+            940: 2,
+            640: 1
+        }
+    });
+    macyInstance.reInit();
 </script>
 
 <script src="{{ asset('assets/js/script.js')}}"></script>

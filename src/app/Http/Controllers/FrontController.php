@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advert;
+use App\BrandReference;
 use App\Entity\Store\Repository as StoreRepository;
 use App\Entity\Location\Repository as LocationRepository;
 use App\Field;
@@ -210,6 +211,28 @@ class FrontController extends BaseController
             ->with('manufacturer', $manufacturer);
     }
 
+    public function brandReferencesIndex()
+    {
+        $brandreferences = BrandReference::with('category')->paginate(30);
+
+        return view('front.brandreferences.index')
+            ->with('brandreferences', $brandreferences);
+    }
+
+    public function showBrandReference($manufacturerId, $referenceId)
+    {
+        $manufacturer = Manufacturer::with('stores', 'brandreferences.category')->findOrFail($manufacturerId);
+        $brandreference = BrandReference::findOrFail($referenceId);
+
+        $storesCount = count($manufacturer->stores);
+        $brandreferencesCount = count($manufacturer->brandreferences);
+
+        return view('front.brand.references.references-single')
+            ->with('storesCount', $storesCount)
+            ->with('brandreferencesCount', $brandreferencesCount)
+            ->with('brandreference', $brandreference);
+    }
+
     public function showProducts()
     {
         $products = Product::with('references', 'manufacturer')->orderBy('id', 'desc')->get();
@@ -226,7 +249,7 @@ class FrontController extends BaseController
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
-        $stores = Store::active()->with('references', 'location', 'profile.fields')->paginate(30);
+        $stores = Store::active()->with('references', 'location', 'profile.fields')->orderBy('store_name')->paginate(30);
         $manufacturers = Manufacturer::with('references', 'stores')->withCount('stores')->has('stores', '>', 0)->orderBy('name', 'asc')->get();
         $filter_locations = $this->locationRepository->getAndCountLocationsWithActiveStores();
 
