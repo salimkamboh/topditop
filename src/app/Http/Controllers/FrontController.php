@@ -249,7 +249,7 @@ class FrontController extends BaseController
         $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
-        $stores = Store::active()->with('references', 'location', 'profile.fields')->orderBy('store_name', 'asc')->paginate(30);
+        $stores = Store::active()->with('references', 'location', 'profile.fields')->orderBy('store_name')->paginate(30);
         $manufacturers = Manufacturer::with('references', 'stores')->withCount('stores')->has('stores', '>', 0)->orderBy('name', 'asc')->get();
         $filter_locations = $this->locationRepository->getAndCountLocationsWithActiveStores();
 
