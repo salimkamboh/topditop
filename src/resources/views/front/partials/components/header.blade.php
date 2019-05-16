@@ -75,8 +75,13 @@
                             </div>
                         </div>
                     </form>
+                    <li>
+                        <a href="#" class="open-newsletter-in-navbar-modal">Newsletter</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+
+@include('front.partials.modal.newsletter-navbar')
