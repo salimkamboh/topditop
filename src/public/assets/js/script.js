@@ -68,6 +68,11 @@ $(document).on('click', '.open-newsletter-modal', function (e) {
     $('.ui.modal-newsletter').modal('show').modal('refresh');
 });
 
+$(document).on('click', '.open-newsletter-in-navbar-modal', function (e) {
+    e.preventDefault();
+    $('.ui.modal-newsletter-in-navbar').modal('show').modal('refresh');
+});
+
 window.fbAsyncInit = function () {
     FB.init({
         appId: '468781016625797',
