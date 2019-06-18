@@ -1,4 +1,5 @@
 <?php
+
 Route::localizedGroup(function () {
     // ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP
     Route::get('/', ['as' => 'default', 'uses' => 'HomeController@homepage']);
