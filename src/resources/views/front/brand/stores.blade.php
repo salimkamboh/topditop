@@ -33,11 +33,11 @@
                                         </div>
                                         <div class="item-info-bottom">
                                             <i class="fa fa-map-marker brown-color"></i><span>{{$store->location->name}}</span>
-                                            <i class="fa fa-tag brown-color"></i><span>{{ trans('messages.one_stop_shop') }}
+                                            <i class="fa fa-tag brown-color"></i><span>{{ trans('messages.categories') }}
                                                 :
-                                                @foreach($store->getOneStopShopData() as $item)
-                                                    {{$item}} ,
-                                                @endforeach</span>
+                                                <?php
+                                                    echo join(", ", $store->getCategoriesNiceArray());
+                                                ?></span>
                                         </div>
                                     </div>
                                 </a>
