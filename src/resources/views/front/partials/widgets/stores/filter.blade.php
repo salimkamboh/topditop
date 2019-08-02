@@ -44,9 +44,11 @@
                 <div class="default text">{{ trans('messages.category_choose') }}</div>
                 <div class="menu" tabindex="-1">
                     @foreach($categories as $category)
-                        <div class="item" data-value="{{$category->id}}">{{$category->name}}
-                            <span>({{ count($category->stores) }})</span>
-                        </div>
+						@if (count($category->stores) > 0)
+							<div class="item" data-value="{{$category->id}}">{{$category->name}}
+								<span>({{ count($category->stores) }})</span>
+							</div>
+                        @endif
                     @endforeach
                 </div>
             </div>

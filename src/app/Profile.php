@@ -168,11 +168,10 @@ class Profile extends Model
         $statusError = null;
         $id_array = array();
         $requestData = $request->all();
-//var_dump($requestData);die();
+
         foreach ($requestData as $item => $value) {
             $field = Field::where('key', $item)->get()->first();
 
-            //todo: maybe after instanceof check
             if ($item == 'categories') {
                 $this->addCategories($request,$profile, true);
                 continue;
