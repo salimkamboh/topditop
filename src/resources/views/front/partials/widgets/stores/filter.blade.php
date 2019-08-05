@@ -35,16 +35,20 @@
             </div>
         </div>
 
-        <h4 class="text-left">{{ trans('messages.one_stop_shop') }}</h4>
+        <h4 class="text-left">{{ trans('messages.filter_category') }}</h4>
 
         <div class="restore example">
-            <div class="ui multiple selection dropdown" data-filter="onestopshop" tabindex="0">
-                <input name="onestopshop_filter" type="hidden" value="">
+            <div class="ui multiple selection dropdown" data-filter="categories" tabindex="0">
+                <input name="categories_filter" type="hidden" value="">
                 <i class="dropdown icon"></i>
-                <div class="default text">Select Type</div>
+                <div class="default text">{{ trans('messages.category_choose') }}</div>
                 <div class="menu" tabindex="-1">
-                    @foreach($fieldsOneStopShop as $field)
-                        <div class="item" data-value="{{$field}}">{{$field}}</div>
+                    @foreach($categories as $category)
+						@if (count($category->stores) > 0)
+							<div class="item" data-value="{{$category->id}}">{{$category->name}}
+								<span>({{ count($category->stores) }})</span>
+							</div>
+                        @endif
                     @endforeach
                 </div>
             </div>
