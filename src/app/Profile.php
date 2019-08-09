@@ -226,7 +226,6 @@ class Profile extends Model
     public function addCategories(Request $request, Profile $profile, $editMode)
     {
         $store = $profile->store;
-        //var_dump($store);die();
 
         if ($_categories = $this->transformData($request->categories)) {
 

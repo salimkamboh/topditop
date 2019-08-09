@@ -69,7 +69,7 @@
                         @endforeach
                     </div>
                     <form action="{{ route("dashboard_settings_save", $store->profile) }}" method="post">
-                                           
+                        
                         <?php $counter = 0; ?>
                         @foreach($store->profile->package->panels as $panel)
                             <div class="panelholder @if($counter > 1) panel-special @endif" style="display: none;"
@@ -112,7 +112,7 @@
                             
                             <?php $counter++; ?>
                         @endforeach
-                                                
+                        
                         {{ csrf_field() }}
                     </form>
                 </div>
