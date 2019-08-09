@@ -69,7 +69,7 @@ return [
     'filter_stores' => 'Filter nach Stores',
     'filter_location' => 'Filter nach Städte',
     'filter_category' => 'Filter nach Kategorien',
-    'product_category' => 'Produkt Kategorien',
+    'product_category' => 'Produkt Kategorie',
     'store_category' => 'Store Kategorien',
     'category_choose' => 'Kategorien auswählen',
     'categories' => 'Kategorien',

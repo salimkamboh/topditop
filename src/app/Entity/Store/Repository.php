@@ -126,8 +126,8 @@ class Repository
         if (!isset($request->searchObject)) {
             $stores = Store::with('image')->get();
             foreach ($stores as $store_item) {
-                $store->numberReferences = $store->getNumberOfReferences();
-                $store->categories = $store->getCategoriesNice();
+                $store_item->numberReferences = $store_item->getNumberOfReferences();
+                $store_item->categories = $store_item->getCategoriesNice();
                 $collection->add($store_item);
             }
         }

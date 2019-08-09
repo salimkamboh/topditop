@@ -20,13 +20,11 @@ class PopulateNewCategories extends Migration
             $old_cats_onestopshop = array_filter(explode(",", Field::getSelectedValues("onestopshop", $store)));
             
             $new_categories = array();
-            foreach ($old_cats_onestopshop as $old_cat) {                
-                //$old_cat //contains String
-                
-                $new_cat_ID = DB::table('categories')->where('name', $old_cat)->first();
+            foreach ($old_cats_onestopshop as $old_cat) {
+                $new_cat_ID = DB::table('categories')->where('name', $old_cat)->orderBy('created_at', 'desc')->first();
                 
                 if (!empty($new_cat_ID->id)) {
-                    $new_categories[] = $new_cat_ID->id;   
+                    $new_categories[] = $new_cat_ID->id;
                 }                
             }
             

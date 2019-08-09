@@ -21,13 +21,6 @@
 			<div class="col-sm-12">
 				<div class="row">
 					@include('front.partials.widgets.brandreferences.filter')
-					<?php /*
-                        <div class="col-sm-8">
-                            <div class="store-filter-image">
-                                <img src="{{ asset('assets/img/topditophome_filter.jpg') }}" class="img-responsive" alt="">
-                            </div>
-                        </div>
-                        */ ?>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
