@@ -52,11 +52,6 @@ class Profile extends Model
     {
         return $this->belongsTo('App\Image');
     }
-    
-    public function categories()
-    {
-        return $this->store()->categories();// or Profile::class
-    }
 
     /**
      * Get the store that owns the profile.
@@ -161,7 +156,7 @@ class Profile extends Model
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function saveProfile(Request $request, Profile $profile)
+    public function saveProfile(Request $request)
     {
         $this->touch();
         $locale = App::getLocale();
@@ -172,15 +167,10 @@ class Profile extends Model
         foreach ($requestData as $item => $value) {
             $field = Field::where('key', $item)->get()->first();
 
-            if ($item == 'categories') {
-                $this->addCategories($request,$profile, true);
-                continue;
-            }
-            
             if (! $field instanceof Field) {
                 continue;
             }
-            
+
             if ($item == 'brands') {
                 $this->updateManufacturers($field, $value, $locale);
                 continue;
@@ -217,69 +207,6 @@ class Profile extends Model
             ->with('success', trans('messages.profil_updated'))
             ->with('fail', $statusError);
     }
-    
-    /**
-     * @param Request $request
-     * @param Product $product
-     * @param $editMode
-     */
-    public function addCategories(Request $request, Profile $profile, $editMode)
-    {
-        $store = $profile->store;
-
-        if ($_categories = $this->transformData($request->categories)) {
-
-            if ($editMode) {
-                $store->categories()->detach();
-            }
-            foreach ($_categories as $_category) {
-                $category = Category::find($_category);
-                if (is_object($category))
-                    $store->categories()->attach($category);
-            }
-            $store->categories()->sync($_categories);
-        } else {
-            $store->categories()->detach();
-        }
-    }
-    
-    /**
-     * @param Request $request
-     * @param $editMode
-     */
-    public function addCategoriesRest(Request $request, $editMode)
-    {
-        $_categories = $request->categories;
-
-        if (is_array($_categories) && !empty($_categories)) {
-            if ($editMode) {
-                $this->categories()->detach();
-            }
-            foreach ($_categories as $_category) {
-                $category = Category::find($_category);
-                $this->categories()->attach($category);
-            }
-            $this->categories()->sync($_categories);
-        }
-    }
-    
-    /**
-     * @param $catRequest
-     * @return array|bool
-     */
-    public function transformData($catRequest)
-    {
-        if (isset($catRequest)) {
-            $_categories = explode(',', $catRequest);
-            if (in_array("", $_categories)) {
-                array_shift($_categories);
-            }
-            return $_categories;
-        } else {
-            return false;
-        }
-    }
-
 
     /**
      * @param Request $request

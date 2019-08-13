@@ -10,7 +10,7 @@ $('.ui.dropdown').dropdown({
 var searchObject = {
     locationParams: [],
     brandParams: [],
-    categoriesParams: [],
+    oneStopShopParams: []
 };
 
 function filterProductsDeleted(text, filterType) {
@@ -29,11 +29,11 @@ function filterProductsDeleted(text, filterType) {
                     searchObject.brandParams.splice(i, 1);
                 }
             }
-            break;       
-        case 'categories':
-            for (var i = searchObject.categoriesParams.length - 1; i >= 0; i--) {
-                if (searchObject.categoriesParams[i] === text) {
-                    searchObject.categoriesParams.splice(i, 1);
+            break;
+        case 'onestopshop':
+            for (var i = searchObject.oneStopShopParams.length - 1; i >= 0; i--) {
+                if (searchObject.oneStopShopParams[i] === text) {
+                    searchObject.oneStopShopParams.splice(i, 1);
                 }
             }
             break;
@@ -61,9 +61,9 @@ function filterProducts(text, filterType) {
             break;
         case 'brand':
             searchObject.brandParams.push(text);
-            break;        
-        case 'categories':
-            searchObject.categoriesParams.push(text);
+            break;
+        case 'onestopshop':
+            searchObject.oneStopShopParams.push(text);
             break;
         default:
             console.log('what?');
@@ -90,7 +90,6 @@ function performFilter() {
             if (store.image !== null) {
                 imageUrl = store.image.url;
             }
-            
 
             html += '<div class="col-md-4">' +
                 '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + store.id + '" class="single-item item-shadow">' +
@@ -102,7 +101,7 @@ function performFilter() {
                 '</div>' +
                 '<div class="item-info-bottom">' +
                 '<i class="fa fa-map-marker brown-color"></i><span>' + store.location.name + '</span>' +
-                '<i class="fa fa-tag brown-color"></i><span>Kategorien: ' + store.categories.join(", ") + '</span>' +
+                '<i class="fa fa-tag brown-color"></i><span>One stop shop for: ' + store.oneStopShop.join(", ") + '</span>' +
                 '</div>' +
                 '</div>' +
                 '</a>' +

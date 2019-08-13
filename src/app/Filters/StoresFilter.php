@@ -25,7 +25,7 @@ class StoresFilter implements FilterHelper
     {
         /** @var Store $entity */
         $entity->numberReferences = $entity->getNumberOfReferences();
-        $entity->categories = $entity->getCategoriesNiceArray();
+        $entity->oneStopShop = $entity->getFieldByKey('onestopshop');
         $entity->location = $entity->location->translate()->name;
         $entity->scenes = trans('messages.scene');
         if ($entity->image instanceof Image) {
@@ -44,23 +44,23 @@ class StoresFilter implements FilterHelper
             $case = 'empty';
         } else {
             $searchObject = $request->searchObject;
-            if (empty($searchObject['brandParams']) && empty($searchObject['categoriesParams']) && !empty($searchObject['locationParams'])) {
+            if (empty($searchObject['brandParams']) && empty($searchObject['oneStopShopParams']) && !empty($searchObject['locationParams'])) {
                 $case = 'locations';
-            } else if (empty($searchObject['locationParams']) && empty($searchObject['categoriesParams']) && !empty($searchObject['brandParams'])) {
+            } else if (empty($searchObject['locationParams']) && empty($searchObject['oneStopShopParams']) && !empty($searchObject['brandParams'])) {
                 $case = 'brands';
-            } else if (empty($searchObject['locationParams']) && empty($searchObject['brandParams']) && !empty($searchObject['categoriesParams'])) {
-                $case = 'categories';
-            } else if (empty($searchObject['locationParams']) && !empty($searchObject['brandParams']) && !empty($searchObject['categoriesParams'])) {
-                $case = 'brands-and-categories';
-            } else if (!empty($searchObject['locationParams']) && empty($searchObject['brandParams']) && !empty($searchObject['categoriesParams'])) {
-                $case = 'locations-and-categories';
-            } else if (!empty($searchObject['locationParams']) && !empty($searchObject['brandParams']) && empty($searchObject['categoriesParams'])) {
+            } else if (empty($searchObject['locationParams']) && empty($searchObject['brandParams']) && !empty($searchObject['oneStopShopParams'])) {
+                $case = 'onestopshops';
+            } else if (empty($searchObject['locationParams']) && !empty($searchObject['brandParams']) && !empty($searchObject['oneStopShopParams'])) {
+                $case = 'brands-and-onestopshops';
+            } else if (!empty($searchObject['locationParams']) && empty($searchObject['brandParams']) && !empty($searchObject['oneStopShopParams'])) {
+                $case = 'locations-and-onestopshops';
+            } else if (!empty($searchObject['locationParams']) && !empty($searchObject['brandParams']) && empty($searchObject['oneStopShopParams'])) {
                 $case = 'locations-and-brands';
-            } else if (!empty($searchObject['locationParams']) && !empty($searchObject['brandParams']) && !empty($searchObject['categoriesParams'])) {
+            } else if (!empty($searchObject['locationParams']) && !empty($searchObject['brandParams']) && !empty($searchObject['oneStopShopParams'])) {
                 $case = 'all';
             } else {
                 $case = 'empty';
-            }           
+            }
         }
         return $case;
     }
@@ -134,30 +134,43 @@ class StoresFilter implements FilterHelper
         }
         return $collection;
     }
-    
+
     /**
      * @param $collection
      * @param $request
-     * @param $categoriesKey
+     * @param $oneStopShopsKey
      * @return mixed
      */
-    public function buildCategoriesCollection($collection, $request, $categoriesKey)
+    public function buildOneStopShopsCollection($collection, $request, $oneStopShopsKey)
     {
         $searchObject = $request->searchObject;
-        $catParams = $searchObject[$categoriesKey];
+        $oneStopshopParams = $searchObject[$oneStopShopsKey];
 
-        $cat_ids = array();
-        
-        foreach ($catParams as $catParam) {
-            if (!in_array($catParam, $cat_ids)) {
-                $cat_ids[] = $catParam;
+        $field = Field::where('key', 'onestopshop')->get()->first();
+
+        $store_ids = array();
+        foreach ($field->profiles as $profile) {
+
+            $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $profile->id])->get()->first();
+
+            if (is_object($fieldProfilePIVOT->translate()))
+                $selectedValues = $fieldProfilePIVOT->translate()->selected;
+            else
+                $selectedValues = "";
+
+            $selected = array_filter(explode(",", $selectedValues));
+
+            foreach ($oneStopshopParams as $oneStopshopParam) {
+                if (in_array(trim($oneStopshopParam), $selected)) {
+                    $store = $profile->store;
+                    if (!in_array($store->id, $store_ids)) {
+                        $store_ids[] = $store->id;
+                    }
+                }
             }
-          }
-        
-        $stores = Store::whereHas('categories', function($q) use($cat_ids) {
-            $q->whereIn('categories.id', $cat_ids);
-        })->get();
-        
+        }
+        $stores = Store::active()->whereIn('id', $store_ids)->with('image')->orderBy('store_name')->get();
+
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
             if (!$collection->contains($store))
@@ -213,17 +226,17 @@ class StoresFilter implements FilterHelper
             case 'brands' :
                 $collection = $this->buildBrandsCollection($collection, $request, 'brandParams');
                 break;
-            case 'categories':
-                $collection = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
+            case 'onestopshops':
+                $collection = $this->buildOneStopShopsCollection($collection, $request, 'oneStopShopParams');
                 break;
-            case 'brands-and-categories':
+            case 'brands-and-onestopshops':
                 $collection1 = $this->buildBrandsCollection($collection, $request, 'brandParams');
-                $collection2 = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
+                $collection2 = $this->buildOneStopShopsCollection($collection, $request, 'oneStopShopParams');
                 $collection = $this->mergeCollections($collection, $collection1, $collection2);
                 break;
-            case 'locations-and-categories':
+            case 'locations-and-onestopshops':
                 $collection1 = $this->buildLocationsCollection($collection, $request, 'locationParams');
-                $collection2 = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
+                $collection2 = $this->buildOneStopShopsCollection($collection, $request, 'oneStopShopParams');
                 $collection = $this->mergeCollections($collection, $collection1, $collection2);
                 break;
             case 'locations-and-brands':
@@ -234,7 +247,7 @@ class StoresFilter implements FilterHelper
             case 'all':
                 $collection1 = $this->buildLocationsCollection($collection, $request, 'locationParams');
                 $collection2 = $this->buildBrandsCollection($collection, $request, 'brandParams');
-                $collection3 = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
+                $collection3 = $this->buildOneStopShopsCollection($collection, $request, 'oneStopShopParams');
                 $collection = $this->mergeCollections($collection, $collection1, $collection2, $collection3);
                 break;
             default:

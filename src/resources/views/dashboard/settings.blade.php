@@ -69,7 +69,6 @@
                         @endforeach
                     </div>
                     <form action="{{ route("dashboard_settings_save", $store->profile) }}" method="post">
-                        
                         <?php $counter = 0; ?>
                         @foreach($store->profile->package->panels as $panel)
                             <div class="panelholder @if($counter > 1) panel-special @endif" style="display: none;"
@@ -85,34 +84,11 @@
                                             @endforeach
                                         </div>
                                     @endforeach
-                                    
-                                    @if($counter == 2)
-                                        <div class="form-holder">
-                                            <label>{{ trans('messages.store_category') }}:</label><br>
-                                            <div class="ui multiple selection dropdown dropdown-categories" tabindex="0">
-                                                <input name="categories" type="hidden"
-                                                       value="@if(isset($store->categories)){{ $store->getCategories() }}@endif">
-                                                <i class="dropdown icon"></i>
-                                                <div class="default text">{{ trans('messages.category_choose') }}</div>
-                                                <div class="menu transition hidden" tabindex="-1">
-                                                    @foreach($categories as $cat)
-                                                        <div class="item"
-                                                             data-value="{{$cat->id}}">{{$cat->name}} <span
-                                                                    class="filter-options-number">({{$cat->numberOfStores()}}
-                                                                )</span></div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                     @endif
-                        
                                     <button class="save-changes">{{ trans('messages.save_changes') }}</button>
                                 </div>
                             </div>
-                            
                             <?php $counter++; ?>
                         @endforeach
-                        
                         {{ csrf_field() }}
                     </form>
                 </div>

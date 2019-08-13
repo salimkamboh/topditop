@@ -62,22 +62,6 @@ class BrandReference extends Model
         }
         return false;
     }
-    
-    public function getCategoriesNiceArray ()
-    {
-        if (BrandReference::find($this->id) != null) {
-            $selected_categories = BrandReference::find($this->id)->category()->get();
-            $selected_categories_ids = array();
-            $count = 0;
-            foreach ($selected_categories as $selected_cat) {
-                $selected_categories_ids[] = $selected_cat->name;             
-                $count++;
-            }
-            return $selected_categories_ids;
-        } else {
-            return array();
-        }
-    }
 
     public function getImageUrl()
     {

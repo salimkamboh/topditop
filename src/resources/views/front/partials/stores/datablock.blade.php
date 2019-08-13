@@ -1,11 +1,11 @@
 <section id="store-options">
     <div class="container">
         <div class="row">
-            @if($datablock["categories"])
+            @if($datablock["onestopshop"])
             <div class="col-sm-4">
-                <h3>{{ trans('messages.store_category') }}</h3>
+                <h3>{{ trans('messages.one_stop_shop') }}</h3>
                 <ul>
-                    @foreach($datablock["categories"] as $data)
+                    @foreach($datablock["onestopshop"] as $data)
                         <li>{{$data}}</li>
                     @endforeach
                 </ul>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Field;
 use App\FieldProfile;
 use App\Helpers\ImportRow;
@@ -34,18 +33,11 @@ class StoreController extends BaseController
     public function settings()
     {
         $store = $this->current_store;
-        $selected_categories = $store->categories;
-        $categories = Category::all();
-        $numberOfCategories = count($selected_categories);
         $numberOfReferences = Reference::where(['store_id' => $store->id])->count();
         $numberOfProducts = Product::where(['store_id' => $store->id])->count();
-
         return view('dashboard.settings')
             ->with('numberOfReferences', $numberOfReferences)
             ->with('numberOfProducts', $numberOfProducts)
-            ->with('selected_categories', $selected_categories)
-            ->with('categories', $categories)
-            ->with('numberOfCategories', $numberOfCategories)
             ->with('store', $this->current_store);
     }
 
@@ -214,10 +206,6 @@ class StoreController extends BaseController
     {
         $store = $this->current_store;
 
-        $selected_categories = $store->categories;
-        $categories = Category::all();
-        $numberOfCategories = count($selected_categories);
-        
         if ($store->status == 0) {
             return view('dashboard.home-forbidden')
                 ->with('store', $this->current_store);
@@ -227,10 +215,7 @@ class StoreController extends BaseController
             return view('dashboard.home')
                 ->with('store', $this->current_store)
                 ->with('numberOfReferences', $numberOfReferences)
-                ->with('numOfProducts', $numOfProducts)
-                ->with('selected_categories', $selected_categories)
-                ->with('categories', $categories)
-                ->with('numberOfCategories', $numberOfCategories);
+                ->with('numOfProducts', $numOfProducts);
         }
     }
 

@@ -7,7 +7,6 @@ use App\Filters\ProductsFilterFront;
 use App\Filters\ReferencesFilter;
 use App\Filters\ReferencesGalleryFilter;
 use App\Filters\StoresFilter;
-use App\Filters\BrandReferencesFilter;
 use App\Store;
 use Illuminate\Http\Request;
 
@@ -15,14 +14,12 @@ class FilterController extends BaseController
 {
 
     protected $storesFilter;
-    protected $brandReferencesFilter;
     protected $productsFilterFront;
     protected $productsFilter;
     protected $referencesFilter;
     protected $referencesGalleryFilter;
 
     public function __construct(StoresFilter $storesFilter,
-								BrandReferencesFilter $brandReferencesFilter,
                                 ProductsFilterFront $productsFilterFront,
                                 ProductsFilter $productsFilter,
                                 ReferencesFilter $referencesFilter,
@@ -30,7 +27,6 @@ class FilterController extends BaseController
     {
         parent::__construct();
         $this->storesFilter = $storesFilter;
-        $this->brandReferencesFilter = $brandReferencesFilter;
         $this->productsFilter = $productsFilter;
         $this->productsFilterFront = $productsFilterFront;
         $this->referencesFilter = $referencesFilter;
@@ -39,10 +35,6 @@ class FilterController extends BaseController
 
     public function multiFilterStores(Request $request) {
         return $this->storesFilter->applyFilter($request);
-    }
-
-    public function multiFilterBrandreferences(Request $request) {
-        return $this->brandReferencesFilter->applyFilter($request);
     }
 
     public function multiFilterProducts(Request $request) {

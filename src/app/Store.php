@@ -75,14 +75,6 @@ class Store extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function categories()
-    {
-        return $this->belongsToMany('App\Category')->withTimestamps();; // or Profile::class
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function references()
     {
         return $this->hasMany('App\Reference'); // or Profile::class
@@ -146,74 +138,6 @@ class Store extends Model
         else
             return '';
     }
-    
-    public function getCategories()
-    {
-        if (Store::find($this->id) != null) {
-            $selected_categories = Store::find($this->id)->categories()->get();
-            $selected_categories_ids = '';
-            foreach ($selected_categories as $selected_cat) {
-                $selected_categories_ids .= ',' . $selected_cat->id;
-            }
-            return $selected_categories_ids;
-        } else {
-            return '';
-        }
-    }
-    
-    public function getCategoriesArray()
-    {
-        if (Store::find($this->id) != null) {
-            $selected_categories = Store::find($this->id)->categories()->get();
-            $selected_categories_ids = array();
-            foreach ($selected_categories as $selected_cat) {
-                $selected_categories_ids[] = $selected_cat->id;
-            }
-            return $selected_categories_ids;
-        } else {
-            return array();
-        }
-    }
-
-    public function getCategoriesNice()
-    {
-        if (Store::find($this->id) != null) {
-            $selected_categories = Store::find($this->id)->categories()->get();
-            $selected_categories_ids = '';
-            $count = 0;
-            foreach ($selected_categories as $selected_cat) {
-                $selected_categories_ids .= $selected_cat->name;
-                $suffix = ', ';
-                if ($count < count($selected_categories) - 1)
-                    $selected_categories_ids .= $suffix;
-
-                $count++;
-            }
-            return $selected_categories_ids;
-        } else {
-            return '';
-        }
-    }
-    
-    public function getCategoriesNiceArray ()
-    {
-        if (Store::find($this->id) != null) {
-            $selected_categories = Store::find($this->id)->categories()->get();
-            $selected_categories_ids = array();
-            $count = 0;
-            foreach ($selected_categories as $selected_cat) {
-                $selected_categories_ids[] = $selected_cat->name;
-                $suffix = ', ';
-                /*if ($count < count($selected_categories) - 1) {
-                    $selected_categories_ids[count($selected_categories_ids)-1] .= $suffix;
-                }*/
-                $count++;
-            }
-            return $selected_categories_ids;
-        } else {
-            return array();
-        }
-    }
 
     /**
      * @return mixed
@@ -245,13 +169,18 @@ class Store extends Model
         return $query->where('status', 1);
     }
 
+    public function getOneStopShopData()
+    {
+        return array_filter(explode(",", Field::getSelectedValues("onestopshop", $this)));
+    }
+
     public function getStoreData()
     {
         $store = $this;
         $datablock = array();
         $datablock["topditop_offer"] = array_filter(explode(",", Field::getSelectedValues("topditop_offer", $store)));
         $datablock["TopDiTop_Service"] = array_filter(explode(",", Field::getSelectedValues("TopDiTop_Service", $store)));
-        $datablock["categories"] = $store->getCategoriesNiceArray();
+        $datablock["onestopshop"] = array_filter(explode(",", Field::getSelectedValues("onestopshop", $store)));
         $datablock["description"] = Field::getSelectedValues("description", $store);
         $datablock["address"] = Field::getSelectedValues("address", $store);
 
@@ -347,66 +276,5 @@ class Store extends Model
     public function hasCoverImage()
     {
         return strlen($this->cover_url) > 0;
-    }
-    
-    /**
-     * @param Request $request
-     * @param Store $store
-     * @param $editMode
-     */
-    public function addCategories(Request $request, Store $store, $editMode)
-    {
-
-        if ($_categories = $this->transformData($request->categories)) {
-
-            if ($editMode) {
-                $store->categories()->detach();
-            }
-            foreach ($_categories as $_category) {
-                $category = Category::find($_category);
-                if (is_object($category))
-                    $store->categories()->attach($category);
-            }
-            $store->categories()->sync($_categories);
-        } else {
-            $store->categories()->detach();
-        }
-    }
-    
-	/**
-     * @param $catRequest
-     * @return array|bool
-     */
-    public function transformData($catRequest)
-    {
-        if (isset($catRequest)) {
-            $_categories = explode(',', $catRequest);
-            if (in_array("", $_categories)) {
-                array_shift($_categories);
-            }
-            return $_categories;
-        } else {
-            return false;
-        }
-    }
-    
-     /**
-     * @param Request $request
-     * @param $editMode
-     */
-    public function addCategoriesRest(Request $request, $editMode)
-    {
-        $_categories = $request->categories;
-
-        if (is_array($_categories) && !empty($_categories)) {
-            if ($editMode) {
-                $this->categories()->detach();
-            }
-            foreach ($_categories as $_category) {
-                $category = Category::find($_category);
-                $this->categories()->attach($category);
-            }
-            $this->categories()->sync($_categories);
-        }
     }
 }

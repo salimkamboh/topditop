@@ -33,15 +33,6 @@ class Category extends Model
     public function numberOfProducts() {
         return count($this->products()->get());
     }
-    
-    public function stores()
-    {
-        return $this->belongsToMany('App\Store')->withTimestamps();
-    }
-    
-    public function numberOfStores() {
-        return count($this->stores()->get());
-    }    
 
     public function brandreferences()
     {

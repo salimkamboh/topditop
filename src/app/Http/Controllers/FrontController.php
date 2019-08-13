@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Advert;
 use App\BrandReference;
-use App\Category;
 use App\Entity\Store\Repository as StoreRepository;
 use App\Entity\Location\Repository as LocationRepository;
 use App\Field;
@@ -107,7 +106,7 @@ class FrontController extends BaseController
 
     public function frontShowStoresLocation(Location $location)
     {
-        $categories = Category::all();
+        $fieldsOneStopShop = Field::getAllValues('onestopshop');
         $stores = Store::active()->where('location_id', '=', $location->id)->orderBy('store_name')->get();
         $products = Product::all();
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
@@ -116,7 +115,7 @@ class FrontController extends BaseController
             ->with('products', $products)
             ->with('filter_locations', $filter_locations)
             ->with('manufacturers', $manufacturers)
-            ->with('categories', $categories)
+            ->with('fieldsOneStopShop', $fieldsOneStopShop)
             ->with('stores', $stores);
     }
 
@@ -127,7 +126,7 @@ class FrontController extends BaseController
             return redirect()->route('front_stores');
         }
 
-        $categories = Category::all();
+        $fieldsOneStopShop = Field::getAllValues('onestopshop');
         $stores = Store::active()->where('store_name', 'LIKE', '%' . $name . '%')->paginate(12);
         $products = Product::all();
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
@@ -137,7 +136,7 @@ class FrontController extends BaseController
             ->with('name', $name)
             ->with('filter_locations', $filter_locations)
             ->with('manufacturers', $manufacturers)
-            ->with('categories', $categories)
+            ->with('fieldsOneStopShop', $fieldsOneStopShop)
             ->with('stores', $stores);
     }
 
@@ -215,11 +214,9 @@ class FrontController extends BaseController
     public function brandReferencesIndex()
     {
         $brandreferences = BrandReference::with('category')->paginate(30);
-		$categories = Category::all();
 
         return view('front.brandreferences.index')
-            ->with('brandreferences', $brandreferences)
-            ->with('categories', $categories);
+            ->with('brandreferences', $brandreferences);
     }
 
     public function showBrandReference($manufacturerId, $referenceId)
@@ -249,7 +246,7 @@ class FrontController extends BaseController
 
     public function showStores()
     {
-        $categories = Category::all();
+        $fieldsOneStopShop = Field::getAllValues('onestopshop');
 
         $products = Product::all();
         $stores = Store::active()->with('references', 'location', 'profile.fields')->orderBy('store_name')->paginate(30);
@@ -260,7 +257,7 @@ class FrontController extends BaseController
             ->with('products', $products)
             ->with('manufacturers', $manufacturers)
             ->with('filter_locations', $filter_locations)
-            ->with('categories', $categories)
+            ->with('fieldsOneStopShop', $fieldsOneStopShop)
             ->with('stores', $stores);
     }
 
