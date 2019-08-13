@@ -26,6 +26,6 @@ class ProfileController extends BaseController
      */
     public function saveProfile(Request $request, Profile $profile)
     {
-        return $profile->saveProfile($request);
+        return $profile->saveProfile($request, $profile);
     }
 }
