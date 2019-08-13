@@ -21,7 +21,7 @@ class Repository
         $datablock = array();
         $datablock["topditop_offer"] = array_filter(explode(",", Field::getSelectedValues("topditop_offer", $store)));
         $datablock["TopDiTop_Service"] = array_filter(explode(",", Field::getSelectedValues("TopDiTop_Service", $store)));
-        $datablock["onestopshop"] = array_filter(explode(",", Field::getSelectedValues("onestopshop", $store)));
+        $datablock["categories"] = $store->getCategoriesNiceArray();
         $datablock["description"] = Field::getSelectedValues("description", $store);
         $datablock["address"] = Field::getSelectedValues("address", $store);
 
@@ -67,45 +67,35 @@ class Repository
 
             foreach ($stores as $store) {
                 $store->numberReferences = $store->getNumberOfReferences();
-                $store->oneStopShop = $store->getFieldByKey('onestopshop');
+                $store->categories = $store->getCategoriesNice();
                 $collection->add($store);
             }
         }
 
-        if (isset($searchObject['oneStopShopParams'])) {
-            $oneStopshopParams = $searchObject['oneStopShopParams'];
+        if (isset($searchObject['categoriesParams'])) {
+            $catParams = $searchObject["categoriesParams"];
 
-            $field = Field::where('key', 'onestopshop')->get()->first();
+            $cat_ids = array();
 
-            $store_ids = array();
-            foreach ($field->profiles as $profile) {
-
-                $fieldProfilePIVOT = FieldProfile::where(['field_id' => $field->id, 'profile_id' => $profile->id])->get()->first();
-
-                if (is_object($fieldProfilePIVOT->translate()))
-                    $selectedValues = $fieldProfilePIVOT->translate()->selected;
-                else
-                    $selectedValues = "";
-
-                $selected = array_filter(explode(",", $selectedValues));
-
-                foreach ($oneStopshopParams as $oneStopshopParam) {
-                    if (in_array(trim($oneStopshopParam), $selected)) {
-                        $store = $profile->store;
-                        if (!in_array($store->id, $store_ids)) {
-                            $store_ids[] = $store->id;
-                        }
-                    }
+            foreach ($catParams as $catParam) {
+                if (!in_array($catParam, $cat_ids)) {
+                    $cat_ids[] = $catParam;
                 }
-            }
-            $stores = Store::whereIn('id', $store_ids)->with('image')->get();
+              }
+
+            $stores = Store::whereHas('categories', function($q) use($cat_ids) {
+                $q->whereIn('categories.id', $cat_ids);
+            })->get();
 
             foreach ($stores as $store) {
+                $store = $this->buildReturnObject($store);
                 $store->numberReferences = $store->getNumberOfReferences();
-                $store->oneStopShop = $store->getFieldByKey('onestopshop');
+                $store->categories = $store->getCategoriesNice();
                 if (!$collection->contains($store))
                     $collection->add($store);
             }
+
+            return $collection;
         }
 
         if (isset($searchObject['brandParams'])) {
@@ -127,7 +117,7 @@ class Repository
             $stores = Store::whereIn('id', $store_ids)->with('image')->get();
             foreach ($stores as $store) {
                 $store->numberReferences = $store->getNumberOfReferences();
-                $store->oneStopShop = $store->getFieldByKey('onestopshop');
+                $store->categories = $store->getCategoriesNice();
                 if (!$collection->contains($store))
                     $collection->add($store);
             }
@@ -137,7 +127,7 @@ class Repository
             $stores = Store::with('image')->get();
             foreach ($stores as $store_item) {
                 $store_item->numberReferences = $store_item->getNumberOfReferences();
-                $store_item->oneStopShop = $store_item->getFieldByKey('onestopshop');
+                $store_item->categories = $store_item->getCategoriesNice();
                 $collection->add($store_item);
             }
         }

@@ -103,6 +103,7 @@ Route::localizedGroup(function () {
 
     Route::group(['prefix' => 'filter/'], function () {
         Route::post('/stores/multi/', ['as' => 'stores_multi_filter', 'uses' => 'FilterController@multiFilterStores']);
+        Route::post('/brandreferences/multi/', ['as' => 'brandreferences_multi_filter', 'uses' => 'FilterController@multiFilterBrandreferences']);
         Route::post('/references/multi/', ['as' => 'references_multi_filter', 'uses' => 'FilterController@multiFilterReferences']);
         Route::post('/products/multi/', ['as' => 'products_multi_product', 'uses' => 'FilterController@multiFilterProducts']);
         Route::post('/products/front/multi/', ['as' => 'products_front_multi_filter', 'uses' => 'FilterController@multiFilterProductsFront']);
