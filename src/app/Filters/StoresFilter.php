@@ -10,6 +10,7 @@ use App\Manufacturer;
 use App\Store;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use DB;
 
 /**
  * Class StoresFilter
@@ -200,46 +201,65 @@ class StoresFilter implements FilterHelper
      */
     public function applyFilter(Request $request)
     {
-        $case = $this->identifyCase($request);
+        //$case = $this->identifyCase($request);
         $collection = new Collection();
 
-        switch ($case) {
-            case 'empty' :
-                $collection = $this->buildDefaultCollection($collection);
-                break;
-            case 'locations' :
-                $collection = $this->buildLocationsCollection($collection, $request, 'locationParams');
-                break;
-            case 'brands' :
-                $collection = $this->buildBrandsCollection($collection, $request, 'brandParams');
-                break;
-            case 'categories':
-                $collection = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
-                break;
-            case 'brands-and-categories':
-                $collection1 = $this->buildBrandsCollection($collection, $request, 'brandParams');
-                $collection2 = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
-                $collection = $this->mergeCollections($collection, $collection1, $collection2);
-                break;
-            case 'locations-and-categories':
-                $collection1 = $this->buildLocationsCollection($collection, $request, 'locationParams');
-                $collection2 = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
-                $collection = $this->mergeCollections($collection, $collection1, $collection2);
-                break;
-            case 'locations-and-brands':
-                $collection1 = $this->buildLocationsCollection($collection, $request, 'locationParams');
-                $collection2 = $this->buildBrandsCollection($collection, $request, 'brandParams');
-                $collection = $this->mergeCollections($collection, $collection1, $collection2);
-                break;
-            case 'all':
-                $collection1 = $this->buildLocationsCollection($collection, $request, 'locationParams');
-                $collection2 = $this->buildBrandsCollection($collection, $request, 'brandParams');
-                $collection3 = $this->buildCategoriesCollection($collection, $request, 'categoriesParams');
-                $collection = $this->mergeCollections($collection, $collection1, $collection2, $collection3);
-                break;
-            default:
-                break;
+        $searchObject = $request->searchObject;
+
+
+        $locationParams = $searchObject['locationParams'];
+        
+        
+        $stores = Store::active();
+
+        if (!empty($locationParams)) {
+            $stores = $stores->whereIn('location_id', $locationParams);
+        }
+
+        
+        $brandParams = $searchObject['brandParams'];
+
+        if(!empty($brandParams)) {
+            $store_ids = [];
+
+            $manufacturers = Manufacturer::whereIn('id', $brandParams)->with('stores')->get();
+
+            foreach ($manufacturers as $manufacturer) {
+                foreach ($manufacturer->stores as $store) {
+                    $store_ids []= $store->id;
+                }
+            }
+
+            $uniqueStoreIds = array_unique($store_ids);
+
+            $stores = $stores->whereIn('id', $uniqueStoreIds)->with('references');
+        }
+
+        $catParams = $searchObject['categoriesParams'];
+        if (!empty($catParams)) {
+
+            $cat_ids = array();
+            
+            foreach ($catParams as $catParam) {
+                if (!in_array($catParam, $cat_ids)) {
+                    $cat_ids[] = $catParam;
+                }
+              }
+            
+            $stores = $stores->whereHas('categories', function($q) use($cat_ids) {
+                $q->whereIn('categories.id', $cat_ids);
+            });
+        }
+        $stores_res = $stores->with('image')->orderBy('store_name')->get();
+
+        foreach ($stores_res as $store) {
+            $store = $this->buildReturnObject($store);
+            if (!$collection->contains($store))
+                $collection->add($store);
         }
         return $collection;
     }
+
+
+
 }
