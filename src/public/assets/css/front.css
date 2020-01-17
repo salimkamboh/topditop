@@ -1538,6 +1538,10 @@ section#front-stores .single-item .item-info-top .number-of {
     position: relative;
 }
 
+span.number-of.pull-left {
+    display: none;
+}
+
 section#front-stores .single-item .item-info-bottom {
     display: flex
 }
