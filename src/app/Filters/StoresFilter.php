@@ -250,7 +250,7 @@ class StoresFilter implements FilterHelper
                 $q->whereIn('categories.id', $cat_ids);
             });
         }
-        $stores_res = $stores->with('image')->orderBy('store_name')->get();
+        $stores_res = $stores->with('image')->orderBy('image_id', 'desc')->get();
 
         foreach ($stores_res as $store) {
             $store = $this->buildReturnObject($store);
