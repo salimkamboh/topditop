@@ -15,13 +15,15 @@ class Repository
      * @return Location
      */
     public function saveNew(Request $request)
-    {
+    {   
         $locale = App::getLocale();
 
         $location = new Location();
+        $location->key = $request->key;       
         $location->latitude = $request->latitude;
         $location->longitude = $request->longitude;
-        $location->translateOrNew($locale)->name = $request->name;
+        $location->translateOrNew($locale)->name = $request->name;       
+        $location->is_featured = $request->is_featured;
         $location->save();
 
         return $location;
@@ -86,7 +88,8 @@ class Repository
     public function update(Request $request, Location $location)
     {
         $locale = App::getLocale();
-
+        $location->key = $request->key;
+        $location->translateOrNew($locale)->name = $request->name;
         $location->longitude = $request->longitude;
         $location->latitude = $request->latitude;
         $location->is_featured = $request->is_featured;
