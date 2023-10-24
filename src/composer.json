@@ -9,7 +9,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "arcanedev/localization": "0.8.*",
+        "arcanedev/localization": "2.*",
         "artisaninweb/laravel-soap": "*",
         "barryvdh/laravel-debugbar": "^2.3",
         "catchoom/craftar-php": "*",
