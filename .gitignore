@@ -17,3 +17,4 @@ src/node_modules
 production-backup.sh
 staging-backup.sh
 staging-download.sh
+/mysql*/

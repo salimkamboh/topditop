@@ -165,11 +165,10 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Mariuzzo\LaravelJsLocalization\LaravelJsLocalizationServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        Roumen\Sitemap\SitemapServiceProvider::class,
+        // Roumen\Sitemap\SitemapServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
-
     ],
 
     /*
