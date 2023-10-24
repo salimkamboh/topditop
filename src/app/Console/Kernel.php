@@ -13,19 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
-        Commands\TopAdminList::class,
-        Commands\TopAdminCreate::class,
-        Commands\TopSitemapCreate::class,
-        Commands\TopImportUsersCommand::class,
-        Commands\TopGeocodeExistingLocationsCommand::class,
-        Commands\TopExportUsersForNewsletterCommand::class,
-        Commands\TopSyncOneUserCommand::class,
-        Commands\TopSyncUsersCommand::class,
-        Commands\TopSyncOneAdvertCommand::class,
-        Commands\TopSyncAllAdvertsCommand::class,
-        Commands\TopStorePackageUpgradeCommand::class,
-        Commands\TopImportCitiesCommand::class,
+        //
     ];
 
     /**
@@ -39,9 +27,15 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
     }
+
+    /**
+     * Register the commands for the application.
+     *
+     * @return void
+     */
     protected function commands()
     {
-        $this->load(__DIR__ . '/Commands');
+        $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
     }

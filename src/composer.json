@@ -1,80 +1,83 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
-  "keywords": [
-    "framework",
-    "laravel"
-  ],
-  "license": "MIT",
-  "type": "project",
-  "require": {
-    "php": "^7.4",
-    "laravel/framework": "5.5.*",
-    "artisaninweb/laravel-soap": "*",
-    "guzzlehttp/guzzle": "7.8.*",
-    "doctrine/dbal": "*",
-    "intervention/image": "*",
-    "ixudra/curl": "*",
-    "dimsav/laravel-translatable": "*",
-    "arcanedev/localization": "0.8.*",
-    "barryvdh/laravel-debugbar": "^2.3",
-    "mariuzzo/laravel-js-localization": "^1.3",
-    "tymon/jwt-auth": "^0.5.10",
-    "league/csv": "*",
-    "catchoom/craftar-php": "*",
-    "spatie/laravel-backup": "*",
-    "google/recaptcha": "*",
-    "google/cloud": "*",
-    "roumen/sitemap": "*",
-    "fruitcake/laravel-cors": "^1.0",
-    "laravel/tinker": "^1.0"
-  },
-  "require-dev": {
-    "fzaninotto/faker": "~1.4",
-    "mockery/mockery": "0.9.*",
-    "phpunit/phpunit": "~6.0",
-    "symfony/css-selector": "3.1.*",
-    "symfony/dom-crawler": "3.1.*",
-    "barryvdh/laravel-ide-helper": "^2.3",
-    "filp/whoops": "~2.0"
-  },
-  "autoload": {
-    "classmap": [
-      "database"
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
     ],
-    "psr-4": {
-      "App\\": "app/"
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=7.0.0",
+        "fideloper/proxy": "~3.3",
+        "laravel/framework": "5.5.*",
+        "laravel/tinker": "~1.0",
+        "artisaninweb/laravel-soap": "*",
+        "guzzlehttp/guzzle": "7.8.*",
+        "doctrine/dbal": "*",
+        "intervention/image": "*",
+        "ixudra/curl": "*",
+        "dimsav/laravel-translatable": "*",
+        "arcanedev/localization": "0.8.*",
+        "barryvdh/laravel-debugbar": "^2.3",
+        "mariuzzo/laravel-js-localization": "^1.3",
+        "tymon/jwt-auth": "^0.5.10",
+        "league/csv": "*",
+        "catchoom/craftar-php": "*",
+        "spatie/laravel-backup": "*",
+        "google/recaptcha": "*",
+        "google/cloud": "*",
+        "roumen/sitemap": "*",
+        "fruitcake/laravel-cors": "^1.0"
+    },
+    "require-dev": {
+        "filp/whoops": "~2.0",
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "~1.0",
+        "phpunit/phpunit": "~6.0",
+        "symfony/thanks": "^1.0",
+        "symfony/css-selector": "3.1.*",
+        "symfony/dom-crawler": "3.1.*",
+        "barryvdh/laravel-ide-helper": "^2.3"
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true,
+            "symfony/thanks": true
+        }
     }
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/TestCase.php"
-    ]
-  },
-  "scripts": {
-    "post-root-package-install": [
-      "@php -r \"copy('.env.example', '.env');\""
-    ],
-    "post-create-project-cmd": [
-      "@php artisan key:generate"
-    ],
-    "post-install-cmd": [
-      "Illuminate\\Foundation\\ComposerScripts::postInstall",
-      "@php artisan optimize"
-    ],
-    "post-update-cmd": [
-      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-      "@php artisan optimize"
-    ],
-    "post-autoload-dump": [
-      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-      "@php artisan package:discover"
-    ]
-  },
-  "config": {
-    "preferred-install": "dist",
-    "allow-plugins": {
-      "kylekatarnls/update-helper": true
-    }
-  }
 }

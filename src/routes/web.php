@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\HomeController;
 
-Route::localizedGroup(function () {
+// Route::localizedGroup(function () {
     // ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP
     Route::get('/', [HomeController::class, 'homepage'])->name('default');
 
@@ -69,7 +69,7 @@ Route::localizedGroup(function () {
         Route::post('/products/front/multi/', ['as' => 'products_front_multi_filter', 'uses' => 'FilterController@multiFilterProductsFront']);
         Route::post('/references/gallery/multi/{store}', ['as' => 'references_multi_filter_gallery', 'uses' => 'FilterController@multiFilterReferencesGallery']);
     });
-});
+// });
 
 Route::get('/register/verify/{confirmation_code}', ['as' => 'registerverify', 'uses' => 'Auth\AuthController@verify']);
 Route::post('/register/confirm/{user}', ['as' => 'confirm_registration', 'uses' => 'Auth\AuthController@confirm']);

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'api/'], function () {
 
-    Route::localizedGroup(function () {
+    // Route::localizedGroup(function () {
         Route::group(['prefix' => '/locations/'], function () {
             Route::get('all', ['as' => 'all_locations', 'uses' => 'LocationController@index']);
             Route::get('/', ['as' => 'locations.list', 'uses' => 'LocationController@list']);
@@ -45,7 +45,7 @@ Route::group(['prefix' => 'api/'], function () {
             Route::get('package/{package}', ['as' => 'panels_in_package', 'uses' => 'PanelController@viewPanelsByPackage']);
             Route::delete('/delete/{panel}', ['as' => 'delete_panel', 'uses' => 'PanelController@delete']);
         });
-    });
+    // });
 
     Route::group(['prefix' => 'references/'], function () {
         Route::get('all', ['as' => 'all_references_view', 'uses' => 'ReferenceController@viewAll']);
