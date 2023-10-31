@@ -3,6 +3,8 @@
 Route::localizedGroup(function () {
     // ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP
     Route::get('/', ['as' => 'default', 'uses' => 'HomeController@homepage']);
+    Route::post('/vision/search', ['as' => 'vision-search', 'uses' => 'VisionController@search']);
+    Route::get('/vision/', ['as' => 'vision-index', 'uses' => 'VisionController@index']);
 
     Route::group(['prefix' => '/dashboard/', 'middleware' => 'auth'], function () {
         Route::group(['prefix' => '/'], function () {

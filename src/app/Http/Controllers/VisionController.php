@@ -4,18 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
 use Google\Cloud\Vision\V1\ImageAnnotatorClient;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Arr;
 
-use App\BrandReference;
+use FuzzyWuzzy\Fuzz;
+use FuzzyWuzzy\Process;
 use App\Manufacturer;
-use App\Product;
-use App\Reference;
-use App\Slide;
 
 class VisionController extends BaseController
 {
     public function index()
     {
+        // $this->getCategoryUsingProcess();
         return view('front.vision-index');
+    }
+    function getCategoryUsingProcess()
+    {
+        $fuzz = new Fuzz();
+        $process = new Process($fuzz);
+        $choices = Manufacturer::all()->pluck('name', 'id')->toArray();
+        $best_label = "ohlinda bretz";
+
+
+        $description = "Bretz, Sofa, Ohlinda upholstered group (Corner sofa)";
+        $c = $process->extractOne($best_label, $choices, null, [$fuzz, 'tokenSetRatio']);
+        $d = $process->extractOne($description, $choices, null, [$fuzz, 'tokenSetRatio']);
+        Log::debug("$best_label ::: " . print_r($c, true));
+        Log::debug("$description ::: " . print_r($d, true));
+        dd($c, $d);
+        //        echo("getCategoryUsingProcess looking {$ad->title} score: {$c[1]}  {$c[0]}\n");
+        return ($c && $c[1] > 50) ? array_search($c[0], $choices) : 0;
     }
     public function search()
     {
@@ -32,14 +50,15 @@ class VisionController extends BaseController
         // Get the uploaded file
         // $filename = 'image-' . date('Y-m-d-H-i-s') . '.jpg';
         // // Get the contents of the file
-        // $file = request()->file('image');
+        $file = request()->file('image');
         // $file->move(storage_path('app/images'), $filename);
         // $image = Storage::disk('local')->get('images/' . $filename);
+        // $image = file_get_contents('images/full_size/brandreferences/557/original.png');
+        $image = file_get_contents($file);
 
-        $image = file_get_contents('images/full_size/brandreferences/557/original.png');
         echo "<pre>";
         // // $this->label_detection($imageAnnotator, $image);
-        $this->detect_web($imageAnnotator, $image);
+        $this->detect_web1($imageAnnotator, $image);
         echo "</pre>";
         // // Close the ImageAnnotatorClient
         // $imageAnnotator->close();
@@ -54,32 +73,6 @@ class VisionController extends BaseController
         // print_r($result->webDetection);
         // echo json_encode($result->info);
     }
-    public function web_detection($imageAnnotator, $image)
-    {
-        $response = $imageAnnotator->webDetection($image);
-        $labels = $response->getWebAnnotations();
-
-        // Process the labels (objects detected in the image)
-        foreach ($labels as $label) {
-            $objectDescription = $label->getDescription();
-            print_r($objectDescription);
-            echo "<br>";
-            // Process $objectDescription (e.g., search in your ads collection)
-        }
-    }
-    public function label_detection($imageAnnotator, $image)
-    {
-        $response = $imageAnnotator->labelDetection($image);
-        $labels = $response->getLabelAnnotations();
-
-        // Process the labels (objects detected in the image)
-        foreach ($labels as $label) {
-            $objectDescription = $label->getDescription();
-            print_r($objectDescription);
-            echo "<br>";
-            // Process $objectDescription (e.g., search in your ads collection)
-        }
-    }
     /**$response = $imageAnnotator->webDetection($image, ['pageSize' => $pageSize]);
 $web = $response->getWebDetection();
 
@@ -92,81 +85,72 @@ while ($web->getNextPageToken()) {
     $web = $response->getWebDetection();
     processWebDetectionResults($web);
 }
-
-// Function to process web detection results
-function processWebDetectionResults($web) {
-    // Process the results (e.g., printing URLs, entities, etc.)
-    // ...
-}
-     * @param string $path Path to the image, e.g. "path/to/your/image.jpg"
      */
-    function detect_web($imageAnnotator, $image)
+    private function processWebDetectionResults($web)
     {
-        $response = $imageAnnotator->webDetection($image, ['pageSize' => 20]);
-        $web = $response->getWebDetection();
-
         // Print best guess labels
-        printf(
-            '%d best guess labels found' . PHP_EOL,
-            count($web->getBestGuessLabels())
-        );
+        Log::debug(sprintf('%d best guess labels found', count($web->getBestGuessLabels())));
         foreach ($web->getBestGuessLabels() as $label) {
-            printf('Best guess label: %s' . PHP_EOL, $label->getLabel());
+            Log::debug(sprintf('Best guess label: %s', $label->getLabel()));
         }
-        print(PHP_EOL);
 
         // Print pages with matching images
-        printf(
-            '%d pages with matching images found' . PHP_EOL,
+        Log::debug(sprintf(
+            '%d pages with matching images found',
             count($web->getPagesWithMatchingImages())
-        );
+        ));
         foreach ($web->getPagesWithMatchingImages() as $page) {
-            printf('URL: %s' . PHP_EOL, $page->getUrl());
+            Log::debug(sprintf('URL: %s', $page->getUrl()));
         }
-        print(PHP_EOL);
+
 
         // Print full matching images
-        printf(
-            '%d full matching images found' . PHP_EOL,
-            count($web->getFullMatchingImages())
-        );
+        Log::debug(sprintf('%d full matching images found', count($web->getFullMatchingImages())));
         foreach ($web->getFullMatchingImages() as $fullMatchingImage) {
-            printf('URL: %s' . PHP_EOL, $fullMatchingImage->getUrl());
+            Log::debug(sprintf('URL: %s', $fullMatchingImage->getUrl()));
         }
-        print(PHP_EOL);
+
 
         // Print partial matching images
-        printf(
-            '%d partial matching images found' . PHP_EOL,
+        Log::debug(sprintf(
+            '%d partial matching images found',
             count($web->getPartialMatchingImages())
-        );
+        ));
         foreach ($web->getPartialMatchingImages() as $partialMatchingImage) {
-            printf('URL: %s' . PHP_EOL, $partialMatchingImage->getUrl());
+            Log::debug(sprintf('URL: %s', $partialMatchingImage->getUrl()));
         }
-        print(PHP_EOL);
+
 
         // Print visually similar images
-        printf(
-            '%d visually similar images found' . PHP_EOL,
+        Log::debug(sprintf(
+            '%d visually similar images found',
             count($web->getVisuallySimilarImages())
-        );
+        ));
         foreach ($web->getVisuallySimilarImages() as $visuallySimilarImage) {
-            printf('URL: %s' . PHP_EOL, $visuallySimilarImage->getUrl());
+            Log::debug(sprintf('URL: %s', $visuallySimilarImage->getUrl()));
         }
-        print(PHP_EOL);
+
 
         // Print web entities
-        printf(
-            '%d web entities found' . PHP_EOL,
+        Log::debug(sprintf(
+            '%d web entities found',
             count($web->getWebEntities())
-        );
+        ));
         foreach ($web->getWebEntities() as $entity) {
-            printf(
-                'Description: %s, Score %s' . PHP_EOL,
+            Log::debug(sprintf(
+                'Description: %s, Score %s',
                 $entity->getDescription(),
                 $entity->getScore()
-            );
+            ));
         }
+        Log::debug("------------------------------------------------------------");
+    }
+    private function detect_web1($imageAnnotator, $image)
+    {
+        $response = $imageAnnotator->webDetection($image);
+        $web = $response->getWebDetection();
+        // Process the current page of results
+        $this->processWebDetectionResults($web);
 
         $imageAnnotator->close();
     }
