@@ -30,7 +30,8 @@
             <div class="form-group">
                 <label for="image">Choose Image:</label>
                 <input type="file" class="form-control-file" id="image" name="image"
-                    accept="image/*;capture=camera">
+                    accept="image/jpeg,image/png;capture=camera">
+
             </div>
             <button type="submit" class="btn btn-primary">Upload Image</button>
         </form>

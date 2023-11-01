@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Traits\EdenApiClient;
+use App\Services\EdenService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -10,7 +10,6 @@ use App\GuessImage;
 
 class EdenAIUpload extends Command
 {
-    use EdenApiClient;
     /**
      * The name and signature of the console command.
      *
@@ -24,11 +23,7 @@ class EdenAIUpload extends Command
      * @var string
      */
     protected $description = 'Upload images to eden ai';
-    public function __construct()
-    {
-        parent::__construct();
-        $this->init();
-    }
+
     /**
      * Execute the console command.
      *
@@ -36,10 +31,11 @@ class EdenAIUpload extends Command
      */
     public function handle()
     {
-        // $resp = $this->deleteImage("image_6532581d8f5e6.jpg");
-        // $resp = $this->deleteImage("test_12.jpg");
+        $service = new EdenService();
+        // $resp = $service->deleteImage("image_6532581d8f5e6.jpg");
+        // $resp = $service->deleteImage("test_12.jpg");
 
-        // $resp = $this->listImages();
+        // $resp = $service->listImages();
         $json = json_decode(file_get_contents(storage_path('app/eden_images_list.json'), true));
         $images = array_column($json, 'image_name');
         $this->info("Images already uploaded: " . count($images));
@@ -52,7 +48,7 @@ class EdenAIUpload extends Command
                 continue;
             }
             $image_url = "https://topditop.com/images/full_size/" . $basename;
-            $resp = $this->uploadImage($image_url);
+            $resp = $service->uploadImage($image_url);
             if ($resp) {
                 $json[] = ["image_name" => basename($image_url)];
             }

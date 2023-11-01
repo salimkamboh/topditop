@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -26,6 +28,15 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->call(function () {
+            $files = Storage::files('temp');
+            foreach ($files as $file) {
+                Log::debug($file);
+                if (Storage::lastModified($file) + 300 < now()->timestamp) {
+                    Storage::delete($file);
+                }
+            }
+        })->everyTenMinutes();
     }
 
     /**
@@ -35,7 +46,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

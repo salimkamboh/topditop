@@ -11,7 +11,6 @@
         "php": ">=7.0.0",
         "arcanedev/localization": "2.*",
         "artisaninweb/laravel-soap": "*",
-        "aws/aws-sdk-php": "^3.283",
         "barryvdh/laravel-debugbar": "^2.3",
         "catchoom/craftar-php": "*",
         "dimsav/laravel-translatable": "*",
