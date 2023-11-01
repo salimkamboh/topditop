@@ -29,8 +29,7 @@ class VisionController extends BaseController
         $generatedName  = uniqid() . $ext;
         $file->storeAs('temp', $generatedName);
         $url = asset('temp/' . $generatedName);
-        Log::debug('url: ' . $url);
-        exit;
-        $edenService->searchImage($file);
+        Log::debug('url to search: ' . $url);
+        $edenService->searchImage($url);
     }
 }
