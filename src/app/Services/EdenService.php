@@ -83,29 +83,19 @@ class EdenService
     }
     public function searchImage($imagePath)
     {
-        // $content = file_get_contents($imagePath);
-        // $base64EncodedData = base64_encode($content);
-        // $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        // $mime = finfo_file($finfo, $imagePath);
-        // finfo_close($finfo);
-        // $image_name = $imagePath->getClientOriginalName();
-
-        // $dataUrl = "data:$mime;name=" . $image_name . ";base64,$base64EncodedData";
-        $data = $this->parameters + ["file_url" => $imagePath]; // "https://topditop.com/images/full_size/image_61e833b645a30.jpg"];
-        // print_r($data);exit;
-        // Log::debug(print_r($data, true));
+        $data = $this->parameters + ["file_url" => $imagePath];
         try {
             $response = Curl::to($this->base_url . 'launch_similarity')
                 ->withHeaders($this->headers)
                 ->withData(json_encode($data))
-                // ->withFile(basename($imagePath), $imagePath, $mime, basename($imagePath))
                 ->returnResponseObject()
                 ->post();
-            print_r($response->content);
-            Log::debug(print_r($response, true));
+            $response = json_decode($response->content);
+            print_r ($response);
+            return ["error" => false, "content" => $response->sentisight->items];
         } catch (\Exception $e) {
             Log::error($e->getMessage());
-            return $e->getMessage();
+            return ["error" => true, "message" => $e->getMessage()];
         }
     }
 }

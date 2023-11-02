@@ -30,6 +30,7 @@ class VisionController extends BaseController
         $file->storeAs('temp', $generatedName);
         $url = asset('temp/' . $generatedName);
         Log::debug('url to search: ' . $url);
-        $edenService->searchImage($url);
+        $result = $edenService->searchImage($url);
+        return view('front.vision-index', compact('result'));
     }
 }
