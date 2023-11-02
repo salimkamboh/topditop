@@ -83,15 +83,15 @@ class EdenService
     }
     public function searchImage($imagePath)
     {
-        $content = file_get_contents($imagePath);
-        $base64EncodedData = base64_encode($content);
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mime = finfo_file($finfo, $imagePath);
-        finfo_close($finfo);
-        $image_name = $imagePath->getClientOriginalName();
+        // $content = file_get_contents($imagePath);
+        // $base64EncodedData = base64_encode($content);
+        // $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        // $mime = finfo_file($finfo, $imagePath);
+        // finfo_close($finfo);
+        // $image_name = $imagePath->getClientOriginalName();
 
-        $dataUrl = "data:$mime;name=" . $image_name . ";base64,$base64EncodedData";
-        $data = $this->parameters + ["file_url" => "https://topditop.com/images/full_size/image_61e833b645a30.jpg"];
+        // $dataUrl = "data:$mime;name=" . $image_name . ";base64,$base64EncodedData";
+        $data = $this->parameters + ["file_url" => $imagePath]; // "https://topditop.com/images/full_size/image_61e833b645a30.jpg"];
         // print_r($data);exit;
         // Log::debug(print_r($data, true));
         try {
