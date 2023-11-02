@@ -23,7 +23,7 @@
             </div>
         @else
             <div>
-                @foreach ($collection as $item)
+                @foreach ($result['items'] as $item)
                     <img src="https://topditop.com/images/full_size/{{ $item->image_name }}" width="200">
                     {{ $item->score }}%
                 @endforeach
