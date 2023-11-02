@@ -91,7 +91,6 @@ class EdenService
                 ->returnResponseObject()
                 ->post();
             $response = json_decode($response->content);
-            print_r ($response);
             return ["error" => false, "items" => $response->sentisight->items];
         } catch (\Exception $e) {
             Log::error($e->getMessage());

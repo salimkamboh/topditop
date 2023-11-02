@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="container">
-        <h2>Upload Image</h2>
+        <h2>Review search results page</h2>
         @if ($result['error'])
             <div class="alert alert-danger">
                 <ul>
@@ -22,12 +22,12 @@
                 </ul>
             </div>
         @else
-            <div>
-                @foreach ($result['items'] as $item)
+            @foreach ($result['items'] as $item)
+                <div>
                     <img src="https://topditop.com/images/full_size/{{ $item->image_name }}" width="200">
                     {{ $item->score }}%
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         @endif
     </div>
 @endsection
