@@ -27,6 +27,8 @@
 
         <form action="{{ route('vision-search') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
+            <input type="hidden" name="debug" value="{{ $debug }}">
+            <input type="hidden" name="take" value="{{ $take }}">
             <div class="form-group">
                 <label for="image">Choose Image:</label>
                 <input type="file" class="form-control-file" id="image" name="image"

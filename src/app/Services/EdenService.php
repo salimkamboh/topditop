@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Log;
+use App\Models\MiscConfig;
 
 class EdenService
 {
@@ -15,7 +16,12 @@ class EdenService
     public function __construct()
     {
         $this->base_url = config('app.edenapi_baseurl');
-        $this->token = config('app.edenapi_token');
+        $debug = MiscConfig::ofKey('edenapi_debug_key')->first();
+        if ($debug->value == 1) {
+            $this->token = config('app.edenapi_token_debug');
+        } else {
+            $this->token = config('app.edenapi_token');
+        }
         $this->headers = [
             'authorization' => 'Bearer ' . $this->token,
             'accept' => 'application/json',

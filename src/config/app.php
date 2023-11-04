@@ -126,6 +126,8 @@ return [
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
     'edenapi_baseurl' => env('EDENAPI_BASEURL'),
     'edenapi_token' => env('EDEN_TOKEN'),
+    'edenapi_token_debug' => env('EDEN_TOKEN_DEBUG'),
+
 
     /*
     |--------------------------------------------------------------------------
