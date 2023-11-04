@@ -43,12 +43,15 @@ class VisionController extends BaseController
         $min_score = MiscConfig::get('min_accepted_score', 80);
         $manufacturers = [];
         $i = 0;
-        foreach ($result as $item) {
-            if (++$i > $take || $item->score < $min_score)
-                break;
-            $advert = Advert::where('reference_image_url', 'full_size/' . $item->image_name)->first();
-            if (!is_null($advert))
-                $manufacturers[] = $advert->manufacturer_id;
+        Log::debug(print_r($result, true));
+        if (!empty($result)) {
+            foreach ($result as $item) {
+                if (++$i > $take || $item->score < $min_score)
+                    break;
+                $advert = Advert::where('reference_image_url', 'full_size/' . $item->image_name)->first();
+                if (!is_null($advert))
+                    $manufacturers[] = $advert->manufacturer_id;
+            }
         }
         return redirect()->route('default')->with('brand_filter', implode(', ', $manufacturers));
     }
