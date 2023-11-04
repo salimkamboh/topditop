@@ -61,7 +61,7 @@ class StoresFilter implements FilterHelper
                 $case = 'all';
             } else {
                 $case = 'empty';
-            }           
+            }
         }
         return $case;
     }
@@ -118,7 +118,7 @@ class StoresFilter implements FilterHelper
 
         foreach ($manufacturers as $manufacturer) {
             foreach ($manufacturer->stores as $store) {
-                $store_ids []= $store->id;
+                $store_ids[] = $store->id;
             }
         }
 
@@ -135,7 +135,7 @@ class StoresFilter implements FilterHelper
         }
         return $collection;
     }
-    
+
     /**
      * @param $collection
      * @param $request
@@ -148,17 +148,17 @@ class StoresFilter implements FilterHelper
         $catParams = $searchObject[$categoriesKey];
 
         $cat_ids = array();
-        
+
         foreach ($catParams as $catParam) {
             if (!in_array($catParam, $cat_ids)) {
                 $cat_ids[] = $catParam;
             }
-          }
-        
-        $stores = Store::whereHas('categories', function($q) use($cat_ids) {
+        }
+
+        $stores = Store::whereHas('categories', function ($q) use ($cat_ids) {
             $q->whereIn('categories.id', $cat_ids);
         })->get();
-        
+
         foreach ($stores as $store) {
             $store = $this->buildReturnObject($store);
             if (!$collection->contains($store))
@@ -204,29 +204,32 @@ class StoresFilter implements FilterHelper
         //$case = $this->identifyCase($request);
         $collection = new Collection();
 
-        $searchObject = $request->searchObject;
-
+        $searchObject = $request->searchObject ?? [];
+        foreach (['locationParams', 'brandParams', 'categoriesParams'] as $param)
+            if (!isset($searchObject[$param])) {
+                $searchObject[$param] = [];
+            }
 
         $locationParams = $searchObject['locationParams'];
-        
-        
+
+
         $stores = Store::active();
 
         if (!empty($locationParams)) {
             $stores = $stores->whereIn('location_id', $locationParams);
         }
 
-        
+
         $brandParams = $searchObject['brandParams'];
 
-        if(!empty($brandParams)) {
+        if (!empty($brandParams)) {
             $store_ids = [];
 
             $manufacturers = Manufacturer::whereIn('id', $brandParams)->with('stores')->get();
 
             foreach ($manufacturers as $manufacturer) {
                 foreach ($manufacturer->stores as $store) {
-                    $store_ids []= $store->id;
+                    $store_ids[] = $store->id;
                 }
             }
 
@@ -239,14 +242,14 @@ class StoresFilter implements FilterHelper
         if (!empty($catParams)) {
 
             $cat_ids = array();
-            
+
             foreach ($catParams as $catParam) {
                 if (!in_array($catParam, $cat_ids)) {
                     $cat_ids[] = $catParam;
                 }
-              }
-            
-            $stores = $stores->whereHas('categories', function($q) use($cat_ids) {
+            }
+
+            $stores = $stores->whereHas('categories', function ($q) use ($cat_ids) {
                 $q->whereIn('categories.id', $cat_ids);
             });
         }
@@ -259,7 +262,4 @@ class StoresFilter implements FilterHelper
         }
         return $collection;
     }
-
-
-
 }
