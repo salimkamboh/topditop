@@ -43,8 +43,8 @@ class VisionController extends BaseController
         $min_score = MiscConfig::get('min_accepted_score', 80);
         $manufacturers = [];
         $i = 0;
-        Log::debug(print_r($result, true));
-        if (!empty($result)) {
+        Log::debug(print_r($result['items'], true));
+        if (!empty($result['items'])) {
             foreach ($result as $item) {
                 if (++$i > $take || $item->score < $min_score)
                     break;
