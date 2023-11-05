@@ -22,6 +22,7 @@ class EdenService
         } else {
             $this->token = config('app.edenapi_token');
         }
+        // Log::debug("token: " . $this->token);
         $this->headers = [
             'authorization' => 'Bearer ' . $this->token,
             'accept' => 'application/json',

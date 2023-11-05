@@ -21,7 +21,7 @@
         <h4 class="text-left">{{ trans('messages.filter_brands') }}</h4>
 
         <div class="restore example">
-            <div class="ui multiple selection dropdown" data-filter="brand" tabindex="0">
+            <div class="ui multiple selection dropdown" data-filter="brand" tabindex="0" id="dropdown-brand">
                 <input name="brand_filter" type="hidden" value="{{ session('brand_filter', '') }}">
                 <i class="dropdown icon"></i>
                 <div class="default text">{{ trans('messages.brands') }}</div>

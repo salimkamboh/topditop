@@ -1,11 +1,29 @@
-$('.ui.dropdown').dropdown({
-    onAdd: function (selectedValue, selectedText, $selectedItem) {
-        filterProducts(selectedValue, $(this).data('filter'));
-    },
-    onRemove: function (removedValue, removedText, $removedChoice) {
-        filterProductsDeleted(removedValue, $(this).data('filter'));
-    }
+$(document).ready(function () {
+    // Initialize the dropdown
+    $('.ui.dropdown').dropdown({
+        onAdd: function (selectedValue, selectedText, $selectedItem) {
+            filterProducts(selectedValue, $(this).data('filter'));
+        },
+        onRemove: function (removedValue, removedText, $removedChoice) {
+            filterProductsDeleted(removedValue, $(this).data('filter'));
+        }
+    });
+
+    // Manually trigger onAdd for the pre-set values
+    var preSelectedValues = $('input[name="brand_filter"]').val().split(',');
+    $.each(preSelectedValues, function (index, value) {
+        var $item = $('.ui.dropdown .menu .item[data-value="' + value + '"]');
+        console.log(index + ": " + index)
+        console.log($item);
+        var selectedText = $item.text();
+        // $('.ui.dropdown').dropdown('set selected', value);
+        $('#dropdown-brand').dropdown('set selected', value);
+        console.log("selectedText: " + selectedText)
+        // Assuming filterProducts is defined and handles the logic needed on adding a filter
+        filterProducts(value, $('.ui.dropdown').data('filter'));
+    });
 });
+
 
 var searchObject = {
     locationParams: [],
@@ -29,7 +47,7 @@ function filterProductsDeleted(text, filterType) {
                     searchObject.brandParams.splice(i, 1);
                 }
             }
-            break;       
+            break;
         case 'categories':
             for (var i = searchObject.categoriesParams.length - 1; i >= 0; i--) {
                 if (searchObject.categoriesParams[i] === text) {
@@ -61,7 +79,7 @@ function filterProducts(text, filterType) {
             break;
         case 'brand':
             searchObject.brandParams.push(text);
-            break;        
+            break;
         case 'categories':
             searchObject.categoriesParams.push(text);
             break;
@@ -90,7 +108,7 @@ function performFilter() {
             if (store.image !== null) {
                 imageUrl = store.image.url;
             }
-            
+
 
             html += '<div class="col-md-4">' +
                 '<a href="' + _globalRoute + '/' + _globalLang + '/front/stores/' + store.id + '" class="single-item item-shadow">' +
